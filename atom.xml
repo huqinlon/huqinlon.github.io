@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://amiao.wawj.cool</id>
     <title>Gridea</title>
-    <updated>2021-02-14T18:14:31.256Z</updated>
+    <updated>2021-02-14T18:18:54.502Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://amiao.wawj.cool"/>
     <link rel="self" href="https://amiao.wawj.cool/atom.xml"/>
@@ -10,6 +10,232 @@
     <logo>https://amiao.wawj.cool/images/avatar.png</logo>
     <icon>https://amiao.wawj.cool/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[人格人格]]></title>
+        <id>https://amiao.wawj.cool/post/ren-ge-ren-ge/</id>
+        <link href="https://amiao.wawj.cool/post/ren-ge-ren-ge/">
+        </link>
+        <updated>2021-02-14T18:16:13.000Z</updated>
+        <content type="html"><![CDATA[<p>**创作立场声明：**我家云，目前经过几个月的发酵，固件方面已经非常多且稳定了。推荐喜欢折腾的朋友上车，价格不贵，挺好玩的！<br>
+<img src="https://amiao.wawj.cool/post-images/1613326678489.png" alt="" loading="lazy"><br>
+<img src="https://qnam.smzdm.com/202001/10/5e18899edee831596.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy">](https://post.smzdm.com/p/az50epz5/pic_2/)</p>
+<p>大家好，俺又来了！<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<h2 id="引子">引子</h2>
+<p>之前分享过一个50元包邮的矿渣：我家云，也叫联想粒子云，详细链接看这个：<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<dir class="insert-outer " res-data-id="2142080"><span class="embed-card main-site res_smzdm"><span class="embed-card-logo res_smzdm">![我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机](//qna.smzdm.com/201910/19/5da9e2d0c72f6371.jpg_e680.jpg)</span><span class="embed-card-info res_smzdm"><span class="card-name res_smzdm">捡垃圾：50元包邮的我家云怎么样？教你如何挂载硬盘/共享文/smb和电脑访问，omv设置教程！</span><span class="card-abstract res_smzdm">前言大家好，俺又来，这次带来一个50元还包邮的矿渣：我家云/联想粒子云的OMV设置教程！关于我家云：联想粒子矿云是我家云的马甲版本（主板相同），采用usb3.0转接sata方式内置3.5寸4TB硬盘；硬件方案为RK3328，4核A53，1GBDDR内存，8GBemmc闪存，千兆网卡，usb2.0和</span><span class="card-controls res_smzdm"><span class="mall-data res_smzdm">阿文菌</span><span class="card-inline-split">|</span><span class="group-data res_smzdm"> _赞_739</span><span class="group-data res_smzdm"> _评论_651</span><span class="group-data res_smzdm"> _收藏_2k</span><span class="card-btn-light res_smzdm">查看详情</span></span></span></span></dir>
+<p>我家云配置，对比N1：<img src="https://res.smzdm.com/images/emotions/34.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p><span class="img_desc"><a href="https://post.smzdm.com/p/az50epz5/pic_3/"><img src="https://qnam.smzdm.com/202001/10/5e184a25b911b9379.jpg_e680.jpg" alt="配置对比" loading="lazy"></a>配置对比</span></p>
+<p>这玩意经过几个月的发酵，目前<strong>涨价到60-70元包邮</strong>，虽然涨价了一点，但也是超值的。毕竟这玩意，颜值很高，而且可以用3.5寸硬盘。最主要的是，功耗非常的低，垃圾佬非常喜欢。<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>安装了3.5寸硬盘后，刷了OMV，armbian，openwrt，小钢炮等固件 可以实现非常多的功能。<img src="https://res.smzdm.com/images/emotions/22.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>有人用它建站，有人用它下载，还有人用它当旁<a href="https://www.smzdm.com/fenlei/luyouqi/">路由器</a>，甚至还有人用它接出HDMI接口，来当<a href="https://www.smzdm.com/fenlei/gaoqingbofangqi/">电视盒子</a>。<img src="https://res.smzdm.com/images/emotions/28.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>可谓是，百花齐放！拷贝速度，这玩意能到70-90M/s，加上3.5寸盘现在很便宜，所以，家里备一个我家云，也能为自己增加不少乐趣！<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>在目前，群晖、威联通，动不动几千售价的市场中，这个我家云，几十块的矿渣产品，买一个来玩，或者给群晖、威联通当备机下载，也是非常不错的！<img src="https://res.smzdm.com/images/emotions/39.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<h3 id="今天的内容主要三个方向">今天的内容主要三个方向：<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></h3>
+<p><strong>1、从零开始教给大家如何给 我家云 刷机，保姆级教程</strong>。<img src="https://res.smzdm.com/images/emotions/43.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p><strong>2、推荐 Ride_Wind 大佬的 我家云 固件，这个固件非常稳定，功能多，哪怕不用硬改也很稳定</strong>。<img src="https://res.smzdm.com/images/emotions/22.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p><strong>3、硬改我家云的实操，有需要硬改的朋友，可以参考这个方案，实测硬改后，写入2T数据无掉盘现象</strong>。<img src="https://res.smzdm.com/images/emotions/60.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>也许有人还不知道掉盘是什么意思！这里简单解释下，就是用着用着，这个硬盘消失了，无法拷贝，无法写入数据进去，找不到硬盘信息了，这就叫掉盘。消失后，设备只能重启，非常影响使用。目前的固件，大多都安装了掉盘补丁，还是很不错的。<img src="https://res.smzdm.com/images/emotions/34.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>我们废话少说，进入正题。<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<hr>
+<h2 id="一-要准备的东西">一、要准备的东西：</h2>
+<p>**实物一：**我家云一台，某鱼自行购买，建议一次下单2台，1台稳定挂机，1台自己玩。<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>**实物二：**双公头USB数据线，白菜商品的时候，1-2元一根即可入手。</p>
+<figure data-type="image" tabindex="1"><a href="https://post.smzdm.com/p/az50epz5/pic_4/"><img src="https://am.zdmimg.com/202001/10/5e1881b52e6ff5104.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>**刷机工具：**我已经打包好，按照我的下载即可，链接如下：</p>
+<p>**实物三：**安装了windows系统的PC电脑一台！（刷机用，请自备）<img src="https://res.smzdm.com/images/emotions/36.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>**实物四：**硬盘一个，推荐3.5寸的硬盘，某鱼有12元包邮的500G 3.5寸硬盘，对数据要求不高的也可以买来玩玩。<img src="https://res.smzdm.com/images/emotions/61.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>以上东西备齐后，就可以愉快的玩耍我家云了。<img src="https://res.smzdm.com/images/emotions/99.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>硬改方面，需要准备一个<a href="https://www.smzdm.com/fenlei/dianhangongju/">电烙铁</a>，一把螺丝刀，一根飞线用的线，可以用漆包线，或者干脆用网线。<img src="https://res.smzdm.com/images/emotions/109.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<h2 id="二-我家云外观展示">二、我家云外观展示。</h2>
+<p>1、我家云，是在某鱼购买的。价格是50包邮入手的，我买了好几台，为了折腾，现在已经涨价到70元左右：<img src="https://res.smzdm.com/images/emotions/23.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="2"><a href="https://post.smzdm.com/p/az50epz5/pic_5/"><img src="https://qnam.smzdm.com/202001/10/5e187b89d155d3215.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>2、卖家将硬盘取下来了，其它成色几乎全新，就是有些缺少了固定外壳的螺丝，但是不影响使用：<img src="https://res.smzdm.com/images/emotions/39.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>有些我家云，带4T硬盘，才买400出头，这样的我也觉得很不错：<img src="https://res.smzdm.com/images/emotions/188.gif" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="3"><a href="https://post.smzdm.com/p/az50epz5/pic_6/"><img src="https://qnam.smzdm.com/202001/10/5e187b8a0af12732.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>3、IO接口方面，从上到下分别是：重置按钮，USB3.0接口，USB2.0接口，千兆网口，电源口：<img src="https://res.smzdm.com/images/emotions/43.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="4"><a href="https://post.smzdm.com/p/az50epz5/pic_7/"><img src="https://qnam.smzdm.com/202001/10/5e187b89e6d1a446.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>4、正面是一个开机键和一个电源指示灯：<img src="https://res.smzdm.com/images/emotions/67.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="5"><a href="https://post.smzdm.com/p/az50epz5/pic_8/"><img src="https://am.zdmimg.com/202001/10/5e187b8ae798d4303.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>5、顶部有个散热风口，整个我家云外壳都是金属的，质感不错，在矿渣里面，我家云颜值不错：<img src="https://res.smzdm.com/images/emotions/109.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="6"><a href="https://post.smzdm.com/p/az50epz5/pic_9/"><img src="https://am.zdmimg.com/202001/10/5e187b9166bb21361.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>6、拆开外壳，里面有一个4CM的<a href="https://www.smzdm.com/fenlei/sanrefengshan/">散热风扇</a>和硬盘接口，3.5寸硬盘就放这个里面：<img src="https://res.smzdm.com/images/emotions/71.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>这个外壳有点难取下来，建议大力出奇迹：</p>
+<figure data-type="image" tabindex="7"><a href="https://post.smzdm.com/p/az50epz5/pic_10/"><img src="https://qnam.smzdm.com/202001/10/5e187b903924a2794.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>7、电源方面，是用的12V=3A：<img src="https://res.smzdm.com/images/emotions/118.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="8"><a href="https://post.smzdm.com/p/az50epz5/pic_11/"><img src="https://am.zdmimg.com/202001/10/5e187c7c0f0317717.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>8、电源接口：<img src="https://res.smzdm.com/images/emotions/119.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="9"><a href="https://post.smzdm.com/p/az50epz5/pic_12/"><img src="https://am.zdmimg.com/202001/10/5e187b91ef93e2258.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>9、还送一根全新的网线，感觉配件都不错：<img src="https://res.smzdm.com/images/emotions/189.gif" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="10"><a href="https://post.smzdm.com/p/az50epz5/pic_13/"><img src="https://qnam.smzdm.com/202001/10/5e187b95473701756.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>这个价格，买到这样成色的矿渣，还是很不错的！<img src="https://res.smzdm.com/images/emotions/189.gif" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<h2 id="三-开始刷机">三、开始刷机：</h2>
+<p>1、先解压一下刷机工具包，安装一下驱动：<img src="https://res.smzdm.com/images/emotions/22.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="11"><a href="https://post.smzdm.com/p/az50epz5/pic_14/"><img src="https://qnam.smzdm.com/202001/10/5e18514734bbf4382.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>2、打开这个文件，点驱动安装，等10秒钟左右，驱动安装完成：<img src="https://res.smzdm.com/images/emotions/43.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="12"><a href="https://post.smzdm.com/p/az50epz5/pic_15/"><img src="https://qnam.smzdm.com/202001/10/5e18514748e8e8721.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>3、打开AndroidTool刷机工具，点击下面箭头空白的地方：<img src="https://res.smzdm.com/images/emotions/24.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="13"><a href="https://post.smzdm.com/p/az50epz5/pic_16/"><img src="https://am.zdmimg.com/202001/10/5e1851476042f3879.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>4、上个步骤操作完成后，会弹出选择固件的窗口，我们选择下载的 Ride_Wind 大佬的固件：<img src="https://res.smzdm.com/images/emotions/43.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>选择以后，就准备完成了！</p>
+<figure data-type="image" tabindex="14"><a href="https://post.smzdm.com/p/az50epz5/pic_17/"><img src="https://qnam.smzdm.com/202001/10/5e18514799e053567.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>5、上面刷机工具都准备好了，我们用双公头数据线，连接我家云的<strong>USB2.0</strong>接口 和 电脑：<img src="https://res.smzdm.com/images/emotions/34.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="15"><a href="https://post.smzdm.com/p/az50epz5/pic_18/"><img src="https://qnam.smzdm.com/202001/10/5e185104a23a46744.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>6、连接了USB以后，按住重置按钮不动，再接入电源线，这个步骤要一直按着重置键不动：<img src="https://res.smzdm.com/images/emotions/23.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="16"><a href="https://post.smzdm.com/p/az50epz5/pic_19/"><img src="https://am.zdmimg.com/202001/10/5e18510495c391249.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>7、在电脑上，显示了发现一个MASKROM设备，这个时候不要松开手，重置键在出现这个提示后，还要保持10秒钟以上，不然会加载失败。<img src="https://res.smzdm.com/images/emotions/95.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>MASKROM设备出现后，<strong>保持10秒按住重置按钮后</strong>，就可以松开重置键的按钮了，我们直接点击执行按钮：</p>
+<figure data-type="image" tabindex="17"><a href="https://post.smzdm.com/p/az50epz5/pic_20/"><img src="https://qnam.smzdm.com/202001/10/5e185147afe5d5454.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>8、开始刷机了，刷机大概3分钟左右，提示下载完成后就刷机结束了：<img src="https://res.smzdm.com/images/emotions/109.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="18"><a href="https://post.smzdm.com/p/az50epz5/pic_21/"><img src="https://qnam.smzdm.com/202001/10/5e185147e8c4e7593.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>9、这个时候，我家云的灯就会亮起，我们拔掉数据线和电源：<img src="https://res.smzdm.com/images/emotions/77.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="19"><a href="https://post.smzdm.com/p/az50epz5/pic_22/"><img src="https://am.zdmimg.com/202001/10/5e185104aaa6a1596.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>10、然后，建议把要安装到我家云的硬盘进行格式化一下，在电脑上格式化，我用的易驱线：<img src="https://res.smzdm.com/images/emotions/99.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="20"><a href="https://post.smzdm.com/p/az50epz5/pic_23/"><img src="https://qnam.smzdm.com/202001/10/5e18510522c2d2558.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>11、软件用的DiskGenius，这个格式化很好用：<img src="https://res.smzdm.com/images/emotions/74.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="21"><a href="https://post.smzdm.com/p/az50epz5/pic_24/"><img src="https://qnam.smzdm.com/202001/10/5e18511da917b9335.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>12、先删除这个硬盘的分区，然后点新建分区，建立一个ext4格式的分区，这个格式是给linux系统下使用的：<img src="https://res.smzdm.com/images/emotions/109.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="22"><a href="https://post.smzdm.com/p/az50epz5/pic_25/"><img src="https://am.zdmimg.com/202001/10/5e18511dc525d6274.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>13、完成后，记得点击保存更改，格式化就完成了：<img src="https://res.smzdm.com/images/emotions/67.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="23"><a href="https://post.smzdm.com/p/az50epz5/pic_26/"><img src="https://qnam.smzdm.com/202001/10/5e18511dd55366531.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>14、将硬盘安装到我家云里面，我家云接电源，接网线：<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="24"><a href="https://post.smzdm.com/p/az50epz5/pic_27/"><img src="https://am.zdmimg.com/202001/10/5e1851050d4cb8624.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>15、在路由器后台管理页面中，找到Chainedbox字样的ip地址，这个就是我家云这台设备的ip地址：<img src="https://res.smzdm.com/images/emotions/22.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="25"><a href="https://post.smzdm.com/p/az50epz5/pic_28/"><img src="https://qnam.smzdm.com/202001/10/5e1852912e114489.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>16、肯定有人习惯性的进浏览器输入ip，发现，诶，怎么回事？？我家云呢，嘿嘿不要急：<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="26"><a href="https://post.smzdm.com/p/az50epz5/pic_29/"><img src="https://qnam.smzdm.com/202001/10/5e1852912fe973167.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>17、我们打开putty工具，这个是连接linux设备的好工具：<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="27"><a href="https://post.smzdm.com/p/az50epz5/pic_30/"><img src="https://qnam.smzdm.com/202001/10/5e18529112be07211.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>18、打开后，输入ip地址，点登录：<img src="https://res.smzdm.com/images/emotions/22.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="28"><a href="https://post.smzdm.com/p/az50epz5/pic_31/"><img src="https://qnam.smzdm.com/202001/10/5e185291649ce1786.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>19、出现这个提示，点是：<img src="https://res.smzdm.com/images/emotions/60.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="29"><a href="https://post.smzdm.com/p/az50epz5/pic_32/"><img src="https://qnam.smzdm.com/202001/10/5e18529196fab1344.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>20、输入账户 root，再输入密码 1234 ，密码默认是隐藏的，输入以后，就会提示自动进进行扩容操作：<img src="https://res.smzdm.com/images/emotions/38.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="30"><a href="https://post.smzdm.com/p/az50epz5/pic_33/"><img src="https://qnam.smzdm.com/202001/10/5e1852917fc346570.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>21、当弹出这个导航 安装操作的时候，点击 是 即可，等待导航页的安装：<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="31"><a href="https://post.smzdm.com/p/az50epz5/pic_34/"><img src="https://qnam.smzdm.com/202001/10/5e185291b933b335.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>22、安装完成后，我们再到浏览器输入我家云的ip地址，就可以看到下面的页面：<img src="https://res.smzdm.com/images/emotions/67.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>这个导航页和<a href="http://www.junwen.bid:1800/">我的小站</a>上的非常的像，功能也很相似！<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="32"><a href="https://post.smzdm.com/p/az50epz5/pic_35/"><img src="https://am.zdmimg.com/202001/10/5e1854ddac1f28733.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>安装完成！</p>
+<h2 id="四-固件功能介绍">四、固件功能介绍</h2>
+<p>1、安装完成了，简单介绍下这个固件的功能，第一个控制台按钮就是OMV：<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="33"><a href="https://post.smzdm.com/p/az50epz5/pic_36/"><img src="https://qnam.smzdm.com/202001/10/5e18577c4977e7163.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>2、用户：admin  密码：openmediavault</p>
+<figure data-type="image" tabindex="34"><a href="https://post.smzdm.com/p/az50epz5/pic_37/"><img src="https://qnam.smzdm.com/202001/10/5e185543670377851.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="35"><a href="https://post.smzdm.com/p/az50epz5/pic_38/"><img src="https://qnam.smzdm.com/202001/10/5e185543adb6c2876.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>3、OMV这个系统，是一个非常轻量开源的NAS系统，我之前已经分享过怎么设置，大家看这个文章即可：<img src="https://res.smzdm.com/images/emotions/34.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<dir class="insert-outer " res-data-id="2142184"><span class="embed-card main-site res_smzdm"><span class="embed-card-logo res_smzdm">![我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机](//qna.smzdm.com/201910/19/5da9e2d0c72f6371.jpg_e680.jpg)</span><span class="embed-card-info res_smzdm"><span class="card-name res_smzdm">捡垃圾：50元包邮的我家云怎么样？教你如何挂载硬盘/共享文/smb和电脑访问，omv设置教程！</span><span class="card-abstract res_smzdm">前言大家好，俺又来了，这次带来一个50元还包邮的矿渣：我家云/联想粒子云的OMV设置教程！关于我家云：联想粒子矿云是我家云的马甲版本（主板相同），采用usb3.0转接sata方式内置3.5寸4TB硬盘；硬件方案为RK3328，4核A53，1GBDDR内存，8GBemmc闪存，千兆网卡，usb2.0和</span><span class="card-controls res_smzdm"><span class="mall-data res_smzdm">阿文菌</span><span class="card-inline-split">|</span><span class="group-data res_smzdm"> _赞_739</span><span class="group-data res_smzdm"> _评论_651</span><span class="group-data res_smzdm"> _收藏_2k</span><span class="card-btn-light res_smzdm">查看详情</span></span></span></span></dir>
+<p>4、值得注意的是，上文，12步的地方，还需要设置一下SMB共享才可以建立共享，我写漏了：<img src="https://res.smzdm.com/images/emotions/55.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p><span class="img_desc"><a href="https://post.smzdm.com/p/az50epz5/pic_39/"><img src="https://qnam.smzdm.com/202001/10/5e185c15aa2208364.jpg_e680.jpg" alt="补充12步设置" loading="lazy"></a>补充12步设置</span></p>
+<p>5、我家云的读取和写入速度也是挺快的，均在80M-90M/s 左右：<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p><span class="img_desc"><a href="https://post.smzdm.com/p/az50epz5/pic_40/"><img src="https://qnam.smzdm.com/202001/10/5e187b2b069153202.jpg_e680.jpg" alt="我家云 写入速度" loading="lazy"></a>我家云 写入速度</span></p>
+<p><span class="img_desc"><a href="https://post.smzdm.com/p/az50epz5/pic_41/"><img src="https://qnam.smzdm.com/202001/10/5e187b2aeab527004.jpg_e680.jpg" alt="我家云  读取速度" loading="lazy"></a>我家云  读取速度</span></p>
+<p>6、我们继续介绍，第二个按钮是可道云，这个用来管理我家云里面的文件，非常的好用：<img src="https://res.smzdm.com/images/emotions/39.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="36"><a href="https://post.smzdm.com/p/az50epz5/pic_42/"><img src="https://qnam.smzdm.com/202001/10/5e18577c492cf2592.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>7、首次进入，会需要设置一下管理员密码：<img src="https://res.smzdm.com/images/emotions/22.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="37"><a href="https://post.smzdm.com/p/az50epz5/pic_43/"><img src="https://qnam.smzdm.com/202001/10/5e1855ce46f946736.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>8、随后就可以管理和操作我家云里面的文件了：<img src="https://res.smzdm.com/images/emotions/22.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="38"><a href="https://post.smzdm.com/p/az50epz5/pic_44/"><img src="https://qnam.smzdm.com/202001/10/5e18564543d589367.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>9、第三个按钮，是QB下载工具，非常好用的工具，我下载、挂pt都是用的这个：<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>用户 admin 密码 adminadmin</p>
+<figure data-type="image" tabindex="39"><a href="https://post.smzdm.com/p/az50epz5/pic_45/"><img src="https://qnam.smzdm.com/202001/10/5e18577c55ad07801.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>10、我家云的QB下载路径，设置要改一下哦，先到OMV里面设置好硬盘共享文件夹后，再设置这个路径：<img src="https://res.smzdm.com/images/emotions/28.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="40"><a href="https://post.smzdm.com/p/az50epz5/pic_46/"><img src="https://qnam.smzdm.com/202001/10/5e18566e6d53c4020.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>11、路径是在 ** /sharedfolders/共享文件夹名字**  这个里面，记得用FB进去看看路径有没有共享文件夹：<img src="https://res.smzdm.com/images/emotions/68.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="41"><a href="https://post.smzdm.com/p/az50epz5/pic_47/"><img src="https://qnam.smzdm.com/202001/10/5e185c15af3295724.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>12、再到QB里面设置一下路径，愉快的下载吧：<img src="https://res.smzdm.com/images/emotions/105.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="42"><a href="https://post.smzdm.com/p/az50epz5/pic_48/"><img src="https://am.zdmimg.com/202001/10/5e185c7f445413181.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>13、第四个按钮，是荔枝相册，很好用的相册，我一直在用：<img src="https://res.smzdm.com/images/emotions/87.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="43"><a href="https://post.smzdm.com/p/az50epz5/pic_49/"><img src="https://qnam.smzdm.com/202001/10/5e18577c943549916.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="44"><a href="https://post.smzdm.com/p/az50epz5/pic_50/"><img src="https://qnam.smzdm.com/202001/10/5e18572fcf56f9045.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>14、<a href="http://www.junwen.bid:1800/">我的小站</a>上有演示页面：<img src="https://res.smzdm.com/images/emotions/99.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="45"><a href="https://post.smzdm.com/p/az50epz5/pic_51/"><img src="https://qnam.smzdm.com/202001/10/5e1857bd346133420.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>15、第五个按钮，是视频，我们点开看看，居然是jellyfin：<img src="https://res.smzdm.com/images/emotions/68.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="46"><a href="https://post.smzdm.com/p/az50epz5/pic_52/"><img src="https://qnam.smzdm.com/202001/10/5e1857e08a6e86795.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="47"><a href="https://post.smzdm.com/p/az50epz5/pic_53/"><img src="https://qnam.smzdm.com/202001/10/5e185800684da6982.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>16、jellyfin 是非常不错的媒体管理程序，家里的<a href="https://www.smzdm.com/fenlei/jiatingyingyuan/">家庭影院</a>，大家可以看我写的这篇文章设置：<img src="https://res.smzdm.com/images/emotions/34.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<dir class="insert-outer" res-data-id="2142198"><span class="embed-card main-site res_smzdm"><span class="embed-card-logo res_smzdm">![我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机](//qna.smzdm.com/201907/06/5d20a564cdfdc9292.jpg_e680.jpg)</span><span class="embed-card-info res_smzdm"><span class="card-name res_smzdm">使用群晖Docker 安装Jellyfin 家庭影院HTPC 比emby plex好用多了</span><span class="card-abstract res_smzdm">大家好，俺又来了，这次给大家分享群晖Docker安装Jellyfin了！这个是算是俺的压轴节目了，最近一口气写了好多关于群晖NAS软件的分享，脑袋都是疼的！关于jellyfin，最开始知道这个的时候，俺已经体验过plex和emby了，这两个软件是不错，但是因为收费，不得不放弃之。引用萌鼠博客的内容：</span><span class="card-controls res_smzdm"><span class="mall-data res_smzdm">阿文菌</span><span class="card-inline-split">|</span><span class="group-data res_smzdm"> _赞_918</span><span class="group-data res_smzdm"> _评论_658</span><span class="group-data res_smzdm"> _收藏_7k</span><span class="card-btn-light res_smzdm">查看详情</span></span></span></span></dir>
+<p>17、由于我家云的显卡不是很强，所以我家云用jellyfin，只推荐内网下本地访问，用源文件的格式进行播放我家云的电影库！不过我现在换了emby会员，其实是一样的，只要不转码，内网播放体验还是很棒的：<img src="https://res.smzdm.com/images/emotions/43.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="48"><a href="https://post.smzdm.com/p/az50epz5/pic_54/"><img src="https://qnam.smzdm.com/202001/10/5e1858873b79a8979.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>18、第六个功能，是探针按钮工具：<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="49"><a href="https://post.smzdm.com/p/az50epz5/pic_55/"><img src="https://qnam.smzdm.com/202001/10/5e185800665122437.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>19、可以详细看到我家云的系统占用信息，非常的牛X：<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="50"><a href="https://post.smzdm.com/p/az50epz5/pic_56/"><img src="https://qnam.smzdm.com/202001/10/5e1858af756239290.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>20、接下的应用，大家也可以自己测试，我化繁为简，简单说下：<img src="https://res.smzdm.com/images/emotions/38.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="51"><a href="https://post.smzdm.com/p/az50epz5/pic_57/"><img src="https://qnam.smzdm.com/202001/10/5e1859566242e7545.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>21、AriaNg下载，设置起来比较繁琐，但是设置好了，下载还是不错，一个离线下载工具，最大的亮点是下载百度云的东西：<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="52"><a href="https://post.smzdm.com/p/az50epz5/pic_58/"><img src="https://qnam.smzdm.com/202001/10/5e185954c82009950.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>22、这个是一个office程序，可以直接处理我家云上面的office文件：<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="53"><a href="https://post.smzdm.com/p/az50epz5/pic_59/"><img src="https://qnam.smzdm.com/202001/10/5e185954f215f5000.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>23、TR下载，也是适合挂pt的工具，和QB下载很像，一样，要注意路径设置哦：<img src="https://res.smzdm.com/images/emotions/105.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="54"><a href="https://post.smzdm.com/p/az50epz5/pic_60/"><img src="https://qnam.smzdm.com/202001/10/5e1859550466a7252.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>24、FB文件管理器，这两天刚刚写过一个FB文件管理器的文章：<img src="https://res.smzdm.com/images/emotions/98.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="55"><a href="https://post.smzdm.com/p/az50epz5/pic_61/"><img src="https://qnam.smzdm.com/202001/10/5e185955453ba5934.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>可以看看：</p>
+<dir class="insert-outer" res-data-id="2142202"><span class="embed-card main-site res_smzdm"><span class="embed-card-logo res_smzdm">![我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机](//qna.smzdm.com/202001/09/5e163b6820aec9734.jpg_e680.jpg)</span><span class="embed-card-info res_smzdm"><span class="card-name res_smzdm">UNRAID群晖威联通教程：1分钟安装 FB 文件管理器 NAS必备 轻松玩转Docker</span><span class="card-abstract res_smzdm">大家好，俺又来了，废话少说，直接进入正题！我的常用UNRAID的工具就下面这些，最近有不少值友让我分享一下安装过程，所以有了这篇文章：何为FB文件管理FB文件管理器，是类似于百度网盘，NAS的File文件管理程序，全称是：filebrowser！可以安装在自己的NAS上，用浏览器的方式即可访问和管理</span><span class="card-controls res_smzdm"><span class="mall-data res_smzdm">阿文菌</span><span class="card-inline-split">|</span><span class="group-data res_smzdm"> _赞_95</span><span class="group-data res_smzdm"> _评论_73</span><span class="group-data res_smzdm"> _收藏_511</span><span class="card-btn-light res_smzdm">查看详情</span></span></span></span></dir>
+<p>25、数据库程序，配合博客使用，很不错：<img src="https://res.smzdm.com/images/emotions/34.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="56"><a href="https://post.smzdm.com/p/az50epz5/pic_62/"><img src="https://qnam.smzdm.com/202001/10/5e1859556c6598465.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>26、h5ai，这个是一个类似网盘分享的程序，也很棒，可以分享一些东西出去：<img src="https://res.smzdm.com/images/emotions/111.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="57"><a href="https://post.smzdm.com/p/az50epz5/pic_63/"><img src="https://qnam.smzdm.com/202001/10/5e1859557eb8b5026.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>27、易有云，这个是恩山上现在主推的文件管理程序，自带内网穿透功能，无需公网，可以多设备访问我家云里面的文件：<img src="https://res.smzdm.com/images/emotions/67.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="58"><a href="https://post.smzdm.com/p/az50epz5/pic_64/"><img src="https://qnam.smzdm.com/202001/10/5e1859559cb574771.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>28、wordpress，博客程序，可以建立属于自己的博客：<img src="https://res.smzdm.com/images/emotions/105.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="59"><a href="https://post.smzdm.com/p/az50epz5/pic_65/"><img src="https://am.zdmimg.com/202001/10/5e185955edd732866.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>29、nextcloud，又是一个文件管理器程序，访问NAS里的文件：<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="60"><a href="https://post.smzdm.com/p/az50epz5/pic_66/"><img src="https://qnam.smzdm.com/202001/10/5e185956014ae5694.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>30、超级终端，可以无需putty工具，直接属于命令行来设置我家云：<img src="https://res.smzdm.com/images/emotions/110.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="61"><a href="https://post.smzdm.com/p/az50epz5/pic_67/"><img src="https://qnam.smzdm.com/202001/10/5e185956170f99600.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>差不多就介绍到这里了，这个固件集成度非常的高，而且它自己还是一个armbian系统，也可以自己玩很多功能。<img src="https://res.smzdm.com/images/emotions/133.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>目前我觉得Ride_Wind 大佬已经非常牛逼的把这些功能都加入了，让小白可以省下非常多的折腾时间，大家直接用这些功能了，非常感谢Ride_Wind大佬的缝隙。佩服佩服啊！<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<hr>
+<p>这篇文章写完后，发现站内有同样折腾我家云的作者，写过这个固件刷机教程，大家也可以参考一下，感谢各位作者的热情分享：<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<dir class="insert-outer" res-data-id="2142119"><span class="embed-card main-site res_smzdm"><span class="embed-card-logo res_smzdm">![我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机](//a.zdmimg.com/201912/16/5df674d9e4ca91493.jpg_e680.jpg)</span><span class="embed-card-info res_smzdm"><span class="card-name res_smzdm">矿渣折腾之我家云小白历险记</span><span class="card-abstract res_smzdm">小编注：此篇文章来自#原创新人#活动，成功参与活动将获得额外100金币奖励。我家云的折腾历程，还得从在张大妈家看到阿文菌的文章“50元包邮的我家云怎么样，教你如何挂载硬盘/共享文/smb和电脑访问，omv设置教程”说起，在此之前，也是受张大妈值友的分享毒害，上车了一个新路由3，将家里的网速一下子提高</span><span class="card-controls res_smzdm"><span class="mall-data res_smzdm">包邮不买</span><span class="card-inline-split">|</span><span class="group-data res_smzdm"> _赞_54</span><span class="group-data res_smzdm"> _评论_122</span><span class="group-data res_smzdm"> _收藏_408</span><span class="card-btn-light res_smzdm">查看详情</span></span></span></span></dir>
+<p>刷机完成，已经可以愉快的玩耍了！<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<h2 id="五-硬改实操">五、硬改实操：</h2>
+<p>我家云掉盘后，出现了很多大神，分享了掉盘硬改的解决方案，有用换电源的，有用飞线等方法的，而在矿渣论坛中，出现一个硬改的方法，已经得到多数人的实测，能保持稳定不掉盘。<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>但，这个方案也不是百分百能成功，和固件和硬盘方面也有多个因素。目前的比例是 8：2。至少8成硬改用户，没有出过掉盘情况，还是不错的成绩。<img src="https://res.smzdm.com/images/emotions/43.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>我也不废话了，不建议新手，直接来硬改，最好有一点焊接基础，虽然我也是个菜鸟，但目前也改造成功了。</p>
+<p>1、这是我重金购买的工具台，就用来折腾我家云：<img src="https://res.smzdm.com/images/emotions/36.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="62"><a href="https://post.smzdm.com/p/az50epz5/pic_68/"><img src="https://qnam.smzdm.com/202001/10/5e187c7c4acfc6770.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>2、拆开外壳后，需要拆掉2颗螺丝，下图绿色框框处：<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="63"><a href="https://post.smzdm.com/p/az50epz5/pic_69/"><img src="https://qnam.smzdm.com/202001/10/5e1880017da4f4104.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>3、背面也有4颗螺丝需要拆除：<img src="https://res.smzdm.com/images/emotions/39.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<figure data-type="image" tabindex="64"><a href="https://post.smzdm.com/p/az50epz5/pic_70/"><img src="https://qnam.smzdm.com/202001/10/5e1880017c1348137.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>4、把线都拔下来，主要硬改的就下面3个地方：</p>
+<p>其中，右下方的芯片，是需要焊接下来，并且短接2个触点：</p>
+<p>左下角和上边，是需要进行飞线连接：</p>
+<figure data-type="image" tabindex="65"><a href="https://post.smzdm.com/p/az50epz5/pic_71/"><img src="https://am.zdmimg.com/202001/10/5e187fcc140e25642.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>5、先用风枪工具，将这个芯片吹下来，用电烙铁也可以弄下来：</p>
+<figure data-type="image" tabindex="66"><a href="https://post.smzdm.com/p/az50epz5/pic_72/"><img src="https://am.zdmimg.com/202001/10/5e187fcbefedd4681.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>6、吹下来以后，风枪就没有用了：</p>
+<figure data-type="image" tabindex="67"><a href="https://post.smzdm.com/p/az50epz5/pic_73/"><img src="https://qnam.smzdm.com/202001/10/5e187fcc1b6f31771.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>7、然后将这2个地方，用电烙铁加焊锡，进行短接，这一处地方就处理好了：</p>
+<figure data-type="image" tabindex="68"><a href="https://post.smzdm.com/p/az50epz5/pic_74/"><img src="https://qnam.smzdm.com/202001/10/5e188056ab6564570.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>8、我用漆包线进行飞线，没有这个线的朋友，也可以用网线，或者比较细的线：</p>
+<figure data-type="image" tabindex="69"><a href="https://post.smzdm.com/p/az50epz5/pic_75/"><img src="https://qnam.smzdm.com/202001/10/5e187b95319b32718.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>9、飞线的主要是下面这2个触点，其中左边这个，是串联，接旁边的也可以，这些触点非常的小，飞线一定要小心：</p>
+<figure data-type="image" tabindex="70"><a href="https://post.smzdm.com/p/az50epz5/pic_76/"><img src="https://am.zdmimg.com/202001/10/5e187fcc9fd409850.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>10、飞线完成，大家参考我这2张图操作即可：</p>
+<figure data-type="image" tabindex="71"><a href="https://post.smzdm.com/p/az50epz5/pic_77/"><img src="https://am.zdmimg.com/202001/10/5e187fccbc1f27378.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>11、最后，用万用表检查一下，飞线的触点是不是正常，就完成了：</p>
+<figure data-type="image" tabindex="72"><a href="https://post.smzdm.com/p/az50epz5/pic_78/"><img src="https://am.zdmimg.com/202001/10/5e187b962110d9560.jpg_e680.jpg" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></a></figure>
+<p>硬改完成，将主板，螺丝安装好，可以正常使用了，就是这么简单！<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>这里非常感谢momo大佬热心分享的硬改方案，我只是搬运这个技巧，原理并不懂，希望大家按需使用。<img src="https://res.smzdm.com/images/emotions/22.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>操作有风险，大家操作时候，切记谨慎小心点！<img src="https://res.smzdm.com/images/emotions/24.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<h2 id="六-总结">六、总结：</h2>
+<p>又到了总结的时候了！<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>总结开头，不得不感谢一下 热心的Ride_Wind 大佬，这个固件真的是很不错！<img src="https://res.smzdm.com/images/emotions/39.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>还得感谢wdmomo大佬的热心分享 硬改方案。<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>我家云目前已经稳定挂机很久了，我的设备挺多的，所以对我家云的需求并不多，但这个玩意可以用来当我下载机。<img src="https://res.smzdm.com/images/emotions/38.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>家里设备少的朋友，也可以直接用我家云当媒体管理器。<img src="https://res.smzdm.com/images/emotions/64.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>而对linux有想法，学习的朋友，完全可以用我家云学习linux方面的技术。<img src="https://res.smzdm.com/images/emotions/60.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>毕竟这玩意，动不动就要命令行，敲代码，我也是在折腾我家云的过程中，大大的学习了linux 方面的知识了。<img src="https://res.smzdm.com/images/emotions/38.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>我家云，最终怎么玩，还是看各位自己的玩法。非常感谢大家的观看。<img src="https://res.smzdm.com/images/emotions/35.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>如果觉得这篇文章对您有一点点用处的话，**欢迎点赞、评论、收藏、一条龙哦。<img src="https://res.smzdm.com/images/emotions/43.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"> **</p>
+<p>最后说一下，关于硬改方面，请一定要小心，小心，再小心。我这里建议，可以不需要硬改，先这样用，当出现了掉盘等情况后，不到迫不得已，再选择硬改的方案。我们下次再见！<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+<p>希望大家在新的一年里折腾愉快！拜拜！<img src="https://res.smzdm.com/images/emotions/67.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[我家云刷机]]></title>
         <id>https://amiao.wawj.cool/post/wo-jia-yun-shua-ji/</id>
@@ -233,19 +459,6 @@
 <p>如果觉得这篇文章对您有一点点用处的话，**欢迎点赞、评论、收藏、一条龙哦。<img src="https://res.smzdm.com/images/emotions/43.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"> **</p>
 <p>最后说一下，关于硬改方面，请一定要小心，小心，再小心。我这里建议，可以不需要硬改，先这样用，当出现了掉盘等情况后，不到迫不得已，再选择硬改的方案。我们下次再见！<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
 <p>希望大家在新的一年里折腾愉快！拜拜！<img src="https://res.smzdm.com/images/emotions/67.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[gvbhbfhwerfbefwef]]></title>
-        <id>https://amiao.wawj.cool/post/gvbhbfhwerfbefwef/</id>
-        <link href="https://amiao.wawj.cool/post/gvbhbfhwerfbefwef/">
-        </link>
-        <updated>2021-02-06T07:10:24.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="ijiodfjgbioerjnfge">ijiodfjgbioerjnfge</h1>
-<blockquote>
-<p>jhnolgriog<br>
-~~ kjnkrefg ~~</p>
-</blockquote>
 ]]></content>
     </entry>
 </feed>
