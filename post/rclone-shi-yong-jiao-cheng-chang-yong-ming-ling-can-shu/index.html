@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>Gridea</title>
+<title>Rclone 使用教程 - 常用命令参数 | Gridea</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1615731302871">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,8 @@
 
 
 
-  <meta name="description" content="温故而知新">
+  <meta name="description" content="Rclone 使用教程 - 常用命令参数" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -91,7 +92,7 @@
             
               
             
-            <li class="nav-item nav-item-active">
+            <li class="nav-item ">
               
               
                 <a href="/archives/" target="_self">
@@ -175,10 +176,26 @@
   <div class="main-continer">
     
     <div
-      class="section-layout bg-color mist">
+      class="section-layout mist bg-color">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper  right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body mist" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -225,71 +242,644 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E8%AE%BE%E7%BD%AE">设置</a></li>
+<li><a href="#%E8%AF%AD%E6%B3%95">语法</a></li>
+<li><a href="#%E5%8A%9F%E8%83%BD">功能</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0">参数</a></li>
+<li><a href="#%E6%97%A5%E5%BF%97">日志</a></li>
+<li><a href="#%E8%BF%87%E6%BB%A4">过滤</a></li>
+<li><a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a></li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'mist';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box box-shadow-wrapper">
-          <section class="section archives-section bg-color posts-expand">
-            
 
-<div class="bg-color">
-  <div class="archive-timeline-box">
-    <div class="archive-timeline-title">
-      
-        <h2 class="language" data-lan="archives" data-count="1">非常好！目前共计1篇日志，继续努力！</h2>
-      
-    </div>
-    
-      
-      
-        <div class="node-title">
-          <h2 class="tag-year">2021</h2>
-        </div>    
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
         
-      
-      <a href="https://amiao.wawj.cool/post/rclone-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              03-14
-              <small>Rclone 使用教程 - 常用命令参数</small>
-            </h1>
-          </div>  
       </div>
-      </a>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://amiao.wawj.cool/post/rclone-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu/">
+      Rclone 使用教程 - 常用命令参数
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-03-14 21:55:04">2021-03-14</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>6<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1455<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
     
   </div>
-  
-<div class="page bg-color">
-  <ul class="pagination-ul">
-    
-    
-      
-        <li class="pagination-li pagination-active">
-            <a href="/archives/page/../">
-              1
-            </a>
-        </li>
-      
-    
-    
-  </ul>
-</div>
-</div>
+</section>
+            <div class="post-body next-md-body" id="post_body">
+              <figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/02/28/9qCaB6nsNrpXgJT.jpg" alt="img" loading="lazy"></figure>
+<h1 id="设置">设置</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th><code>说明</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rclone config</td>
+<td>添加、删除、管理网盘等操作</td>
+</tr>
+<tr>
+<td>rclone config file</td>
+<td>显示配置文件的路径</td>
+</tr>
+<tr>
+<td>rclone config show</td>
+<td>显示配置文件信息</td>
+</tr>
+</tbody>
+</table>
+<pre><code>root@SunPma:~# rclone config
+Current remotes:
 
-          </section>
+Name                 Type
+====                 ====
+DB                 dropbox
+GD                 drive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&gt;
+</code></pre>
+<h1 id="语法">语法</h1>
+<pre><code># 本地到网盘
+rclone [功能选项] &lt;本地路径&gt; &lt;配置名称:路径&gt; [参数] [参数]
+
+# 网盘到本地
+rclone [功能选项] &lt;配置名称:路径&gt; &lt;本地路径&gt; [参数] [参数]
+
+# 网盘到网盘
+rclone [功能选项] &lt;配置名称:路径&gt; &lt;配置名称:路径&gt; [参数] [参数]
+
+# [参数]为可选项
+</code></pre>
+<p><strong>示例</strong></p>
+<pre><code># 复制到网盘，并显示实时传输进度，设置并行上传数为8
+
+rclone copy -P /home/SunPma GD:/home/SunPma --transfers=8
+
+# 如果需要服务端对服务端的传输可加以下参数（不消耗本地流量）
+
+rclone copy 配置名称:网盘路径 配置名称:网盘路径 --drive-server-side-across-configs
+</code></pre>
+<h1 id="功能">功能</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rclone copy</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>rclone move</td>
+<td>移动，如果要在移动后删除空源目录，加上 --delete-empty-src-dirs 参数</td>
+</tr>
+<tr>
+<td>rclone sync</td>
+<td>同步：将源目录同步到目标目录，只更改目标目录</td>
+</tr>
+<tr>
+<td>rclone size</td>
+<td>查看网盘文件占用大小</td>
+</tr>
+<tr>
+<td>rclone delete</td>
+<td>删除路径下的文件内容</td>
+</tr>
+<tr>
+<td>rclone purge</td>
+<td>删除路径及其所有文件内容</td>
+</tr>
+<tr>
+<td>rclone mkdir</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>rclone rmdir</td>
+<td>删除目录</td>
+</tr>
+<tr>
+<td>rclone rmdirs</td>
+<td>删除指定环境下的空目录。如果加上 --leave-root 参数，则不会删除根目录</td>
+</tr>
+<tr>
+<td>rclone check</td>
+<td>检查源和目的地址数据是否匹配</td>
+</tr>
+<tr>
+<td>rclone ls</td>
+<td>列出指定路径下的所有的文件以及文件大小和路径</td>
+</tr>
+<tr>
+<td>rclone lsl</td>
+<td>比上面多一个显示上传时间</td>
+</tr>
+<tr>
+<td>rclone lsd</td>
+<td>列出指定路径下的目录</td>
+</tr>
+<tr>
+<td>rclone lsf</td>
+<td>列出指定路径下的目录和文件</td>
+</tr>
+</tbody>
+</table>
+<h1 id="参数">参数</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n = --dry-run</td>
+<td>测试运行，查看Rclon在实际运行中会进行哪些操作</td>
+</tr>
+<tr>
+<td>-P = --progress</td>
+<td>显示实时传输进度，500mS刷新一次，否则默认1分钟刷新一次</td>
+</tr>
+<tr>
+<td>--cache-chunk-size SizeSuffi</td>
+<td>块的大小，默认5M越大上传越快，占用内存越多，太大可能会导致进程中断</td>
+</tr>
+<tr>
+<td>--cache-chunk-total-size SizeSuffix</td>
+<td>块可以在本地磁盘上占用的总大小，默认10G</td>
+</tr>
+<tr>
+<td>--transfers=N</td>
+<td>并行文件数，默认为4</td>
+</tr>
+<tr>
+<td>--config string</td>
+<td>指定配置文件路径，string为配置文件路径</td>
+</tr>
+<tr>
+<td>--ignore-errors</td>
+<td>跳过错误</td>
+</tr>
+</tbody>
+</table>
+<h1 id="日志">日志</h1>
+<p>有4个级别的日志记录：<code>ERROR</code> <code>NOTICE</code> <code>INFO</code> <code>DEBUG</code><br>
+默认情况下<code>Rclon</code>将生成<code>ERROR</code> <code>NOTICE</code>日志</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-q</td>
+<td>rclone将仅生成ERROR消息</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>rclone将生成ERROR NOTICE INFO 消息</td>
+</tr>
+<tr>
+<td>-vv</td>
+<td>rclone 将生成ERROR NOTICE INFO DEBUG 消息</td>
+</tr>
+<tr>
+<td>--log-level LEVEL</td>
+<td>标志控制日志级别</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出日志到文件</strong><br>
+使用<code>--log-file=FILE</code>选项<code>rclone</code>会将<code>Error</code> <code>Info</code> <code>Debug</code>消息以及标准错误重定向到<code>FILE</code><br>
+这里的<code>FILE</code>是你指定的日志文件路径</p>
+<h1 id="过滤">过滤</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--exclude</td>
+<td>排除文件或目录</td>
+</tr>
+<tr>
+<td>--include</td>
+<td>包含文件或目录</td>
+</tr>
+<tr>
+<td>--filter</td>
+<td>文件过滤规则，相当于上面两个选项的其它使用方式。包含规则以+开头，排除规则以-开头</td>
+</tr>
+</tbody>
+</table>
+<p><strong>文件类型过滤</strong><br>
+比如<code>--exclude &quot;*.bak&quot; --filter &quot;- *.bak&quot;</code>排除所有<code>bak</code>文件<br>
+比如<code>--include &quot;*.{png,jpg}&quot; --filter &quot;+ *.{png,jpg}&quot;</code>包含所有<code>png</code>和<code>jpg</code>文件，排除其他文件<br>
+<code>--delete-excluded</code>删除排除的文件。需配合过滤参数使用，否则无效<br>
+<strong>目录过滤</strong><br>
+目录过滤需要在目录名称后面加上<code>/</code>否则会被当做文件进行匹配<br>
+以<code>/</code>开头只会匹配根目录（指定目录下），否则匹配所目录，这同样适用于文件<br>
+<code>--exclude &quot;.git/&quot;</code>排除所有目录下的<code>.git</code>目录<br>
+<code>--exclude &quot;/.git/&quot;</code>只排除根目录下的<code>.git</code>目录<br>
+<code>--exclude &quot;{Video,Software}/&quot;</code>排除所有目录下的<code>Video</code>和<code>Software</code>目录<br>
+<code>--exclude &quot;/{Video,Software}/&quot;</code>只排除根目录下的<code>Video</code>和<code>Software</code>目录<br>
+<code>--include &quot;/{Video,Software}/**&quot;</code>仅包含根目录下的<code>Video</code>和<code>Software</code>目录的所有内容<br>
+<strong>大小过滤</strong><br>
+默认大小单位为<code>kBytes</code>但可以使用<code>k</code> <code>M</code>或<code>G</code>后缀<br>
+<code>--min-size</code>过滤小于指定大小的文件。比如<code>--min-size 50</code>表示不会传输小于<code>50k</code>的文件。<br>
+<code>--max-size</code>过滤大于指定大小的文件。比如<code>--max-size 1G</code>表示不会传输大于<code>1G</code>的文件。<br>
+<strong>实际使用中发现大小过滤两个选项不能同时使用</strong><br>
+<strong>过滤规则文件</strong><br>
+<code>--filter-from &lt;规则文件&gt;</code>从文件添加包含<code>/</code>排除规则<br>
+比如<code>--filter-from filter-file.txt</code><br>
+<strong>过滤规则文件示例：</strong></p>
+<pre><code>- secret*.jpg
++ *.jpg
++ *.png
++ file2.avi
+- /dir/Trash/**
++ /dir/**
+- *
+</code></pre>
+<h1 id="环境变量">环境变量</h1>
+<p><code>rclone</code>中的每个选项都可以通过环境变量设置。环境变量的名称可以通过长选项名称进行转换，删除<code>--</code>前缀，更改<code>-</code>为<code>_</code>大写并添加前缀<code>RCLONE_</code>环境变量的优先级会低于命令行选项，即通过命令行追加相应的选项时会覆盖环境变量设定的值。<br>
+比如设置最小上传大小<code>--min-size 50</code>使用环境变量是<code>RCLONE_MIN_SIZE=50</code>当环境变量设置后，在命令行中使用<code>--min-size 100</code>那么此时环境变量的值就会被覆盖<br>
+<strong>常用环境变量</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RCLONE_CONFIG</td>
+<td>自定义配置文件路径</td>
+</tr>
+<tr>
+<td>RCLONE_CONFIG_PASS</td>
+<td>若 rclone 进行了加密设置，把此环境变量设置为密码，可自动解密配置文件</td>
+</tr>
+<tr>
+<td>RCLONE_RETRIES</td>
+<td>上传失败重试次数，默认 3 次</td>
+</tr>
+<tr>
+<td>RCLONE_RETRIES_SLEEP</td>
+<td>上传失败重试等待时间，默认禁用，单位s、m、h分别代表秒、分钟、小时</td>
+</tr>
+<tr>
+<td>CLONE_TRANSFERS</td>
+<td>并行上传文件数</td>
+</tr>
+<tr>
+<td>RCLONE_CACHE_CHUNK_SIZE</td>
+<td>块的大小，默认5M</td>
+</tr>
+<tr>
+<td>RCLONE_CACHE_CHUNK_TOTAL_SIZE</td>
+<td>块可以在本地磁盘上占用的总大小，默认10G</td>
+</tr>
+<tr>
+<td>RCLONE_IGNORE_ERRORS=true</td>
+<td>跳过错误</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      MUGU&#39;s blog
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://amiao.wawj.cool/post/rclone-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu/" title="Rclone 使用教程 - 常用命令参数">https://amiao.wawj.cool/post/rclone-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+    </div>
+  </div>
+</div>
+            
+            
+  
+
+          </div>
         </div>
       </div>
     </div>
@@ -498,6 +1088,223 @@
     parent.insertBefore(aelem, next);
   })
 </script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        window.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        window.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        window.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        window.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      window.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -1109,7 +1916,6 @@ rclone copy 配置名称:网盘路径 配置名称:网盘路径 --drive-server-s
     speed: 200
   });
 </script>
-
 
 
 
