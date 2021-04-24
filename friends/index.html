@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>Gridea</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1619270027099">
+<link rel="shortcut icon" href="/favicon.ico?v=1619274972646">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -188,7 +188,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">5</span>
+        <span class="site-item-stat-count">6</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -500,8 +500,98 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://amiao.wawj.cool/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/"" data-c="
+          &lt;p&gt;最近组NAS，作为24小时运行的小型服务器，功耗是要关注的点&lt;/p&gt;
+&lt;h1 id=&#34;电费一年多少钱&#34;&gt;电费一年多少钱&lt;/h1&gt;
+&lt;p&gt;按照河北平均电费0.5元一度电来算，&lt;strong&gt;每5瓦的功耗，一年是21.9元，这里约为22元&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1瓦 运行一年 电费大约是4.4元&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;35英寸-7200转-8t硬盘功耗&#34;&gt;3.5英寸 7200转 8T硬盘功耗&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;3.5英寸服务器级别的硬盘 7200转 功耗，经过实测，平均大约是8瓦&lt;/strong&gt;左右，一般单独的硬盘盒供电都是10瓦到15瓦以保证供电充足。传输速度大约220MB/s，大约就是2.5G网口的速度&lt;/p&gt;
+&lt;p&gt;所以每增加一块3.5英寸硬盘，一年功耗就会增加大约 8*4.4 = &lt;strong&gt;36.2元 电费&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;而3.5英寸 NAS专用盘，如&lt;strong&gt;酷狼4T 我记得是5900转 功耗，经过实测，大约6瓦左右&lt;/strong&gt;，传输速度160MB/s，一年耗电 &lt;strong&gt;26.4 元&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&#34;硬盘要不要休眠&#34;&gt;硬盘要不要休眠&lt;/h1&gt;
+&lt;p&gt;所以有人说让硬盘休眠，我不同意，休眠很伤硬盘。解释一下为什么&lt;/p&gt;
+&lt;p&gt;硬盘休眠的意思是：硬盘断电，死了。然后不休眠就是又活了。如果设置硬盘休眠，可能会经常性的休眠-唤醒-休眠-唤醒，这叫死去活来，反复横跳作死。而且每次启动和停止都消耗硬盘的读写，还有磁盘针头的惯性问题。为什么突然断电就会丢失数据，就像急刹车一样，损耗轮胎，甚至发生车祸。休眠比突然断电好些，就是踩了刹车和汽车启动，轮胎压力没那么大，但也是肯定有损耗的，而且比正常行驶中的消耗要大。如果碰到不明情况，反复开车走走停停他，肯定比你开车跑一段距离再停车对轮胎磨损要大。&lt;/p&gt;
+&lt;p&gt;万不得已可以设置休眠时间，最好是很长的一段时间，例如设置凌晨到早上8点休眠，白天就不要反复作死了。&lt;/p&gt;
+&lt;h1 id=&#34;简单nas电费计算&#34;&gt;简单NAS电费计算&lt;/h1&gt;
+&lt;p&gt;如果4块7200转 8t 硬盘，就是4*8 = 32瓦，按35瓦计算合理，因为8瓦是待机功耗，如918+群晖 4块硬盘，整机功耗大概50瓦，一年就是220元 电费 不到，应该电费在200以内 我估计180元差不多&lt;/p&gt;
+&lt;p&gt;如果4块5400转nas专用盘，就是24瓦，按25瓦计算，群晖918+下 整机功耗大约40瓦 160元&lt;/p&gt;
+&lt;h1 id=&#34;2块4t还是1块8t&#34;&gt;2块4T还是1块8T？&lt;/h1&gt;
+&lt;p&gt;按照上面电费计算，应该尽量买大容量硬盘，4T*2和8T，2块硬盘就多出接近8瓦，一年就多出32元电费&lt;/p&gt;
+&lt;p&gt;1块4T酷狼费用780，一块8T费用1350，怎么选？？？&lt;/p&gt;
+&lt;p&gt;可不只是纸面上的差价，电费还有32元的差价，还是按年计算的，正常保底三年，长时间8年都行，差不多100元到240元价格，而且最关键的是硬盘位也不容易扩展&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://i0.hdslb.com/bfs/article/ebf31e32f186bd1a5a659c6b6f01a4f9c70a0c69.png@1320w_840h.webp&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;噪声问题&#34;&gt;噪声问题&lt;/h1&gt;
+&lt;p&gt;而且硬盘性能过高还有噪声问题，一般不要选择7200转的高性能硬盘，尽量用5400转或者其它低转速机械硬盘挂载。硬盘架尽量稳定，或者添加防震棉之类的&lt;/p&gt;
+&lt;h1 id=&#34;不同35硬盘日常待机功耗&#34;&gt;不同3.5硬盘日常待机功耗&lt;/h1&gt;
+&lt;p&gt;根据我不完全测试，给大家尽量准确的参考，都是酷狼NAS盘 5900转，读写的时候稍微增加2瓦左右&lt;/p&gt;
+&lt;p&gt;4T  6瓦左右&lt;/p&gt;
+&lt;p&gt;6T  7瓦左右&lt;/p&gt;
+&lt;p&gt;8T  8瓦左右&lt;/p&gt;
+&lt;p&gt;可以确定我的日立 10T硬盘 7200转 功耗是10瓦，读写的时候增加3瓦，日常工作温度也比酷狼高10度&lt;/p&gt;
+&lt;p&gt;附上知名科技媒体HardwareLuxx制作了一期有趣的机械硬盘（HDD）功耗测试，对象涵盖入门消费级4TB到企业数据中心级16TB的机械硬盘，我们看看它们的表现如何：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://i0.hdslb.com/bfs/article/d46dfec6ae6f060ff449fe644f48dc4d31ed91c4.png@1198w_2168h.webp&#34; alt=&#34;待机功耗（单位：瓦特）&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;待机功耗（单位：瓦特）&lt;/p&gt;
+&lt;p&gt;另外参考一位大大的测试我们计算一下&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://i0.hdslb.com/bfs/article/96b81732227bba2bdffe62e88b10359dd1b8ad09.png@1172w_388h.webp&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;酷狼有专门的电源管理技术，那么一块酷狼14T 盘耗电为：0.2/24*1000 = 8.333瓦，差不多也是8瓦的电量，&lt;/p&gt;
+&lt;p&gt;另外希捷酷鱼 pro 10T 7200rpm转速，同样配置256MB的DRAM缓存，耗电量为6.8W，超过220MB/s持续传输速率，参考的koolshare论坛大佬的测试&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://i0.hdslb.com/bfs/article/58fb8b7b6c1051910983432b9b799ea7a61384b7.png@1320w_1938h.webp&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;相较于6T、7T、8T这几个大容量硬盘，10TB的耗电不升反降，看来充气就是牛，容量越大耗电越低，看样子每块盘能少2-3瓦的样子&lt;/p&gt;
+&lt;h1 id=&#34;bb了半天看看官网的数据&#34;&gt;BB了半天，看看官网的数据&lt;/h1&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://i0.hdslb.com/bfs/article/ca564c9e98eae7ab291a307ee485fdd6a87d9cf9.png@1320w_1176h.webp&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;看样子，希捷的盘功耗低的就是1T、4T和10T&lt;/p&gt;
+&lt;p&gt;只看希捷了，西数红盘走一波&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://i0.hdslb.com/bfs/article/e6138666e9e7c63ae10c619f32627f727aa06954.png@1320w_788h.webp&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;可以看到，市面上的NAS盘大多都是8瓦左右。但是值得注意的是，根据我的经验，紫盘发热量比红盘高5-10°，酷鹰似乎也是这样，因此功耗更高。一般我的经验是，当温度高出10°，那么平均每秒功耗应该是要多出至少5瓦的，如果红盘功耗是6瓦，那么温度高出接近10度的紫盘至少也有11瓦-13瓦左右的耗电。原因除了转速，还可能就是没有做电源管理和温度控制管理。&lt;/p&gt;
+&lt;h1 id=&#34;固态硬盘耗电&#34;&gt;固态硬盘耗电&lt;/h1&gt;
+&lt;p&gt;​         启动功耗      最高功耗    平均功耗&lt;br&gt;
+SSD： 0.1W~1W（2W）   5~10W     4~5W左右&lt;/p&gt;
+&lt;p&gt;平均5瓦，而且随着容量提升而增加，但幅度不大。&lt;/p&gt;
+&lt;h1 id=&#34;25英寸机械硬盘耗电&#34;&gt;2.5英寸机械硬盘耗电&lt;/h1&gt;
+&lt;p&gt;通常为3.5W&lt;/p&gt;
+&lt;h1 id=&#34;内存耗电&#34;&gt;内存耗电&lt;/h1&gt;
+&lt;p&gt;都是不带灯条的，而且计算比较偏向于多1瓦左右&lt;/p&gt;
+&lt;p&gt;DDR3 大概3.5瓦&lt;/p&gt;
+&lt;p&gt;DDR4 大概3瓦&lt;/p&gt;
+&lt;h1 id=&#34;其它功耗&#34;&gt;其它功耗&lt;/h1&gt;
+&lt;p&gt;一般电源+主板功耗是3瓦&lt;/p&gt;
+&lt;p&gt;神器公式，根据TDP计算空载下CPU耗电：TDP*0.6，结果大约就是空载时候CPU的耗电，&lt;/p&gt;
+&lt;h1 id=&#34;奇葩说&#34;&gt;奇葩说&lt;/h1&gt;
+&lt;p&gt;来自某吧友：&lt;/p&gt;
+&lt;p&gt;黑群 i9 9900t  16g 4盘 内部虚拟 lede旁路由 架设传奇服务器 ，冒险岛服务器，常年工作 50w~~~~&lt;/p&gt;
+&lt;p&gt;G3930+Z270 itx+2块3.5 4T+2块2.5 1T+1块SSD系统，电源是海韵430W铜牌，Win10，常年30W左右&lt;/p&gt;
+&lt;p&gt;某网友：&lt;/p&gt;
+&lt;p&gt;Intel 3/4系列那段时间，因为准备装长期开机的虚拟机，测试了一些硬件，感觉是：&lt;br&gt;
+\1. 电源的影响大。我接触过的电源在机器闲置情况下的差值超过20w，最好的是银欣ST30SF和贼船RM450，最差是七盟420BKP。因为机器工作在较低的功耗(&amp;lt;40w)，没见过电源评测有测试&lt;strong&gt;低负载区的效率&lt;/strong&gt;。&lt;br&gt;
+\2. 主板。ASUS Z87I-P 在升级BIOS后闲置功耗居然降低了接近10w，不同的型号也会有相当的差距。BIOS的设置也有影响：https://www.gamersnexus.net/guid ... mputing-bios/Page-2&lt;br&gt;
+\3. &lt;strong&gt;CPU反而影响很小&lt;/strong&gt;。同一套配置，CPU不同(G1820 -&amp;gt; i5-4570)，长期运行的平均功耗差值也就是1w多。&lt;/p&gt;
+&lt;p&gt;要追求低功耗的话，按我自己以往的经验：&lt;br&gt;
+\1. 非常看电源在低负载时的效率。负载40-50W时，效率好和坏，可能要差出10W...&lt;br&gt;
+\2. 主板供电，一般来说，够用的情况下，相数越少效率越好，好和坏，会差出CPU功耗的10%左右，满载20W的CPU就会差出2W左右&lt;br&gt;
+\3. D3这类的内存，双通道会比单通道多出1-1.5W... 这多的不单单是内存本身的功耗，还有IMC的功耗...还有灯条的LED也耗电...&lt;br&gt;
+\4. 风扇，多一个多1-2W... 包括电源里的...&lt;br&gt;
+\5. 硬盘这块，变数也蛮大的，古董多碟的硬盘空载7-8W+，现在双碟左右的3-4W左右...&lt;br&gt;
+\6. CPU的节能设置，差别要看具体CPU的新老程度了，开了一定有效果...还会因为2而放大效果...&lt;br&gt;
+\7. 上面的2-6，最后还会因为电源的效率而放大总的实际输入功耗...&lt;/p&gt;
+&lt;p&gt;我之前用I3 6100 + B150 + SATA2的SSD + ATX电源（电源里有风扇） + 无扇 + 降压 + 2条灯条@2666，做到过待机11W+...&lt;/p&gt;
+&lt;h1 id=&#34;实战&#34;&gt;实战&lt;/h1&gt;
+&lt;p&gt;我的配置是：&lt;/p&gt;
+&lt;p&gt;TDP 35瓦 i3 8100t&lt;/p&gt;
+&lt;p&gt;主板b250&lt;/p&gt;
+&lt;p&gt;450瓦电源&lt;/p&gt;
+&lt;p&gt;两根内存条&lt;/p&gt;
+&lt;p&gt;2个静音风扇&lt;/p&gt;
+&lt;p&gt;1个固态500G&lt;/p&gt;
+&lt;p&gt;请计算功耗多少&lt;/p&gt;
+&lt;p&gt;我用电压表测试稳定在24瓦&lt;/p&gt;
+&lt;p&gt;按照推算 35*0.6 = 21瓦&lt;/p&gt;
+">3.5英寸硬盘功耗，到底多少瓦，附其它功耗参考</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://amiao.wawj.cool/post/2020-hei-qun-hui-zui-wen-ding-ban-ben-_-jia-ting-nas-bu-shu-zhi-nan-ru-he-zi-ji-dong-shou-an-zhuang-yi-tai-hei-qun-hui-zhu-ji/"" data-c="
-          &lt;h1 id=&#34;2020黑群晖最稳定版本_家庭nas部署指南-如何自己动手安装一台黑群晖主机&#34;&gt;2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机...&lt;/h1&gt;
+          &lt;h2 id=&#34;2020黑群晖最稳定版本_家庭nas部署指南-如何自己动手安装一台黑群晖主机&#34;&gt;2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机...&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;大家好，上次写了一篇NAS总论。聊了聊NAS的一些常用功能和硬件的选择。作为新手小白来说，我们用手头的主机或者购入了一台类似蜗牛星际的廉价NAS主机之后。该如何装入NAS系统呢？这次我们就来动手组建自己第一个NAS系统。&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;懒人目录&#34;&gt;懒人目录：&lt;/h2&gt;
 &lt;h3 id=&#34;1-群辉系统介绍&#34;&gt;1、群辉系统介绍&lt;/h3&gt;
