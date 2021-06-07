@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://amiao.wawj.cool</id>
     <title>Gridea</title>
-    <updated>2021-04-24T14:36:16.950Z</updated>
+    <updated>2021-06-07T21:39:53.929Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://amiao.wawj.cool"/>
     <link rel="self" href="https://amiao.wawj.cool/atom.xml"/>
@@ -10,6 +10,51 @@
     <logo>https://amiao.wawj.cool/images/avatar.png</logo>
     <icon>https://amiao.wawj.cool/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[安装HASSIO]]></title>
+        <id>https://amiao.wawj.cool/post/an-zhuang-hassio/</id>
+        <link href="https://amiao.wawj.cool/post/an-zhuang-hassio/">
+        </link>
+        <updated>2021-06-07T21:38:37.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="安装hassio">安装HASSIO</h2>
+<p>以 root 身份运行以下命令。</p>
+<pre><code>wget https://code.aliyun.com/neroxps/hassio_install/raw/master/install.sh
+chmod a+x install.sh
+./install.sh
+</code></pre>
+<h4 id="操作说明">操作说明</h4>
+<h5 id="停止但重启依然会自启动">停止（但重启依然会自启动）</h5>
+<pre><code>systemctl stop hassio-supervisor.service
+</code></pre>
+<h5 id="重启">重启</h5>
+<pre><code>systemctl restart hassio-supervisor.service
+</code></pre>
+<h5 id="禁用自启动">禁用自启动</h5>
+<pre><code>systemctl disable hassio-supervisor.service
+</code></pre>
+<h5 id="启用自启动">启用自启动</h5>
+<pre><code>systemctl enable hassio-supervisor.service
+</code></pre>
+<h5 id="查询当前启动状态">查询当前启动状态</h5>
+<pre><code>systemctl status hassio-supervisor.service
+</code></pre>
+<h5 id="查询当前是否自启动">查询当前是否自启动</h5>
+<pre><code>systemctl  is-enabled hassio-supervisor.service
+</code></pre>
+<h5 id="查询-hassio-日志">查询 hassio 日志</h5>
+<pre><code>docker logs -f hassio_supervisor
+</code></pre>
+<h5 id="查询-hassio-日志最新20行信息">查询 hassio 日志最新20行信息</h5>
+<pre><code>docker logs -f hassio_supervisor --tail 20
+</code></pre>
+<h5 id="查询-ha-日志">查询 ha 日志</h5>
+<pre><code>docker logs -f homeassistant
+</code></pre>
+<h5 id="查询-ha-日志最新20行信息">查询 ha 日志最新20行信息</h5>
+<pre><code>docker logs -f homeassistant --tail 20
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[3.5英寸硬盘功耗，到底多少瓦，附其它功耗参考]]></title>
         <id>https://amiao.wawj.cool/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/</id>

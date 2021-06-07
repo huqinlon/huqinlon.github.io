@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>debian系linux，更换apt-get官方源为国内源 | Gridea</title>
+<title>安装HASSIO | Gridea</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1623101939041">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,7 @@
 
 
 
-  <meta name="description" content="debian系linux，更换apt-get官方源为国内源" />
+  <meta name="description" content="安装HASSIO" />
   <meta name="keywords" content="" />
 </head>
 
@@ -250,11 +250,27 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#1-%E6%9B%B4%E6%8D%A2apt-get%E5%AE%98%E6%96%B9%E6%BA%90%E4%B8%BA163%E6%BA%90">1. 更换apt-get官方源为163源</a></li>
-<li><a href="#2-%E5%85%B6%E4%BB%96%E7%89%88%E6%9C%AC%E6%BA%90">2. 其他版本源</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85hassio">安装HASSIO</a><br>
+*
+<ul>
+<li><a href="#%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E">操作说明</a>
+<ul>
+<li><a href="#%E5%81%9C%E6%AD%A2%E4%BD%86%E9%87%8D%E5%90%AF%E4%BE%9D%E7%84%B6%E4%BC%9A%E8%87%AA%E5%90%AF%E5%8A%A8">停止（但重启依然会自启动）</a></li>
+<li><a href="#%E9%87%8D%E5%90%AF">重启</a></li>
+<li><a href="#%E7%A6%81%E7%94%A8%E8%87%AA%E5%90%AF%E5%8A%A8">禁用自启动</a></li>
+<li><a href="#%E5%90%AF%E7%94%A8%E8%87%AA%E5%90%AF%E5%8A%A8">启用自启动</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E5%BD%93%E5%89%8D%E5%90%AF%E5%8A%A8%E7%8A%B6%E6%80%81">查询当前启动状态</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E5%BD%93%E5%89%8D%E6%98%AF%E5%90%A6%E8%87%AA%E5%90%AF%E5%8A%A8">查询当前是否自启动</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2-hassio-%E6%97%A5%E5%BF%97">查询 hassio 日志</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2-hassio-%E6%97%A5%E5%BF%97%E6%9C%80%E6%96%B020%E8%A1%8C%E4%BF%A1%E6%81%AF">查询 hassio 日志最新20行信息</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2-ha-%E6%97%A5%E5%BF%97">查询 ha 日志</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2-ha-%E6%97%A5%E5%BF%97%E6%9C%80%E6%96%B020%E8%A1%8C%E4%BF%A1%E6%81%AF">查询 ha 日志最新20行信息</a></li>
 </ul>
 </li>
-<li><a href="#3-%E5%85%B6%E4%BB%96%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BD%E5%86%85%E6%BA%90">3. 其他第三方国内源</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
   </div>
@@ -520,8 +536,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://amiao.wawj.cool/post/debian-xi-linuxgeng-huan-apt-get-guan-fang-yuan-wei-guo-nei-yuan/">
-      debian系linux，更换apt-get官方源为国内源
+    <a class="post-title-link" href="https://amiao.wawj.cool/post/an-zhuang-hassio/">
+      安装HASSIO
     </a>
   </h1>
   <div class="post-meta">
@@ -529,72 +545,60 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-03-16 21:22:23">2021-03-16</span>
+      <span class="publish-time" data-t="2021-06-08 05:38:37">2021-06-08</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>418<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>158<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <h2 id="1-更换apt-get官方源为163源">1. 更换apt-get官方源为163源</h2>
-<p>操作前做好相应备份</p>
-<pre><code># mv /etc/apt/sources.list /etc/apt/sources.list.bak1
+              <h2 id="安装hassio">安装HASSIO</h2>
+<p>以 root 身份运行以下命令。</p>
+<pre><code>wget https://code.aliyun.com/neroxps/hassio_install/raw/master/install.sh
+chmod a+x install.sh
+./install.sh
 </code></pre>
-<p>以Jessie为例，编辑/etc/apt/sources.list文件</p>
-<pre><code># vim /etc/apt/sources.list
-
-# 在文件最前面，添加以下条目
-deb http://mirrors.163.com/debian/ jessie main non-free contrib
-deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib
-deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib
-deb-src http://mirrors.163.com/debian/ jessie main non-free contrib
-deb-src http://mirrors.163.com/debian/ jessie-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ jessie-backports main non-free contrib
-deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
-deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib1234567891011
+<h4 id="操作说明">操作说明</h4>
+<h5 id="停止但重启依然会自启动">停止（但重启依然会自启动）</h5>
+<pre><code>systemctl stop hassio-supervisor.service
 </code></pre>
-<p>更新软件源</p>
-<pre><code># apt-get update1
+<h5 id="重启">重启</h5>
+<pre><code>systemctl restart hassio-supervisor.service
 </code></pre>
-<h2 id="2-其他版本源">2. 其他版本源</h2>
-<ul>
-<li>squeeze</li>
-</ul>
-<pre><code>deb http://mirrors.163.com/debian/ squeeze main non-free contrib
-deb http://mirrors.163.com/debian/ squeeze-updates main non-free contrib
-deb http://mirrors.163.com/debian/ squeeze-lts main non-free contrib
-deb-src http://mirrors.163.com/debian/ squeeze main non-free contrib
-deb-src http://mirrors.163.com/debian/ squeeze-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ squeeze-lts main non-free contrib
-deb http://mirrors.163.com/debian-security/ squeeze/updates main non-free contrib
-deb-src http://mirrors.163.com/debian-security/ squeeze/updates main non-free contrib
-deb http://mirrors.163.com/debian-backports/ squeeze-backports main contrib non-free
-deb-src http://mirrors.163.com/debian-backports/ squeeze-backports main contrib non-free12345678910
+<h5 id="禁用自启动">禁用自启动</h5>
+<pre><code>systemctl disable hassio-supervisor.service
 </code></pre>
-<ul>
-<li>wheezy</li>
-</ul>
-<pre><code>deb http://mirrors.163.com/debian/ wheezy main non-free contrib
-deb http://mirrors.163.com/debian/ wheezy-updates main non-free contrib
-deb http://mirrors.163.com/debian/ wheezy-backports main non-free contrib
-deb-src http://mirrors.163.com/debian/ wheezy main non-free contrib
-deb-src http://mirrors.163.com/debian/ wheezy-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ wheezy-backports main non-free contrib
-deb http://mirrors.163.com/debian-security/ wheezy/updates main non-free contrib
-deb-src http://mirrors.163.com/debian-security/ wheezy/updates main non-free contrib12345678
+<h5 id="启用自启动">启用自启动</h5>
+<pre><code>systemctl enable hassio-supervisor.service
 </code></pre>
-<h1 id="3-其他第三方国内源">3. 其他第三方国内源</h1>
-<p>http://blog.csdn.net/xiayaobo/article/details/46970663</p>
+<h5 id="查询当前启动状态">查询当前启动状态</h5>
+<pre><code>systemctl status hassio-supervisor.service
+</code></pre>
+<h5 id="查询当前是否自启动">查询当前是否自启动</h5>
+<pre><code>systemctl  is-enabled hassio-supervisor.service
+</code></pre>
+<h5 id="查询-hassio-日志">查询 hassio 日志</h5>
+<pre><code>docker logs -f hassio_supervisor
+</code></pre>
+<h5 id="查询-hassio-日志最新20行信息">查询 hassio 日志最新20行信息</h5>
+<pre><code>docker logs -f hassio_supervisor --tail 20
+</code></pre>
+<h5 id="查询-ha-日志">查询 ha 日志</h5>
+<pre><code>docker logs -f homeassistant
+</code></pre>
+<h5 id="查询-ha-日志最新20行信息">查询 ha 日志最新20行信息</h5>
+<pre><code>docker logs -f homeassistant --tail 20
+</code></pre>
 
             </div>
             
@@ -607,7 +611,7 @@ deb-src http://mirrors.163.com/debian-security/ wheezy/updates main non-free con
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://amiao.wawj.cool/post/debian-xi-linuxgeng-huan-apt-get-guan-fang-yuan-wei-guo-nei-yuan/" title="debian系linux，更换apt-get官方源为国内源">https://amiao.wawj.cool/post/debian-xi-linuxgeng-huan-apt-get-guan-fang-yuan-wei-guo-nei-yuan/</a>
+      <a href="https://amiao.wawj.cool/post/an-zhuang-hassio/" title="安装HASSIO">https://amiao.wawj.cool/post/an-zhuang-hassio/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -620,15 +624,11 @@ deb-src http://mirrors.163.com/debian-security/ wheezy/updates main non-free con
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="我家云刷机及使用教程" href="https://amiao.wawj.cool/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/">我家云刷机及使用教程</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="我家云刷机及使用教程" href="https://amiao.wawj.cool/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="linux用netstat查看服务及监听端口" href="https://amiao.wawj.cool/post/linux-yong-netstat-cha-kan-fu-wu-ji-jian-ting-duan-kou/">linux用netstat查看服务及监听端口</a>
-        <a class="nav-mobile-next" title="linux用netstat查看服务及监听端口" href="https://amiao.wawj.cool/post/linux-yong-netstat-cha-kan-fu-wu-ji-jian-ting-duan-kou/">下一篇</a>
+        <a class="nav-pc-next" title="3.5英寸硬盘功耗，到底多少瓦，附其它功耗参考" href="https://amiao.wawj.cool/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/">3.5英寸硬盘功耗，到底多少瓦，附其它功耗参考</a>
+        <a class="nav-mobile-next" title="3.5英寸硬盘功耗，到底多少瓦，附其它功耗参考" href="https://amiao.wawj.cool/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

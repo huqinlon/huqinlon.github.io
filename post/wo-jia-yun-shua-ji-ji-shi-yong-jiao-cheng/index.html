@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>我家云刷机及使用教程 | Gridea</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1619274972646">
+<link rel="shortcut icon" href="/favicon.ico?v=1623101939041">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -206,7 +206,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-count">7</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1251,6 +1251,48 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://amiao.wawj.cool/post/an-zhuang-hassio/"" data-c="
+          &lt;h2 id=&#34;安装hassio&#34;&gt;安装HASSIO&lt;/h2&gt;
+&lt;p&gt;以 root 身份运行以下命令。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget https://code.aliyun.com/neroxps/hassio_install/raw/master/install.sh
+chmod a+x install.sh
+./install.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;操作说明&#34;&gt;操作说明&lt;/h4&gt;
+&lt;h5 id=&#34;停止但重启依然会自启动&#34;&gt;停止（但重启依然会自启动）&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;systemctl stop hassio-supervisor.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;重启&#34;&gt;重启&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;systemctl restart hassio-supervisor.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;禁用自启动&#34;&gt;禁用自启动&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;systemctl disable hassio-supervisor.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;启用自启动&#34;&gt;启用自启动&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;systemctl enable hassio-supervisor.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;查询当前启动状态&#34;&gt;查询当前启动状态&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;systemctl status hassio-supervisor.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;查询当前是否自启动&#34;&gt;查询当前是否自启动&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;systemctl  is-enabled hassio-supervisor.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;查询-hassio-日志&#34;&gt;查询 hassio 日志&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;docker logs -f hassio_supervisor
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;查询-hassio-日志最新20行信息&#34;&gt;查询 hassio 日志最新20行信息&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;docker logs -f hassio_supervisor --tail 20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;查询-ha-日志&#34;&gt;查询 ha 日志&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;docker logs -f homeassistant
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;查询-ha-日志最新20行信息&#34;&gt;查询 ha 日志最新20行信息&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;docker logs -f homeassistant --tail 20
+&lt;/code&gt;&lt;/pre&gt;
+">安装HASSIO</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://amiao.wawj.cool/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/"" data-c="
