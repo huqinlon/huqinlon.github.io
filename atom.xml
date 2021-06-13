@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://amiao.wawj.cool</id>
     <title>Gridea</title>
-    <updated>2021-06-13T22:54:41.533Z</updated>
+    <updated>2021-06-13T22:57:11.839Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://amiao.wawj.cool"/>
     <link rel="self" href="https://amiao.wawj.cool/atom.xml"/>
@@ -10,6 +10,32 @@
     <logo>https://amiao.wawj.cool/images/avatar.png</logo>
     <icon>https://amiao.wawj.cool/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[DEBIAN 10切换ROOT用户登录]]></title>
+        <id>https://amiao.wawj.cool/post/debian-10-qie-huan-root-yong-hu-deng-lu/</id>
+        <link href="https://amiao.wawj.cool/post/debian-10-qie-huan-root-yong-hu-deng-lu/">
+        </link>
+        <updated>2021-06-13T22:55:10.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="debian-10允许root用户登录">DEBIAN 10允许ROOT用户登录</h1>
+<p>Debian 10默认的一样不能用root用户登录，还是需要设置，方法如下：</p>
+<p>一，打开终端，用普通用户登录</p>
+<p>输入：su -</p>
+<p>输入密码，切换到root用户</p>
+<figure data-type="image" tabindex="1"><img src="https://naxax.com/wp-content/uploads/2020/07/2019071101.png" alt="img" loading="lazy"></figure>
+<p>二，设置root用户登录</p>
+<p>nano /etc/ssh/sshd_config</p>
+<figure data-type="image" tabindex="2"><a href="http://kzpu.com/wp-content/uploads/2019/07/2019071102.png"><img src="http://kzpu.com/wp-content/uploads/2019/07/2019071102.png" alt="img" loading="lazy"></a></figure>
+<p>三，修改配置</p>
+<p>PermitRootLogin yes</p>
+<p>上面这一句后面改为yes，表示允许root用户登录</p>
+<p>PasswordAuthentication yes</p>
+<p>这一句表示，允许用密码登录</p>
+<figure data-type="image" tabindex="3"><img src="https://naxax.com/wp-content/uploads/2020/07/2019071103.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://naxax.com/wp-content/uploads/2020/07/2019071104.png" alt="img" loading="lazy"></figure>
+<p>然后保存即可</p>
+<p>如果没有以上内容请直接复制粘贴进去保存</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[debian常用指令]]></title>
         <id>https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/</id>

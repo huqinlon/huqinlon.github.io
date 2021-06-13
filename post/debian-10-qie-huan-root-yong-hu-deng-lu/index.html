@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>debian系linux，更换apt-get官方源为国内源 | Gridea</title>
+<title>DEBIAN 10切换ROOT用户登录 | Gridea</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1623625028637">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,7 @@
 
 
 
-  <meta name="description" content="debian系linux，更换apt-get官方源为国内源" />
+  <meta name="description" content="DEBIAN 10切换ROOT用户登录" />
   <meta name="keywords" content="" />
 </head>
 
@@ -248,13 +248,7 @@
   <div class="toc-wrapper auto-number auto"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#1-%E6%9B%B4%E6%8D%A2apt-get%E5%AE%98%E6%96%B9%E6%BA%90%E4%B8%BA163%E6%BA%90">1. 更换apt-get官方源为163源</a></li>
-<li><a href="#2-%E5%85%B6%E4%BB%96%E7%89%88%E6%9C%AC%E6%BA%90">2. 其他版本源</a></li>
-</ul>
-</li>
-<li><a href="#3-%E5%85%B6%E4%BB%96%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BD%E5%86%85%E6%BA%90">3. 其他第三方国内源</a></li>
+<li><a href="#debian-10%E5%85%81%E8%AE%B8root%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95">DEBIAN 10允许ROOT用户登录</a></li>
 </ul>
 
   </div>
@@ -520,8 +514,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://amiao.wawj.cool/post/debian-xi-linuxgeng-huan-apt-get-guan-fang-yuan-wei-guo-nei-yuan/">
-      debian系linux，更换apt-get官方源为国内源
+    <a class="post-title-link" href="https://amiao.wawj.cool/post/debian-10-qie-huan-root-yong-hu-deng-lu/">
+      DEBIAN 10切换ROOT用户登录
     </a>
   </h1>
   <div class="post-meta">
@@ -529,72 +523,41 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-03-16 21:22:23">2021-03-16</span>
+      <span class="publish-time" data-t="2021-06-14 06:55:10">2021-06-14</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>418<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>134<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <h2 id="1-更换apt-get官方源为163源">1. 更换apt-get官方源为163源</h2>
-<p>操作前做好相应备份</p>
-<pre><code># mv /etc/apt/sources.list /etc/apt/sources.list.bak1
-</code></pre>
-<p>以Jessie为例，编辑/etc/apt/sources.list文件</p>
-<pre><code># vim /etc/apt/sources.list
-
-# 在文件最前面，添加以下条目
-deb http://mirrors.163.com/debian/ jessie main non-free contrib
-deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib
-deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib
-deb-src http://mirrors.163.com/debian/ jessie main non-free contrib
-deb-src http://mirrors.163.com/debian/ jessie-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ jessie-backports main non-free contrib
-deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
-deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib1234567891011
-</code></pre>
-<p>更新软件源</p>
-<pre><code># apt-get update1
-</code></pre>
-<h2 id="2-其他版本源">2. 其他版本源</h2>
-<ul>
-<li>squeeze</li>
-</ul>
-<pre><code>deb http://mirrors.163.com/debian/ squeeze main non-free contrib
-deb http://mirrors.163.com/debian/ squeeze-updates main non-free contrib
-deb http://mirrors.163.com/debian/ squeeze-lts main non-free contrib
-deb-src http://mirrors.163.com/debian/ squeeze main non-free contrib
-deb-src http://mirrors.163.com/debian/ squeeze-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ squeeze-lts main non-free contrib
-deb http://mirrors.163.com/debian-security/ squeeze/updates main non-free contrib
-deb-src http://mirrors.163.com/debian-security/ squeeze/updates main non-free contrib
-deb http://mirrors.163.com/debian-backports/ squeeze-backports main contrib non-free
-deb-src http://mirrors.163.com/debian-backports/ squeeze-backports main contrib non-free12345678910
-</code></pre>
-<ul>
-<li>wheezy</li>
-</ul>
-<pre><code>deb http://mirrors.163.com/debian/ wheezy main non-free contrib
-deb http://mirrors.163.com/debian/ wheezy-updates main non-free contrib
-deb http://mirrors.163.com/debian/ wheezy-backports main non-free contrib
-deb-src http://mirrors.163.com/debian/ wheezy main non-free contrib
-deb-src http://mirrors.163.com/debian/ wheezy-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ wheezy-backports main non-free contrib
-deb http://mirrors.163.com/debian-security/ wheezy/updates main non-free contrib
-deb-src http://mirrors.163.com/debian-security/ wheezy/updates main non-free contrib12345678
-</code></pre>
-<h1 id="3-其他第三方国内源">3. 其他第三方国内源</h1>
-<p>http://blog.csdn.net/xiayaobo/article/details/46970663</p>
+              <h1 id="debian-10允许root用户登录">DEBIAN 10允许ROOT用户登录</h1>
+<p>Debian 10默认的一样不能用root用户登录，还是需要设置，方法如下：</p>
+<p>一，打开终端，用普通用户登录</p>
+<p>输入：su -</p>
+<p>输入密码，切换到root用户</p>
+<figure data-type="image" tabindex="1"><img src="https://naxax.com/wp-content/uploads/2020/07/2019071101.png" alt="img" loading="lazy"></figure>
+<p>二，设置root用户登录</p>
+<p>nano /etc/ssh/sshd_config</p>
+<figure data-type="image" tabindex="2"><a href="http://kzpu.com/wp-content/uploads/2019/07/2019071102.png"><img src="http://kzpu.com/wp-content/uploads/2019/07/2019071102.png" alt="img" loading="lazy"></a></figure>
+<p>三，修改配置</p>
+<p>PermitRootLogin yes</p>
+<p>上面这一句后面改为yes，表示允许root用户登录</p>
+<p>PasswordAuthentication yes</p>
+<p>这一句表示，允许用密码登录</p>
+<figure data-type="image" tabindex="3"><img src="https://naxax.com/wp-content/uploads/2020/07/2019071103.png" alt="img" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://naxax.com/wp-content/uploads/2020/07/2019071104.png" alt="img" loading="lazy"></figure>
+<p>然后保存即可</p>
+<p>如果没有以上内容请直接复制粘贴进去保存</p>
 
             </div>
             
@@ -607,7 +570,7 @@ deb-src http://mirrors.163.com/debian-security/ wheezy/updates main non-free con
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://amiao.wawj.cool/post/debian-xi-linuxgeng-huan-apt-get-guan-fang-yuan-wei-guo-nei-yuan/" title="debian系linux，更换apt-get官方源为国内源">https://amiao.wawj.cool/post/debian-xi-linuxgeng-huan-apt-get-guan-fang-yuan-wei-guo-nei-yuan/</a>
+      <a href="https://amiao.wawj.cool/post/debian-10-qie-huan-root-yong-hu-deng-lu/" title="DEBIAN 10切换ROOT用户登录">https://amiao.wawj.cool/post/debian-10-qie-huan-root-yong-hu-deng-lu/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -620,15 +583,11 @@ deb-src http://mirrors.163.com/debian-security/ wheezy/updates main non-free con
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="我家云刷机及使用教程" href="https://amiao.wawj.cool/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/">我家云刷机及使用教程</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="我家云刷机及使用教程" href="https://amiao.wawj.cool/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="linux用netstat查看服务及监听端口" href="https://amiao.wawj.cool/post/linux-yong-netstat-cha-kan-fu-wu-ji-jian-ting-duan-kou/">linux用netstat查看服务及监听端口</a>
-        <a class="nav-mobile-next" title="linux用netstat查看服务及监听端口" href="https://amiao.wawj.cool/post/linux-yong-netstat-cha-kan-fu-wu-ji-jian-ting-duan-kou/">下一篇</a>
+        <a class="nav-pc-next" title="debian常用指令" href="https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/">debian常用指令</a>
+        <a class="nav-mobile-next" title="debian常用指令" href="https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
