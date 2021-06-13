@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>Rclone 使用教程 - 常用命令参数 | Gridea</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1623101939041">
+<link rel="shortcut icon" href="/favicon.ico?v=1623624875214">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -206,7 +206,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">7</span>
+        <span class="site-item-stat-count">8</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1326,6 +1326,277 @@ rclone copy 配置名称:网盘路径 配置名称:网盘路径 --drive-server-s
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/"" data-c="
+          &lt;h1 id=&#34;debian常用指令&#34;&gt;debian常用指令&lt;/h1&gt;
+&lt;h2 id=&#34;查看软件xxx安装内容&#34;&gt;查看软件xxx安装内容&lt;/h2&gt;
+&lt;p&gt;dpkg -L xxx&lt;/p&gt;
+&lt;h2 id=&#34;查找软件&#34;&gt;查找软件&lt;/h2&gt;
+&lt;p&gt;apt-cache search 正则表达式&lt;/p&gt;
+&lt;h2 id=&#34;查找文件属于哪个包&#34;&gt;查找文件属于哪个包&lt;/h2&gt;
+&lt;p&gt;dpkg -S filename&lt;br&gt;
+apt-file search filename&lt;/p&gt;
+&lt;h2 id=&#34;查询软件xxx依赖哪些包&#34;&gt;查询软件xxx依赖哪些包&lt;/h2&gt;
+&lt;p&gt;apt-cache depends xxx&lt;/p&gt;
+&lt;h2 id=&#34;查询软件xxx被哪些包依赖&#34;&gt;查询软件xxx被哪些包依赖&lt;/h2&gt;
+&lt;p&gt;apt-cache rdepends xxx&lt;/p&gt;
+&lt;h2 id=&#34;增加一个光盘源&#34;&gt;增加一个光盘源&lt;/h2&gt;
+&lt;p&gt;apt-cdrom add&lt;/p&gt;
+&lt;h2 id=&#34;系统升级&#34;&gt;系统升级&lt;/h2&gt;
+&lt;p&gt;apt-get update&lt;br&gt;
+apt-get upgrade&lt;br&gt;
+apt-get dist-upgrade&lt;/p&gt;
+&lt;h2 id=&#34;清除所有删除包的残余配置文件&#34;&gt;清除所有删除包的残余配置文件&lt;/h2&gt;
+&lt;p&gt;dpkg -l |grep ^rc|awk &#39;&#39;{print $2}&#39;&#39; |tr [&amp;quot;\n&amp;quot;] [&amp;quot; &amp;quot;]|sudo xargs dpkg -P -&lt;/p&gt;
+&lt;h2 id=&#34;编译时缺少h文件的自动处理&#34;&gt;编译时缺少h文件的自动处理&lt;/h2&gt;
+&lt;p&gt;auto-apt run ./configure&lt;/p&gt;
+&lt;h2 id=&#34;查看安装软件时下载包的临时存放目录&#34;&gt;查看安装软件时下载包的临时存放目录&lt;/h2&gt;
+&lt;p&gt;ls /var/cache/apt/archives&lt;/p&gt;
+&lt;h2 id=&#34;备份当前系统安装的所有包的列表&#34;&gt;备份当前系统安装的所有包的列表&lt;/h2&gt;
+&lt;p&gt;dpkg --get-selections | grep -v deinstall &amp;gt; ~/somefile&lt;/p&gt;
+&lt;h2 id=&#34;从上面备份的安装包的列表文件恢复所有包&#34;&gt;从上面备份的安装包的列表文件恢复所有包&lt;/h2&gt;
+&lt;p&gt;dpkg --set-selections &amp;lt; ~/somefile&lt;br&gt;
+dselect&lt;/p&gt;
+&lt;h2 id=&#34;清理旧版本的软件缓存&#34;&gt;清理旧版本的软件缓存&lt;/h2&gt;
+&lt;p&gt;apt-get autoclean&lt;/p&gt;
+&lt;h2 id=&#34;清理所有软件缓存&#34;&gt;清理所有软件缓存&lt;/h2&gt;
+&lt;p&gt;apt-get clean&lt;/p&gt;
+&lt;h2 id=&#34;删除系统不再使用的孤立软件&#34;&gt;删除系统不再使用的孤立软件&lt;/h2&gt;
+&lt;p&gt;apt-get autoremove&lt;/p&gt;
+&lt;h2 id=&#34;查看包在服务器上面的地址&#34;&gt;查看包在服务器上面的地址&lt;/h2&gt;
+&lt;p&gt;apt-get -qq --print-uris install ssh | cut -d&#39;&#39; -f2&lt;/p&gt;
+&lt;h2 id=&#34;查看内核&#34;&gt;查看内核&lt;/h2&gt;
+&lt;p&gt;uname -a&lt;/p&gt;
+&lt;h2 id=&#34;查看ubuntu版本&#34;&gt;查看Ubuntu版本&lt;/h2&gt;
+&lt;p&gt;cat /etc/issue&lt;/p&gt;
+&lt;h2 id=&#34;查看内核加载的模块&#34;&gt;查看内核加载的模块&lt;/h2&gt;
+&lt;p&gt;lsmod&lt;/p&gt;
+&lt;h2 id=&#34;查看pci设备&#34;&gt;查看PCI设备&lt;/h2&gt;
+&lt;p&gt;lspci&lt;/p&gt;
+&lt;h2 id=&#34;查看usb设备&#34;&gt;查看USB设备&lt;/h2&gt;
+&lt;p&gt;lsusb&lt;/p&gt;
+&lt;h2 id=&#34;查看网卡状态&#34;&gt;查看网卡状态&lt;/h2&gt;
+&lt;p&gt;ethtool eth0&lt;/p&gt;
+&lt;h2 id=&#34;查看cpu信息&#34;&gt;查看CPU信息&lt;/h2&gt;
+&lt;p&gt;cat /proc/cpuinfo&lt;/p&gt;
+&lt;h2 id=&#34;显示当前硬件信息&#34;&gt;显示当前硬件信息&lt;/h2&gt;
+&lt;p&gt;lshw&lt;/p&gt;
+&lt;h2 id=&#34;查看硬盘的分区&#34;&gt;查看硬盘的分区&lt;/h2&gt;
+&lt;p&gt;fdisk -l&lt;/p&gt;
+&lt;h2 id=&#34;查看ide硬盘信息&#34;&gt;查看IDE硬盘信息&lt;/h2&gt;
+&lt;p&gt;hdparm -i /dev/hda&lt;/p&gt;
+&lt;h2 id=&#34;查看stat硬盘信息&#34;&gt;查看STAT硬盘信息&lt;/h2&gt;
+&lt;p&gt;hdparm -I /dev/sda&lt;br&gt;
+或&lt;br&gt;
+apt-get install blktool&lt;br&gt;
+blktool /dev/sda id&lt;/p&gt;
+&lt;h2 id=&#34;查看硬盘剩余空间&#34;&gt;查看硬盘剩余空间&lt;/h2&gt;
+&lt;p&gt;df -h&lt;br&gt;
+df -H&lt;/p&gt;
+&lt;h2 id=&#34;查看目录占用空间&#34;&gt;查看目录占用空间&lt;/h2&gt;
+&lt;p&gt;du -hs 目录名&lt;/p&gt;
+&lt;h2 id=&#34;优盘没法卸载&#34;&gt;优盘没法卸载&lt;/h2&gt;
+&lt;p&gt;sync&lt;br&gt;
+fuser -km /media/usbdisk&lt;/p&gt;
+&lt;h2 id=&#34;查看当前的内存使用情况&#34;&gt;查看当前的内存使用情况&lt;/h2&gt;
+&lt;p&gt;free -m&lt;/p&gt;
+&lt;h2 id=&#34;查看当前有哪些进程&#34;&gt;查看当前有哪些进程&lt;/h2&gt;
+&lt;p&gt;ps -aux&lt;/p&gt;
+&lt;h2 id=&#34;中止一个进程&#34;&gt;中止一个进程&lt;/h2&gt;
+&lt;p&gt;kill 进程号&lt;/p&gt;
+&lt;h3 id=&#34;或&#34;&gt;或&lt;/h3&gt;
+&lt;p&gt;killall 进程名&lt;/p&gt;
+&lt;h2 id=&#34;强制中止一个进程&#34;&gt;强制中止一个进程&lt;/h2&gt;
+&lt;p&gt;kill -9 进程号&lt;/p&gt;
+&lt;h3 id=&#34;或-2&#34;&gt;或&lt;/h3&gt;
+&lt;p&gt;killall -9 进程名&lt;/p&gt;
+&lt;h2 id=&#34;查看当前进程的实时状况&#34;&gt;查看当前进程的实时状况&lt;/h2&gt;
+&lt;p&gt;top&lt;/p&gt;
+&lt;h2 id=&#34;查看进程打开的文件&#34;&gt;查看进程打开的文件&lt;/h2&gt;
+&lt;p&gt;lsof -p&lt;/p&gt;
+&lt;h2 id=&#34;配置-adsl&#34;&gt;配置 ADSL&lt;/h2&gt;
+&lt;p&gt;pppoeconf&lt;/p&gt;
+&lt;h2 id=&#34;adsl手工拨号&#34;&gt;ADSL手工拨号&lt;/h2&gt;
+&lt;p&gt;pon dsl-provider&lt;/p&gt;
+&lt;h2 id=&#34;激活-adsl&#34;&gt;激活 ADSL&lt;/h2&gt;
+&lt;p&gt;/etc/ppp/pppoe_on_boot&lt;/p&gt;
+&lt;h2 id=&#34;断开-adsl&#34;&gt;断开 ADSL&lt;/h2&gt;
+&lt;p&gt;poff&lt;/p&gt;
+&lt;h2 id=&#34;查看拨号日志&#34;&gt;查看拨号日志&lt;/h2&gt;
+&lt;p&gt;plog&lt;/p&gt;
+&lt;h2 id=&#34;根据ip查网卡地址&#34;&gt;根据IP查网卡地址&lt;/h2&gt;
+&lt;p&gt;arping IP地址&lt;/p&gt;
+&lt;h2 id=&#34;查看当前ip地址&#34;&gt;查看当前IP地址&lt;/h2&gt;
+&lt;p&gt;ifconfig eth0&lt;/p&gt;
+&lt;h2 id=&#34;查看当前监听80端口的程序&#34;&gt;查看当前监听80端口的程序&lt;/h2&gt;
+&lt;p&gt;lsof -i :80&lt;/p&gt;
+&lt;h2 id=&#34;查看当前网卡的物理地址&#34;&gt;查看当前网卡的物理地址&lt;/h2&gt;
+&lt;p&gt;arp -a | awk &#39;&#39;{print $4}&#39;&#39;&lt;br&gt;
+ifconfig eth0 | head -1 | awk &#39;&#39;{print $5}&#39;&#39;&lt;/p&gt;
+&lt;h2 id=&#34;立即让网络支持nat&#34;&gt;立即让网络支持nat&lt;/h2&gt;
+&lt;p&gt;echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward&lt;br&gt;
+iptables -t nat -I POSTROUTING -j MASQUERADE&lt;/p&gt;
+&lt;h2 id=&#34;查看路由信息&#34;&gt;查看路由信息&lt;/h2&gt;
+&lt;p&gt;netstat -rn&lt;br&gt;
+route -n&lt;/p&gt;
+&lt;h2 id=&#34;手工增加删除一条路由&#34;&gt;手工增加删除一条路由&lt;/h2&gt;
+&lt;p&gt;route add -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1&lt;br&gt;
+route del -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1&lt;/p&gt;
+&lt;h2 id=&#34;修改网卡mac地址的方法&#34;&gt;修改网卡MAC地址的方法&lt;/h2&gt;
+&lt;p&gt;ifconfig eth0 down #关闭网卡&lt;br&gt;
+ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE #然后改地址&lt;br&gt;
+ifconfig eth0 up #然后启动网卡&lt;/p&gt;
+&lt;h2 id=&#34;统计当前ip连接的个数&#34;&gt;统计当前IP连接的个数&lt;/h2&gt;
+&lt;p&gt;netstat -na|grep ESTABLISHED|awk &#39;&#39;{print $5}&#39;&#39;|awk -F: &#39;&#39;{print $1}&#39;&#39;|sort|uniq -c|sort -r -n&lt;br&gt;
+netstat -na|grep SYN|awk &#39;&#39;{print $5}&#39;&#39;|awk -F: &#39;&#39;{print $1}&#39;&#39;|sort|uniq -c|sort -r -n&lt;/p&gt;
+&lt;h2 id=&#34;统计当前20000个ip包中大于100个ip包的ip地址&#34;&gt;统计当前20000个IP包中大于100个IP包的IP地址&lt;/h2&gt;
+&lt;p&gt;tcpdump -tnn -c 20000 -i eth0 | awk -F &amp;quot;.&amp;quot; &#39;&#39;{print $1&amp;quot;.&amp;quot;$2&amp;quot;.&amp;quot;$3&amp;quot;.&amp;quot;$4}&#39;&#39; | sort | uniq -c | sort -nr | awk &#39;&#39; $1 &amp;gt; 100 &#39;&#39;&lt;/p&gt;
+&lt;h2 id=&#34;屏蔽ipv6&#34;&gt;屏蔽IPV6&lt;/h2&gt;
+&lt;p&gt;echo &amp;quot;blacklist ipv6&amp;quot; | tee /etc/modprobe.d/blacklist-ipv6&lt;/p&gt;
+&lt;h2 id=&#34;添加一个服务&#34;&gt;添加一个服务&lt;/h2&gt;
+&lt;p&gt;update-rc.d 服务名 defaults 99&lt;/p&gt;
+&lt;h2 id=&#34;删除一个服务&#34;&gt;删除一个服务&lt;/h2&gt;
+&lt;p&gt;update-rc.d 服务名 remove&lt;/p&gt;
+&lt;h2 id=&#34;临时重启一个服务&#34;&gt;临时重启一个服务&lt;/h2&gt;
+&lt;p&gt;/etc/init.d/服务名 restart&lt;/p&gt;
+&lt;h2 id=&#34;临时关闭一个服务&#34;&gt;临时关闭一个服务&lt;/h2&gt;
+&lt;p&gt;/etc/init.d/服务名 stop&lt;/p&gt;
+&lt;h2 id=&#34;临时启动一个服务&#34;&gt;临时启动一个服务&lt;/h2&gt;
+&lt;p&gt;/etc/init.d/服务名 start&lt;/p&gt;
+&lt;h2 id=&#34;配置默认java使用哪个&#34;&gt;配置默认Java使用哪个&lt;/h2&gt;
+&lt;p&gt;update-alternatives --config java&lt;/p&gt;
+&lt;h2 id=&#34;修改用户资料&#34;&gt;修改用户资料&lt;/h2&gt;
+&lt;p&gt;chfn userid&lt;/p&gt;
+&lt;h2 id=&#34;给apt设置代理&#34;&gt;给apt设置代理&lt;/h2&gt;
+&lt;p&gt;export http_proxy=http://xx.xx.xx.xx:xxx&lt;/p&gt;
+&lt;h2 id=&#34;修改系统登录信息&#34;&gt;修改系统登录信息&lt;/h2&gt;
+&lt;p&gt;vi /etc/motd&lt;/p&gt;
+&lt;h2 id=&#34;转换文件名由gbk为utf8&#34;&gt;转换文件名由GBK为UTF8&lt;/h2&gt;
+&lt;p&gt;apt-get install convmv&lt;br&gt;
+convmv -r -f cp936 -t utf8 --notest --nosmart *&lt;/p&gt;
+&lt;h2 id=&#34;批量转换src目录下的所有文件内容由gbk到utf8&#34;&gt;批量转换src目录下的所有文件内容由GBK到UTF8&lt;/h2&gt;
+&lt;p&gt;find src -type d -exec mkdir -p utf8/{} ;&lt;br&gt;
+find src -type f -exec iconv -f GBK -t UTF-8 {} -o utf8/{} ;&lt;br&gt;
+mv utf8/* src&lt;br&gt;
+rm -fr utf8&lt;/p&gt;
+&lt;h2 id=&#34;转换文件内容由gbk到utf8&#34;&gt;转换文件内容由GBK到UTF8&lt;/h2&gt;
+&lt;p&gt;iconv -f gbk -t utf8 $i &amp;gt; newfile&lt;/p&gt;
+&lt;h2 id=&#34;转换-mp3-标签编码&#34;&gt;转换 mp3 标签编码&lt;/h2&gt;
+&lt;p&gt;apt-get install python-mutagen&lt;br&gt;
+find . -iname “*.mp3” -execdir mid3iconv -e GBK {} ;&lt;/p&gt;
+&lt;h2 id=&#34;控制台下显示中文&#34;&gt;控制台下显示中文&lt;/h2&gt;
+&lt;p&gt;apt-get install zhcon&lt;br&gt;
+使用时，输入zhcon即可&lt;/p&gt;
+&lt;h2 id=&#34;快速查找某个文件&#34;&gt;快速查找某个文件&lt;/h2&gt;
+&lt;p&gt;whereis filename&lt;br&gt;
+find 目录 -name 文件名&lt;/p&gt;
+&lt;h2 id=&#34;查看文件类型&#34;&gt;查看文件类型&lt;/h2&gt;
+&lt;p&gt;file filename&lt;/p&gt;
+&lt;h2 id=&#34;显示xxx文件倒数6行的内容&#34;&gt;显示xxx文件倒数6行的内容&lt;/h2&gt;
+&lt;p&gt;tail -n 6 xxx&lt;/p&gt;
+&lt;h2 id=&#34;让tail不停地读地最新的内容&#34;&gt;让tail不停地读地最新的内容&lt;/h2&gt;
+&lt;p&gt;tail -n 10 -f /var/log/apache2/access.log&lt;/p&gt;
+&lt;h2 id=&#34;查看文件中间的第五行-含-到第-10-行-含-的内容&#34;&gt;查看文件中间的第五行 ( 含 ) 到第 10 行 ( 含 ) 的内容&lt;/h2&gt;
+&lt;p&gt;sed -n &#39;&#39;5,10p&#39;&#39; /var/log/apache2/access.log&lt;/p&gt;
+&lt;h2 id=&#34;查找包含xxx字符串的文件&#34;&gt;查找包含xxx字符串的文件&lt;/h2&gt;
+&lt;p&gt;grep -l -r xxx .&lt;/p&gt;
+&lt;h2 id=&#34;查找关于xxx的命令&#34;&gt;查找关于xxx的命令&lt;/h2&gt;
+&lt;p&gt;apropos xxx&lt;br&gt;
+man -k xxx&lt;/p&gt;
+&lt;h2 id=&#34;通过ssh传输文件&#34;&gt;通过ssh传输文件&lt;/h2&gt;
+&lt;p&gt;scp -rp /path/filename username@remoteIP:/path #将本地文件拷贝到服务器上&lt;br&gt;
+scp -rp username@remoteIP:/path/filename /path #将远程文件从服务器下载到本地&lt;/p&gt;
+&lt;h2 id=&#34;查看某个文件被哪些应用程序读写&#34;&gt;查看某个文件被哪些应用程序读写&lt;/h2&gt;
+&lt;p&gt;lsof 文件名&lt;/p&gt;
+&lt;h2 id=&#34;把所有文件的后辍由rm改为rmvb&#34;&gt;把所有文件的后辍由rm改为rmvb&lt;/h2&gt;
+&lt;p&gt;rename &#39;&#39;s/.rm$/.rmvb/&#39;&#39; *&lt;/p&gt;
+&lt;h2 id=&#34;把所有文件名中的大写改为小写&#34;&gt;把所有文件名中的大写改为小写&lt;/h2&gt;
+&lt;p&gt;rename &#39;&#39;tr/A-Z/a-z/&#39;&#39; *&lt;/p&gt;
+&lt;h2 id=&#34;删除特殊文件名的文件如文件名-helptxt&#34;&gt;删除特殊文件名的文件，如文件名：--help.txt&lt;/h2&gt;
+&lt;p&gt;rm -- --help.txt 或者 rm ./--help.txt&lt;/p&gt;
+&lt;h2 id=&#34;查看当前目录的子目录&#34;&gt;查看当前目录的子目录&lt;/h2&gt;
+&lt;p&gt;ls -d */. 或 echo */.&lt;/p&gt;
+&lt;h2 id=&#34;将当前目录下最近30天访问过的文件移动到上级back目录&#34;&gt;将当前目录下最近30天访问过的文件移动到上级back目录&lt;/h2&gt;
+&lt;p&gt;find . -type f -atime -30 -exec mv {} ../back ;&lt;/p&gt;
+&lt;h2 id=&#34;将当前目录下最近2小时到8小时之内的文件显示出来&#34;&gt;将当前目录下最近2小时到8小时之内的文件显示出来&lt;/h2&gt;
+&lt;p&gt;find . -mmin +120 -mmin -480 -exec more {} ;&lt;/p&gt;
+&lt;h2 id=&#34;删除修改时间在30天之前的所有文件&#34;&gt;删除修改时间在30天之前的所有文件&lt;/h2&gt;
+&lt;p&gt;find . -type f -mtime +30 -mtime -3600 -exec rm {} ;&lt;/p&gt;
+&lt;h2 id=&#34;查找guest用户的以avi或者rm结尾的文件并删除掉&#34;&gt;查找guest用户的以avi或者rm结尾的文件并删除掉&lt;/h2&gt;
+&lt;p&gt;find . -name &#39;&#39;&lt;em&gt;.avi&#39;&#39; -o -name &#39;&#39;&lt;/em&gt;.rm&#39;&#39; -user &#39;&#39;guest&#39;&#39; -exec rm {} ;&lt;/p&gt;
+&lt;h2 id=&#34;查找的不以java和xml结尾并7天没有使用的文件删除掉&#34;&gt;查找的不以java和xml结尾,并7天没有使用的文件删除掉&lt;/h2&gt;
+&lt;p&gt;find . ! -name &lt;em&gt;.java ! -name ‘&lt;/em&gt;.xml’ -atime +7 -exec rm {} ;&lt;/p&gt;
+&lt;h2 id=&#34;统计当前文件个数&#34;&gt;统计当前文件个数&lt;/h2&gt;
+&lt;p&gt;ls /usr/bin|wc -w&lt;/p&gt;
+&lt;h2 id=&#34;统计当前目录个数&#34;&gt;统计当前目录个数&lt;/h2&gt;
+&lt;p&gt;ls -l /usr/bin|grep ^d|wc -l&lt;/p&gt;
+&lt;h2 id=&#34;显示当前目录下2006-01-01的文件名&#34;&gt;显示当前目录下2006-01-01的文件名&lt;/h2&gt;
+&lt;p&gt;ls -l |grep 2006-01-01 |awk &#39;&#39;{print $8}&#39;&#39;&lt;/p&gt;
+&lt;h2 id=&#34;解压缩-xxxtargz&#34;&gt;解压缩 xxx.tar.gz&lt;/h2&gt;
+&lt;p&gt;tar -zxvf xxx.tar.gz&lt;/p&gt;
+&lt;h2 id=&#34;解压缩-xxxtarbz2&#34;&gt;解压缩 xxx.tar.bz2&lt;/h2&gt;
+&lt;p&gt;tar -jxvf xxx.tar.bz2&lt;/p&gt;
+&lt;h2 id=&#34;压缩aaa-bbb目录为xxxtargz&#34;&gt;压缩aaa bbb目录为xxx.tar.gz&lt;/h2&gt;
+&lt;p&gt;tar -zcvf xxx.tar.gz aaa bbb&lt;/p&gt;
+&lt;h2 id=&#34;压缩aaa-bbb目录为xxxtarbz2&#34;&gt;压缩aaa bbb目录为xxx.tar.bz2&lt;/h2&gt;
+&lt;p&gt;tar -jcvf xxx.tar.bz2 aaa bbb&lt;/p&gt;
+&lt;h2 id=&#34;特殊-uri-地址&#34;&gt;特殊 URI 地址&lt;/h2&gt;
+&lt;p&gt;* computer:/// - 全部挂载的设备和网络&lt;br&gt;
+* network:/// - 浏览可用的网络&lt;br&gt;
+* burn:/// - 一个刻录 CDs/DVDs 的数据虚拟目录&lt;br&gt;
+* smb:/// - 可用的 windows/samba 网络资源&lt;br&gt;
+* x-nautilus-desktop:/// - 桌面项目和图标&lt;br&gt;
+* file:/// - 本地文件&lt;br&gt;
+* trash:/// - 本地回收站目录&lt;br&gt;
+* ftp:// - FTP 文件夹&lt;br&gt;
+* ssh:// - SSH 文件夹&lt;br&gt;
+* fonts:/// - 字体文件夹，可将字体文件拖到此处以完成安装 * themes:/// - 系统主题文件夹&lt;/p&gt;
+&lt;h2 id=&#34;详细显示程序的运行信息&#34;&gt;详细显示程序的运行信息&lt;/h2&gt;
+&lt;p&gt;strace -f -F -o outfile&lt;/p&gt;
+&lt;h2 id=&#34;设置日期&#34;&gt;设置日期&lt;/h2&gt;
+&lt;p&gt;date -s mm/dd/yy&lt;/p&gt;
+&lt;h2 id=&#34;设置时间&#34;&gt;设置时间&lt;/h2&gt;
+&lt;p&gt;date -s HH:MM&lt;/p&gt;
+&lt;h2 id=&#34;将时间写入cmos&#34;&gt;将时间写入CMOS&lt;/h2&gt;
+&lt;p&gt;hwclock --systohc&lt;/p&gt;
+&lt;h2 id=&#34;读取cmos时间&#34;&gt;读取CMOS时间&lt;/h2&gt;
+&lt;p&gt;hwclock --hctosys&lt;/p&gt;
+&lt;h2 id=&#34;从服务器上同步时间&#34;&gt;从服务器上同步时间&lt;/h2&gt;
+&lt;p&gt;ntpdate time.nist.gov&lt;br&gt;
+ntpdate time.windows.com&lt;/p&gt;
+&lt;h2 id=&#34;从mysql中导出和导入数据&#34;&gt;从mysql中导出和导入数据&lt;/h2&gt;
+&lt;p&gt;mysqldump 数据库名 &amp;gt; 文件名 #导出数据库mysqladmin create 数据库名 #建立数据库&lt;br&gt;
+mysql 数据库名 &amp;lt; 文件名 #导入数据库&lt;/p&gt;
+&lt;h2 id=&#34;忘了mysql的root口令怎么办&#34;&gt;忘了mysql的root口令怎么办&lt;/h2&gt;
+&lt;p&gt;/etc/init.d/mysql stop&lt;br&gt;
+mysqld_safe --skip-grant-tables &amp;amp;&lt;br&gt;
+mysqladmin -u user password &#39;&#39;newpassword&#39;&#39;&#39;&#39;&lt;br&gt;
+mysqladmin flush-privileges&lt;/p&gt;
+&lt;h2 id=&#34;修改mysql的root口令&#34;&gt;修改mysql的root口令&lt;/h2&gt;
+&lt;p&gt;mysqladmin -uroot -p password &#39;&#39;你的新密码&#39;&#39;&lt;/p&gt;
+&lt;h2 id=&#34;下载网站文档&#34;&gt;下载网站文档&lt;/h2&gt;
+&lt;p&gt;wget -r -p -np -k &lt;a href=&#34;http://www.21cn.com/&#34;&gt;http://www.21cn.com&lt;/a&gt;&lt;br&gt;
+· -r：在本机建立服务器端目录结构；&lt;br&gt;
+· -p: 下载显示HTML文件的所有图片；&lt;br&gt;
+· -np：只下载目标站点指定目录及其子目录的内容；&lt;br&gt;
+· -k: 转换非相对链接为相对链接。&lt;/p&gt;
+&lt;h2 id=&#34;如何删除totem电影播放机的播放历史记录&#34;&gt;如何删除Totem电影播放机的播放历史记录&lt;/h2&gt;
+&lt;p&gt;rm ~/.recently-used&lt;/p&gt;
+&lt;p&gt;安装了debian10和ubuntu18后，发现没有ifconfig，感觉很不习惯。&lt;/p&gt;
+&lt;h2 id=&#34;安装ifconfig&#34;&gt;安装ifconfig&lt;/h2&gt;
+&lt;p&gt;1.先更新国内的源，我一般都改成163.com的源，个人习惯，国内还有好多可用的源。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;sudo apt install net-tools&lt;br&gt;
+然后你就发现ifconfig就又可以用了。&lt;/p&gt;
+&lt;p&gt;如果你不想用ifconfig，可以试试ip addr ，效果一样。&lt;br&gt;
+————————————————&lt;br&gt;
+版权声明：本文为CSDN博主「Yaser-Z」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。&lt;br&gt;
+原文链接：https://blog.csdn.net/lovescorpio/article/details/103823703&lt;/p&gt;
+">debian常用指令</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://amiao.wawj.cool/post/an-zhuang-hassio/"" data-c="

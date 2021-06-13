@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机 | Gridea</title>
+<title>debian常用指令 | Gridea</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1623624875214">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,7 @@
 
 
 
-  <meta name="description" content="2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机" />
+  <meta name="description" content="debian常用指令" />
   <meta name="keywords" content="" />
 </head>
 
@@ -248,36 +248,120 @@
   <div class="toc-wrapper auto-number auto"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li>
+<li><a href="#debian%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4">debian常用指令</a>
 <ul>
-<li><a href="#2020%E9%BB%91%E7%BE%A4%E6%99%96%E6%9C%80%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC_%E5%AE%B6%E5%BA%ADnas%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97-%E5%A6%82%E4%BD%95%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%89%E8%A3%85%E4%B8%80%E5%8F%B0%E9%BB%91%E7%BE%A4%E6%99%96%E4%B8%BB%E6%9C%BA">2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机...</a></li>
-<li><a href="#%E6%87%92%E4%BA%BA%E7%9B%AE%E5%BD%95">懒人目录：</a>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BD%AF%E4%BB%B6xxx%E5%AE%89%E8%A3%85%E5%86%85%E5%AE%B9">查看软件xxx安装内容</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E8%BD%AF%E4%BB%B6">查找软件</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6%E5%B1%9E%E4%BA%8E%E5%93%AA%E4%B8%AA%E5%8C%85">查找文件属于哪个包</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E8%BD%AF%E4%BB%B6xxx%E4%BE%9D%E8%B5%96%E5%93%AA%E4%BA%9B%E5%8C%85">查询软件xxx依赖哪些包</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E8%BD%AF%E4%BB%B6xxx%E8%A2%AB%E5%93%AA%E4%BA%9B%E5%8C%85%E4%BE%9D%E8%B5%96">查询软件xxx被哪些包依赖</a></li>
+<li><a href="#%E5%A2%9E%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%85%89%E7%9B%98%E6%BA%90">增加一个光盘源</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E5%8D%87%E7%BA%A7">系统升级</a></li>
+<li><a href="#%E6%B8%85%E9%99%A4%E6%89%80%E6%9C%89%E5%88%A0%E9%99%A4%E5%8C%85%E7%9A%84%E6%AE%8B%E4%BD%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">清除所有删除包的残余配置文件</a></li>
+<li><a href="#%E7%BC%96%E8%AF%91%E6%97%B6%E7%BC%BA%E5%B0%91h%E6%96%87%E4%BB%B6%E7%9A%84%E8%87%AA%E5%8A%A8%E5%A4%84%E7%90%86">编译时缺少h文件的自动处理</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%97%B6%E4%B8%8B%E8%BD%BD%E5%8C%85%E7%9A%84%E4%B8%B4%E6%97%B6%E5%AD%98%E6%94%BE%E7%9B%AE%E5%BD%95">查看安装软件时下载包的临时存放目录</a></li>
+<li><a href="#%E5%A4%87%E4%BB%BD%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E7%9A%84%E6%89%80%E6%9C%89%E5%8C%85%E7%9A%84%E5%88%97%E8%A1%A8">备份当前系统安装的所有包的列表</a></li>
+<li><a href="#%E4%BB%8E%E4%B8%8A%E9%9D%A2%E5%A4%87%E4%BB%BD%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E7%9A%84%E5%88%97%E8%A1%A8%E6%96%87%E4%BB%B6%E6%81%A2%E5%A4%8D%E6%89%80%E6%9C%89%E5%8C%85">从上面备份的安装包的列表文件恢复所有包</a></li>
+<li><a href="#%E6%B8%85%E7%90%86%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E8%BD%AF%E4%BB%B6%E7%BC%93%E5%AD%98">清理旧版本的软件缓存</a></li>
+<li><a href="#%E6%B8%85%E7%90%86%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E7%BC%93%E5%AD%98">清理所有软件缓存</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E7%B3%BB%E7%BB%9F%E4%B8%8D%E5%86%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%A4%E7%AB%8B%E8%BD%AF%E4%BB%B6">删除系统不再使用的孤立软件</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%8C%85%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%9C%B0%E5%9D%80">查看包在服务器上面的地址</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E6%A0%B8">查看内核</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bubuntu%E7%89%88%E6%9C%AC">查看Ubuntu版本</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E6%A0%B8%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%A8%A1%E5%9D%97">查看内核加载的模块</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bpci%E8%AE%BE%E5%A4%87">查看PCI设备</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Busb%E8%AE%BE%E5%A4%87">查看USB设备</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E5%8D%A1%E7%8A%B6%E6%80%81">查看网卡状态</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bcpu%E4%BF%A1%E6%81%AF">查看CPU信息</a></li>
+<li><a href="#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF">显示当前硬件信息</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%A1%AC%E7%9B%98%E7%9A%84%E5%88%86%E5%8C%BA">查看硬盘的分区</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bide%E7%A1%AC%E7%9B%98%E4%BF%A1%E6%81%AF">查看IDE硬盘信息</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bstat%E7%A1%AC%E7%9B%98%E4%BF%A1%E6%81%AF">查看STAT硬盘信息</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%A1%AC%E7%9B%98%E5%89%A9%E4%BD%99%E7%A9%BA%E9%97%B4">查看硬盘剩余空间</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%9B%AE%E5%BD%95%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4">查看目录占用空间</a></li>
+<li><a href="#%E4%BC%98%E7%9B%98%E6%B2%A1%E6%B3%95%E5%8D%B8%E8%BD%BD">优盘没法卸载</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9A%84%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5">查看当前的内存使用情况</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%9C%89%E5%93%AA%E4%BA%9B%E8%BF%9B%E7%A8%8B">查看当前有哪些进程</a></li>
+<li><a href="#%E4%B8%AD%E6%AD%A2%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B">中止一个进程</a>
 <ul>
-<li><a href="#1-%E7%BE%A4%E8%BE%89%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D">1、群辉系统介绍</a></li>
-<li><a href="#2-%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6">2、安装工具和软件</a></li>
-<li><a href="#3-%E7%BE%A4%E6%99%96%E7%89%88%E6%9C%AC%E7%9A%84%E9%80%89%E6%8B%A9">3、群晖版本的选择</a></li>
-<li><a href="#4-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8u%E7%9B%98">4、制作启动U盘</a></li>
-<li><a href="#5-%E7%94%A8u%E7%9B%98%E5%BC%95%E5%AF%BC%E5%B9%B6%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F">5、用U盘引导并安装系统</a></li>
-<li><a href="#6-%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">6、使用注意事项</a></li>
-<li><a href="#7-%E7%BB%93%E5%B0%BE%E7%9A%84%E5%87%A0%E5%8F%A5%E5%94%A0%E5%8F%A8">7、结尾的几句唠叨</a></li>
+<li><a href="#%E6%88%96">或</a></li>
 </ul>
 </li>
-<li><a href="#%E4%B8%80-%E7%BE%A4%E6%99%96%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D">一、群晖系统介绍</a></li>
-<li><a href="#%E4%BA%8C-%E5%AE%89%E8%A3%85%E6%89%80%E9%9C%80%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6">二、安装所需的工具和软件</a></li>
-<li><a href="#%E4%B8%89-%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E7%9A%84%E9%80%89%E6%8B%A9">三、系统版本的选择</a>
+<li><a href="#%E5%BC%BA%E5%88%B6%E4%B8%AD%E6%AD%A2%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B">强制中止一个进程</a>
 <ul>
-<li><a href="#%E5%BC%95%E5%AF%BC%E7%89%88%E6%9C%AC-104b">引导版本: 1.04b</a></li>
-<li><a href="#%E5%BC%95%E5%AF%BC%E7%89%88%E6%9C%AC-102b">引导版本: 1.02b</a></li>
-<li><a href="#%E5%BC%95%E5%AF%BC%E7%89%88%E6%9C%AC-xpenoboot-for-dsm-52-59671-x64">引导版本: XPEnoboot for DSM 5.2-5967.1 x64</a></li>
+<li><a href="#%E6%88%96-2">或</a></li>
 </ul>
 </li>
-<li><a href="#%E5%9B%9B-%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B"><strong>四、安装过程</strong></a>
-<ul>
-<li><a href="#1-%E9%A6%96%E5%85%88%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8chipeasy%E8%8A%AF%E7%89%87%E6%97%A0%E5%BF%A7%E6%9F%A5%E6%89%BEu%E7%9B%98%E7%9A%84vid%E5%92%8Cpid">1、首先我们使用ChipEasy芯片无忧查找U盘的VID和PID</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BA%94-%E5%AE%89%E8%A3%85%E7%BE%A4%E6%99%96%E7%B3%BB%E7%BB%9F"><strong>五、安装群晖系统</strong></a></li>
-<li><a href="#%E5%85%AD-%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">六、使用注意事项</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%AE%9E%E6%97%B6%E7%8A%B6%E5%86%B5">查看当前进程的实时状况</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E6%89%93%E5%BC%80%E7%9A%84%E6%96%87%E4%BB%B6">查看进程打开的文件</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE-adsl">配置 ADSL</a></li>
+<li><a href="#adsl%E6%89%8B%E5%B7%A5%E6%8B%A8%E5%8F%B7">ADSL手工拨号</a></li>
+<li><a href="#%E6%BF%80%E6%B4%BB-adsl">激活 ADSL</a></li>
+<li><a href="#%E6%96%AD%E5%BC%80-adsl">断开 ADSL</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%8B%A8%E5%8F%B7%E6%97%A5%E5%BF%97">查看拨号日志</a></li>
+<li><a href="#%E6%A0%B9%E6%8D%AEip%E6%9F%A5%E7%BD%91%E5%8D%A1%E5%9C%B0%E5%9D%80">根据IP查网卡地址</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8Dip%E5%9C%B0%E5%9D%80">查看当前IP地址</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%91%E5%90%AC80%E7%AB%AF%E5%8F%A3%E7%9A%84%E7%A8%8B%E5%BA%8F">查看当前监听80端口的程序</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%BD%91%E5%8D%A1%E7%9A%84%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80">查看当前网卡的物理地址</a></li>
+<li><a href="#%E7%AB%8B%E5%8D%B3%E8%AE%A9%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81nat">立即让网络支持nat</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF">查看路由信息</a></li>
+<li><a href="#%E6%89%8B%E5%B7%A5%E5%A2%9E%E5%8A%A0%E5%88%A0%E9%99%A4%E4%B8%80%E6%9D%A1%E8%B7%AF%E7%94%B1">手工增加删除一条路由</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E7%BD%91%E5%8D%A1mac%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95">修改网卡MAC地址的方法</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8Dip%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%B8%AA%E6%95%B0">统计当前IP连接的个数</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D20000%E4%B8%AAip%E5%8C%85%E4%B8%AD%E5%A4%A7%E4%BA%8E100%E4%B8%AAip%E5%8C%85%E7%9A%84ip%E5%9C%B0%E5%9D%80">统计当前20000个IP包中大于100个IP包的IP地址</a></li>
+<li><a href="#%E5%B1%8F%E8%94%BDipv6">屏蔽IPV6</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">添加一个服务</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">删除一个服务</a></li>
+<li><a href="#%E4%B8%B4%E6%97%B6%E9%87%8D%E5%90%AF%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">临时重启一个服务</a></li>
+<li><a href="#%E4%B8%B4%E6%97%B6%E5%85%B3%E9%97%AD%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">临时关闭一个服务</a></li>
+<li><a href="#%E4%B8%B4%E6%97%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">临时启动一个服务</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4java%E4%BD%BF%E7%94%A8%E5%93%AA%E4%B8%AA">配置默认Java使用哪个</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E7%94%A8%E6%88%B7%E8%B5%84%E6%96%99">修改用户资料</a></li>
+<li><a href="#%E7%BB%99apt%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">给apt设置代理</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AF">修改系统登录信息</a></li>
+<li><a href="#%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E5%90%8D%E7%94%B1gbk%E4%B8%BAutf8">转换文件名由GBK为UTF8</a></li>
+<li><a href="#%E6%89%B9%E9%87%8F%E8%BD%AC%E6%8D%A2src%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E7%94%B1gbk%E5%88%B0utf8">批量转换src目录下的所有文件内容由GBK到UTF8</a></li>
+<li><a href="#%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E7%94%B1gbk%E5%88%B0utf8">转换文件内容由GBK到UTF8</a></li>
+<li><a href="#%E8%BD%AC%E6%8D%A2-mp3-%E6%A0%87%E7%AD%BE%E7%BC%96%E7%A0%81">转换 mp3 标签编码</a></li>
+<li><a href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8B%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87">控制台下显示中文</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E6%9F%A5%E6%89%BE%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6">快速查找某个文件</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B">查看文件类型</a></li>
+<li><a href="#%E6%98%BE%E7%A4%BAxxx%E6%96%87%E4%BB%B6%E5%80%92%E6%95%B06%E8%A1%8C%E7%9A%84%E5%86%85%E5%AE%B9">显示xxx文件倒数6行的内容</a></li>
+<li><a href="#%E8%AE%A9tail%E4%B8%8D%E5%81%9C%E5%9C%B0%E8%AF%BB%E5%9C%B0%E6%9C%80%E6%96%B0%E7%9A%84%E5%86%85%E5%AE%B9">让tail不停地读地最新的内容</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E4%B8%AD%E9%97%B4%E7%9A%84%E7%AC%AC%E4%BA%94%E8%A1%8C-%E5%90%AB-%E5%88%B0%E7%AC%AC-10-%E8%A1%8C-%E5%90%AB-%E7%9A%84%E5%86%85%E5%AE%B9">查看文件中间的第五行 ( 含 ) 到第 10 行 ( 含 ) 的内容</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E5%8C%85%E5%90%ABxxx%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%87%E4%BB%B6">查找包含xxx字符串的文件</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E5%85%B3%E4%BA%8Exxx%E7%9A%84%E5%91%BD%E4%BB%A4">查找关于xxx的命令</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87ssh%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6">通过ssh传输文件</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6%E8%A2%AB%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AF%BB%E5%86%99">查看某个文件被哪些应用程序读写</a></li>
+<li><a href="#%E6%8A%8A%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%8E%E8%BE%8D%E7%94%B1rm%E6%94%B9%E4%B8%BArmvb">把所有文件的后辍由rm改为rmvb</a></li>
+<li><a href="#%E6%8A%8A%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%AD%E7%9A%84%E5%A4%A7%E5%86%99%E6%94%B9%E4%B8%BA%E5%B0%8F%E5%86%99">把所有文件名中的大写改为小写</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E6%96%87%E4%BB%B6%E5%A6%82%E6%96%87%E4%BB%B6%E5%90%8D-helptxt">删除特殊文件名的文件，如文件名：--help.txt</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%9A%84%E5%AD%90%E7%9B%AE%E5%BD%95">查看当前目录的子目录</a></li>
+<li><a href="#%E5%B0%86%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%9C%80%E8%BF%9130%E5%A4%A9%E8%AE%BF%E9%97%AE%E8%BF%87%E7%9A%84%E6%96%87%E4%BB%B6%E7%A7%BB%E5%8A%A8%E5%88%B0%E4%B8%8A%E7%BA%A7back%E7%9B%AE%E5%BD%95">将当前目录下最近30天访问过的文件移动到上级back目录</a></li>
+<li><a href="#%E5%B0%86%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%9C%80%E8%BF%912%E5%B0%8F%E6%97%B6%E5%88%B08%E5%B0%8F%E6%97%B6%E4%B9%8B%E5%86%85%E7%9A%84%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA%E5%87%BA%E6%9D%A5">将当前目录下最近2小时到8小时之内的文件显示出来</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%E5%9C%A830%E5%A4%A9%E4%B9%8B%E5%89%8D%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6">删除修改时间在30天之前的所有文件</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BEguest%E7%94%A8%E6%88%B7%E7%9A%84%E4%BB%A5avi%E6%88%96%E8%80%85rm%E7%BB%93%E5%B0%BE%E7%9A%84%E6%96%87%E4%BB%B6%E5%B9%B6%E5%88%A0%E9%99%A4%E6%8E%89">查找guest用户的以avi或者rm结尾的文件并删除掉</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E7%9A%84%E4%B8%8D%E4%BB%A5java%E5%92%8Cxml%E7%BB%93%E5%B0%BE%E5%B9%B67%E5%A4%A9%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E6%8E%89">查找的不以java和xml结尾,并7天没有使用的文件删除掉</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E4%B8%AA%E6%95%B0">统计当前文件个数</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%AA%E6%95%B0">统计当前目录个数</a></li>
+<li><a href="#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B2006-01-01%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D">显示当前目录下2006-01-01的文件名</a></li>
+<li><a href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9-xxxtargz">解压缩 xxx.tar.gz</a></li>
+<li><a href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9-xxxtarbz2">解压缩 xxx.tar.bz2</a></li>
+<li><a href="#%E5%8E%8B%E7%BC%A9aaa-bbb%E7%9B%AE%E5%BD%95%E4%B8%BAxxxtargz">压缩aaa bbb目录为xxx.tar.gz</a></li>
+<li><a href="#%E5%8E%8B%E7%BC%A9aaa-bbb%E7%9B%AE%E5%BD%95%E4%B8%BAxxxtarbz2">压缩aaa bbb目录为xxx.tar.bz2</a></li>
+<li><a href="#%E7%89%B9%E6%AE%8A-uri-%E5%9C%B0%E5%9D%80">特殊 URI 地址</a></li>
+<li><a href="#%E8%AF%A6%E7%BB%86%E6%98%BE%E7%A4%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E4%BF%A1%E6%81%AF">详细显示程序的运行信息</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E6%97%A5%E6%9C%9F">设置日期</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E9%97%B4">设置时间</a></li>
+<li><a href="#%E5%B0%86%E6%97%B6%E9%97%B4%E5%86%99%E5%85%A5cmos">将时间写入CMOS</a></li>
+<li><a href="#%E8%AF%BB%E5%8F%96cmos%E6%97%B6%E9%97%B4">读取CMOS时间</a></li>
+<li><a href="#%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%90%8C%E6%AD%A5%E6%97%B6%E9%97%B4">从服务器上同步时间</a></li>
+<li><a href="#%E4%BB%8Emysql%E4%B8%AD%E5%AF%BC%E5%87%BA%E5%92%8C%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE">从mysql中导出和导入数据</a></li>
+<li><a href="#%E5%BF%98%E4%BA%86mysql%E7%9A%84root%E5%8F%A3%E4%BB%A4%E6%80%8E%E4%B9%88%E5%8A%9E">忘了mysql的root口令怎么办</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9mysql%E7%9A%84root%E5%8F%A3%E4%BB%A4">修改mysql的root口令</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%AB%99%E6%96%87%E6%A1%A3">下载网站文档</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4totem%E7%94%B5%E5%BD%B1%E6%92%AD%E6%94%BE%E6%9C%BA%E7%9A%84%E6%92%AD%E6%94%BE%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95">如何删除Totem电影播放机的播放历史记录</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85ifconfig">安装ifconfig</a></li>
 </ul>
 </li>
 </ul>
@@ -545,8 +629,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://amiao.wawj.cool/post/2020-hei-qun-hui-zui-wen-ding-ban-ben-_-jia-ting-nas-bu-shu-zhi-nan-ru-he-zi-ji-dong-shou-an-zhuang-yi-tai-hei-qun-hui-zhu-ji/">
-      2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机
+    <a class="post-title-link" href="https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/">
+      debian常用指令
     </a>
   </h1>
   <div class="post-meta">
@@ -554,123 +638,289 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-04-24 21:12:19">2021-04-24</span>
+      <span class="publish-time" data-t="2021-06-14 06:53:32">2021-06-14</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>9<span class="language" data-lan="minute">分钟</span></span>
+      <span>10<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>2279<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>2054<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <h2 id="2020黑群晖最稳定版本_家庭nas部署指南-如何自己动手安装一台黑群晖主机">2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机...</h2>
-<p><strong>大家好，上次写了一篇NAS总论。聊了聊NAS的一些常用功能和硬件的选择。作为新手小白来说，我们用手头的主机或者购入了一台类似蜗牛星际的廉价NAS主机之后。该如何装入NAS系统呢？这次我们就来动手组建自己第一个NAS系统。</strong></p>
-<h2 id="懒人目录">懒人目录：</h2>
-<h3 id="1-群辉系统介绍">1、群辉系统介绍</h3>
-<h3 id="2-安装工具和软件">2、安装工具和软件</h3>
-<h3 id="3-群晖版本的选择">3、群晖版本的选择</h3>
-<h3 id="4-制作启动u盘">4、制作启动U盘</h3>
-<h3 id="5-用u盘引导并安装系统">5、用U盘引导并安装系统</h3>
-<h3 id="6-使用注意事项">6、使用注意事项</h3>
-<h3 id="7-结尾的几句唠叨">7、结尾的几句唠叨</h3>
-<h2 id="一-群晖系统介绍">一、群晖系统介绍</h2>
-<p>上次文章提到过，NAS可以分为成品NAS和DIY NAS两种方案。如何可以根据自己的预算和喜欢折腾程度选择。无论你选择成品还是DIY方案，对于初入门的NAS用户来说。第一台NAS的系统我都建议你从群晖系统开始。</p>
-<p>群晖系统无论从友好度和便捷性来说都非常好。能让我们非常直观的体验到NAS的便捷性。手机、平板、电脑的跨平台共享方面的体验也做得非常好。（当然，隔壁的威联通似乎也不差。只是我入了群晖的坑而已）</p>
-<p>这一篇我们主要介绍下如何DIY一台群晖NAS主机（也就是黑群晖）。想用成品NAS的用户可以略过此此篇，直接去网购一台白群晖NAS主机添加硬盘即可。我下一篇开始会重点介绍群晖NAS的各项功能。</p>
-<h2 id="二-安装所需的工具和软件">二、安装所需的工具和软件</h2>
-<p>要搭建群晖系统，我们首先需要一台NAS主机。群晖系统的兼容性还是不错的，几乎所有主机的品牌、配置不限主机内存只要大于1G均可以安装。（群晖nas对硬件要求非常低）</p>
-<p>我们需要用一个U盘来安装系统引导文件，U盘大小不限（128MB以上就行）。最好是品牌U盘（兼容性更好）。如果手头没有U盘。读卡器+TF或SD卡也可。（我就是用读卡器+TF卡安装的）。当然群晖的引导文件也可以被装在硬盘上，有些用户就是用固态硬盘作为引导盘使用。</p>
-<p>一台可以正常工作的电脑，用来制作引导盘。</p>
-<p>所需软件：ChipEasy芯片无忧（查找U盘的VID和PID）</p>
-<p>DiskGenius （修改grub.cfg配置）</p>
-<p>Win32 Disk Imager（写入镜像）</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/04/23/zWTyp4kbN7rtPlJ.jpg" alt="5922c47035e94d3b10a1ed0e8e098026.png" loading="lazy"></figure>
-<h2 id="三-系统版本的选择">三、系统版本的选择</h2>
-<p>黑群辉DSM系统的引导文件，大致有DSM 5.2、1.02b、1.03b、1.04b，都是由国外大神制作。可以根据你的CPU和主板的型号来选择引导版本。</p>
-<h3 id="引导版本-104b">引导版本: 1.04b</h3>
-<p>黑群晖系统: DSM 6.2.0--6.2.2</p>
-<p>对应机型：DS918+</p>
-<p>引导方式: 传统BIOS和UEFI</p>
-<p>此为目前最新版本，对应机型是群晖目前主力机型DS918+。功能相对最强大，intel酷睿4代以上CPU推荐安装。老主机和AMD机型安装此引导程序有可能会无法引导。（我没在在旧机型上安装成功过，也有可能是个人技术问题）</p>
-<p>###引导版本: 1.03b</p>
-<p>黑群晖系统: DSM 6.2.0--6.2.2</p>
-<p>对应机型：DS3617+ DS3615+</p>
-<p>引导方式: 传统BIOS</p>
-<p>此版本我没有安装过，建议1.04b 安装不成功可以来试试这个。</p>
-<h3 id="引导版本-102b">引导版本: 1.02b</h3>
-<p>黑群晖系统: DSM 6.1.7-15284 Update3</p>
-<p>对应机型: DS3617+<br>
-引导方式: UEFI</p>
-<p>此版本的兼容性甚佳，只要支持UEFI主板基本都能成功引导。目前我的主力nas正在使用的版本，6.17系统基本上也能实现群晖上80%以上的功能。如果1.04b 安装不成功，推荐来试试这个版本。</p>
-<h3 id="引导版本-xpenoboot-for-dsm-52-59671-x64">引导版本: XPEnoboot for DSM 5.2-5967.1 x64</h3>
-<p>黑群晖系统: DSM 5.2-5967.1</p>
-<p>对应机型: DS3615+</p>
-<p>引导方式: 传统BIOS</p>
-<p>最初的群晖版本，相对功能最少（但还是具备了大部分基本功能）。因为是传统BIOS引导，所以支持那些不能用UEFI引导的老主板。另外对于一些低功耗低性能的ARM主机，这个版本也是不错的选择。</p>
-<p>引导文件一般是img格式，而另外一个Pat格式文件就是就是群晖系统文件。注意：两个文件的版本必须对应才能安装成功</p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/04/23/jClDz1p2e35qIbt.png" alt="9d581ab44a0f04f3da7a4394d9b65e51.png" loading="lazy"></figure>
-<h2 id="四-安装过程"><strong>四、安装过程</strong></h2>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2021/04/23/uSs68hQXpBzxNUH.jpg" alt="74e42d186fff0e2c055127180f08e5c2.png" loading="lazy"></figure>
-<h3 id="1-首先我们使用chipeasy芯片无忧查找u盘的vid和pid">1、首先我们使用ChipEasy芯片无忧查找U盘的VID和PID</h3>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2021/04/23/fDxhicHbNdYL9vM.jpg" alt="241c2199b84fe5044c60c0d00e80217c.png" loading="lazy"></figure>
-<p>然后DiskGenius编辑配置文件grub.cfg</p>
-<p>打开DiskGenius在顶部硬盘菜单中选择“打开虚拟硬盘文件”，然后选择打开下载的img文件打开。</p>
-<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2021/04/23/AeGRygM7chQOw39.jpg" alt="8a91095979c89df4fbed8d8fa871065d.png" loading="lazy"></figure>
-<p>在左边找到刚刚打开的img文件, 点击ESP-grub, 在右边找到grub.cfg, 选择复制到桌面.</p>
-<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2021/04/23/ZgPFqCi8tJQlWYk.jpg" alt="b4114aa1786f2d1f63b7a8a125a74e63.png" loading="lazy"></figure>
-<p>用文本编辑器打开刚刚复制到桌面的grub.cfg文件。找到vid和pid的值，将你刚刚在ChipEasy芯片无忧上找到的数值输到这里。（这里只用修改0X后的四位数字）</p>
-<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/img_convert/9dcee675c01d23c314fad90b89c203ae.png" alt="9dcee675c01d23c314fad90b89c203ae.png" loading="lazy"></figure>
-<p>再把编辑好的grub.cfg文件替换覆盖原文件。其实很多时候，不修改vid和pid的值也可以安装成功。如果你嫌麻烦略过这一步也可以。不过修改了以后有助于安装的顺利进行。</p>
-<figure data-type="image" tabindex="8"><img src="https://img-blog.csdnimg.cn/img_convert/6e6d0c2abfc6a545c1a87430d4a657a9.png" alt="6e6d0c2abfc6a545c1a87430d4a657a9.png" loading="lazy"></figure>
-<p>接下来就可以用Win32 Disk Imager磁盘映像工具，将镜像写入U盘。 写入之前请确定好引导U盘已经插入，并且确定盘符正确。</p>
-<figure data-type="image" tabindex="9"><img src="https://img-blog.csdnimg.cn/img_convert/88e66a62e2ece616d972681660a2e7e5.png" alt="88e66a62e2ece616d972681660a2e7e5.png" loading="lazy"></figure>
-<p>显示写入成功，就说明引导U盘已经制作成功了。</p>
-<h2 id="五-安装群晖系统"><strong>五、安装群晖系统</strong></h2>
-<p>在安装群晖系统之前，最好对NAS主机的BIOS进行设置。先插入U盘，然后按delete键进入BIOS设置页面。</p>
-<figure data-type="image" tabindex="10"><img src="https://img-blog.csdnimg.cn/img_convert/382f9bde253e7976f732a275cb320299.png" alt="382f9bde253e7976f732a275cb320299.png" loading="lazy"></figure>
-<p>将Fast boot（快速启动）选项关闭，并且将第一启动盘设置为你刚刚制作的引导盘</p>
-<figure data-type="image" tabindex="11"><img src="https://img-blog.csdnimg.cn/img_convert/bccee2f76c3667328f4ce581a39e8bf3.png" alt="bccee2f76c3667328f4ce581a39e8bf3.png" loading="lazy"></figure>
-<p>系统选择这里，我们选择安卓系统。然后保存重启。</p>
-<figure data-type="image" tabindex="12"><img src="https://img-blog.csdnimg.cn/img_convert/9343f885d0000e55a1b82a54058ab29b.png" alt="9343f885d0000e55a1b82a54058ab29b.png" loading="lazy"></figure>
-<p>顺利从引导盘启动的话，就会看到这个界面（一闪而过）。全新安装时我们不用理它，默认第一项即可。</p>
-<figure data-type="image" tabindex="13"><img src="https://img-blog.csdnimg.cn/img_convert/aa62275aca419895fa9110ed3d7c8ab6.png" alt="aa62275aca419895fa9110ed3d7c8ab6.png" loading="lazy"></figure>
-<p>显示到这里，就说明引导已经完成。接下来就可以转到网页远程操作了。在看到“Booting the kernel”等待1-2分钟。在浏览器中输入http://find.synology.com/ 搜索新系统即可跳转到群晖页面。</p>
-<p>或者去路由器界面中查找新获得设备的IP。找到了IP地址，就可以从另一台电脑的网页登陆。进行下一步安装。</p>
-<figure data-type="image" tabindex="14"><img src="https://img-blog.csdnimg.cn/img_convert/ab4e16cd30afd5cd6ee6a0687547d4f2.png" alt="ab4e16cd30afd5cd6ee6a0687547d4f2.png" loading="lazy"></figure>
-<p>安装时请大家注意，需要下载与之对应的群晖系统文件，否则安装会不成功。这里点击联机——然后设置</p>
-<figure data-type="image" tabindex="15"><img src="https://img-blog.csdnimg.cn/img_convert/02947d91100d6c85f0d5cb9710247937.png" alt="02947d91100d6c85f0d5cb9710247937.png" loading="lazy"></figure>
-<p>注意在这个页面选择手动安装。选择之前下载的.pat文件后点击立即安装。</p>
-<figure data-type="image" tabindex="16"><img src="https://img-blog.csdnimg.cn/img_convert/ef6fbb9f207aa1c8e121d97576084787.png" alt="ef6fbb9f207aa1c8e121d97576084787.png" loading="lazy"></figure>
-<p>硬盘数据会被清空，注意要备份原先硬盘中的资料。这里选择“确定”</p>
-<figure data-type="image" tabindex="17"><img src="https://img-blog.csdnimg.cn/img_convert/8dd5087ce59af36f667546489bef2934.png" alt="8dd5087ce59af36f667546489bef2934.png" loading="lazy"></figure>
-<p>接下来就耐心等待安装完成，通常需要10-20分钟时间。</p>
-<figure data-type="image" tabindex="18"><img src="https://img-blog.csdnimg.cn/img_convert/a7aaa1d978927895dd939c6585055ae4.png" alt="a7aaa1d978927895dd939c6585055ae4.png" loading="lazy"></figure>
-<p>安装成功后页面会自动跳转到账户设置界面，设置好服务器名，管理员账户和密码</p>
-<figure data-type="image" tabindex="19"><img src="https://img-blog.csdnimg.cn/img_convert/4e79f551b420fd75f4bba0a12784f14e.png" alt="4e79f551b420fd75f4bba0a12784f14e.png" loading="lazy"></figure>
-<p>这里选择跳过。黑群晖也是可以通过“洗白”注册ID实现内网穿透。但个人觉得没有必要。我们可以通过其他软件来实现类似的功能。更何况已经用了别人的系统，就不要再让他们负担服务器费用了。也有人反映这个QuickConnect功能在某些网络环境下也并不好用。</p>
-<figure data-type="image" tabindex="20"><img src="https://img-blog.csdnimg.cn/img_convert/4b808f0ed59b9d7fdd04c01059c0cfef.png" alt="4b808f0ed59b9d7fdd04c01059c0cfef.png" loading="lazy"></figure>
-<p>恭喜，安装顺利完成。接下来就可以愉快地使用NAS系统了。 在这之前，我们需要配置一下硬盘空间。</p>
-<p>以下步骤基本没有难度，只要花5分钟时间就可以配置完成。</p>
-<figure data-type="image" tabindex="21"><img src="https://img-blog.csdnimg.cn/img_convert/f68dbbc8a542e6d4c9520c6e1d36dd1b.png" alt="f68dbbc8a542e6d4c9520c6e1d36dd1b.png" loading="lazy"></figure>
-<p>点击左上角的主菜单——选择存储空间管理员</p>
-<figure data-type="image" tabindex="22"><img src="https://img-blog.csdnimg.cn/img_convert/2561ddaceb6c438642d9480be4daa932.png" alt="2561ddaceb6c438642d9480be4daa932.png" loading="lazy"></figure>
-<p>在存储空间中，选择新增</p>
-<figure data-type="image" tabindex="23"><img src="https://img-blog.csdnimg.cn/img_convert/1c45683964238994f391c9cd2345c469.png" alt="1c45683964238994f391c9cd2345c469.png" loading="lazy"></figure>
-<figure data-type="image" tabindex="24"><img src="https://img-blog.csdnimg.cn/img_convert/600252dea8618824ac5971656fddf4c7.png" alt="600252dea8618824ac5971656fddf4c7.png" loading="lazy"></figure>
-<p>选择“灵活性提高”</p>
-<figure data-type="image" tabindex="25"><img src="https://img-blog.csdnimg.cn/img_convert/28ebcd86850b99665872124d1f16bb6e.png" alt="28ebcd86850b99665872124d1f16bb6e.png" loading="lazy"></figure>
-<p>关于硬盘模式，有非常多的选择方式。我们今天就不在这里讲了，建议大家去了解下磁盘阵列知识。（SHR是群晖专用RAID模式相当于RAID 5。SHR2有两块校验盘，相当于RAID 6）。</p>
-<h2 id="六-使用注意事项">六、使用注意事项</h2>
-<p>注意黑群晖最好不要更新升级，否则有会造成引导不成功。去计划任何里面关闭DSM自动更新选项。除了不能升级和无法使用官方的内网穿透，黑群晖在使用上与白群晖没有区别。</p>
-<p>最后也要感谢下群晖公司对于黑群晖的宽容态度。正因为有群晖NAS，NAS系统才能更好的普及和走进大众的视野。当然现在也有很多黑群晖玩家现在已经转投白群晖，也算是对群晖公司的一些回报吧。</p>
+              <h1 id="debian常用指令">debian常用指令</h1>
+<h2 id="查看软件xxx安装内容">查看软件xxx安装内容</h2>
+<p>dpkg -L xxx</p>
+<h2 id="查找软件">查找软件</h2>
+<p>apt-cache search 正则表达式</p>
+<h2 id="查找文件属于哪个包">查找文件属于哪个包</h2>
+<p>dpkg -S filename<br>
+apt-file search filename</p>
+<h2 id="查询软件xxx依赖哪些包">查询软件xxx依赖哪些包</h2>
+<p>apt-cache depends xxx</p>
+<h2 id="查询软件xxx被哪些包依赖">查询软件xxx被哪些包依赖</h2>
+<p>apt-cache rdepends xxx</p>
+<h2 id="增加一个光盘源">增加一个光盘源</h2>
+<p>apt-cdrom add</p>
+<h2 id="系统升级">系统升级</h2>
+<p>apt-get update<br>
+apt-get upgrade<br>
+apt-get dist-upgrade</p>
+<h2 id="清除所有删除包的残余配置文件">清除所有删除包的残余配置文件</h2>
+<p>dpkg -l |grep ^rc|awk ''{print $2}'' |tr [&quot;\n&quot;] [&quot; &quot;]|sudo xargs dpkg -P -</p>
+<h2 id="编译时缺少h文件的自动处理">编译时缺少h文件的自动处理</h2>
+<p>auto-apt run ./configure</p>
+<h2 id="查看安装软件时下载包的临时存放目录">查看安装软件时下载包的临时存放目录</h2>
+<p>ls /var/cache/apt/archives</p>
+<h2 id="备份当前系统安装的所有包的列表">备份当前系统安装的所有包的列表</h2>
+<p>dpkg --get-selections | grep -v deinstall &gt; ~/somefile</p>
+<h2 id="从上面备份的安装包的列表文件恢复所有包">从上面备份的安装包的列表文件恢复所有包</h2>
+<p>dpkg --set-selections &lt; ~/somefile<br>
+dselect</p>
+<h2 id="清理旧版本的软件缓存">清理旧版本的软件缓存</h2>
+<p>apt-get autoclean</p>
+<h2 id="清理所有软件缓存">清理所有软件缓存</h2>
+<p>apt-get clean</p>
+<h2 id="删除系统不再使用的孤立软件">删除系统不再使用的孤立软件</h2>
+<p>apt-get autoremove</p>
+<h2 id="查看包在服务器上面的地址">查看包在服务器上面的地址</h2>
+<p>apt-get -qq --print-uris install ssh | cut -d'' -f2</p>
+<h2 id="查看内核">查看内核</h2>
+<p>uname -a</p>
+<h2 id="查看ubuntu版本">查看Ubuntu版本</h2>
+<p>cat /etc/issue</p>
+<h2 id="查看内核加载的模块">查看内核加载的模块</h2>
+<p>lsmod</p>
+<h2 id="查看pci设备">查看PCI设备</h2>
+<p>lspci</p>
+<h2 id="查看usb设备">查看USB设备</h2>
+<p>lsusb</p>
+<h2 id="查看网卡状态">查看网卡状态</h2>
+<p>ethtool eth0</p>
+<h2 id="查看cpu信息">查看CPU信息</h2>
+<p>cat /proc/cpuinfo</p>
+<h2 id="显示当前硬件信息">显示当前硬件信息</h2>
+<p>lshw</p>
+<h2 id="查看硬盘的分区">查看硬盘的分区</h2>
+<p>fdisk -l</p>
+<h2 id="查看ide硬盘信息">查看IDE硬盘信息</h2>
+<p>hdparm -i /dev/hda</p>
+<h2 id="查看stat硬盘信息">查看STAT硬盘信息</h2>
+<p>hdparm -I /dev/sda<br>
+或<br>
+apt-get install blktool<br>
+blktool /dev/sda id</p>
+<h2 id="查看硬盘剩余空间">查看硬盘剩余空间</h2>
+<p>df -h<br>
+df -H</p>
+<h2 id="查看目录占用空间">查看目录占用空间</h2>
+<p>du -hs 目录名</p>
+<h2 id="优盘没法卸载">优盘没法卸载</h2>
+<p>sync<br>
+fuser -km /media/usbdisk</p>
+<h2 id="查看当前的内存使用情况">查看当前的内存使用情况</h2>
+<p>free -m</p>
+<h2 id="查看当前有哪些进程">查看当前有哪些进程</h2>
+<p>ps -aux</p>
+<h2 id="中止一个进程">中止一个进程</h2>
+<p>kill 进程号</p>
+<h3 id="或">或</h3>
+<p>killall 进程名</p>
+<h2 id="强制中止一个进程">强制中止一个进程</h2>
+<p>kill -9 进程号</p>
+<h3 id="或-2">或</h3>
+<p>killall -9 进程名</p>
+<h2 id="查看当前进程的实时状况">查看当前进程的实时状况</h2>
+<p>top</p>
+<h2 id="查看进程打开的文件">查看进程打开的文件</h2>
+<p>lsof -p</p>
+<h2 id="配置-adsl">配置 ADSL</h2>
+<p>pppoeconf</p>
+<h2 id="adsl手工拨号">ADSL手工拨号</h2>
+<p>pon dsl-provider</p>
+<h2 id="激活-adsl">激活 ADSL</h2>
+<p>/etc/ppp/pppoe_on_boot</p>
+<h2 id="断开-adsl">断开 ADSL</h2>
+<p>poff</p>
+<h2 id="查看拨号日志">查看拨号日志</h2>
+<p>plog</p>
+<h2 id="根据ip查网卡地址">根据IP查网卡地址</h2>
+<p>arping IP地址</p>
+<h2 id="查看当前ip地址">查看当前IP地址</h2>
+<p>ifconfig eth0</p>
+<h2 id="查看当前监听80端口的程序">查看当前监听80端口的程序</h2>
+<p>lsof -i :80</p>
+<h2 id="查看当前网卡的物理地址">查看当前网卡的物理地址</h2>
+<p>arp -a | awk ''{print $4}''<br>
+ifconfig eth0 | head -1 | awk ''{print $5}''</p>
+<h2 id="立即让网络支持nat">立即让网络支持nat</h2>
+<p>echo 1 &gt; /proc/sys/net/ipv4/ip_forward<br>
+iptables -t nat -I POSTROUTING -j MASQUERADE</p>
+<h2 id="查看路由信息">查看路由信息</h2>
+<p>netstat -rn<br>
+route -n</p>
+<h2 id="手工增加删除一条路由">手工增加删除一条路由</h2>
+<p>route add -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1<br>
+route del -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1</p>
+<h2 id="修改网卡mac地址的方法">修改网卡MAC地址的方法</h2>
+<p>ifconfig eth0 down #关闭网卡<br>
+ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE #然后改地址<br>
+ifconfig eth0 up #然后启动网卡</p>
+<h2 id="统计当前ip连接的个数">统计当前IP连接的个数</h2>
+<p>netstat -na|grep ESTABLISHED|awk ''{print $5}''|awk -F: ''{print $1}''|sort|uniq -c|sort -r -n<br>
+netstat -na|grep SYN|awk ''{print $5}''|awk -F: ''{print $1}''|sort|uniq -c|sort -r -n</p>
+<h2 id="统计当前20000个ip包中大于100个ip包的ip地址">统计当前20000个IP包中大于100个IP包的IP地址</h2>
+<p>tcpdump -tnn -c 20000 -i eth0 | awk -F &quot;.&quot; ''{print $1&quot;.&quot;$2&quot;.&quot;$3&quot;.&quot;$4}'' | sort | uniq -c | sort -nr | awk '' $1 &gt; 100 ''</p>
+<h2 id="屏蔽ipv6">屏蔽IPV6</h2>
+<p>echo &quot;blacklist ipv6&quot; | tee /etc/modprobe.d/blacklist-ipv6</p>
+<h2 id="添加一个服务">添加一个服务</h2>
+<p>update-rc.d 服务名 defaults 99</p>
+<h2 id="删除一个服务">删除一个服务</h2>
+<p>update-rc.d 服务名 remove</p>
+<h2 id="临时重启一个服务">临时重启一个服务</h2>
+<p>/etc/init.d/服务名 restart</p>
+<h2 id="临时关闭一个服务">临时关闭一个服务</h2>
+<p>/etc/init.d/服务名 stop</p>
+<h2 id="临时启动一个服务">临时启动一个服务</h2>
+<p>/etc/init.d/服务名 start</p>
+<h2 id="配置默认java使用哪个">配置默认Java使用哪个</h2>
+<p>update-alternatives --config java</p>
+<h2 id="修改用户资料">修改用户资料</h2>
+<p>chfn userid</p>
+<h2 id="给apt设置代理">给apt设置代理</h2>
+<p>export http_proxy=http://xx.xx.xx.xx:xxx</p>
+<h2 id="修改系统登录信息">修改系统登录信息</h2>
+<p>vi /etc/motd</p>
+<h2 id="转换文件名由gbk为utf8">转换文件名由GBK为UTF8</h2>
+<p>apt-get install convmv<br>
+convmv -r -f cp936 -t utf8 --notest --nosmart *</p>
+<h2 id="批量转换src目录下的所有文件内容由gbk到utf8">批量转换src目录下的所有文件内容由GBK到UTF8</h2>
+<p>find src -type d -exec mkdir -p utf8/{} ;<br>
+find src -type f -exec iconv -f GBK -t UTF-8 {} -o utf8/{} ;<br>
+mv utf8/* src<br>
+rm -fr utf8</p>
+<h2 id="转换文件内容由gbk到utf8">转换文件内容由GBK到UTF8</h2>
+<p>iconv -f gbk -t utf8 $i &gt; newfile</p>
+<h2 id="转换-mp3-标签编码">转换 mp3 标签编码</h2>
+<p>apt-get install python-mutagen<br>
+find . -iname “*.mp3” -execdir mid3iconv -e GBK {} ;</p>
+<h2 id="控制台下显示中文">控制台下显示中文</h2>
+<p>apt-get install zhcon<br>
+使用时，输入zhcon即可</p>
+<h2 id="快速查找某个文件">快速查找某个文件</h2>
+<p>whereis filename<br>
+find 目录 -name 文件名</p>
+<h2 id="查看文件类型">查看文件类型</h2>
+<p>file filename</p>
+<h2 id="显示xxx文件倒数6行的内容">显示xxx文件倒数6行的内容</h2>
+<p>tail -n 6 xxx</p>
+<h2 id="让tail不停地读地最新的内容">让tail不停地读地最新的内容</h2>
+<p>tail -n 10 -f /var/log/apache2/access.log</p>
+<h2 id="查看文件中间的第五行-含-到第-10-行-含-的内容">查看文件中间的第五行 ( 含 ) 到第 10 行 ( 含 ) 的内容</h2>
+<p>sed -n ''5,10p'' /var/log/apache2/access.log</p>
+<h2 id="查找包含xxx字符串的文件">查找包含xxx字符串的文件</h2>
+<p>grep -l -r xxx .</p>
+<h2 id="查找关于xxx的命令">查找关于xxx的命令</h2>
+<p>apropos xxx<br>
+man -k xxx</p>
+<h2 id="通过ssh传输文件">通过ssh传输文件</h2>
+<p>scp -rp /path/filename username@remoteIP:/path #将本地文件拷贝到服务器上<br>
+scp -rp username@remoteIP:/path/filename /path #将远程文件从服务器下载到本地</p>
+<h2 id="查看某个文件被哪些应用程序读写">查看某个文件被哪些应用程序读写</h2>
+<p>lsof 文件名</p>
+<h2 id="把所有文件的后辍由rm改为rmvb">把所有文件的后辍由rm改为rmvb</h2>
+<p>rename ''s/.rm$/.rmvb/'' *</p>
+<h2 id="把所有文件名中的大写改为小写">把所有文件名中的大写改为小写</h2>
+<p>rename ''tr/A-Z/a-z/'' *</p>
+<h2 id="删除特殊文件名的文件如文件名-helptxt">删除特殊文件名的文件，如文件名：--help.txt</h2>
+<p>rm -- --help.txt 或者 rm ./--help.txt</p>
+<h2 id="查看当前目录的子目录">查看当前目录的子目录</h2>
+<p>ls -d */. 或 echo */.</p>
+<h2 id="将当前目录下最近30天访问过的文件移动到上级back目录">将当前目录下最近30天访问过的文件移动到上级back目录</h2>
+<p>find . -type f -atime -30 -exec mv {} ../back ;</p>
+<h2 id="将当前目录下最近2小时到8小时之内的文件显示出来">将当前目录下最近2小时到8小时之内的文件显示出来</h2>
+<p>find . -mmin +120 -mmin -480 -exec more {} ;</p>
+<h2 id="删除修改时间在30天之前的所有文件">删除修改时间在30天之前的所有文件</h2>
+<p>find . -type f -mtime +30 -mtime -3600 -exec rm {} ;</p>
+<h2 id="查找guest用户的以avi或者rm结尾的文件并删除掉">查找guest用户的以avi或者rm结尾的文件并删除掉</h2>
+<p>find . -name ''<em>.avi'' -o -name ''</em>.rm'' -user ''guest'' -exec rm {} ;</p>
+<h2 id="查找的不以java和xml结尾并7天没有使用的文件删除掉">查找的不以java和xml结尾,并7天没有使用的文件删除掉</h2>
+<p>find . ! -name <em>.java ! -name ‘</em>.xml’ -atime +7 -exec rm {} ;</p>
+<h2 id="统计当前文件个数">统计当前文件个数</h2>
+<p>ls /usr/bin|wc -w</p>
+<h2 id="统计当前目录个数">统计当前目录个数</h2>
+<p>ls -l /usr/bin|grep ^d|wc -l</p>
+<h2 id="显示当前目录下2006-01-01的文件名">显示当前目录下2006-01-01的文件名</h2>
+<p>ls -l |grep 2006-01-01 |awk ''{print $8}''</p>
+<h2 id="解压缩-xxxtargz">解压缩 xxx.tar.gz</h2>
+<p>tar -zxvf xxx.tar.gz</p>
+<h2 id="解压缩-xxxtarbz2">解压缩 xxx.tar.bz2</h2>
+<p>tar -jxvf xxx.tar.bz2</p>
+<h2 id="压缩aaa-bbb目录为xxxtargz">压缩aaa bbb目录为xxx.tar.gz</h2>
+<p>tar -zcvf xxx.tar.gz aaa bbb</p>
+<h2 id="压缩aaa-bbb目录为xxxtarbz2">压缩aaa bbb目录为xxx.tar.bz2</h2>
+<p>tar -jcvf xxx.tar.bz2 aaa bbb</p>
+<h2 id="特殊-uri-地址">特殊 URI 地址</h2>
+<p>* computer:/// - 全部挂载的设备和网络<br>
+* network:/// - 浏览可用的网络<br>
+* burn:/// - 一个刻录 CDs/DVDs 的数据虚拟目录<br>
+* smb:/// - 可用的 windows/samba 网络资源<br>
+* x-nautilus-desktop:/// - 桌面项目和图标<br>
+* file:/// - 本地文件<br>
+* trash:/// - 本地回收站目录<br>
+* ftp:// - FTP 文件夹<br>
+* ssh:// - SSH 文件夹<br>
+* fonts:/// - 字体文件夹，可将字体文件拖到此处以完成安装 * themes:/// - 系统主题文件夹</p>
+<h2 id="详细显示程序的运行信息">详细显示程序的运行信息</h2>
+<p>strace -f -F -o outfile</p>
+<h2 id="设置日期">设置日期</h2>
+<p>date -s mm/dd/yy</p>
+<h2 id="设置时间">设置时间</h2>
+<p>date -s HH:MM</p>
+<h2 id="将时间写入cmos">将时间写入CMOS</h2>
+<p>hwclock --systohc</p>
+<h2 id="读取cmos时间">读取CMOS时间</h2>
+<p>hwclock --hctosys</p>
+<h2 id="从服务器上同步时间">从服务器上同步时间</h2>
+<p>ntpdate time.nist.gov<br>
+ntpdate time.windows.com</p>
+<h2 id="从mysql中导出和导入数据">从mysql中导出和导入数据</h2>
+<p>mysqldump 数据库名 &gt; 文件名 #导出数据库mysqladmin create 数据库名 #建立数据库<br>
+mysql 数据库名 &lt; 文件名 #导入数据库</p>
+<h2 id="忘了mysql的root口令怎么办">忘了mysql的root口令怎么办</h2>
+<p>/etc/init.d/mysql stop<br>
+mysqld_safe --skip-grant-tables &amp;<br>
+mysqladmin -u user password ''newpassword''''<br>
+mysqladmin flush-privileges</p>
+<h2 id="修改mysql的root口令">修改mysql的root口令</h2>
+<p>mysqladmin -uroot -p password ''你的新密码''</p>
+<h2 id="下载网站文档">下载网站文档</h2>
+<p>wget -r -p -np -k <a href="http://www.21cn.com/">http://www.21cn.com</a><br>
+· -r：在本机建立服务器端目录结构；<br>
+· -p: 下载显示HTML文件的所有图片；<br>
+· -np：只下载目标站点指定目录及其子目录的内容；<br>
+· -k: 转换非相对链接为相对链接。</p>
+<h2 id="如何删除totem电影播放机的播放历史记录">如何删除Totem电影播放机的播放历史记录</h2>
+<p>rm ~/.recently-used</p>
+<p>安装了debian10和ubuntu18后，发现没有ifconfig，感觉很不习惯。</p>
+<h2 id="安装ifconfig">安装ifconfig</h2>
+<p>1.先更新国内的源，我一般都改成163.com的源，个人习惯，国内还有好多可用的源。</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>sudo apt install net-tools<br>
+然后你就发现ifconfig就又可以用了。</p>
+<p>如果你不想用ifconfig，可以试试ip addr ，效果一样。<br>
+————————————————<br>
+版权声明：本文为CSDN博主「Yaser-Z」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
+原文链接：https://blog.csdn.net/lovescorpio/article/details/103823703</p>
 
             </div>
             
@@ -683,7 +933,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://amiao.wawj.cool/post/2020-hei-qun-hui-zui-wen-ding-ban-ben-_-jia-ting-nas-bu-shu-zhi-nan-ru-he-zi-ji-dong-shou-an-zhuang-yi-tai-hei-qun-hui-zhu-ji/" title="2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机">https://amiao.wawj.cool/post/2020-hei-qun-hui-zui-wen-ding-ban-ben-_-jia-ting-nas-bu-shu-zhi-nan-ru-he-zi-ji-dong-shou-an-zhuang-yi-tai-hei-qun-hui-zhu-ji/</a>
+      <a href="https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/" title="debian常用指令">https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -696,15 +946,11 @@
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="3.5英寸硬盘功耗，到底多少瓦，附其它功耗参考" href="https://amiao.wawj.cool/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/">3.5英寸硬盘功耗，到底多少瓦，附其它功耗参考</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="3.5英寸硬盘功耗，到底多少瓦，附其它功耗参考" href="https://amiao.wawj.cool/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="我家云刷机及使用教程" href="https://amiao.wawj.cool/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/">我家云刷机及使用教程</a>
-        <a class="nav-mobile-next" title="我家云刷机及使用教程" href="https://amiao.wawj.cool/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/">下一篇</a>
+        <a class="nav-pc-next" title="安装HASSIO" href="https://amiao.wawj.cool/post/an-zhuang-hassio/">安装HASSIO</a>
+        <a class="nav-mobile-next" title="安装HASSIO" href="https://amiao.wawj.cool/post/an-zhuang-hassio/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
