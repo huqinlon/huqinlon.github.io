@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://amiao.wawj.cool</id>
     <title>Gridea</title>
-    <updated>2021-06-13T22:57:11.839Z</updated>
+    <updated>2021-06-15T15:51:52.737Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://amiao.wawj.cool"/>
     <link rel="self" href="https://amiao.wawj.cool/atom.xml"/>
@@ -10,6 +10,40 @@
     <logo>https://amiao.wawj.cool/images/avatar.png</logo>
     <icon>https://amiao.wawj.cool/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[homeassistant炫酷的天气雷达]]></title>
+        <id>https://amiao.wawj.cool/post/homeassistant-xuan-ku-de-tian-qi-lei-da/</id>
+        <link href="https://amiao.wawj.cool/post/homeassistant-xuan-ku-de-tian-qi-lei-da/">
+        </link>
+        <updated>2021-06-15T15:51:02.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>前言</strong></p>
+<p>之前看到别人的homeassistant的概览有一个非常帅气的天气雷达。百度一顿没有关于天气雷达的文章，都是和风天气的设置教程。但是和风天气的气象雷达api需要花钱，所以另辟蹊径，没想到在有油管上找到了，而且还是<strong>免费</strong>的！！！</p>
+<p><strong>展示</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/170200uyrql4tx80r0aq08.png" alt="img" loading="lazy"></figure>
+<p>可以分三十六个大类 部分大类里面可以分至少两个小类</p>
+<p><strong>搞起！！</strong></p>
+<p>我们要前进入</p>
+<p><a href="http://www.windy.com/">windy</a></p>
+<p>，然后点击左上角分享按钮</p>
+<figure data-type="image" tabindex="2"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/170858ueio48vaiepzo0io.png" alt="img" loading="lazy"></figure>
+<p>然后就会看到中间的分享链接在转圈不用管它，直接点下面的<strong>页面嵌入式挂件</strong></p>
+<figure data-type="image" tabindex="3"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/171201gas77i8p77syakqq.png" alt="img" loading="lazy"></figure>
+<p>然后就看到了这样的页面，左面紫色里面的内容可以自由设置</p>
+<figure data-type="image" tabindex="4"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/171343igyhphpl0x3gyps0.png" alt="img" loading="lazy"></figure>
+<p>在右面的地图上拖动到需要显示的城市或地区，当然地图大小也是可以调的。</p>
+<p>点击地图右上角的风，我们可以更改需要显示的天气有三十六种图层非常的全面</p>
+<figure data-type="image" tabindex="5"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/171639n9wahfywwu02wbk0.png" alt="img" loading="lazy"></figure>
+<p>自定义好以后，点击左下角<strong>复制到剪切板</strong></p>
+<figure data-type="image" tabindex="6"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/171942bil54egtgl5ix5gl.png" alt="img" loading="lazy"></figure>
+<p>我们新建一个记事本，将剪切板内容粘贴在记事本里。找到<strong>src</strong>将src后引号内的内容复制</p>
+<p>打开Homeassistant概览找到<strong>配置UI</strong>选择<strong>网页</strong>卡片将将网址粘贴到上面</p>
+<figure data-type="image" tabindex="7"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/172629u8g87oq8y689r9ng.png" alt="img" loading="lazy"></figure>
+<p>保存即可</p>
+<p><strong>结束</strong></p>
+<p>这个天气雷达真的是爱了，免费又好看还能看实时和预报</p>
+<p>希望有需要的兄弟能喜欢</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[DEBIAN 10切换ROOT用户登录]]></title>
         <id>https://amiao.wawj.cool/post/debian-10-qie-huan-root-yong-hu-deng-lu/</id>
