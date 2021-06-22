@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
-<title>debian常用指令 | Gridea</title>
+<title>Gridea</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1624372982997">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,6 @@
 
 
 
-  <meta name="description" content="debian常用指令" />
-  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -176,26 +174,10 @@
   <div class="main-continer">
     
     <div
-      class="section-layout mist bg-color">
+      class="section-layout bg-color mist">
       <div class="section-layout-wrapper">
-        
-
-<div class="sidebar">
-  
-    <div class="sidebar-box box-shadow-wrapper  right-motion" id="sidebar">
-      
-        <div class="post-list-sidebar">
-          <div class="sidebar-title">
-            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
-            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
-          </div>
-        </div>
-      
-      <div class="sidebar-body mist" id="sidebar_body">
-        
-          
-            <div class="post-side-meta" id="post_side_meta">
-              
+        <div id="sidebarMeta" class="sidebar">
+    
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -242,729 +224,82 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li><a href="#debian%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4">debian常用指令</a>
-<ul>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BD%AF%E4%BB%B6xxx%E5%AE%89%E8%A3%85%E5%86%85%E5%AE%B9">查看软件xxx安装内容</a></li>
-<li><a href="#%E6%9F%A5%E6%89%BE%E8%BD%AF%E4%BB%B6">查找软件</a></li>
-<li><a href="#%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6%E5%B1%9E%E4%BA%8E%E5%93%AA%E4%B8%AA%E5%8C%85">查找文件属于哪个包</a></li>
-<li><a href="#%E6%9F%A5%E8%AF%A2%E8%BD%AF%E4%BB%B6xxx%E4%BE%9D%E8%B5%96%E5%93%AA%E4%BA%9B%E5%8C%85">查询软件xxx依赖哪些包</a></li>
-<li><a href="#%E6%9F%A5%E8%AF%A2%E8%BD%AF%E4%BB%B6xxx%E8%A2%AB%E5%93%AA%E4%BA%9B%E5%8C%85%E4%BE%9D%E8%B5%96">查询软件xxx被哪些包依赖</a></li>
-<li><a href="#%E5%A2%9E%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%85%89%E7%9B%98%E6%BA%90">增加一个光盘源</a></li>
-<li><a href="#%E7%B3%BB%E7%BB%9F%E5%8D%87%E7%BA%A7">系统升级</a></li>
-<li><a href="#%E6%B8%85%E9%99%A4%E6%89%80%E6%9C%89%E5%88%A0%E9%99%A4%E5%8C%85%E7%9A%84%E6%AE%8B%E4%BD%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">清除所有删除包的残余配置文件</a></li>
-<li><a href="#%E7%BC%96%E8%AF%91%E6%97%B6%E7%BC%BA%E5%B0%91h%E6%96%87%E4%BB%B6%E7%9A%84%E8%87%AA%E5%8A%A8%E5%A4%84%E7%90%86">编译时缺少h文件的自动处理</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%97%B6%E4%B8%8B%E8%BD%BD%E5%8C%85%E7%9A%84%E4%B8%B4%E6%97%B6%E5%AD%98%E6%94%BE%E7%9B%AE%E5%BD%95">查看安装软件时下载包的临时存放目录</a></li>
-<li><a href="#%E5%A4%87%E4%BB%BD%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E7%9A%84%E6%89%80%E6%9C%89%E5%8C%85%E7%9A%84%E5%88%97%E8%A1%A8">备份当前系统安装的所有包的列表</a></li>
-<li><a href="#%E4%BB%8E%E4%B8%8A%E9%9D%A2%E5%A4%87%E4%BB%BD%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E7%9A%84%E5%88%97%E8%A1%A8%E6%96%87%E4%BB%B6%E6%81%A2%E5%A4%8D%E6%89%80%E6%9C%89%E5%8C%85">从上面备份的安装包的列表文件恢复所有包</a></li>
-<li><a href="#%E6%B8%85%E7%90%86%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E8%BD%AF%E4%BB%B6%E7%BC%93%E5%AD%98">清理旧版本的软件缓存</a></li>
-<li><a href="#%E6%B8%85%E7%90%86%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E7%BC%93%E5%AD%98">清理所有软件缓存</a></li>
-<li><a href="#%E5%88%A0%E9%99%A4%E7%B3%BB%E7%BB%9F%E4%B8%8D%E5%86%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%A4%E7%AB%8B%E8%BD%AF%E4%BB%B6">删除系统不再使用的孤立软件</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%8C%85%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%9C%B0%E5%9D%80">查看包在服务器上面的地址</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E6%A0%B8">查看内核</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8Bubuntu%E7%89%88%E6%9C%AC">查看Ubuntu版本</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E6%A0%B8%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%A8%A1%E5%9D%97">查看内核加载的模块</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8Bpci%E8%AE%BE%E5%A4%87">查看PCI设备</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8Busb%E8%AE%BE%E5%A4%87">查看USB设备</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E5%8D%A1%E7%8A%B6%E6%80%81">查看网卡状态</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8Bcpu%E4%BF%A1%E6%81%AF">查看CPU信息</a></li>
-<li><a href="#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF">显示当前硬件信息</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E7%A1%AC%E7%9B%98%E7%9A%84%E5%88%86%E5%8C%BA">查看硬盘的分区</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8Bide%E7%A1%AC%E7%9B%98%E4%BF%A1%E6%81%AF">查看IDE硬盘信息</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8Bstat%E7%A1%AC%E7%9B%98%E4%BF%A1%E6%81%AF">查看STAT硬盘信息</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E7%A1%AC%E7%9B%98%E5%89%A9%E4%BD%99%E7%A9%BA%E9%97%B4">查看硬盘剩余空间</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E7%9B%AE%E5%BD%95%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4">查看目录占用空间</a></li>
-<li><a href="#%E4%BC%98%E7%9B%98%E6%B2%A1%E6%B3%95%E5%8D%B8%E8%BD%BD">优盘没法卸载</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9A%84%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5">查看当前的内存使用情况</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%9C%89%E5%93%AA%E4%BA%9B%E8%BF%9B%E7%A8%8B">查看当前有哪些进程</a></li>
-<li><a href="#%E4%B8%AD%E6%AD%A2%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B">中止一个进程</a>
-<ul>
-<li><a href="#%E6%88%96">或</a></li>
-</ul>
-</li>
-<li><a href="#%E5%BC%BA%E5%88%B6%E4%B8%AD%E6%AD%A2%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B">强制中止一个进程</a>
-<ul>
-<li><a href="#%E6%88%96-2">或</a></li>
-</ul>
-</li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%AE%9E%E6%97%B6%E7%8A%B6%E5%86%B5">查看当前进程的实时状况</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E6%89%93%E5%BC%80%E7%9A%84%E6%96%87%E4%BB%B6">查看进程打开的文件</a></li>
-<li><a href="#%E9%85%8D%E7%BD%AE-adsl">配置 ADSL</a></li>
-<li><a href="#adsl%E6%89%8B%E5%B7%A5%E6%8B%A8%E5%8F%B7">ADSL手工拨号</a></li>
-<li><a href="#%E6%BF%80%E6%B4%BB-adsl">激活 ADSL</a></li>
-<li><a href="#%E6%96%AD%E5%BC%80-adsl">断开 ADSL</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E6%8B%A8%E5%8F%B7%E6%97%A5%E5%BF%97">查看拨号日志</a></li>
-<li><a href="#%E6%A0%B9%E6%8D%AEip%E6%9F%A5%E7%BD%91%E5%8D%A1%E5%9C%B0%E5%9D%80">根据IP查网卡地址</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8Dip%E5%9C%B0%E5%9D%80">查看当前IP地址</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%91%E5%90%AC80%E7%AB%AF%E5%8F%A3%E7%9A%84%E7%A8%8B%E5%BA%8F">查看当前监听80端口的程序</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%BD%91%E5%8D%A1%E7%9A%84%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80">查看当前网卡的物理地址</a></li>
-<li><a href="#%E7%AB%8B%E5%8D%B3%E8%AE%A9%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81nat">立即让网络支持nat</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF">查看路由信息</a></li>
-<li><a href="#%E6%89%8B%E5%B7%A5%E5%A2%9E%E5%8A%A0%E5%88%A0%E9%99%A4%E4%B8%80%E6%9D%A1%E8%B7%AF%E7%94%B1">手工增加删除一条路由</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E7%BD%91%E5%8D%A1mac%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95">修改网卡MAC地址的方法</a></li>
-<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8Dip%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%B8%AA%E6%95%B0">统计当前IP连接的个数</a></li>
-<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D20000%E4%B8%AAip%E5%8C%85%E4%B8%AD%E5%A4%A7%E4%BA%8E100%E4%B8%AAip%E5%8C%85%E7%9A%84ip%E5%9C%B0%E5%9D%80">统计当前20000个IP包中大于100个IP包的IP地址</a></li>
-<li><a href="#%E5%B1%8F%E8%94%BDipv6">屏蔽IPV6</a></li>
-<li><a href="#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">添加一个服务</a></li>
-<li><a href="#%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">删除一个服务</a></li>
-<li><a href="#%E4%B8%B4%E6%97%B6%E9%87%8D%E5%90%AF%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">临时重启一个服务</a></li>
-<li><a href="#%E4%B8%B4%E6%97%B6%E5%85%B3%E9%97%AD%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">临时关闭一个服务</a></li>
-<li><a href="#%E4%B8%B4%E6%97%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">临时启动一个服务</a></li>
-<li><a href="#%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4java%E4%BD%BF%E7%94%A8%E5%93%AA%E4%B8%AA">配置默认Java使用哪个</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E7%94%A8%E6%88%B7%E8%B5%84%E6%96%99">修改用户资料</a></li>
-<li><a href="#%E7%BB%99apt%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">给apt设置代理</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AF">修改系统登录信息</a></li>
-<li><a href="#%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E5%90%8D%E7%94%B1gbk%E4%B8%BAutf8">转换文件名由GBK为UTF8</a></li>
-<li><a href="#%E6%89%B9%E9%87%8F%E8%BD%AC%E6%8D%A2src%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E7%94%B1gbk%E5%88%B0utf8">批量转换src目录下的所有文件内容由GBK到UTF8</a></li>
-<li><a href="#%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E7%94%B1gbk%E5%88%B0utf8">转换文件内容由GBK到UTF8</a></li>
-<li><a href="#%E8%BD%AC%E6%8D%A2-mp3-%E6%A0%87%E7%AD%BE%E7%BC%96%E7%A0%81">转换 mp3 标签编码</a></li>
-<li><a href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8B%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87">控制台下显示中文</a></li>
-<li><a href="#%E5%BF%AB%E9%80%9F%E6%9F%A5%E6%89%BE%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6">快速查找某个文件</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B">查看文件类型</a></li>
-<li><a href="#%E6%98%BE%E7%A4%BAxxx%E6%96%87%E4%BB%B6%E5%80%92%E6%95%B06%E8%A1%8C%E7%9A%84%E5%86%85%E5%AE%B9">显示xxx文件倒数6行的内容</a></li>
-<li><a href="#%E8%AE%A9tail%E4%B8%8D%E5%81%9C%E5%9C%B0%E8%AF%BB%E5%9C%B0%E6%9C%80%E6%96%B0%E7%9A%84%E5%86%85%E5%AE%B9">让tail不停地读地最新的内容</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E4%B8%AD%E9%97%B4%E7%9A%84%E7%AC%AC%E4%BA%94%E8%A1%8C-%E5%90%AB-%E5%88%B0%E7%AC%AC-10-%E8%A1%8C-%E5%90%AB-%E7%9A%84%E5%86%85%E5%AE%B9">查看文件中间的第五行 ( 含 ) 到第 10 行 ( 含 ) 的内容</a></li>
-<li><a href="#%E6%9F%A5%E6%89%BE%E5%8C%85%E5%90%ABxxx%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%87%E4%BB%B6">查找包含xxx字符串的文件</a></li>
-<li><a href="#%E6%9F%A5%E6%89%BE%E5%85%B3%E4%BA%8Exxx%E7%9A%84%E5%91%BD%E4%BB%A4">查找关于xxx的命令</a></li>
-<li><a href="#%E9%80%9A%E8%BF%87ssh%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6">通过ssh传输文件</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6%E8%A2%AB%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AF%BB%E5%86%99">查看某个文件被哪些应用程序读写</a></li>
-<li><a href="#%E6%8A%8A%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%8E%E8%BE%8D%E7%94%B1rm%E6%94%B9%E4%B8%BArmvb">把所有文件的后辍由rm改为rmvb</a></li>
-<li><a href="#%E6%8A%8A%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%AD%E7%9A%84%E5%A4%A7%E5%86%99%E6%94%B9%E4%B8%BA%E5%B0%8F%E5%86%99">把所有文件名中的大写改为小写</a></li>
-<li><a href="#%E5%88%A0%E9%99%A4%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E6%96%87%E4%BB%B6%E5%A6%82%E6%96%87%E4%BB%B6%E5%90%8D-helptxt">删除特殊文件名的文件，如文件名：--help.txt</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%9A%84%E5%AD%90%E7%9B%AE%E5%BD%95">查看当前目录的子目录</a></li>
-<li><a href="#%E5%B0%86%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%9C%80%E8%BF%9130%E5%A4%A9%E8%AE%BF%E9%97%AE%E8%BF%87%E7%9A%84%E6%96%87%E4%BB%B6%E7%A7%BB%E5%8A%A8%E5%88%B0%E4%B8%8A%E7%BA%A7back%E7%9B%AE%E5%BD%95">将当前目录下最近30天访问过的文件移动到上级back目录</a></li>
-<li><a href="#%E5%B0%86%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%9C%80%E8%BF%912%E5%B0%8F%E6%97%B6%E5%88%B08%E5%B0%8F%E6%97%B6%E4%B9%8B%E5%86%85%E7%9A%84%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA%E5%87%BA%E6%9D%A5">将当前目录下最近2小时到8小时之内的文件显示出来</a></li>
-<li><a href="#%E5%88%A0%E9%99%A4%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%E5%9C%A830%E5%A4%A9%E4%B9%8B%E5%89%8D%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6">删除修改时间在30天之前的所有文件</a></li>
-<li><a href="#%E6%9F%A5%E6%89%BEguest%E7%94%A8%E6%88%B7%E7%9A%84%E4%BB%A5avi%E6%88%96%E8%80%85rm%E7%BB%93%E5%B0%BE%E7%9A%84%E6%96%87%E4%BB%B6%E5%B9%B6%E5%88%A0%E9%99%A4%E6%8E%89">查找guest用户的以avi或者rm结尾的文件并删除掉</a></li>
-<li><a href="#%E6%9F%A5%E6%89%BE%E7%9A%84%E4%B8%8D%E4%BB%A5java%E5%92%8Cxml%E7%BB%93%E5%B0%BE%E5%B9%B67%E5%A4%A9%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E6%8E%89">查找的不以java和xml结尾,并7天没有使用的文件删除掉</a></li>
-<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E4%B8%AA%E6%95%B0">统计当前文件个数</a></li>
-<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%AA%E6%95%B0">统计当前目录个数</a></li>
-<li><a href="#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B2006-01-01%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D">显示当前目录下2006-01-01的文件名</a></li>
-<li><a href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9-xxxtargz">解压缩 xxx.tar.gz</a></li>
-<li><a href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9-xxxtarbz2">解压缩 xxx.tar.bz2</a></li>
-<li><a href="#%E5%8E%8B%E7%BC%A9aaa-bbb%E7%9B%AE%E5%BD%95%E4%B8%BAxxxtargz">压缩aaa bbb目录为xxx.tar.gz</a></li>
-<li><a href="#%E5%8E%8B%E7%BC%A9aaa-bbb%E7%9B%AE%E5%BD%95%E4%B8%BAxxxtarbz2">压缩aaa bbb目录为xxx.tar.bz2</a></li>
-<li><a href="#%E7%89%B9%E6%AE%8A-uri-%E5%9C%B0%E5%9D%80">特殊 URI 地址</a></li>
-<li><a href="#%E8%AF%A6%E7%BB%86%E6%98%BE%E7%A4%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E4%BF%A1%E6%81%AF">详细显示程序的运行信息</a></li>
-<li><a href="#%E8%AE%BE%E7%BD%AE%E6%97%A5%E6%9C%9F">设置日期</a></li>
-<li><a href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E9%97%B4">设置时间</a></li>
-<li><a href="#%E5%B0%86%E6%97%B6%E9%97%B4%E5%86%99%E5%85%A5cmos">将时间写入CMOS</a></li>
-<li><a href="#%E8%AF%BB%E5%8F%96cmos%E6%97%B6%E9%97%B4">读取CMOS时间</a></li>
-<li><a href="#%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%90%8C%E6%AD%A5%E6%97%B6%E9%97%B4">从服务器上同步时间</a></li>
-<li><a href="#%E4%BB%8Emysql%E4%B8%AD%E5%AF%BC%E5%87%BA%E5%92%8C%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE">从mysql中导出和导入数据</a></li>
-<li><a href="#%E5%BF%98%E4%BA%86mysql%E7%9A%84root%E5%8F%A3%E4%BB%A4%E6%80%8E%E4%B9%88%E5%8A%9E">忘了mysql的root口令怎么办</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9mysql%E7%9A%84root%E5%8F%A3%E4%BB%A4">修改mysql的root口令</a></li>
-<li><a href="#%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%AB%99%E6%96%87%E6%A1%A3">下载网站文档</a></li>
-<li><a href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4totem%E7%94%B5%E5%BD%B1%E6%92%AD%E6%94%BE%E6%9C%BA%E7%9A%84%E6%92%AD%E6%94%BE%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95">如何删除Totem电影播放机的播放历史记录</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85ifconfig">安装ifconfig</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
 </div>
-
 <script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'mist';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
       }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
     });
   }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
-          
-        
+  </script>
+        <div class="section-box tag-line box-shadow-wrapper">
+          <section class="section tags-section posts-expand bg-color">
+            <div class="padding-wrapper">
+  <div class="tag-timeline-box">
+    <div class="tag-timeline-wrapper">
+      <div class="tag-timeline-title">
+        <h2>
+          rclone
+          <small class="language" data-lan="tag">标签</small>
+        </h2>
       </div>
-    </div>
-  
-</div>
-<script>
-  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
-  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
-  const SLIDE_UP_IN = 'slide-up-in';
-
-  let sidebar = document.querySelector('#sidebar'),
-  tocSideBar = document.querySelector('#tocSideBar'),
-  metaSideBar = document.querySelector('#metaSideBar'),
-  postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta'),
-  sidebarTitle = document.querySelector('.sidebar-title'),
-  sidebarBody = document.querySelector('#sidebar_body');
-
-  tocSideBar && tocSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  metaSideBar && metaSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  function toggleSidebar(e) {
-    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
-    if (currentTitle == e.srcElement) {
-      return ;
-    }
-    let current, showElement, hideElement;
-    if (e.srcElement == metaSideBar) {
-      showElement = postSiteMeta;
-      hideElement = postToc;
-    } else if (e.srcElement == tocSideBar){
-      showElement = postToc;
-      hideElement = postSiteMeta;
-    }
-    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
-
-    window.Velocity(hideElement, 'stop');
-    window.Velocity(hideElement, 'transition.slideUpOut', {
-      display: 'none',
-      duration: 200,
-      complete: function () {
-        window.Velocity(showElement, 'transition.slideDownIn', {
-          duration: 200
-        });
-      }
-    })
-    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
-    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
-  }
-
-  postToc && postToc.addEventListener('transitionend', function() {
-    this.classList.remove(SLIDE_UP_IN);
-  });
-
-  if (sidebarBody) {
-    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-      let hasFix = false;
-      let scrollEl = document.querySelector('.main-continer');
-      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-      window.addEventListener('scroll', function(e) {
-        if (document.scrollingElement.scrollTop >= limitTop) {
-          if (!hasFix) {
-            sidebar.classList.add('sidebar-fixed');
-            hasFix = true;
-          }
-        } else {
-          if (hasFix) {
-            sidebar.classList.remove('sidebar-fixed');
-            hasFix = false;
-          }
-        }
-      });
-    }
-  }
-  
-</script>
-        <div class="section-box box-shadow-wrapper">
-          <div class="section bg-color post post-page">
-            <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/">
-      debian常用指令
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-06-14 06:53:32">2021-06-14</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>10<span class="language" data-lan="minute">分钟</span></span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>2054<span class="pc-show language" data-lan="words">字数</span></span>
-    </span>
-    
-  </div>
-</section>
-            <div class="post-body next-md-body" id="post_body">
-              <h1 id="debian常用指令">debian常用指令</h1>
-<h2 id="查看软件xxx安装内容">查看软件xxx安装内容</h2>
-<p>dpkg -L xxx</p>
-<h2 id="查找软件">查找软件</h2>
-<p>apt-cache search 正则表达式</p>
-<h2 id="查找文件属于哪个包">查找文件属于哪个包</h2>
-<p>dpkg -S filename<br>
-apt-file search filename</p>
-<h2 id="查询软件xxx依赖哪些包">查询软件xxx依赖哪些包</h2>
-<p>apt-cache depends xxx</p>
-<h2 id="查询软件xxx被哪些包依赖">查询软件xxx被哪些包依赖</h2>
-<p>apt-cache rdepends xxx</p>
-<h2 id="增加一个光盘源">增加一个光盘源</h2>
-<p>apt-cdrom add</p>
-<h2 id="系统升级">系统升级</h2>
-<p>apt-get update<br>
-apt-get upgrade<br>
-apt-get dist-upgrade</p>
-<h2 id="清除所有删除包的残余配置文件">清除所有删除包的残余配置文件</h2>
-<p>dpkg -l |grep ^rc|awk ''{print $2}'' |tr [&quot;\n&quot;] [&quot; &quot;]|sudo xargs dpkg -P -</p>
-<h2 id="编译时缺少h文件的自动处理">编译时缺少h文件的自动处理</h2>
-<p>auto-apt run ./configure</p>
-<h2 id="查看安装软件时下载包的临时存放目录">查看安装软件时下载包的临时存放目录</h2>
-<p>ls /var/cache/apt/archives</p>
-<h2 id="备份当前系统安装的所有包的列表">备份当前系统安装的所有包的列表</h2>
-<p>dpkg --get-selections | grep -v deinstall &gt; ~/somefile</p>
-<h2 id="从上面备份的安装包的列表文件恢复所有包">从上面备份的安装包的列表文件恢复所有包</h2>
-<p>dpkg --set-selections &lt; ~/somefile<br>
-dselect</p>
-<h2 id="清理旧版本的软件缓存">清理旧版本的软件缓存</h2>
-<p>apt-get autoclean</p>
-<h2 id="清理所有软件缓存">清理所有软件缓存</h2>
-<p>apt-get clean</p>
-<h2 id="删除系统不再使用的孤立软件">删除系统不再使用的孤立软件</h2>
-<p>apt-get autoremove</p>
-<h2 id="查看包在服务器上面的地址">查看包在服务器上面的地址</h2>
-<p>apt-get -qq --print-uris install ssh | cut -d'' -f2</p>
-<h2 id="查看内核">查看内核</h2>
-<p>uname -a</p>
-<h2 id="查看ubuntu版本">查看Ubuntu版本</h2>
-<p>cat /etc/issue</p>
-<h2 id="查看内核加载的模块">查看内核加载的模块</h2>
-<p>lsmod</p>
-<h2 id="查看pci设备">查看PCI设备</h2>
-<p>lspci</p>
-<h2 id="查看usb设备">查看USB设备</h2>
-<p>lsusb</p>
-<h2 id="查看网卡状态">查看网卡状态</h2>
-<p>ethtool eth0</p>
-<h2 id="查看cpu信息">查看CPU信息</h2>
-<p>cat /proc/cpuinfo</p>
-<h2 id="显示当前硬件信息">显示当前硬件信息</h2>
-<p>lshw</p>
-<h2 id="查看硬盘的分区">查看硬盘的分区</h2>
-<p>fdisk -l</p>
-<h2 id="查看ide硬盘信息">查看IDE硬盘信息</h2>
-<p>hdparm -i /dev/hda</p>
-<h2 id="查看stat硬盘信息">查看STAT硬盘信息</h2>
-<p>hdparm -I /dev/sda<br>
-或<br>
-apt-get install blktool<br>
-blktool /dev/sda id</p>
-<h2 id="查看硬盘剩余空间">查看硬盘剩余空间</h2>
-<p>df -h<br>
-df -H</p>
-<h2 id="查看目录占用空间">查看目录占用空间</h2>
-<p>du -hs 目录名</p>
-<h2 id="优盘没法卸载">优盘没法卸载</h2>
-<p>sync<br>
-fuser -km /media/usbdisk</p>
-<h2 id="查看当前的内存使用情况">查看当前的内存使用情况</h2>
-<p>free -m</p>
-<h2 id="查看当前有哪些进程">查看当前有哪些进程</h2>
-<p>ps -aux</p>
-<h2 id="中止一个进程">中止一个进程</h2>
-<p>kill 进程号</p>
-<h3 id="或">或</h3>
-<p>killall 进程名</p>
-<h2 id="强制中止一个进程">强制中止一个进程</h2>
-<p>kill -9 进程号</p>
-<h3 id="或-2">或</h3>
-<p>killall -9 进程名</p>
-<h2 id="查看当前进程的实时状况">查看当前进程的实时状况</h2>
-<p>top</p>
-<h2 id="查看进程打开的文件">查看进程打开的文件</h2>
-<p>lsof -p</p>
-<h2 id="配置-adsl">配置 ADSL</h2>
-<p>pppoeconf</p>
-<h2 id="adsl手工拨号">ADSL手工拨号</h2>
-<p>pon dsl-provider</p>
-<h2 id="激活-adsl">激活 ADSL</h2>
-<p>/etc/ppp/pppoe_on_boot</p>
-<h2 id="断开-adsl">断开 ADSL</h2>
-<p>poff</p>
-<h2 id="查看拨号日志">查看拨号日志</h2>
-<p>plog</p>
-<h2 id="根据ip查网卡地址">根据IP查网卡地址</h2>
-<p>arping IP地址</p>
-<h2 id="查看当前ip地址">查看当前IP地址</h2>
-<p>ifconfig eth0</p>
-<h2 id="查看当前监听80端口的程序">查看当前监听80端口的程序</h2>
-<p>lsof -i :80</p>
-<h2 id="查看当前网卡的物理地址">查看当前网卡的物理地址</h2>
-<p>arp -a | awk ''{print $4}''<br>
-ifconfig eth0 | head -1 | awk ''{print $5}''</p>
-<h2 id="立即让网络支持nat">立即让网络支持nat</h2>
-<p>echo 1 &gt; /proc/sys/net/ipv4/ip_forward<br>
-iptables -t nat -I POSTROUTING -j MASQUERADE</p>
-<h2 id="查看路由信息">查看路由信息</h2>
-<p>netstat -rn<br>
-route -n</p>
-<h2 id="手工增加删除一条路由">手工增加删除一条路由</h2>
-<p>route add -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1<br>
-route del -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1</p>
-<h2 id="修改网卡mac地址的方法">修改网卡MAC地址的方法</h2>
-<p>ifconfig eth0 down #关闭网卡<br>
-ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE #然后改地址<br>
-ifconfig eth0 up #然后启动网卡</p>
-<h2 id="统计当前ip连接的个数">统计当前IP连接的个数</h2>
-<p>netstat -na|grep ESTABLISHED|awk ''{print $5}''|awk -F: ''{print $1}''|sort|uniq -c|sort -r -n<br>
-netstat -na|grep SYN|awk ''{print $5}''|awk -F: ''{print $1}''|sort|uniq -c|sort -r -n</p>
-<h2 id="统计当前20000个ip包中大于100个ip包的ip地址">统计当前20000个IP包中大于100个IP包的IP地址</h2>
-<p>tcpdump -tnn -c 20000 -i eth0 | awk -F &quot;.&quot; ''{print $1&quot;.&quot;$2&quot;.&quot;$3&quot;.&quot;$4}'' | sort | uniq -c | sort -nr | awk '' $1 &gt; 100 ''</p>
-<h2 id="屏蔽ipv6">屏蔽IPV6</h2>
-<p>echo &quot;blacklist ipv6&quot; | tee /etc/modprobe.d/blacklist-ipv6</p>
-<h2 id="添加一个服务">添加一个服务</h2>
-<p>update-rc.d 服务名 defaults 99</p>
-<h2 id="删除一个服务">删除一个服务</h2>
-<p>update-rc.d 服务名 remove</p>
-<h2 id="临时重启一个服务">临时重启一个服务</h2>
-<p>/etc/init.d/服务名 restart</p>
-<h2 id="临时关闭一个服务">临时关闭一个服务</h2>
-<p>/etc/init.d/服务名 stop</p>
-<h2 id="临时启动一个服务">临时启动一个服务</h2>
-<p>/etc/init.d/服务名 start</p>
-<h2 id="配置默认java使用哪个">配置默认Java使用哪个</h2>
-<p>update-alternatives --config java</p>
-<h2 id="修改用户资料">修改用户资料</h2>
-<p>chfn userid</p>
-<h2 id="给apt设置代理">给apt设置代理</h2>
-<p>export http_proxy=http://xx.xx.xx.xx:xxx</p>
-<h2 id="修改系统登录信息">修改系统登录信息</h2>
-<p>vi /etc/motd</p>
-<h2 id="转换文件名由gbk为utf8">转换文件名由GBK为UTF8</h2>
-<p>apt-get install convmv<br>
-convmv -r -f cp936 -t utf8 --notest --nosmart *</p>
-<h2 id="批量转换src目录下的所有文件内容由gbk到utf8">批量转换src目录下的所有文件内容由GBK到UTF8</h2>
-<p>find src -type d -exec mkdir -p utf8/{} ;<br>
-find src -type f -exec iconv -f GBK -t UTF-8 {} -o utf8/{} ;<br>
-mv utf8/* src<br>
-rm -fr utf8</p>
-<h2 id="转换文件内容由gbk到utf8">转换文件内容由GBK到UTF8</h2>
-<p>iconv -f gbk -t utf8 $i &gt; newfile</p>
-<h2 id="转换-mp3-标签编码">转换 mp3 标签编码</h2>
-<p>apt-get install python-mutagen<br>
-find . -iname “*.mp3” -execdir mid3iconv -e GBK {} ;</p>
-<h2 id="控制台下显示中文">控制台下显示中文</h2>
-<p>apt-get install zhcon<br>
-使用时，输入zhcon即可</p>
-<h2 id="快速查找某个文件">快速查找某个文件</h2>
-<p>whereis filename<br>
-find 目录 -name 文件名</p>
-<h2 id="查看文件类型">查看文件类型</h2>
-<p>file filename</p>
-<h2 id="显示xxx文件倒数6行的内容">显示xxx文件倒数6行的内容</h2>
-<p>tail -n 6 xxx</p>
-<h2 id="让tail不停地读地最新的内容">让tail不停地读地最新的内容</h2>
-<p>tail -n 10 -f /var/log/apache2/access.log</p>
-<h2 id="查看文件中间的第五行-含-到第-10-行-含-的内容">查看文件中间的第五行 ( 含 ) 到第 10 行 ( 含 ) 的内容</h2>
-<p>sed -n ''5,10p'' /var/log/apache2/access.log</p>
-<h2 id="查找包含xxx字符串的文件">查找包含xxx字符串的文件</h2>
-<p>grep -l -r xxx .</p>
-<h2 id="查找关于xxx的命令">查找关于xxx的命令</h2>
-<p>apropos xxx<br>
-man -k xxx</p>
-<h2 id="通过ssh传输文件">通过ssh传输文件</h2>
-<p>scp -rp /path/filename username@remoteIP:/path #将本地文件拷贝到服务器上<br>
-scp -rp username@remoteIP:/path/filename /path #将远程文件从服务器下载到本地</p>
-<h2 id="查看某个文件被哪些应用程序读写">查看某个文件被哪些应用程序读写</h2>
-<p>lsof 文件名</p>
-<h2 id="把所有文件的后辍由rm改为rmvb">把所有文件的后辍由rm改为rmvb</h2>
-<p>rename ''s/.rm$/.rmvb/'' *</p>
-<h2 id="把所有文件名中的大写改为小写">把所有文件名中的大写改为小写</h2>
-<p>rename ''tr/A-Z/a-z/'' *</p>
-<h2 id="删除特殊文件名的文件如文件名-helptxt">删除特殊文件名的文件，如文件名：--help.txt</h2>
-<p>rm -- --help.txt 或者 rm ./--help.txt</p>
-<h2 id="查看当前目录的子目录">查看当前目录的子目录</h2>
-<p>ls -d */. 或 echo */.</p>
-<h2 id="将当前目录下最近30天访问过的文件移动到上级back目录">将当前目录下最近30天访问过的文件移动到上级back目录</h2>
-<p>find . -type f -atime -30 -exec mv {} ../back ;</p>
-<h2 id="将当前目录下最近2小时到8小时之内的文件显示出来">将当前目录下最近2小时到8小时之内的文件显示出来</h2>
-<p>find . -mmin +120 -mmin -480 -exec more {} ;</p>
-<h2 id="删除修改时间在30天之前的所有文件">删除修改时间在30天之前的所有文件</h2>
-<p>find . -type f -mtime +30 -mtime -3600 -exec rm {} ;</p>
-<h2 id="查找guest用户的以avi或者rm结尾的文件并删除掉">查找guest用户的以avi或者rm结尾的文件并删除掉</h2>
-<p>find . -name ''<em>.avi'' -o -name ''</em>.rm'' -user ''guest'' -exec rm {} ;</p>
-<h2 id="查找的不以java和xml结尾并7天没有使用的文件删除掉">查找的不以java和xml结尾,并7天没有使用的文件删除掉</h2>
-<p>find . ! -name <em>.java ! -name ‘</em>.xml’ -atime +7 -exec rm {} ;</p>
-<h2 id="统计当前文件个数">统计当前文件个数</h2>
-<p>ls /usr/bin|wc -w</p>
-<h2 id="统计当前目录个数">统计当前目录个数</h2>
-<p>ls -l /usr/bin|grep ^d|wc -l</p>
-<h2 id="显示当前目录下2006-01-01的文件名">显示当前目录下2006-01-01的文件名</h2>
-<p>ls -l |grep 2006-01-01 |awk ''{print $8}''</p>
-<h2 id="解压缩-xxxtargz">解压缩 xxx.tar.gz</h2>
-<p>tar -zxvf xxx.tar.gz</p>
-<h2 id="解压缩-xxxtarbz2">解压缩 xxx.tar.bz2</h2>
-<p>tar -jxvf xxx.tar.bz2</p>
-<h2 id="压缩aaa-bbb目录为xxxtargz">压缩aaa bbb目录为xxx.tar.gz</h2>
-<p>tar -zcvf xxx.tar.gz aaa bbb</p>
-<h2 id="压缩aaa-bbb目录为xxxtarbz2">压缩aaa bbb目录为xxx.tar.bz2</h2>
-<p>tar -jcvf xxx.tar.bz2 aaa bbb</p>
-<h2 id="特殊-uri-地址">特殊 URI 地址</h2>
-<p>* computer:/// - 全部挂载的设备和网络<br>
-* network:/// - 浏览可用的网络<br>
-* burn:/// - 一个刻录 CDs/DVDs 的数据虚拟目录<br>
-* smb:/// - 可用的 windows/samba 网络资源<br>
-* x-nautilus-desktop:/// - 桌面项目和图标<br>
-* file:/// - 本地文件<br>
-* trash:/// - 本地回收站目录<br>
-* ftp:// - FTP 文件夹<br>
-* ssh:// - SSH 文件夹<br>
-* fonts:/// - 字体文件夹，可将字体文件拖到此处以完成安装 * themes:/// - 系统主题文件夹</p>
-<h2 id="详细显示程序的运行信息">详细显示程序的运行信息</h2>
-<p>strace -f -F -o outfile</p>
-<h2 id="设置日期">设置日期</h2>
-<p>date -s mm/dd/yy</p>
-<h2 id="设置时间">设置时间</h2>
-<p>date -s HH:MM</p>
-<h2 id="将时间写入cmos">将时间写入CMOS</h2>
-<p>hwclock --systohc</p>
-<h2 id="读取cmos时间">读取CMOS时间</h2>
-<p>hwclock --hctosys</p>
-<h2 id="从服务器上同步时间">从服务器上同步时间</h2>
-<p>ntpdate time.nist.gov<br>
-ntpdate time.windows.com</p>
-<h2 id="从mysql中导出和导入数据">从mysql中导出和导入数据</h2>
-<p>mysqldump 数据库名 &gt; 文件名 #导出数据库mysqladmin create 数据库名 #建立数据库<br>
-mysql 数据库名 &lt; 文件名 #导入数据库</p>
-<h2 id="忘了mysql的root口令怎么办">忘了mysql的root口令怎么办</h2>
-<p>/etc/init.d/mysql stop<br>
-mysqld_safe --skip-grant-tables &amp;<br>
-mysqladmin -u user password ''newpassword''''<br>
-mysqladmin flush-privileges</p>
-<h2 id="修改mysql的root口令">修改mysql的root口令</h2>
-<p>mysqladmin -uroot -p password ''你的新密码''</p>
-<h2 id="下载网站文档">下载网站文档</h2>
-<p>wget -r -p -np -k <a href="http://www.21cn.com/">http://www.21cn.com</a><br>
-· -r：在本机建立服务器端目录结构；<br>
-· -p: 下载显示HTML文件的所有图片；<br>
-· -np：只下载目标站点指定目录及其子目录的内容；<br>
-· -k: 转换非相对链接为相对链接。</p>
-<h2 id="如何删除totem电影播放机的播放历史记录">如何删除Totem电影播放机的播放历史记录</h2>
-<p>rm ~/.recently-used</p>
-<p>安装了debian10和ubuntu18后，发现没有ifconfig，感觉很不习惯。</p>
-<h2 id="安装ifconfig">安装ifconfig</h2>
-<p>1.先更新国内的源，我一般都改成163.com的源，个人习惯，国内还有好多可用的源。</p>
-<ol start="2">
-<li></li>
-</ol>
-<p>sudo apt install net-tools<br>
-然后你就发现ifconfig就又可以用了。</p>
-<p>如果你不想用ifconfig，可以试试ip addr ，效果一样。<br>
-————————————————<br>
-版权声明：本文为CSDN博主「Yaser-Z」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
-原文链接：https://blog.csdn.net/lovescorpio/article/details/103823703</p>
-
-            </div>
-            
-            
-              <div class="post-footer">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong class="language" data-lan="author">本文作者：</strong>
-      MUGU&#39;s blog
-    </li>
-    <li class="post-copyright-link">
-      <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/" title="debian常用指令">https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong class="language" data-lan="copyright">版权声明： </strong>
-      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-  <div class="tags">
-    
-  </div>
-  <div class="nav">
-    <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="DEBIAN 10切换ROOT用户登录" href="https://amiao.wawj.cool/post/debian-10-qie-huan-root-yong-hu-deng-lu/">DEBIAN 10切换ROOT用户登录</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="DEBIAN 10切换ROOT用户登录" href="https://amiao.wawj.cool/post/debian-10-qie-huan-root-yong-hu-deng-lu/">上一篇</a>
       
-    </div>
-    <div class="nav-next">
       
-        <a class="nav-pc-next" title="安装HASSIO" href="https://amiao.wawj.cool/post/an-zhuang-hassio/">安装HASSIO</a>
-        <a class="nav-mobile-next" title="安装HASSIO" href="https://amiao.wawj.cool/post/an-zhuang-hassio/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
-      
-    </div>
-  </div>
-</div>
-            
-            
-  
-
+      <a href="https://amiao.wawj.cool/post/rclone-jin-jie-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu-xiang-jie/">
+        <div class="motion-warpper">
+          <div class="tag-post-node">
+            <h1>
+              06-22
+              <small>Rclone 进阶使用教程 - 常用命令参数详解</small>
+            </h1>
           </div>
+        </div>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+  </div>
+</div>
+          </section>
         </div>
       </div>
     </div>
@@ -1173,223 +508,6 @@ mysqladmin flush-privileges</p>
     parent.insertBefore(aelem, next);
   })
 </script>
-    <div class="reward-mask" style="display: none;">
-  <div class="reward-relative">
-    <span class="close" aria-hidden="true">x</span>
-    <div class="reward-body">
-      <h2>感谢您的支持，我会继续努力的!</h2>
-      <div class="reward-img-box">
-        <div style="position: relative; width: 140px; height: 140px;">
-          
-          
-          
-        </div>
-      </div>
-      <p class="reward-word">扫码打赏，你说多少就多少</p>
-      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
-    </div>
-    <div class="bottom">
-      
-      
-    </div>
-  </div>
-</div>
-<style>
-  .reward-mask {
-    position: fixed;
-    z-index: 99999;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #00000054;
-  }
-
-  .reward-relative {
-    position: relative;
-    width: 480px;
-    text-align: center;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #fff;
-    top: 50%;
-    margin-top: -205px;
-  }
-
-  .reward-relative .close {
-    position: absolute;
-    right: 10px;
-    font-weight: normal;
-    font-size: 16px;
-    color: #929292;
-  }
-
-  .reward-body {
-    padding: 40px 20px 20px;
-  }
-
-  .bottom {
-    display: flex;
-  }
-
-  .reward-btn {
-    text-align: center;
-  }
-
-  .reward-btn-text {
-    display: inline-block;
-    cursor: pointer;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    background-color: #ff9734;
-    color: #FFF;
-    margin-top: 20px;
-  }
-
-  .pay-text {
-    margin-top: 10px;
-    padding: 10px;
-    flex: 1;
-    transition: all .2s linear;
-  }
-
-  .pay-text:hover {
-    background-color: #a5a5a536;
-  }
-
-  .reward-body h2 {
-    padding-top: 10px;
-    text-align: center;
-    color: #a3a3a3;
-    font-size: 16px;
-    font-weight: normal;
-    margin: 0 0 20px;
-  }
-
-  .reward-body h2:after,
-  .reward-body h2:before {
-    font-family: Arial, Helvetica, sans-serif;
-    background: 0 0;
-    width: 0;
-    height: 0;
-    font-style: normal;
-    color: #eee;
-    font-size: 80px;
-    position: absolute;
-    top: 20px;
-  }
-
-  .reward-body h2:before {
-    content: '\201c';
-    left: 50px;
-  }
-
-  .reward-body h2:after {
-    content: '\201d';
-    right: 80px;
-  }
-
-  .reward-img-box {
-    display: inline-block;
-    padding: 10px;
-    border: 6px solid #ea5f00;
-    margin: 0 auto;
-    border-radius: 3px;
-    position: relative;
-  }
-
-  .reward-img {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-  }
-
-  @media (max-width: 767px) {
-    .reward-relative {
-      height: 100%;
-      top: 0px;
-      margin-top: 0;
-      width: auto;
-    }
-
-    .reward-relative .bottom {
-      flex-direction: column;
-    }
-
-    .reward-relative .pay-text {
-      width: 80%;
-      margin: 5px auto;
-      border: 1px solid silver;
-      padding: 6px;
-      border-radius: 4px;
-    }
-
-    .reward-body h2:after {
-      right: 40px;
-    }
-
-    .reward-body h2:after,
-    .reward-body h2:before {
-      font-size: 60px;
-    }
-
-    .reward-body h2:before {
-      left: 20px;
-    }
-  }
-</style>
-<script>
-  !function () {
-    var mask = document.querySelector('.reward-mask');
-    let close = document.querySelector('.reward-relative .close');
-    let rewardBtn = document.querySelector('.reward-btn');
-
-    let zfb = document.querySelector('#zfb'),
-      wx = document.querySelector('#wx'),
-      zfbBtn = document.querySelector('#zfbBtn'),
-      wxBtn = document.querySelector('#wxBtn');
-
-    if (zfbBtn && wxBtn) {
-      zfbBtn.addEventListener('click', () => {
-        window.Velocity(zfb, 'transition.slideLeftIn', {
-          duration: 400
-        });
-        window.Velocity(wx, 'transition.slideRightOut', {
-          display: 'none',
-          duration: 400
-        });
-      });
-
-      wxBtn.addEventListener('click', () => {
-        window.Velocity(wx, 'transition.slideRightIn', {
-          duration: 400
-        });
-        window.Velocity(zfb, 'transition.slideLeftOut', {
-          display: 'none',
-          duration: 400
-        });
-      });
-    }
-
-    rewardBtn.addEventListener('click', (e) => {
-      window.Velocity(mask, 'transition.slideDownIn', {
-        duration: 400
-      })
-    });
-
-    close.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.Velocity(mask, 'transition.slideUpOut', {
-        duration: 400
-      })
-    })
-  }()
-</script>
-
   </div>
 </body>
 
@@ -3012,6 +2130,7 @@ rclone copy 配置名称:网盘路径 配置名称:网盘路径 --drive-server-s
     speed: 200
   });
 </script>
+
 
 
 

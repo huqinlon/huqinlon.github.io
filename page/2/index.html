@@ -9,7 +9,7 @@
 <meta name="description" content="温故而知新">
 <meta name="theme-color" content="#000">
 <title>Gridea</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1624370598341">
+<link rel="shortcut icon" href="/favicon.ico?v=1624372982997">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -188,19 +188,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">11</span>
+        <span class="site-item-stat-count">12</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -242,6 +242,57 @@
         <div class="section-box mist">
           <section class="section bg-color posts-expand slide-down-in">
             
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://amiao.wawj.cool/post/linux-yong-netstat-cha-kan-fu-wu-ji-jian-ting-duan-kou/">
+      linux用netstat查看服务及监听端口
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-03-16 21:20:10">2021-03-16</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>209<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+      <div class="post-body">
+        
+        
+          
+          
+        
+        
+        <div class="post-button text-center">
+          <a class="btn language" data-lan="read-more" href="https://amiao.wawj.cool/post/linux-yong-netstat-cha-kan-fu-wu-ji-jian-ting-duan-kou/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+        <footer class="post-footer">
+          <div class="post-eof"></div>
+        </footer>
+      
+    </div>
+  </article>
+
   <article class="post-list-box  post box-shadow-wrapper">
     <div class="article-wrapper bg-color">
       <section class="post-header">
@@ -548,6 +599,128 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://amiao.wawj.cool/post/rclone-jin-jie-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu-xiang-jie/"" data-c="
+          &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;Rclone 是一个的命令行工具，支持在不同对象存储、网盘间同步、上传、下载数据。并且通过一些设置可以实现离线下载、服务器备份等非常实用的功能。本篇文章将讲解 Rclone 常用的一些命令参数。&lt;/p&gt;
+&lt;h2 id=&#34;安装-rclone&#34;&gt;安装 Rclone&lt;/h2&gt;
+&lt;h3 id=&#34;linuxmacosbsd&#34;&gt;Linux/macOS/BSD&lt;/h3&gt;
+&lt;p&gt;官方提供了&lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2luc3RhbGwvI3NjcmlwdC1pbnN0YWxsYXRpb24&#34;&gt;一键安装脚本&lt;/a&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;curl https://rclone.org/install.sh | sudo bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;windows&#34;&gt;Windows&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2Rvd25sb2Fkcy8&#34;&gt;直接下载&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;rclone-设置&#34;&gt;Rclone 设置&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;rclone config&lt;/code&gt; - 进入交互式配置选项，进行添加、删除、管理网盘等操作。详细操作参见：《&lt;a href=&#34;https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html&#34;&gt;Rclone 安装配置教程&lt;/a&gt;》&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rclone config file` - 显示配置文件的路径，一般配置文件在 `~/.config/rclone/rclone.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;rclone config show&lt;/code&gt; - 显示配置文件信息&lt;/p&gt;
+&lt;h2 id=&#34;命令语法&#34;&gt;命令语法&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# 本地到网盘
+rclone [功能选项] &amp;lt;本地路径&amp;gt; &amp;lt;网盘名称:路径&amp;gt; [参数] [参数] ...
+
+# 网盘到本地
+rclone [功能选项] &amp;lt;网盘名称:路径&amp;gt; &amp;lt;本地路径&amp;gt; [参数] [参数] ...
+
+# 网盘到网盘
+rclone [功能选项] &amp;lt;网盘名称:路径&amp;gt; &amp;lt;网盘名称:路径&amp;gt; [参数] [参数] ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;用法示例&#34;&gt;用法示例&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;rclone move -v /Download Onedrive:/Download --transfers=1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;常用功能选项&#34;&gt;常用功能选项&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rclone copy&lt;/code&gt; - 复制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone move&lt;/code&gt; - 移动，如果要在移动后删除空源目录，请加上 &lt;code&gt;--delete-empty-src-dirs&lt;/code&gt; 参数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone sync&lt;/code&gt; - 同步：将源目录同步到目标目录，只更改目标目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone size&lt;/code&gt; - 查看网盘文件占用大小。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone delete&lt;/code&gt; - 删除路径下的文件内容。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone purge&lt;/code&gt; - 删除路径及其所有文件内容。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone mkdir&lt;/code&gt; - 创建目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone rmdir&lt;/code&gt; - 删除目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone rmdirs&lt;/code&gt; - 删除指定灵境下的空目录。如果加上 &lt;code&gt;--leave-root&lt;/code&gt; 参数，则不会删除根目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone check&lt;/code&gt; - 检查源和目的地址数据是否匹配。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone ls&lt;/code&gt; - 列出指定路径下的所有的文件以及文件大小和路径。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone lsl&lt;/code&gt; - 比上面多一个显示上传时间。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone lsd&lt;/code&gt; 列出指定路径下的目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rclone lsf&lt;/code&gt; - 列出指定路径下的目录和文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;常用参数&#34;&gt;常用参数&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-n&lt;/code&gt; = &lt;code&gt;--dry-run&lt;/code&gt; - 测试运行，用来查看 rclone 在实际运行中会进行哪些操作。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-P&lt;/code&gt; = &lt;code&gt;--progress&lt;/code&gt; - 显示实时传输进度，500mS 刷新一次，否则默认 1 分钟刷新一次。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--cache-chunk-size SizeSuffi&lt;/code&gt; - 块的大小，默认5M，理论上是越大上传速度越快，同时占用内存也越多。如果设置得太大，可能会导致进程中断。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--cache-chunk-total-size SizeSuffix&lt;/code&gt; - 块可以在本地磁盘上占用的总大小，默认10G。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--transfers=N&lt;/code&gt; - 并行文件数，默认为4。在比较小的内存的VPS上建议调小这个参数，比如128M的小鸡上使用建议设置为1。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--config string&lt;/code&gt; - 指定配置文件路径，&lt;code&gt;string&lt;/code&gt;为配置文件路径。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--ignore-errors&lt;/code&gt; - 跳过错误。比如 OneDrive 在传了某些特殊文件后会提示&lt;code&gt;Failed to copy: failed to open source object: malwareDetected: Malware detected&lt;/code&gt;，这会导致后续的传输任务被终止掉，此时就可以加上这个参数跳过错误。但需要注意 RCLONE 的退出状态码不会为&lt;code&gt;0&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;日志&#34;&gt;日志&lt;/h2&gt;
+&lt;p&gt;rclone 有 4 个级别的日志记录，&lt;code&gt;ERROR&lt;/code&gt;，&lt;code&gt;NOTICE&lt;/code&gt;，&lt;code&gt;INFO&lt;/code&gt; 和 &lt;code&gt;DEBUG&lt;/code&gt;。默认情况下，rclone 将生成 &lt;code&gt;ERROR&lt;/code&gt; 和 &lt;code&gt;NOTICE&lt;/code&gt; 级别消息。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-q&lt;/code&gt; - rclone将仅生成 &lt;code&gt;ERROR&lt;/code&gt; 消息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-v&lt;/code&gt; - rclone将生成 &lt;code&gt;ERROR&lt;/code&gt;，&lt;code&gt;NOTICE&lt;/code&gt; 和 &lt;code&gt;INFO&lt;/code&gt; 消息，&lt;strong&gt;推荐此项&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-vv&lt;/code&gt; - rclone 将生成 &lt;code&gt;ERROR&lt;/code&gt;，&lt;code&gt;NOTICE&lt;/code&gt;，&lt;code&gt;INFO&lt;/code&gt;和 &lt;code&gt;DEBUG&lt;/code&gt; 消息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--log-level LEVEL&lt;/code&gt; - 标志控制日志级别。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;输出日志到文件&#34;&gt;输出日志到文件&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;--log-file=FILE&lt;/code&gt; 选项，rclone 会将 &lt;code&gt;Error&lt;/code&gt;，&lt;code&gt;Info&lt;/code&gt; 和 &lt;code&gt;Debug&lt;/code&gt; 消息以及标准错误重定向到 &lt;code&gt;FILE&lt;/code&gt;，这里的 &lt;code&gt;FILE&lt;/code&gt; 是你指定的日志文件路径。&lt;/p&gt;
+&lt;p&gt;另一种方法是使用系统的指向命令，比如：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;rclone sync -v Onedrive:/DRIVEX Gdrive:/DRIVEX &amp;gt; &amp;quot;~/DRIVEX.log&amp;quot; 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;文件过滤&#34;&gt;文件过滤&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;--exclude&lt;/code&gt; - 排除文件或目录。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--include&lt;/code&gt; - 包含文件或目录。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--filter&lt;/code&gt; - 文件过滤规则，相当于上面两个选项的其它使用方式。包含规则以 &lt;code&gt;+&lt;/code&gt; 开头，排除规则以 &lt;code&gt;-&lt;/code&gt; 开头。&lt;/p&gt;
+&lt;h3 id=&#34;文件类型过滤&#34;&gt;文件类型过滤&lt;/h3&gt;
+&lt;p&gt;比如 &lt;code&gt;--exclude &amp;quot;*.bak&amp;quot;&lt;/code&gt;、&lt;code&gt;--filter &amp;quot;- *.bak&amp;quot;&lt;/code&gt;，排除所有 &lt;code&gt;bak&lt;/code&gt; 文件。也可以写作。&lt;/p&gt;
+&lt;p&gt;比如 &lt;code&gt;--include &amp;quot;*.{png,jpg}&amp;quot;&lt;/code&gt;、&lt;code&gt;--filter &amp;quot;+ *.{png,jpg}&amp;quot;&lt;/code&gt;，包含所有 &lt;code&gt;png&lt;/code&gt; 和 &lt;code&gt;jpg&lt;/code&gt; 文件，排除其他文件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--delete-excluded&lt;/code&gt; 删除排除的文件。需配合过滤参数使用，否则无效。&lt;/p&gt;
+&lt;h3 id=&#34;目录过滤&#34;&gt;目录过滤&lt;/h3&gt;
+&lt;p&gt;目录过滤需要在目录名称后面加上 &lt;code&gt;/&lt;/code&gt;，否则会被当做文件进行匹配。以 &lt;code&gt;/&lt;/code&gt; 开头只会匹配根目录（指定目录下），否则匹配所目录。这同样适用于文件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--exclude &amp;quot;.git/&amp;quot;&lt;/code&gt; 排除所有目录下的&lt;code&gt;.git&lt;/code&gt; 目录。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--exclude &amp;quot;/.git/&amp;quot;&lt;/code&gt; 只排除根目录下的&lt;code&gt;.git&lt;/code&gt; 目录。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--exclude &amp;quot;{Video,Software}/&amp;quot;&lt;/code&gt; 排除所有目录下的 &lt;code&gt;Video&lt;/code&gt; 和 &lt;code&gt;Software&lt;/code&gt; 目录。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--exclude &amp;quot;/{Video,Software}/&amp;quot;&lt;/code&gt; 只排除根目录下的 &lt;code&gt;Video&lt;/code&gt; 和 &lt;code&gt;Software&lt;/code&gt; 目录。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--include &amp;quot;/{Video,Software}/**&amp;quot;&lt;/code&gt; 仅包含根目录下的 &lt;code&gt;Video&lt;/code&gt; 和 &lt;code&gt;Software&lt;/code&gt; 目录的所有内容。&lt;/p&gt;
+&lt;h3 id=&#34;文件大小过滤&#34;&gt;文件大小过滤&lt;/h3&gt;
+&lt;p&gt;默认大小单位为 &lt;code&gt;kBytes&lt;/code&gt; ，但可以使用 &lt;code&gt;k&lt;/code&gt; ，&lt;code&gt;M&lt;/code&gt; 或 &lt;code&gt;G&lt;/code&gt; 后缀。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--min-size&lt;/code&gt; 过滤小于指定大小的文件。比如 &lt;code&gt;--min-size 50&lt;/code&gt; 表示不会传输小于 50k 的文件。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--max-size&lt;/code&gt; 过滤大于指定大小的文件。比如 &lt;code&gt;--max-size 1G&lt;/code&gt; 表示不会传输大于 1G 的文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;TIPS:&lt;/strong&gt; 博主在实际使用中发现大小过滤两个选项不能同时使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;过滤规则文件&#34;&gt;过滤规则文件&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;--filter-from &amp;lt;规则文件&amp;gt;&lt;/code&gt; 从文件添加包含 / 排除规则。比如 &lt;code&gt;--filter-from filter-file.txt&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;过滤规则文件示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-none&#34;&gt;- secret*.jpg
++ *.jpg
++ *.png
++ file2.avi
+- /dir/Trash/**
++ /dir/**
+- *
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里只举例比较常用和简单的一些过滤用法，更复杂和高端的用法可以查看&lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2ZpbHRlcmluZy8&#34;&gt;官方文档&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;环境变量&#34;&gt;环境变量&lt;/h2&gt;
+&lt;p&gt;rclone 中的每个选项都可以通过环境变量设置。环境变量的名称可以通过&lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2ZsYWdzLw&#34;&gt;长选项名称&lt;/a&gt;进行转换，删除 &lt;code&gt;--&lt;/code&gt; 前缀，更改 &lt;code&gt;-&lt;/code&gt; 为&lt;code&gt;_&lt;/code&gt;，大写并添加前缀 &lt;code&gt;RCLONE_&lt;/code&gt;。环境变量的优先级会低于命令行选项，即通过命令行追加相应的选项时会覆盖环境变量设定的值。&lt;/p&gt;
+&lt;p&gt;比如设置最小上传大小 &lt;code&gt;--min-size 50&lt;/code&gt;，使用环境变量是 &lt;code&gt;RCLONE_MIN_SIZE=50&lt;/code&gt;。当环境变量设置后，在命令行中使用 &lt;code&gt;--min-size 100&lt;/code&gt;，那么此时环境变量的值就会被覆盖。&lt;/p&gt;
+&lt;h3 id=&#34;常用环境变量&#34;&gt;常用环境变量&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;RCLONE_CONFIG&lt;/code&gt; - 自定义配置文件路径&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RCLONE_CONFIG_PASS&lt;/code&gt; - 若 rclone 进行了加密设置，把此环境变量设置为密码，可自动解密配置文件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RCLONE_RETRIES&lt;/code&gt; - 上传失败重试次数，默认 3 次&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RCLONE_RETRIES_SLEEP&lt;/code&gt; - 上传失败重试等待时间，默认禁用，单位&lt;code&gt;s&lt;/code&gt;、&lt;code&gt;m&lt;/code&gt;、&lt;code&gt;h&lt;/code&gt;分别代表秒、分钟、小时。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CLONE_TRANSFERS&lt;/code&gt; - 并行上传文件数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RCLONE_CACHE_CHUNK_SIZE&lt;/code&gt; - 块的大小，默认5M，理论上是越大上传速度越快，同时占用内存也越多。如果设置得太大，可能会导致进程中断。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RCLONE_CACHE_CHUNK_TOTAL_SIZE&lt;/code&gt; - 块可以在本地磁盘上占用的总大小，默认10G。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RCLONE_IGNORE_ERRORS=true&lt;/code&gt; - 跳过错误。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2RvY3Mv&#34;&gt;Rclone 官方文档&lt;/a&gt;&lt;/p&gt;
+">Rclone 进阶使用教程 - 常用命令参数详解</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://amiao.wawj.cool/post/zi-jian-speedtest-fu-wu-qi-ce-su-qun-hui-docker-an-zhuang-speedtest/"" data-c="

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://amiao.wawj.cool</id>
     <title>Gridea</title>
-    <updated>2021-06-22T14:03:21.310Z</updated>
+    <updated>2021-06-22T14:43:08.170Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://amiao.wawj.cool"/>
     <link rel="self" href="https://amiao.wawj.cool/atom.xml"/>
@@ -10,6 +10,131 @@
     <logo>https://amiao.wawj.cool/images/avatar.png</logo>
     <icon>https://amiao.wawj.cool/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Rclone 进阶使用教程 - 常用命令参数详解]]></title>
+        <id>https://amiao.wawj.cool/post/rclone-jin-jie-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu-xiang-jie/</id>
+        <link href="https://amiao.wawj.cool/post/rclone-jin-jie-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu-xiang-jie/">
+        </link>
+        <updated>2021-06-22T14:41:10.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<p>Rclone 是一个的命令行工具，支持在不同对象存储、网盘间同步、上传、下载数据。并且通过一些设置可以实现离线下载、服务器备份等非常实用的功能。本篇文章将讲解 Rclone 常用的一些命令参数。</p>
+<h2 id="安装-rclone">安装 Rclone</h2>
+<h3 id="linuxmacosbsd">Linux/macOS/BSD</h3>
+<p>官方提供了<a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2luc3RhbGwvI3NjcmlwdC1pbnN0YWxsYXRpb24">一键安装脚本</a>：</p>
+<pre><code class="language-shell">curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<h3 id="windows">Windows</h3>
+<p><a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2Rvd25sb2Fkcy8">直接下载</a></p>
+<h2 id="rclone-设置">Rclone 设置</h2>
+<p><code>rclone config</code> - 进入交互式配置选项，进行添加、删除、管理网盘等操作。详细操作参见：《<a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">Rclone 安装配置教程</a>》</p>
+<pre><code>rclone config file` - 显示配置文件的路径，一般配置文件在 `~/.config/rclone/rclone.conf
+</code></pre>
+<p><code>rclone config show</code> - 显示配置文件信息</p>
+<h2 id="命令语法">命令语法</h2>
+<pre><code class="language-shell"># 本地到网盘
+rclone [功能选项] &lt;本地路径&gt; &lt;网盘名称:路径&gt; [参数] [参数] ...
+
+# 网盘到本地
+rclone [功能选项] &lt;网盘名称:路径&gt; &lt;本地路径&gt; [参数] [参数] ...
+
+# 网盘到网盘
+rclone [功能选项] &lt;网盘名称:路径&gt; &lt;网盘名称:路径&gt; [参数] [参数] ...
+</code></pre>
+<h3 id="用法示例">用法示例</h3>
+<pre><code class="language-shell">rclone move -v /Download Onedrive:/Download --transfers=1
+</code></pre>
+<h2 id="常用功能选项">常用功能选项</h2>
+<ul>
+<li><code>rclone copy</code> - 复制</li>
+<li><code>rclone move</code> - 移动，如果要在移动后删除空源目录，请加上 <code>--delete-empty-src-dirs</code> 参数</li>
+<li><code>rclone sync</code> - 同步：将源目录同步到目标目录，只更改目标目录。</li>
+<li><code>rclone size</code> - 查看网盘文件占用大小。</li>
+<li><code>rclone delete</code> - 删除路径下的文件内容。</li>
+<li><code>rclone purge</code> - 删除路径及其所有文件内容。</li>
+<li><code>rclone mkdir</code> - 创建目录。</li>
+<li><code>rclone rmdir</code> - 删除目录。</li>
+<li><code>rclone rmdirs</code> - 删除指定灵境下的空目录。如果加上 <code>--leave-root</code> 参数，则不会删除根目录。</li>
+<li><code>rclone check</code> - 检查源和目的地址数据是否匹配。</li>
+<li><code>rclone ls</code> - 列出指定路径下的所有的文件以及文件大小和路径。</li>
+<li><code>rclone lsl</code> - 比上面多一个显示上传时间。</li>
+<li><code>rclone lsd</code> 列出指定路径下的目录</li>
+<li><code>rclone lsf</code> - 列出指定路径下的目录和文件</li>
+</ul>
+<h2 id="常用参数">常用参数</h2>
+<ul>
+<li><code>-n</code> = <code>--dry-run</code> - 测试运行，用来查看 rclone 在实际运行中会进行哪些操作。</li>
+<li><code>-P</code> = <code>--progress</code> - 显示实时传输进度，500mS 刷新一次，否则默认 1 分钟刷新一次。</li>
+<li><code>--cache-chunk-size SizeSuffi</code> - 块的大小，默认5M，理论上是越大上传速度越快，同时占用内存也越多。如果设置得太大，可能会导致进程中断。</li>
+<li><code>--cache-chunk-total-size SizeSuffix</code> - 块可以在本地磁盘上占用的总大小，默认10G。</li>
+<li><code>--transfers=N</code> - 并行文件数，默认为4。在比较小的内存的VPS上建议调小这个参数，比如128M的小鸡上使用建议设置为1。</li>
+<li><code>--config string</code> - 指定配置文件路径，<code>string</code>为配置文件路径。</li>
+<li><code>--ignore-errors</code> - 跳过错误。比如 OneDrive 在传了某些特殊文件后会提示<code>Failed to copy: failed to open source object: malwareDetected: Malware detected</code>，这会导致后续的传输任务被终止掉，此时就可以加上这个参数跳过错误。但需要注意 RCLONE 的退出状态码不会为<code>0</code>。</li>
+</ul>
+<h2 id="日志">日志</h2>
+<p>rclone 有 4 个级别的日志记录，<code>ERROR</code>，<code>NOTICE</code>，<code>INFO</code> 和 <code>DEBUG</code>。默认情况下，rclone 将生成 <code>ERROR</code> 和 <code>NOTICE</code> 级别消息。</p>
+<ul>
+<li><code>-q</code> - rclone将仅生成 <code>ERROR</code> 消息。</li>
+<li><code>-v</code> - rclone将生成 <code>ERROR</code>，<code>NOTICE</code> 和 <code>INFO</code> 消息，<strong>推荐此项</strong>。</li>
+<li><code>-vv</code> - rclone 将生成 <code>ERROR</code>，<code>NOTICE</code>，<code>INFO</code>和 <code>DEBUG</code> 消息。</li>
+<li><code>--log-level LEVEL</code> - 标志控制日志级别。</li>
+</ul>
+<h3 id="输出日志到文件">输出日志到文件</h3>
+<p>使用 <code>--log-file=FILE</code> 选项，rclone 会将 <code>Error</code>，<code>Info</code> 和 <code>Debug</code> 消息以及标准错误重定向到 <code>FILE</code>，这里的 <code>FILE</code> 是你指定的日志文件路径。</p>
+<p>另一种方法是使用系统的指向命令，比如：</p>
+<pre><code class="language-shell">rclone sync -v Onedrive:/DRIVEX Gdrive:/DRIVEX &gt; &quot;~/DRIVEX.log&quot; 2&gt;&amp;1
+</code></pre>
+<h2 id="文件过滤">文件过滤</h2>
+<p><code>--exclude</code> - 排除文件或目录。</p>
+<p><code>--include</code> - 包含文件或目录。</p>
+<p><code>--filter</code> - 文件过滤规则，相当于上面两个选项的其它使用方式。包含规则以 <code>+</code> 开头，排除规则以 <code>-</code> 开头。</p>
+<h3 id="文件类型过滤">文件类型过滤</h3>
+<p>比如 <code>--exclude &quot;*.bak&quot;</code>、<code>--filter &quot;- *.bak&quot;</code>，排除所有 <code>bak</code> 文件。也可以写作。</p>
+<p>比如 <code>--include &quot;*.{png,jpg}&quot;</code>、<code>--filter &quot;+ *.{png,jpg}&quot;</code>，包含所有 <code>png</code> 和 <code>jpg</code> 文件，排除其他文件。</p>
+<p><code>--delete-excluded</code> 删除排除的文件。需配合过滤参数使用，否则无效。</p>
+<h3 id="目录过滤">目录过滤</h3>
+<p>目录过滤需要在目录名称后面加上 <code>/</code>，否则会被当做文件进行匹配。以 <code>/</code> 开头只会匹配根目录（指定目录下），否则匹配所目录。这同样适用于文件。</p>
+<p><code>--exclude &quot;.git/&quot;</code> 排除所有目录下的<code>.git</code> 目录。</p>
+<p><code>--exclude &quot;/.git/&quot;</code> 只排除根目录下的<code>.git</code> 目录。</p>
+<p><code>--exclude &quot;{Video,Software}/&quot;</code> 排除所有目录下的 <code>Video</code> 和 <code>Software</code> 目录。</p>
+<p><code>--exclude &quot;/{Video,Software}/&quot;</code> 只排除根目录下的 <code>Video</code> 和 <code>Software</code> 目录。</p>
+<p><code>--include &quot;/{Video,Software}/**&quot;</code> 仅包含根目录下的 <code>Video</code> 和 <code>Software</code> 目录的所有内容。</p>
+<h3 id="文件大小过滤">文件大小过滤</h3>
+<p>默认大小单位为 <code>kBytes</code> ，但可以使用 <code>k</code> ，<code>M</code> 或 <code>G</code> 后缀。</p>
+<p><code>--min-size</code> 过滤小于指定大小的文件。比如 <code>--min-size 50</code> 表示不会传输小于 50k 的文件。</p>
+<p><code>--max-size</code> 过滤大于指定大小的文件。比如 <code>--max-size 1G</code> 表示不会传输大于 1G 的文件。</p>
+<blockquote>
+<p><strong>TIPS:</strong> 博主在实际使用中发现大小过滤两个选项不能同时使用。</p>
+</blockquote>
+<h3 id="过滤规则文件">过滤规则文件</h3>
+<p><code>--filter-from &lt;规则文件&gt;</code> 从文件添加包含 / 排除规则。比如 <code>--filter-from filter-file.txt</code>。</p>
+<p>过滤规则文件示例：</p>
+<pre><code class="language-none">- secret*.jpg
++ *.jpg
++ *.png
++ file2.avi
+- /dir/Trash/**
++ /dir/**
+- *
+</code></pre>
+<p>这里只举例比较常用和简单的一些过滤用法，更复杂和高端的用法可以查看<a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2ZpbHRlcmluZy8">官方文档</a>。</p>
+<h2 id="环境变量">环境变量</h2>
+<p>rclone 中的每个选项都可以通过环境变量设置。环境变量的名称可以通过<a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2ZsYWdzLw">长选项名称</a>进行转换，删除 <code>--</code> 前缀，更改 <code>-</code> 为<code>_</code>，大写并添加前缀 <code>RCLONE_</code>。环境变量的优先级会低于命令行选项，即通过命令行追加相应的选项时会覆盖环境变量设定的值。</p>
+<p>比如设置最小上传大小 <code>--min-size 50</code>，使用环境变量是 <code>RCLONE_MIN_SIZE=50</code>。当环境变量设置后，在命令行中使用 <code>--min-size 100</code>，那么此时环境变量的值就会被覆盖。</p>
+<h3 id="常用环境变量">常用环境变量</h3>
+<ul>
+<li><code>RCLONE_CONFIG</code> - 自定义配置文件路径</li>
+<li><code>RCLONE_CONFIG_PASS</code> - 若 rclone 进行了加密设置，把此环境变量设置为密码，可自动解密配置文件。</li>
+<li><code>RCLONE_RETRIES</code> - 上传失败重试次数，默认 3 次</li>
+<li><code>RCLONE_RETRIES_SLEEP</code> - 上传失败重试等待时间，默认禁用，单位<code>s</code>、<code>m</code>、<code>h</code>分别代表秒、分钟、小时。</li>
+<li><code>CLONE_TRANSFERS</code> - 并行上传文件数。</li>
+<li><code>RCLONE_CACHE_CHUNK_SIZE</code> - 块的大小，默认5M，理论上是越大上传速度越快，同时占用内存也越多。如果设置得太大，可能会导致进程中断。</li>
+<li><code>RCLONE_CACHE_CHUNK_TOTAL_SIZE</code> - 块可以在本地磁盘上占用的总大小，默认10G。</li>
+<li><code>RCLONE_IGNORE_ERRORS=true</code> - 跳过错误。</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2RvY3Mv">Rclone 官方文档</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[自建 speedtest 服务器 测速 群晖docker安装speedtest]]></title>
         <id>https://amiao.wawj.cool/post/zi-jian-speedtest-fu-wu-qi-ce-su-qun-hui-docker-an-zhuang-speedtest/</id>
@@ -907,26 +1032,6 @@ deb-src http://mirrors.163.com/debian-security/ wheezy/updates main non-free con
 </code></pre>
 <h1 id="3-其他第三方国内源">3. 其他第三方国内源</h1>
 <p>http://blog.csdn.net/xiayaobo/article/details/46970663</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[linux用netstat查看服务及监听端口]]></title>
-        <id>https://amiao.wawj.cool/post/linux-yong-netstat-cha-kan-fu-wu-ji-jian-ting-duan-kou/</id>
-        <link href="https://amiao.wawj.cool/post/linux-yong-netstat-cha-kan-fu-wu-ji-jian-ting-duan-kou/">
-        </link>
-        <updated>2021-03-16T13:20:10.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="linux用netstat查看服务及监听端口">linux用netstat查看服务及监听端口</h1>
-<p>[root@localhost ~]# netstat -nlp</p>
-<p>netstat命令各个参数说明如下：</p>
-<p>-t : 指明显示TCP端口</p>
-<p>-u : 指明显示UDP端口</p>
-<p>-l : 仅显示监听套接字(所谓套接字就是使应用程序能够读写与收发通讯协议(protocol)与资料的程序)</p>
-<p>-p : 显示进程标识符和程序名称，每一个套接字/端口都属于一个程序。</p>
-<p>-n : 不进行DNS轮询(可以加速操作)</p>
-<p>即可显示当前服务器上所有端口及进程服务，于grep结合可查看某个具体端口及服务情况··</p>
-<p>[root@localhost ~]# netstat -nlp |grep LISTEN  //查看当前所有监听端口·</p>
-<p>[root@localhost ~]# netstat -nlp |grep 80  //查看所有80端口使用情况·</p>
-<p>[root@localhost ~]# netstat -an | grep 3306  //查看所有3306端口使用情况·</p>
 ]]></content>
     </entry>
 </feed>
