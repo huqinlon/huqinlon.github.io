@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://amiao.wawj.cool</id>
     <title>Gridea</title>
-    <updated>2021-06-22T15:23:11.558Z</updated>
+    <updated>2021-07-14T13:22:59.007Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://amiao.wawj.cool"/>
     <link rel="self" href="https://amiao.wawj.cool/atom.xml"/>
@@ -10,6 +10,101 @@
     <logo>https://amiao.wawj.cool/images/avatar.png</logo>
     <icon>https://amiao.wawj.cool/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Windows Thin PC x86 正式版下载、安装、汉化 等]]></title>
+        <id>https://amiao.wawj.cool/post/windows-thin-pc-x86-zheng-shi-ban-xia-zai-an-zhuang-han-hua-deng/</id>
+        <link href="https://amiao.wawj.cool/post/windows-thin-pc-x86-zheng-shi-ban-xia-zai-an-zhuang-han-hua-deng/">
+        </link>
+        <updated>2021-07-14T13:20:49.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="windows-thin-pc-x86-正式版下载-安装-汉化-等">Windows Thin PC x86 正式版下载、安装、汉化 等</h3>
+<ul>
+<li><a href="https://blog.csdn.net/m0_43432635/article/details/83317560#Microsoft_Windows_Thin_PC__2">Microsoft Windows Thin PC 介绍</a></li>
+<li><a href="https://blog.csdn.net/m0_43432635/article/details/83317560#_6">下载</a></li>
+<li><a href="https://blog.csdn.net/m0_43432635/article/details/83317560#_19">安装</a></li>
+<li><a href="https://blog.csdn.net/m0_43432635/article/details/83317560#_25">激活</a></li>
+<li>
+<ul>
+<li><a href="https://blog.csdn.net/m0_43432635/article/details/83317560#MAK__29">MAK 密钥激活</a></li>
+<li><a href="https://blog.csdn.net/m0_43432635/article/details/83317560#WES__30">WES 证书激活</a></li>
+<li><a href="https://blog.csdn.net/m0_43432635/article/details/83317560#WES__51">WES 证书永久激活</a></li>
+<li><a href="https://blog.csdn.net/m0_43432635/article/details/83317560#KMS__63">KMS 激活</a></li>
+</ul>
+</li>
+<li><a href="https://blog.csdn.net/m0_43432635/article/details/83317560#_66">中文语言包</a></li>
+<li><a href="https://blog.csdn.net/m0_43432635/article/details/83317560#_86">其他</a></li>
+</ul>
+<h1 id="microsoft-windows-thin-pc-介绍">Microsoft Windows Thin PC 介绍</h1>
+<p>Microsoft Windows Thin PC 目前尚未在中国上市且未提供给中国客户，只有英文版。WinTPC 是一个面向企业用户的产品，主要面向虚拟桌面基础架构（VDI）消费者，相对于其他常规 Windows 7 系统，由于组件的精简，消耗系统资源更少，对于普通用户，如果您的电脑配置较低，对系统功能的要求也不高，WinTPC 将是一个很好的选择，下面分享 Windows 7 瘦身版 Windows Thin PC 下载、激活及完美汉化的方法。</p>
+<h1 id="下载">下载</h1>
+<p>ed2k://|file|en_windows_thin_pc_x86_697681.iso|1576980480|2D0E6A048EB3F314F556B4F0834A95E2|/</p>
+<p>文件: en_windows_thin_pc_x86_697681.iso<br>
+大小: 1576980480 字节<br>
+发布日期 (UTC): 7/1/2011 6:19:55 AM<br>
+MD5: 434DC27B6ECD4932D300A5E756397FF5<br>
+SHA1: CC181653C1BAAF85337CDA069E35D0D94F99CCA9<br>
+CRC32: B286DF82</p>
+<p>90天试用版的链接就不列出来了。</p>
+<h1 id="安装">安装</h1>
+<p>安装过程和 Windows 7 类似，比 Windows Embedded Standard 7（以下简称 WES7）简单。没有要求输入 KEY，激活宽限期 3 天，WES7 的 KEY 不能用。。</p>
+<h1 id="激活">激活</h1>
+<p>以下的激活方法都不需要主板 BIOS 里带 SLIC 2.1</p>
+<h2 id="mak-密钥激活">MAK 密钥激活</h2>
+<h2 id="wes-证书激活">WES 证书激活</h2>
+<p>这个WES证书激活方法只是假激活，实际只是把使用期延长至30天，到期后依然是激活状<br>
+态，但桌面右下角以及开机都提示不是正版，而且黑屏。</p>
+<ol>
+<li>
+<p>下载证书文件：<br>
+http://filemarkets.com/file/axhmei/993a1a10/<br>
+注：证书文件提取自 WES7 同目录下的：</p>
+<p>Security-SPP-Component-SKU-Embedded-VLBA-ul.xrm-ms<br>
+Security-SPP-Component-SKU-Embedded-VLBA-ul-oob.xrm-ms</p>
+</li>
+<li>
+<p>将证书文件放到以下位置：</p>
+<p>C:\Windows\System32\spp\tokens\skus\Security-SPP-Component-SKU-Embedded</p>
+</li>
+<li>
+<p>然后管理员权限运行 cmd 命令提示符，输入以下命令即可成功激活，</p>
+<p>slmgr.vbs -rilc</p>
+</li>
+</ol>
+<h2 id="wes-证书永久激活">WES 证书永久激活</h2>
+<p>和上面的方法类似，不过增加了一个证书文件以及更换序列号，管理员权限运行 cmd 命令<br>
+提示符，输入以下命令：</p>
+<pre><code>slmgr.vbs /ilc pkeyconfig-embedded.xrm-ms
+slmgr.vbs /ilc Security-SPP-Component-SKU-Embedded-VLBA-ul.xrm-ms
+slmgr.vbs /ilc Security-SPP-Component-SKU-Embedded-VLBA-ul-oob.xrm-ms
+slmgr.vbs /ipk XGY72-BRBBT-FF8MH-2GG8H-W7KCW
+slmgr.vbs /xpr
+
+证书文件下载地址：http://www.newsmth.net/bbscon.php?bid=99&amp;id=1851783
+1234567
+</code></pre>
+<h2 id="kms-激活">KMS 激活</h2>
+<h1 id="中文语言包">中文语言包</h1>
+<p>使用 WES7 SP1 的中文语言包，下载：<br>
+http://download.microsoft.com/download/8/6/1/8616D57C-1163-45FB-832A-15FA60571002/SP1/Chinese (Simplified) Language Pack - Windows Embedded Standard 7 SP1/lp.cab</p>
+<p>文件: lp.cab<br>
+大小: 39548892 字节<br>
+MD5: 26083B8700C1444E95E88EF3FCA7C426<br>
+SHA1: C6B985F0B32FDFF8558190D21EE615BD9B3D70DF<br>
+CRC32: 8B2147AA</p>
+<p>因为没有 lpksetup.exe 组件，所以不能在控制面板里直接安装语言包，可以用 DISM<br>
+命令添加 WES7 SP1 的中文语言包，把下载的语言包文件放到 C 盘根目录，然后以管<br>
+理员权限运行 cmd 命令提示符，然后输入命令：<br>
+dism /online /add-package /packagepath:C:\lp.cab<br>
+重启后在控制面板中更改显示语言<br>
+修改启动画面的中文显示那两步可以忽略，因为不能完全显示中文，不如不改。</p>
+<h1 id="其他">其他</h1>
+<p>虚拟机装了测试，不安装 VMware Tools 时，安装后占用硬盘空间 2.9G 以上，添加中<br>
+文包后系统占用磁盘空间 3.1G 以上。系统默认启动进程 33~36 个（比 WES7 定制出<br>
+来的少），内存 340M 左右吧。“控制面板-系统”里显示的系统版本是 WES，启动画<br>
+面是Windows Thin PC。</p>
+<p>添加 winemb-lpk-setup.cab 组件后还不能管理语言包，缺少 MUI 不能启动。</p>
+<p>用 dism 命令卸载系统原有组件失败，没办法卸载日文韩文输入法和字体。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Rclone 进阶使用教程 - 常用命令参数详解]]></title>
         <id>https://amiao.wawj.cool/post/rclone-jin-jie-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu-xiang-jie/</id>
@@ -975,63 +1070,6 @@ SSD： 0.1W~1W（2W）   5~10W     4~5W左右</p>
 <p>如果觉得这篇文章对您有一点点用处的话，**欢迎点赞、评论、收藏、一条龙哦。<img src="https://res.smzdm.com/images/emotions/43.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"> **</p>
 <p>最后说一下，关于硬改方面，请一定要小心，小心，再小心。我这里建议，可以不需要硬改，先这样用，当出现了掉盘等情况后，不到迫不得已，再选择硬改的方案。我们下次再见！<img src="https://res.smzdm.com/images/emotions/33.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
 <p>希望大家在新的一年里折腾愉快！拜拜！<img src="https://res.smzdm.com/images/emotions/67.png" alt="我家云 保姆级教程：完美OMV固件推荐+硬改不掉盘实操 超值低功耗NAS 家庭服务器 下载机" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[debian系linux，更换apt-get官方源为国内源]]></title>
-        <id>https://amiao.wawj.cool/post/debian-xi-linuxgeng-huan-apt-get-guan-fang-yuan-wei-guo-nei-yuan/</id>
-        <link href="https://amiao.wawj.cool/post/debian-xi-linuxgeng-huan-apt-get-guan-fang-yuan-wei-guo-nei-yuan/">
-        </link>
-        <updated>2021-03-16T13:22:23.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1-更换apt-get官方源为163源">1. 更换apt-get官方源为163源</h2>
-<p>操作前做好相应备份</p>
-<pre><code># mv /etc/apt/sources.list /etc/apt/sources.list.bak1
-</code></pre>
-<p>以Jessie为例，编辑/etc/apt/sources.list文件</p>
-<pre><code># vim /etc/apt/sources.list
-
-# 在文件最前面，添加以下条目
-deb http://mirrors.163.com/debian/ jessie main non-free contrib
-deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib
-deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib
-deb-src http://mirrors.163.com/debian/ jessie main non-free contrib
-deb-src http://mirrors.163.com/debian/ jessie-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ jessie-backports main non-free contrib
-deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
-deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib1234567891011
-</code></pre>
-<p>更新软件源</p>
-<pre><code># apt-get update1
-</code></pre>
-<h2 id="2-其他版本源">2. 其他版本源</h2>
-<ul>
-<li>squeeze</li>
-</ul>
-<pre><code>deb http://mirrors.163.com/debian/ squeeze main non-free contrib
-deb http://mirrors.163.com/debian/ squeeze-updates main non-free contrib
-deb http://mirrors.163.com/debian/ squeeze-lts main non-free contrib
-deb-src http://mirrors.163.com/debian/ squeeze main non-free contrib
-deb-src http://mirrors.163.com/debian/ squeeze-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ squeeze-lts main non-free contrib
-deb http://mirrors.163.com/debian-security/ squeeze/updates main non-free contrib
-deb-src http://mirrors.163.com/debian-security/ squeeze/updates main non-free contrib
-deb http://mirrors.163.com/debian-backports/ squeeze-backports main contrib non-free
-deb-src http://mirrors.163.com/debian-backports/ squeeze-backports main contrib non-free12345678910
-</code></pre>
-<ul>
-<li>wheezy</li>
-</ul>
-<pre><code>deb http://mirrors.163.com/debian/ wheezy main non-free contrib
-deb http://mirrors.163.com/debian/ wheezy-updates main non-free contrib
-deb http://mirrors.163.com/debian/ wheezy-backports main non-free contrib
-deb-src http://mirrors.163.com/debian/ wheezy main non-free contrib
-deb-src http://mirrors.163.com/debian/ wheezy-updates main non-free contrib
-deb-src http://mirrors.163.com/debian/ wheezy-backports main non-free contrib
-deb http://mirrors.163.com/debian-security/ wheezy/updates main non-free contrib
-deb-src http://mirrors.163.com/debian-security/ wheezy/updates main non-free contrib12345678
-</code></pre>
-<h1 id="3-其他第三方国内源">3. 其他第三方国内源</h1>
-<p>http://blog.csdn.net/xiayaobo/article/details/46970663</p>
 ]]></content>
     </entry>
 </feed>
