@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://amiao.wawj.cool</id>
+    <id>https://amiao.ailiai.xyz</id>
     <title>Gridea</title>
-    <updated>2021-08-04T01:41:41.635Z</updated>
+    <updated>2021-09-21T21:37:34.250Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://amiao.wawj.cool"/>
-    <link rel="self" href="https://amiao.wawj.cool/atom.xml"/>
+    <link rel="alternate" href="https://amiao.ailiai.xyz"/>
+    <link rel="self" href="https://amiao.ailiai.xyz/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://amiao.wawj.cool/images/avatar.png</logo>
-    <icon>https://amiao.wawj.cool/favicon.ico</icon>
+    <logo>https://amiao.ailiai.xyz/images/avatar.png</logo>
+    <icon>https://amiao.ailiai.xyz/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[Windows Thin PC x86 正式版下载、安装、汉化 等]]></title>
-        <id>https://amiao.wawj.cool/post/windows-thin-pc-x86-zheng-shi-ban-xia-zai-an-zhuang-han-hua-deng/</id>
-        <link href="https://amiao.wawj.cool/post/windows-thin-pc-x86-zheng-shi-ban-xia-zai-an-zhuang-han-hua-deng/">
+        <id>https://amiao.ailiai.xyz/post/windows-thin-pc-x86-zheng-shi-ban-xia-zai-an-zhuang-han-hua-deng/</id>
+        <link href="https://amiao.ailiai.xyz/post/windows-thin-pc-x86-zheng-shi-ban-xia-zai-an-zhuang-han-hua-deng/">
         </link>
         <updated>2021-07-14T13:20:49.000Z</updated>
         <content type="html"><![CDATA[<h3 id="windows-thin-pc-x86-正式版下载-安装-汉化-等">Windows Thin PC x86 正式版下载、安装、汉化 等</h3>
@@ -107,8 +107,8 @@ dism /online /add-package /packagepath:C:\lp.cab<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[Rclone 进阶使用教程 - 常用命令参数详解]]></title>
-        <id>https://amiao.wawj.cool/post/rclone-jin-jie-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu-xiang-jie/</id>
-        <link href="https://amiao.wawj.cool/post/rclone-jin-jie-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu-xiang-jie/">
+        <id>https://amiao.ailiai.xyz/post/rclone-jin-jie-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu-xiang-jie/</id>
+        <link href="https://amiao.ailiai.xyz/post/rclone-jin-jie-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu-xiang-jie/">
         </link>
         <updated>2021-06-22T14:41:10.000Z</updated>
         <content type="html"><![CDATA[<h2 id="前言">前言</h2>
@@ -232,8 +232,8 @@ rclone [功能选项] &lt;网盘名称:路径&gt; &lt;网盘名称:路径&gt; [�
     </entry>
     <entry>
         <title type="html"><![CDATA[自建 speedtest 服务器 测速 群晖docker安装speedtest]]></title>
-        <id>https://amiao.wawj.cool/post/zi-jian-speedtest-fu-wu-qi-ce-su-qun-hui-docker-an-zhuang-speedtest/</id>
-        <link href="https://amiao.wawj.cool/post/zi-jian-speedtest-fu-wu-qi-ce-su-qun-hui-docker-an-zhuang-speedtest/">
+        <id>https://amiao.ailiai.xyz/post/zi-jian-speedtest-fu-wu-qi-ce-su-qun-hui-docker-an-zhuang-speedtest/</id>
+        <link href="https://amiao.ailiai.xyz/post/zi-jian-speedtest-fu-wu-qi-ce-su-qun-hui-docker-an-zhuang-speedtest/">
         </link>
         <updated>2021-06-22T13:52:04.000Z</updated>
         <content type="html"><![CDATA[<h1 id="自建-speedtest-服务器-测速-群晖docker安装speedtest">自建 speedtest 服务器 测速 群晖docker安装speedtest</h1>
@@ -275,8 +275,8 @@ rclone [功能选项] &lt;网盘名称:路径&gt; &lt;网盘名称:路径&gt; [�
     </entry>
     <entry>
         <title type="html"><![CDATA[homeassistant炫酷的天气雷达]]></title>
-        <id>https://amiao.wawj.cool/post/homeassistant-xuan-ku-de-tian-qi-lei-da/</id>
-        <link href="https://amiao.wawj.cool/post/homeassistant-xuan-ku-de-tian-qi-lei-da/">
+        <id>https://amiao.ailiai.xyz/post/homeassistant-xuan-ku-de-tian-qi-lei-da/</id>
+        <link href="https://amiao.ailiai.xyz/post/homeassistant-xuan-ku-de-tian-qi-lei-da/">
         </link>
         <updated>2021-06-15T15:51:02.000Z</updated>
         <content type="html"><![CDATA[<p><strong>前言</strong></p>
@@ -309,8 +309,8 @@ rclone [功能选项] &lt;网盘名称:路径&gt; &lt;网盘名称:路径&gt; [�
     </entry>
     <entry>
         <title type="html"><![CDATA[DEBIAN 10切换ROOT用户登录]]></title>
-        <id>https://amiao.wawj.cool/post/debian-10-qie-huan-root-yong-hu-deng-lu/</id>
-        <link href="https://amiao.wawj.cool/post/debian-10-qie-huan-root-yong-hu-deng-lu/">
+        <id>https://amiao.ailiai.xyz/post/debian-10-qie-huan-root-yong-hu-deng-lu/</id>
+        <link href="https://amiao.ailiai.xyz/post/debian-10-qie-huan-root-yong-hu-deng-lu/">
         </link>
         <updated>2021-06-13T22:55:10.000Z</updated>
         <content type="html"><![CDATA[<h1 id="debian-10允许root用户登录">DEBIAN 10允许ROOT用户登录</h1>
@@ -335,8 +335,8 @@ rclone [功能选项] &lt;网盘名称:路径&gt; &lt;网盘名称:路径&gt; [�
     </entry>
     <entry>
         <title type="html"><![CDATA[debian常用指令]]></title>
-        <id>https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/</id>
-        <link href="https://amiao.wawj.cool/post/debian-chang-yong-zhi-ling/">
+        <id>https://amiao.ailiai.xyz/post/debian-chang-yong-zhi-ling/</id>
+        <link href="https://amiao.ailiai.xyz/post/debian-chang-yong-zhi-ling/">
         </link>
         <updated>2021-06-13T22:53:32.000Z</updated>
         <content type="html"><![CDATA[<h1 id="debian常用指令">debian常用指令</h1>
@@ -609,8 +609,8 @@ mysqladmin flush-privileges</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[安装HASSIO]]></title>
-        <id>https://amiao.wawj.cool/post/an-zhuang-hassio/</id>
-        <link href="https://amiao.wawj.cool/post/an-zhuang-hassio/">
+        <id>https://amiao.ailiai.xyz/post/an-zhuang-hassio/</id>
+        <link href="https://amiao.ailiai.xyz/post/an-zhuang-hassio/">
         </link>
         <updated>2021-06-07T21:38:37.000Z</updated>
         <content type="html"><![CDATA[<h2 id="安装hassio">安装HASSIO</h2>
@@ -654,8 +654,8 @@ chmod a+x install.sh
     </entry>
     <entry>
         <title type="html"><![CDATA[3.5英寸硬盘功耗，到底多少瓦，附其它功耗参考]]></title>
-        <id>https://amiao.wawj.cool/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/</id>
-        <link href="https://amiao.wawj.cool/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/">
+        <id>https://amiao.ailiai.xyz/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/</id>
+        <link href="https://amiao.ailiai.xyz/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/">
         </link>
         <updated>2021-04-24T14:35:25.000Z</updated>
         <content type="html"><![CDATA[<p>最近组NAS，作为24小时运行的小型服务器，功耗是要关注的点</p>
@@ -747,8 +747,8 @@ SSD： 0.1W~1W（2W）   5~10W     4~5W左右</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机]]></title>
-        <id>https://amiao.wawj.cool/post/2020-hei-qun-hui-zui-wen-ding-ban-ben-_-jia-ting-nas-bu-shu-zhi-nan-ru-he-zi-ji-dong-shou-an-zhuang-yi-tai-hei-qun-hui-zhu-ji/</id>
-        <link href="https://amiao.wawj.cool/post/2020-hei-qun-hui-zui-wen-ding-ban-ben-_-jia-ting-nas-bu-shu-zhi-nan-ru-he-zi-ji-dong-shou-an-zhuang-yi-tai-hei-qun-hui-zhu-ji/">
+        <id>https://amiao.ailiai.xyz/post/2020-hei-qun-hui-zui-wen-ding-ban-ben-_-jia-ting-nas-bu-shu-zhi-nan-ru-he-zi-ji-dong-shou-an-zhuang-yi-tai-hei-qun-hui-zhu-ji/</id>
+        <link href="https://amiao.ailiai.xyz/post/2020-hei-qun-hui-zui-wen-ding-ban-ben-_-jia-ting-nas-bu-shu-zhi-nan-ru-he-zi-ji-dong-shou-an-zhuang-yi-tai-hei-qun-hui-zhu-ji/">
         </link>
         <updated>2021-04-24T13:12:19.000Z</updated>
         <content type="html"><![CDATA[<h2 id="2020黑群晖最稳定版本_家庭nas部署指南-如何自己动手安装一台黑群晖主机">2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机...</h2>
@@ -855,8 +855,8 @@ SSD： 0.1W~1W（2W）   5~10W     4~5W左右</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[我家云刷机及使用教程]]></title>
-        <id>https://amiao.wawj.cool/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/</id>
-        <link href="https://amiao.wawj.cool/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/">
+        <id>https://amiao.ailiai.xyz/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/</id>
+        <link href="https://amiao.ailiai.xyz/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/">
         </link>
         <updated>2021-03-16T13:32:28.000Z</updated>
         <content type="html"><![CDATA[<p>**创作立场声明：**我家云，目前经过几个月的发酵，固件方面已经非常多且稳定了。推荐喜欢折腾的朋友上车，价格不贵，挺好玩的！</p>
