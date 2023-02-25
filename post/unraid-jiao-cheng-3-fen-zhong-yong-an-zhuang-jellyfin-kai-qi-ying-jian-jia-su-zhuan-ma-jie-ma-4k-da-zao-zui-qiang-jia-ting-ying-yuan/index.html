@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/unraid-jiao-cheng-3-fen-zhong-yong-an-zhuang-jellyfin-kai-qi-ying-jian-jia-su-zhuan-ma-jie-ma-4k-da-zao-zui-qiang-jia-ting-ying-yuan/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://amiao.ioxoo.top/tag/IsShN1o6U/" class="tag">Jellyfin</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/OjnCBT0aB/" class="tag">docker</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/Yih9qrp-et/" class="tag">unraid</a>
+                
+              </span>
+              <h1>UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院</h1>
+              <span class="meta">
+                Posted on
+                2022-04-04，12 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="unraid教程3分钟-用安装jellyfin-开启硬件加速转码-解码4k-打造最强家庭影院">UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院</h1>
+<figure data-type="image" tabindex="1"><a href="https://post.smzdm.com/p/a25gpmpn/pic_2/"><img src="https://am.zdmimg.com/201912/19/5dfa5cfd638d4720.jpg_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<h2 id="前言">前言</h2>
+<p>大家好，俺又来了！<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>这是我写的 关于UNRAID 第三篇文章了，依旧是<strong>保姆级</strong>文章，搭配前面两篇食用，效果会更佳。<img src="https://res.smzdm.com/images/emotions/64.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>最近站里分享UNRAID的文章越来越多，这是一件非常好的事情。<img src="https://res.smzdm.com/images/emotions/35.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>玩的人越多，就越多精彩的内容，已经看到不少干货文章出现了！<img src="https://res.smzdm.com/images/emotions/189.gif" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>今天教给大家如何用UNRAID 开启<strong>集成<a href="https://www.smzdm.com/fenlei/xianka/">显卡</a>的硬件加速功能</strong>，让Jellyfin、EMBY、PLEX等这类软件，能调用J3455这些<a href="https://www.smzdm.com/fenlei/zhuban/">主板</a>的集成显卡进行转码！当然，J1900也可以呀！<img src="https://res.smzdm.com/images/emotions/158.gif" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>之前分享过Jellyfin的文章，有兴趣的朋友可以看看，那时候没有成功开启硬件加速功能，导致我的CPU经常爆满，而且有些影片还播放不了：</p>
+<p><a href="https://post.smzdm.com/p/a6lnxg3g/"><img src="https://qna.smzdm.com/201907/06/5d20a564cdfdc9292.jpg_a200.jpg" alt="img" loading="lazy"></a><a href="https://post.smzdm.com/p/a6lnxg3g/"><strong>使用群晖Docker 安装Jellyfin 家庭影院HTPC 比emby plex好用多了</strong></a>大家好，俺又来了，这次给大家分享群晖Docker安装Jellyfin了！这个是算是俺的压轴节目了，最近一口气写了好多关于群晖NAS软件的分享，脑袋都是疼的！关于jellyfin，最开始知道这个的时候，俺已经体验过plex和emby了，这两个软件是不错，但是因为收费，不得不放弃之。引用萌鼠博客的内容：<a href="https://zhiyou.smzdm.com/member/6902738986/">阿文菌</a>|<em>赞</em>1k<em>评论</em>990<em>收藏</em>10k<a href="https://post.smzdm.com/p/a6lnxg3g/">查看详情</a></p>
+<p>如今，换上了UNRAID系统后，开启了Jellyfin的硬件加速功能，实测4K转码都没问题，不开这个功能的话，影片都没法播放，以下是测试开启了硬件加速，并且驱动了集成显卡转码的效果：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="2"><a href="https://post.smzdm.com/p/a25gpmpn/pic_3/"><img src="https://am.zdmimg.com/201912/18/5df9120829ebe4916.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>关于如何安装UNRAID，保姆级教程已经出炉，看这篇文章，3分钟即可安装UNRAID：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p><a href="https://post.smzdm.com/p/aoow5ml7/"><img src="https://qna.smzdm.com/201912/18/5df90080d850f4366.jpg_a200.jpg" alt="img" loading="lazy"></a><a href="https://post.smzdm.com/p/aoow5ml7/"><strong>NAS教程：手把手教您 3分钟安装UNRAID系统 并设置硬盘共享文件 Docker容器APP</strong></a>前言大家好，俺又来了！久等了！UNRAID是一款类似NAS的操作系统，和PVE、ESXI很像，但又很不同。在我使用了大半个月后，已经完美搭建出自己的家用NAS服务器，我觉得非常好用，所以推荐给大家。老规矩，废话少说，本文都是干货，欢迎大家提前点赞、点收藏，谢谢大家的支持！下面这篇关于UNRAID的介<a href="https://zhiyou.smzdm.com/member/6902738986/">阿文菌</a>|<em>赞</em>935<em>评论</em>504<em>收藏</em>5k<a href="https://post.smzdm.com/p/aoow5ml7/">查看详情</a></p>
+<p>关于我是如何使用UNRAID的方案，可以看我这篇介绍文章**（3分钟看完）**：<img src="https://res.smzdm.com/images/emotions/38.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p><a href="https://post.smzdm.com/p/a5kl335x/"><img src="https://qna.smzdm.com/201912/14/5df4bae621b344515.jpg_a200.jpg" alt="img" loading="lazy"></a><a href="https://post.smzdm.com/p/a5kl335x/"><strong>NAS换上了UNRAID系统，J3455绝配！解决了Jellyfin硬件加速解码，虚拟群晖DSM</strong></a>#2019值得总结#年度征稿重磅上线!分享你的年度好物清单、购物心得、收藏好物……赢海量金币、抽限定惊喜福袋,还有万元大奖等你来拿!详情戳这里了解前言哈喽，我是阿文菌！俺又来了！肯定有人看到标题会产生疑问？UNRAID是什么东东？能做什么？1、相信关注过b站up主司波图和VedioTalk都肯定有所<a href="https://zhiyou.smzdm.com/member/6902738986/">阿文菌</a>|<em>赞</em>1k<em>评论</em>804<em>收藏</em>8k<a href="https://post.smzdm.com/p/a5kl335x/">查看详情</a></p>
+<p>J1900也可以尝试这个方法使用哦，但是效果估计没有J3455及以上主板好，所以推荐J3455以上的主板使用UNRAID当作家庭媒体<a href="https://www.smzdm.com/fenlei/fuwuqi/">服务器</a>，会更给力！<img src="https://res.smzdm.com/images/emotions/34.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>网上传闻J3455有质量问题的通告，但据说第二天又撤回通告了。目前先不说有没有出现故障的案例。</p>
+<p>就J3455的体积、功耗、价格、盘位、性能来说，真找不到比它更合适当NAS的主板了，加钱党散开！<img src="https://res.smzdm.com/images/emotions/58.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>而且就算J3455坏了，直接到时候再换一块板子即可，硬盘的数据也不会丢失，就J3455目前400左右的价位，用个三年，就算坏了，我也不心疼。<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p><strong>我们废话少说，直接进入干货主题，开始开启UNRAID硬件解码功能，以及安装和配置Jellyfin！</strong><img src="https://res.smzdm.com/images/emotions/43.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p><strong>保姆级的文章，写起来真的是非常费劲，非常希望大家点赞、点收藏、让更多的用户看到这个，感谢大家！我希望能产生一丁点影响力，让UNRAID像其它系统一样，更多的人来折腾！</strong></p>
+<h2 id=""></h2>
+<h2 id="unraid-设置电影文件夹">UNRAID 设置电影<a href="https://www.smzdm.com/fenlei/wenjianjia/">文件夹</a></h2>
+<p>1、上一篇文章，我们已经配置好了UNRAID当作NAS使用了。</p>
+<p>回到SHARES选项里面，新建一个放电影的文件夹，这样比较方便：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="3"><a href="https://post.smzdm.com/p/a25gpmpn/pic_4/"><img src="https://qnam.smzdm.com/201912/18/5df911780c70d4317.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、取名 Movie 吧，比较熟悉的命名了，直接点ADD SHARE添加即可：<img src="https://res.smzdm.com/images/emotions/24.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="4"><a href="https://post.smzdm.com/p/a25gpmpn/pic_5/"><img src="https://am.zdmimg.com/201912/18/5df911780d2488.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>3、设置名字之后，会出现SMB设置界面，点DONE即可，这里不用设置：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="5"><a href="https://post.smzdm.com/p/a25gpmpn/pic_6/"><img src="https://qnam.smzdm.com/201912/18/5df9117870abb1472.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>4、创建的电影文件夹完成：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="6"><a href="https://post.smzdm.com/p/a25gpmpn/pic_7/"><img src="https://qnam.smzdm.com/201912/18/5df9117928af72525.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>本次耗时10秒钟！</p>
+<h2 id="unraid-安装jellyfin">UNRAID 安装Jellyfin</h2>
+<p>1、开始安装Jellyifn，在APPS界面，搜索jellyfin。</p>
+<p>如何开启APPS选项，看我上一篇文章安装一下APPS插件的代码即可，一个步骤即可开启：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="7"><a href="https://post.smzdm.com/p/a25gpmpn/pic_8/"><img src="https://qnam.smzdm.com/201912/18/5df911794c9b22836.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、点击Jellyfin安装以后，进入到设置页面，我们只需要设置一下刚刚新建的放影片文件夹的路径即可：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="8"><a href="https://post.smzdm.com/p/a25gpmpn/pic_9/"><img src="https://qnam.smzdm.com/201912/18/5df91179525bb9418.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>不要点最下面的应用，如果点了应用，虽然安装了Jellyfin完成了，但是没法开启硬件加速功能的！</p>
+<p>我们要硬件加速功能，必须要设置一下，下面继续。</p>
+<p>本次耗时10秒钟，共计时20秒！</p>
+<h2 id="unraid-开启集成显卡-renderd128-驱动">UNRAID 开启集成显卡 renderD128 驱动</h2>
+<p>1、直接点击右上角的 &gt;_ 这个符号，这个是打开UNRAID的终端功能：<img src="https://res.smzdm.com/images/emotions/64.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>这个真的太太太方便了！</p>
+<figure data-type="image" tabindex="9"><a href="https://post.smzdm.com/p/a25gpmpn/pic_10/"><img src="https://qnam.smzdm.com/201912/18/5df9117970ef36134.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、进入了终端，其实就类似SHH的页面，我们直接输入代码：</p>
+<blockquote>
+<p>modprobe i915</p>
+</blockquote>
+<p>回车即可，这样就开启了集成显卡的驱动功能了！<img src="https://res.smzdm.com/images/emotions/64.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>（这里不得不再次感谢一下司波图大佬分享的视频教程，本篇文章相当于搬运了司波图的设置方案，谢谢大佬！）<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy">（司波图是B站UP主，大家可以关注一波，UNRAID的视频教程非常详细。）</p>
+<figure data-type="image" tabindex="10"><a href="https://post.smzdm.com/p/a25gpmpn/pic_11/"><img src="https://qnam.smzdm.com/201912/18/5df91179a8565604.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>3、我们检查一下，有没有开启核显功能：</p>
+<p>输入下面代码，如果出现了 renderD128 这个就代表成功了：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<blockquote>
+<p>ls /dev/dri</p>
+</blockquote>
+<figure data-type="image" tabindex="11"><a href="https://post.smzdm.com/p/a25gpmpn/pic_12/"><img src="https://qnam.smzdm.com/201912/18/5df91179adcdc6106.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>4、设置了集成显卡成功了后，我们再设置一下开机启动项，这样每次开机就会自动加载核显驱动了：</p>
+<p>输入代码：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<blockquote>
+<p>cd /boot/config</p>
+</blockquote>
+<figure data-type="image" tabindex="12"><a href="https://post.smzdm.com/p/a25gpmpn/pic_13/"><img src="https://qnam.smzdm.com/201912/18/5df91179c31863563.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>5、输入代码，这一步就是修改 开机启动的go配置文件：<img src="https://res.smzdm.com/images/emotions/39.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<blockquote>
+<p>vi go</p>
+</blockquote>
+<figure data-type="image" tabindex="13"><a href="https://post.smzdm.com/p/a25gpmpn/pic_14/"><img src="https://qnam.smzdm.com/201912/18/5df91179f27989509.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>6、按一下键盘的 i 键，就可以输入内容了，我们输入开启核显代码：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<blockquote>
+<p>modprobe i915</p>
+</blockquote>
+<figure data-type="image" tabindex="14"><a href="https://post.smzdm.com/p/a25gpmpn/pic_15/"><img src="https://qnam.smzdm.com/201912/18/5df91179efd852779.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>7、然后按住键盘的冒号 ，输入 :wq 进行保存退出：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="15"><a href="https://post.smzdm.com/p/a25gpmpn/pic_16/"><img src="https://qnam.smzdm.com/201912/18/5df9117a387801726.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>8、核显，集成显卡驱动已经设置完成了，我们关掉终端窗口，继续在Jellyfin安装的设置页面最下面，点击ADD这个，看图操作：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="16"><a href="https://post.smzdm.com/p/a25gpmpn/pic_17/"><img src="https://qnam.smzdm.com/201912/18/5df9117a61e5a9136.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>9、点击以后，进入到下面这个页面，选择 type类型为 Device，NAME随便填写一个名字，比如xianka，然后添加一个路径，路径就是核显驱动的路径：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<blockquote>
+<p>/dev/dri</p>
+</blockquote>
+<figure data-type="image" tabindex="17"><a href="https://post.smzdm.com/p/a25gpmpn/pic_18/"><img src="https://qnam.smzdm.com/201912/18/5df9117a549cb258.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>10、其实UNRAID安装Jellyfin，只需要设置下面2个地方即可，一个影片路径，一个核显路径，我们点击应用即可：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="18"><a href="https://post.smzdm.com/p/a25gpmpn/pic_19/"><img src="https://qnam.smzdm.com/201912/18/5df9117b1e447776.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>11、稍等几分钟，就安装完成了，可以愉快的玩耍了！<img src="https://res.smzdm.com/images/emotions/38.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="19"><a href="https://post.smzdm.com/p/a25gpmpn/pic_20/"><img src="https://qnam.smzdm.com/201912/18/5df9117b0b5d98327.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>12、点击到DOCKER选项，点击jellyfin这个图标，然后点击WEB UI，就进入到了Jellyfin设置页面了：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>或者直接在浏览器输入 IP地址+端口 :8096 ，也可以访问：</p>
+<figure data-type="image" tabindex="20"><a href="https://post.smzdm.com/p/a25gpmpn/pic_21/"><img src="https://qnam.smzdm.com/201912/18/5df9117b1b0024169.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>这个步骤看着繁琐一点点，其实就是添加了一下集成显卡，并且加载到开机启动项了。</p>
+<p>以后就不用再设置集显卡了。</p>
+<p><strong>本次步骤耗时1分钟，总计时1分20秒！<img src="https://res.smzdm.com/images/emotions/38.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></strong></p>
+<h2 id="设置-jellyfin-硬件加速">设置 Jellyfin 硬件加速</h2>
+<p>直接在浏览器输入 IP地址+端口 :8096 ，也可以访问Jellyfin页面！</p>
+<p>1、之前写过Jellyfin的文章，里面也有设置过程，这里为了方便新老用户不用再去翻文章，所以再写一下，设置语言为中文：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="21"><a href="https://post.smzdm.com/p/a25gpmpn/pic_22/"><img src="https://qnam.smzdm.com/201912/18/5df9117b682b36397.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、设置管理员账号和密码：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="22"><a href="https://post.smzdm.com/p/a25gpmpn/pic_23/"><img src="https://qnam.smzdm.com/201912/18/5df9117b82fec5658.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>3、直接点击Next：<img src="https://res.smzdm.com/images/emotions/43.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="23"><a href="https://post.smzdm.com/p/a25gpmpn/pic_24/"><img src="https://qnam.smzdm.com/201912/18/5df9117b8932a7006.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>4、设置语言：中华人民共和国，然后点击NEXT：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="24"><a href="https://post.smzdm.com/p/a25gpmpn/pic_25/"><img src="https://am.zdmimg.com/201912/18/5df9117bb375e8971.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>5、点击Next，完成：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="25"><a href="https://post.smzdm.com/p/a25gpmpn/pic_26/"><img src="https://qnam.smzdm.com/201912/18/5df9117be9ac52991.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>6、输入账号密码进入到Jellyfin后台：<img src="https://res.smzdm.com/images/emotions/38.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="26"><a href="https://post.smzdm.com/p/a25gpmpn/pic_27/"><img src="https://qnam.smzdm.com/201912/18/5df9117bd94c78688.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>7、点击播放按钮：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="27"><a href="https://post.smzdm.com/p/a25gpmpn/pic_28/"><img src="https://qnam.smzdm.com/201912/18/5df9117c1da121148.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>8、将硬件加速选择： Video Acceleration API，下面的路径和勾勾会自动打开，这样就好了：</p>
+<p>恭喜您，现在已经成功开启了Jellyfin的硬件加速了，以后CPU不会再彪高了：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="28"><a href="https://post.smzdm.com/p/a25gpmpn/pic_29/"><img src="https://qnam.smzdm.com/201912/18/5df9117c323e26320.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>9、会有一个提示，点击知道了即可：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="29"><a href="https://post.smzdm.com/p/a25gpmpn/pic_30/"><img src="https://qnam.smzdm.com/201912/18/5df9117c4c1e94612.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p><strong>本次耗时30秒，总计时1分50秒！</strong></p>
+<h2 id="设置-jellyfin-媒体库">设置 Jellyfin 媒体库</h2>
+<p>1、接下来，我们在电脑上访问UNRAID，地址栏 输入 ip地址，即可访问：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>访问不会的，可以看我上篇入门文章。。希望学习UNRAID的朋友，一步一步来，别跳着看，不然出问题，又纠结了。<img src="https://res.smzdm.com/images/emotions/46.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="30"><a href="https://post.smzdm.com/p/a25gpmpn/pic_31/"><img src="https://am.zdmimg.com/201912/18/5df9117ca4e4d7127.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、找到Movie，我们创建的放电影的文件夹，点进去后，新建自己的电影目录。<img src="https://res.smzdm.com/images/emotions/34.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>以后我们要下载，也可以把这个文件夹，设置为下载路径，以后直接把影片下载进去，然后刷新一下媒体库，就更新了影片了：</p>
+<figure data-type="image" tabindex="31"><a href="https://post.smzdm.com/p/a25gpmpn/pic_32/"><img src="https://qnam.smzdm.com/201912/18/5df9117ca89635825.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>3、回到Jellyfin后台，点击媒体库，点添加：<img src="https://res.smzdm.com/images/emotions/39.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="32"><a href="https://post.smzdm.com/p/a25gpmpn/pic_33/"><img src="https://qnam.smzdm.com/201912/18/5df9117c6c73f1169.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>4、参考我下面的设置，文件夹的路径记住是：/movies/电影</p>
+<p>如果用了tmm刮削电影的元数据，就不需要打勾，如果没看过tmm设置，就打勾吧，然后点击确定即可：<img src="https://res.smzdm.com/images/emotions/43.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="33"><a href="https://post.smzdm.com/p/a25gpmpn/pic_34/"><img src="https://qnam.smzdm.com/201912/18/5df9117cc906d3559.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>5、tmm手动刮削影片封面软件文章，解决封面刮削失败的问题：<img src="https://res.smzdm.com/images/emotions/39.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p><a href="https://post.smzdm.com/p/a4wkqw37/"><img src="https://qna.smzdm.com/201911/27/5dde29d56a47c968.jpg_a200.jpg" alt="img" loading="lazy"></a><a href="https://post.smzdm.com/p/a4wkqw37/"><strong>手把手教您用tMM刮削影片信息，让KODI、Jellyfin、PLEX、使用本地媒体电影墙！</strong></a>大家好！俺又来了！上篇文章为大家简单演示了下KODI如何安装和配置及使用！本人只需要2分钟即可安装和配置KODI，愉快的观看和管理家里的电影媒体库。本文用最简洁，也是最完整详细的方式，教给大家3分钟用tMM刮削自己的影片信息。上篇关于KODI的文章链接：文章里有不少值友反馈，KODI刮削有问题，匹配<a href="https://zhiyou.smzdm.com/member/6902738986/">阿文菌</a>|<em>赞</em>1k<em>评论</em>890<em>收藏</em>13k<a href="https://post.smzdm.com/p/a4wkqw37/">查看详情</a></p>
+<p>6、电视剧的添加方式也差不多，不一会，在主页，就出现下面这样了，我们可以点击观看电影了：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="34"><a href="https://post.smzdm.com/p/a25gpmpn/pic_35/"><img src="https://qnam.smzdm.com/201912/18/5df913574ee259159.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>7、比如我下面这个4K电影，现在开启了硬件加速也可以转码播放，而以前都没法播放：<img src="https://res.smzdm.com/images/emotions/23.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="35"><a href="https://post.smzdm.com/p/a25gpmpn/pic_36/"><img src="https://qnam.smzdm.com/201912/18/5df913632f1e56025.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>8、看了下，4K的电影，播放的时候，CPU占用几乎忽略不计！非常给力：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="36"><a href="https://post.smzdm.com/p/a25gpmpn/pic_37/"><img src="https://qnam.smzdm.com/201912/18/5df91363550e59406.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>9、电影随便看，就算用流量，在外网访问，也没有任何问题的：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>为什么这么需要转码，其实自己的电影库，可以分享给家人朋友们，有了转码功能以后，可以解决网速不好的时候，还是可以播放电影的问题。</p>
+<p>家里的上传带宽只有那么多，电影有的文件那么大，外网播放的话，有转码，就毫无压力了，我已经在外网追了几个剧了，那些用不上的朋友，只能说遗憾！<img src="https://res.smzdm.com/images/emotions/35.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="37"><a href="https://post.smzdm.com/p/a25gpmpn/pic_38/"><img src="https://qnam.smzdm.com/201912/18/5df9138eaf12f3701.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p><strong>本次耗时30秒，总计时2分20秒！</strong></p>
+<h2 id="安装-jellyfin-字幕插件">安装 Jellyfin 字幕插件</h2>
+<p>1、有些影片是没有字幕的，我们设置一下，点击Jellyfin后台，目录，找到 open subitles插件，安装一下：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="38"><a href="https://post.smzdm.com/p/a25gpmpn/pic_39/"><img src="https://qnam.smzdm.com/201912/18/5df9117d0e5fd8211.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、点击安装：<img src="https://res.smzdm.com/images/emotions/43.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="39"><a href="https://post.smzdm.com/p/a25gpmpn/pic_40/"><img src="https://qnam.smzdm.com/201912/18/5df9117d042b77079.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>3、安装后，需要重启一下Jellyfin：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="40"><a href="https://post.smzdm.com/p/a25gpmpn/pic_41/"><img src="https://qnam.smzdm.com/201912/18/5df9117d25f1d9428.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>4、回到UNRAID页面，点击图标，Restart：<img src="https://res.smzdm.com/images/emotions/38.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="41"><a href="https://post.smzdm.com/p/a25gpmpn/pic_42/"><img src="https://qnam.smzdm.com/201912/18/5df9117d528fe4398.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>5、进入Jellyfin后台，设置一下插件：<img src="https://res.smzdm.com/images/emotions/39.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="42"><a href="https://post.smzdm.com/p/a25gpmpn/pic_43/"><img src="https://qnam.smzdm.com/201912/18/5df9117d60aa91243.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>6、注入账号密码，如果没有，注册一下即可：<img src="https://res.smzdm.com/images/emotions/43.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="43"><a href="https://post.smzdm.com/p/a25gpmpn/pic_44/"><img src="https://qnam.smzdm.com/201912/18/5df9117d6a6cc3565.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>7、注册页面，很容易：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="44"><a href="https://post.smzdm.com/p/a25gpmpn/pic_45/"><img src="https://qnam.smzdm.com/201912/18/5df9117db25f83482.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>8、输入完成后，回到自己的媒体库，点击管理媒体库：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="45"><a href="https://post.smzdm.com/p/a25gpmpn/pic_46/"><img src="https://qnam.smzdm.com/201912/18/5df9117db5ae89914.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>9、在最下面，多了个字幕下载选项，将中文打勾：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>只有完美匹配的影片才会下字幕的，有时候也会不准，最好扫描一下媒体库：</p>
+<figure data-type="image" tabindex="46"><a href="https://post.smzdm.com/p/a25gpmpn/pic_47/"><img src="https://qnam.smzdm.com/201912/18/5df9117db79711016.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>10、到此，在UNRAID下，安装和配置Jellyfin的教程就完成了，以下是我做的暴力测试，这么多人同时访问我家里的电影库，依旧CPU足够，非常的给力：<img src="https://res.smzdm.com/images/emotions/64.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="47"><a href="https://post.smzdm.com/p/a25gpmpn/pic_48/"><img src="https://am.zdmimg.com/201912/18/5df9120829ebe4916.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p><strong>本次耗时30秒，总计时2分50秒！<img src="https://res.smzdm.com/images/emotions/26.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></strong></p>
+<p>关于UNRAID系列的教程，参考了 B站UP主：司波图 和 VedioTalk 分享的UNRAID文章。</p>
+<p>还参考了 人生观RSG 大佬的UNRAID图文教程。</p>
+<p>欢迎访问他们的频道进行观看：《司波图》、《VedioTalk》、《 人生观RSG》</p>
+<p>感谢各位大佬的精彩分享，希望后续能有更多丰富的内容！</p>
+<h2 id="安装完成">安装完成</h2>
+<p>UNRAID 开启集显驱动的这个方法不仅只适合Jellyfin！EMBY、PLEX同样也合适！<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#unraid%E6%95%99%E7%A8%8B3%E5%88%86%E9%92%9F-%E7%94%A8%E5%AE%89%E8%A3%85jellyfin-%E5%BC%80%E5%90%AF%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F%E8%BD%AC%E7%A0%81-%E8%A7%A3%E7%A0%814k-%E6%89%93%E9%80%A0%E6%9C%80%E5%BC%BA%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%99%A2">UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院</a>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li></li>
+<li><a href="#unraid-%E8%AE%BE%E7%BD%AE%E7%94%B5%E5%BD%B1%E6%96%87%E4%BB%B6%E5%A4%B9">UNRAID 设置电影文件夹</a></li>
+<li><a href="#unraid-%E5%AE%89%E8%A3%85jellyfin">UNRAID 安装Jellyfin</a></li>
+<li><a href="#unraid-%E5%BC%80%E5%90%AF%E9%9B%86%E6%88%90%E6%98%BE%E5%8D%A1-renderd128-%E9%A9%B1%E5%8A%A8">UNRAID 开启集成显卡 renderD128 驱动</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE-jellyfin-%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F">设置 Jellyfin 硬件加速</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE-jellyfin-%E5%AA%92%E4%BD%93%E5%BA%93">设置 Jellyfin 媒体库</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85-jellyfin-%E5%AD%97%E5%B9%95%E6%8F%92%E4%BB%B6">安装 Jellyfin 字幕插件</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90">安装完成</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/adguardhome-an-zhuang-ji-bu-shu-jiao-cheng/">
+              <span class="post-title">
+                AdGuardHome 安装及部署教程&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>青龙面板搭建 / 多容器青龙面板 / 新老版本 / 命令 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="青龙面板搭建 / 多容器青龙面板 / 新老版本 / 命令 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="青龙面板搭建 / 多容器青龙面板 / 新老版本 / 命令" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/qing-long-mian-ban-da-jian-duo-rong-qi-qing-long-mian-ban-xin-lao-ban-ben-ming-ling/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://amiao.ioxoo.top/tag/Ib_fBFfcH/" class="tag">青龙面板</a>
+                
+              </span>
+              <h1>青龙面板搭建 / 多容器青龙面板 / 新老版本 / 命令</h1>
+              <span class="meta">
+                Posted on
+                2022-04-04，7 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="青龙面板搭建-多容器青龙面板-新老版本-命令">青龙面板搭建 / 多容器青龙面板 / 新老版本 / 命令</h1>
+<blockquote>
+<p>青龙面板其实感觉就是云函数，只不过比云函数更完美。<br>
+首先介绍一下多容器和单容器</p>
+<ol>
+<li>多容器顾名思义就是多个容器，意思就是多个青龙在一个linux服务器内，可以达到每个容器的青龙互不干涉，多用于对接xdd机器人，适合CK特别多的。</li>
+<li>单容器，就是一个青龙容器，但是现在听说新的青龙解除了CK限制，所以青龙应该是可以跑百来CK不是问题，只是时间长点。</li>
+</ol>
+<p>新老版本</p>
+<ol>
+<li>新版本就是拉取作者最新的镜像，一般尾巴是latest。不过因为拉取时间不同，所以你的版本可能只是当前最新，不代表后续是最新的。</li>
+<li>老版本由于站长没找到原作者的老版本，所以找了网上其他人的老版本，这里以2.10.2为例。</li>
+</ol>
+<p><strong>为什么我的一开始登录就是admin帐号和admin密码？<br>
+那因为你被人坑了拉取的是人家改过的青龙，有后门。</strong></p>
+</blockquote>
+<h1 id="单容器青龙面板搭">单容器青龙面板搭</h1>
+<ol>
+<li>
+<p>首先去拉镜像（此镜像是原作者的,whyour就是原作者的，其他的你懂的。）</p>
+<pre><code class="language-bash">docker pull whyour/qinglong:latestCOPY
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/8I5FNYV5P32HL7IIIQ09.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>然后输入</p>
+</li>
+</ol>
+<pre><code class="language-bash">docker run -dit \
+  -v $PWD/ql/config:/ql/config \
+  -v $PWD/ql/log:/ql/log \
+  -v $PWD/ql/db:/ql/db \
+  -v $PWD/ql/repo:/ql/repo \
+  -v $PWD/ql/raw:/ql/raw \
+  -v $PWD/ql/scripts:/ql/scripts \
+  -v $PWD/ql/jbot:/ql/jbot \
+  -p 5708:5700 \
+  --name qinglong \
+  --hostname qinglong \
+  --restart unless-stopped \
+  whyour/qinglong:latestCOPY
+</code></pre>
+<blockquote>
+<p><strong>参考下图</strong><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/V2ZW@J8MAOR7__S.png" alt="img" loading="lazy"><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/2WZ7RA759LCFKFC07I9.png" alt="img" loading="lazy"><br>
+<strong>以上就完成了，下面老版本青龙安装（多容器安装）</strong></p>
+</blockquote>
+<h1 id="多容器安装老青龙安装">多容器安装（老青龙安装）</h1>
+<blockquote>
+<p>多容器就是多一个或者多个青龙而已。<br>
+首先由于不想再多写老版本教程，就拿老版本的青龙拿来顺带做演示.<br>
+<strong>如果你想都是一个版本的青龙就无需拉镜像的步骤，直接走多容器第二步创建即可！</strong></p>
+<ol>
+<li>
+<p>拉取镜像（因为多容器拿老青龙示例，所以拉取的是非原作者的2.10.2）</p>
+<pre><code class="language-bash">docker pull byniht/qinglong:2.10.2COPY
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/KMC63AIW65KHMMDT2.png" alt="img" loading="lazy"></figure>
+</li>
+</ol>
+</blockquote>
+<ol>
+<li>输入</li>
+</ol>
+<pre><code class="language-bash"> docker run -dit \
+   -v $PWD/ql1/config:/ql/config \
+   -v $PWD/ql1/log:/ql/log \
+   -v $PWD/ql1/db:/ql/db \
+   -v $PWD/ql1/repo:/ql/repo \
+   -v $PWD/ql1/raw:/ql/raw \
+   -v $PWD/ql1/scripts:/ql/scripts \
+   -v $PWD/ql1/jbot:/ql/jbot \
+   -p 5706:5700 \
+   --name qinglong1 \
+   --hostname qinglong1 \
+   --restart unless-stopped \
+   byniht/qinglong:2.10.2
+COPY
+</code></pre>
+<p><strong>看图注释</strong></p>
+<p><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/YJVRT8NDNMN0N_NQY73NM.png" alt="img" loading="lazy"><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/L5R3ZOS6HS7INNMI99.png" alt="img" loading="lazy"></p>
+<p><strong>如果需要更多容器，请自行更改对应的青龙文件名和容器名！</strong></p>
+<h1 id="注册与登录">注册与登录</h1>
+<blockquote>
+<p><strong>创建完成后，去浏览器输入你的青龙所在服务器的IP:和你设置的端口例如本教程最新版的青龙端口是5708，那就访问青龙的ip:5708</strong><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/WJJNQA7V8463GDS44B1.png" alt="img" loading="lazy"><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/FSEV30TQ8OQY7R78AQ.png" alt="img" loading="lazy"><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/8BT1ZTMH3VYGUIA6G.png" alt="img" loading="lazy"><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/7OWZB28W7JJGT4_RUOS.png" alt="img" loading="lazy"></p>
+<h1 id="依赖安装">依赖安装</h1>
+</blockquote>
+<h2 id="一键安装">一键安装</h2>
+<blockquote>
+<ol>
+<li>
+<p>进入docker 容器 qinglong</p>
+<pre><code class="language-bash">docker exec -it 你的容器名称 bashCOPY
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/IW8C5Y5QDZ3DO__PT.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>一键安装命令(要等许久建议恰几根烟)</p>
+<pre><code class="language-ruby">curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/FlechazoPh/QLDependency/main/Shell/QLOneKeyDependency.sh | shCOPY
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/OXMJ2MHNZYAAVCVGRUZN.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>完成后重启青龙</p>
+<p>先退出</p>
+<pre><code class="language-bash"></code></pre>
+</li>
+</ol>
+<p>exitCOPY</p>
+<pre><code>
+重启青龙容器
+
+```undefined
+docker restart 你的青龙容器名COPY
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/WGM6DSBHKCZWY2X0KSQI5.png" alt="img" loading="lazy"></figure>
+</blockquote>
+<h2 id="青龙内安装">青龙内安装</h2>
+<blockquote>
+<ol>
+<li>
+<p>首先打开青龙，然后找到依赖管理<br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/@PVONZ9KZFUMD2ETDWP.png" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>然后右上角找到添加依赖<br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/MUS416Q2DY_B6HKJ91E.png" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>添加下面的到图中所示的node.js内，按照图来选择！</p>
+<pre><code class="language-sql">crypto-js  
+prettytable
+dotenv  
+jsdom
+date-fns  
+tough-cookie  
+tslib
+ws@7.4.3  
+ts-md5  
+jsdom -g  
+jieba  
+fs
+form-data  
+json5  
+global-agent  
+png-js  
+@types/node  
+require
+typescript  
+js-base64  
+axios COPY
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/P71W_0@YODEE_QCHZ0@N.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>python3内安装以下</p>
+<pre><code class="language-css">requests
+canvas  
+ping3
+jieba
+aiohttpCOPY
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/J3OY8Q3CDYZI0GOAS.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>linux内安装以下</p>
+<pre><code class="language-undefined">bizCode
+bizMsg  
+lxmlCOPY
+</code></pre>
+<p><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/3O4ZAK1QO__6L@6ZXNY.png" alt="img" loading="lazy"><br>
+6.然后过几分钟刷新查看是否成功！<br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/LWJCKL_M0G9KXW1ZYY5VOV.png" alt="img" loading="lazy"></p>
+</li>
+</ol>
+</blockquote>
+<h1 id="docker青龙命令">docker青龙命令</h1>
+<blockquote>
+<p>1.重启青龙容器</p>
+<pre><code class="language-undefined">docker restart 你的容器名COPY
+</code></pre>
+<p>容器名一般为qinglong或者ql等，不知道的跑一下下面命令可以看到</p>
+<pre><code class="language-css">docker ps -aCOPY
+</code></pre>
+<p>2.更新青龙</p>
+<pre><code class="language-sql">docker exec -it qinglong ql updateCOPY
+</code></pre>
+<p>3.更新青龙并编译</p>
+<pre><code class="language-bash">docker exec -it qinglong ql restartCOPY
+</code></pre>
+<p>4.拉取自定义仓库，已Faker仓库为例</p>
+<pre><code class="language-ruby">docker exec -it qinglong ql repo https://ghproxy.com/https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|getJDCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|ZooFaker_Necklace.js|JDJRValidator_Pure|sign_graphics_validate&quot;COPY
+</code></pre>
+<p>5.拉取单个脚本，以Faker库的资产变更通知为例</p>
+<pre><code class="language-bash">docker exec -it qinglong ql raw https://github.com/shufflewzc/faker2/blob/main/jd_bean_change_new.jsCOPY
+</code></pre>
+<p>6.导出互助码</p>
+<pre><code class="language-bash">docker exec -it qinglong ql codeCOPY
+</code></pre>
+<p>7.通知测试</p>
+<pre><code class="language-bash">docker exec -it qinglong notify test testCOPY
+</code></pre>
+<p>8.立即执行脚本，以资产变更通知为例</p>
+<pre><code class="language-bash">docker exec -it qinglong task jd_bean_change_new.js nowCOPY
+</code></pre>
+<p>9.并行执行脚本</p>
+<pre><code class="language-bash">docker exec -it qinglong task jd_bean_change_new.js concCOPY
+</code></pre>
+<p>10.查看青龙密码 注意你的容器及文件夹名称</p>
+<pre><code class="language-bash">docker exec -it qinglong cat /ql/config/auth.jsonCOPY
+</code></pre>
+<p>11.删除7天前的所有日志</p>
+<pre><code class="language-bash">docker exec -it qinglong ql rmlog 7COPY
+</code></pre>
+<p>12.启动青龙bot 前提你已配置好青龙BOT</p>
+<pre><code class="language-bash">docker exec -it qinglong ql botCOPY
+</code></pre>
+</blockquote>
+<h1 id="青龙内置命令">青龙内置命令</h1>
+<blockquote>
+<ol>
+<li>
+<p>更新并重启青龙</p>
+<pre><code class="language-sql">ql updateCOPY
+</code></pre>
+</li>
+<li>
+<p>运行自定义脚本extra.sh</p>
+<pre><code class="language-undefined">ql extraCOPY
+</code></pre>
+</li>
+<li>
+<p>添加单个脚本文件</p>
+<pre><code class="language-xml">ql raw &lt;file_url&gt;COPY
+</code></pre>
+</li>
+<li>
+<p>添加单个仓库的指定脚本</p>
+<pre><code class="language-xml">ql repo &lt;repo_url&gt; &lt;whitelist&gt; &lt;blacklist&gt; &lt;dependence&gt; &lt;branch&gt;COPY
+</code></pre>
+</li>
+<li>
+<p>删除旧日志</p>
+<pre><code class="language-xml">ql rmlog &lt;days&gt;COPY
+</code></pre>
+</li>
+<li>
+<p>启动tg-bot</p>
+<pre><code class="language-undefined">ql botCOPY
+</code></pre>
+</li>
+<li>
+<p>检测青龙环境并修复</p>
+<pre><code class="language-sql">ql checkCOPY
+</code></pre>
+</li>
+<li>
+<p>重置登录错误次数</p>
+<p>如果是docker容器执行先执行</p>
+<pre><code class="language-bash"></code></pre>
+</li>
+</ol>
+<p>docker exec -it qinglong bashCOPY</p>
+<pre><code>
+再执行下面的即可
+
+```undefined
+ql resetletCOPY
+</code></pre>
+<ol start="9">
+<li>
+<p>禁用两步登录</p>
+<pre><code class="language-undefined">ql resettfaCOPY
+</code></pre>
+</li>
+<li>
+<p>依次执行，如果设置了随机延迟，将随机延迟一定秒数</p>
+<pre><code class="language-xml">task &lt;file_path&gt;COPY
+</code></pre>
+</li>
+<li>
+<p>依次执行，无论是否设置了随机延迟，均立即运行，前台会输出日，同时记录在日志文件中</p>
+<pre><code class="language-xml">task &lt;file_path&gt; nowCOPY
+</code></pre>
+</li>
+<li>
+<p>并发执行，无论是否设置了随机延迟，均立即运行，前台不产生日，直接记录在日志文件中，且可指定账号执行</p>
+<pre><code class="language-xml">task &lt;file_path&gt; conc &lt;env_name&gt; &lt;account_number&gt;(可选的)COPY
+</code></pre>
+</li>
+<li>
+<p>指定账号执行，无论是否设置了随机延迟，均立即运行</p>
+<pre><code class="language-xml">task &lt;file_path&gt; desi &lt;env_name&gt; &lt;account_number&gt;
+</code></pre>
+</li>
+</ol>
+</blockquote>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA-%E5%A4%9A%E5%AE%B9%E5%99%A8%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF-%E6%96%B0%E8%80%81%E7%89%88%E6%9C%AC-%E5%91%BD%E4%BB%A4">青龙面板搭建 / 多容器青龙面板 / 新老版本 / 命令</a></li>
+<li><a href="#%E5%8D%95%E5%AE%B9%E5%99%A8%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E6%90%AD">单容器青龙面板搭</a></li>
+<li><a href="#%E5%A4%9A%E5%AE%B9%E5%99%A8%E5%AE%89%E8%A3%85%E8%80%81%E9%9D%92%E9%BE%99%E5%AE%89%E8%A3%85">多容器安装（老青龙安装）</a></li>
+<li><a href="#%E6%B3%A8%E5%86%8C%E4%B8%8E%E7%99%BB%E5%BD%95">注册与登录</a></li>
+<li><a href="#%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85">依赖安装</a>
+<ul>
+<li><a href="#%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85">一键安装</a></li>
+<li><a href="#%E9%9D%92%E9%BE%99%E5%86%85%E5%AE%89%E8%A3%85">青龙内安装</a></li>
+</ul>
+</li>
+<li><a href="#docker%E9%9D%92%E9%BE%99%E5%91%BD%E4%BB%A4">docker青龙命令</a></li>
+<li><a href="#%E9%9D%92%E9%BE%99%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4">青龙内置命令</a></li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/qing-long-mian-ban-jiao-ben-yi-lai-ku-xia-zai-an-zhuang/">
+              <span class="post-title">
+                青龙面板 脚本 依赖库下载安装&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

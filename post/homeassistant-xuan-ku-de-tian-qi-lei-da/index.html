@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>homeassistant炫酷的天气雷达 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="homeassistant炫酷的天气雷达 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="homeassistant炫酷的天气雷达" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/homeassistant-xuan-ku-de-tian-qi-lei-da/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://amiao.ioxoo.top/tag/OcZHIEuCW/" class="tag">homeassistant</a>
+                
+              </span>
+              <h1>homeassistant炫酷的天气雷达</h1>
+              <span class="meta">
+                Posted on
+                2021-06-15，2 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <img class="post-feature-header-image" src="https://bbs.hassbian.com/data/attachment/forum/202007/25/170200uyrql4tx80r0aq08.png" alt="封面图">
+          </img>
+          
+          <p><strong>前言</strong></p>
+<p>之前看到别人的homeassistant的概览有一个非常帅气的天气雷达。百度一顿没有关于天气雷达的文章，都是和风天气的设置教程。但是和风天气的气象雷达api需要花钱，所以另辟蹊径，没想到在有油管上找到了，而且还是<strong>免费</strong>的！！！</p>
+<p><strong>展示</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/170200uyrql4tx80r0aq08.png" alt="img" loading="lazy"></figure>
+<p>可以分三十六个大类 部分大类里面可以分至少两个小类</p>
+<p><strong>搞起！！</strong></p>
+<p>我们要前进入</p>
+<p><a href="http://www.windy.com/">windy</a></p>
+<p>，然后点击左上角分享按钮</p>
+<figure data-type="image" tabindex="2"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/170858ueio48vaiepzo0io.png" alt="img" loading="lazy"></figure>
+<p>然后就会看到中间的分享链接在转圈不用管它，直接点下面的<strong>页面嵌入式挂件</strong></p>
+<figure data-type="image" tabindex="3"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/171201gas77i8p77syakqq.png" alt="img" loading="lazy"></figure>
+<p>然后就看到了这样的页面，左面紫色里面的内容可以自由设置</p>
+<figure data-type="image" tabindex="4"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/171343igyhphpl0x3gyps0.png" alt="img" loading="lazy"></figure>
+<p>在右面的地图上拖动到需要显示的城市或地区，当然地图大小也是可以调的。</p>
+<p>点击地图右上角的风，我们可以更改需要显示的天气有三十六种图层非常的全面</p>
+<figure data-type="image" tabindex="5"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/171639n9wahfywwu02wbk0.png" alt="img" loading="lazy"></figure>
+<p>自定义好以后，点击左下角<strong>复制到剪切板</strong></p>
+<figure data-type="image" tabindex="6"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/171942bil54egtgl5ix5gl.png" alt="img" loading="lazy"></figure>
+<p>我们新建一个记事本，将剪切板内容粘贴在记事本里。找到<strong>src</strong>将src后引号内的内容复制</p>
+<p>打开Homeassistant概览找到<strong>配置UI</strong>选择<strong>网页</strong>卡片将将网址粘贴到上面</p>
+<figure data-type="image" tabindex="7"><img src="https://bbs.hassbian.com/data/attachment/forum/202007/25/172629u8g87oq8y689r9ng.png" alt="img" loading="lazy"></figure>
+<p><code>https://embed.windy.com/embed2.html?lat=33.729&amp;lon=120.460&amp;detailLat=22.291&amp;detailLon=114.150&amp;width=650&amp;height=450&amp;zoom=8&amp;level=surface&amp;overlay=wind&amp;product=ecmwf&amp;menu=&amp;message=&amp;marker=&amp;calendar=now&amp;pressure=&amp;type=map&amp;location=coordinates&amp;detail=&amp;metricWind=default&amp;metricTemp=default&amp;radarRange=-1</code><br>
+保存即可</p>
+<p><strong>结束</strong></p>
+<p>这个天气雷达真的是爱了，免费又好看还能看实时和预报</p>
+<p>希望有需要的兄弟能喜欢</p>
+
+          <div class="toc-container"></div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/debian-10-qie-huan-root-yong-hu-deng-lu/">
+              <span class="post-title">
+                DEBIAN 10切换ROOT用户登录&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

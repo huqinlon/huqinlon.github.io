@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>Unraid Docker安装青龙面板和无法访问的解决方法 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="Unraid Docker安装青龙面板和无法访问的解决方法 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="Unraid Docker安装青龙面板和无法访问的解决方法" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/unraid-docker-an-zhuang-qing-long-mian-ban-he-wu-fa-fang-wen-de-jie-jue-fang-fa/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://amiao.ioxoo.top/tag/Ib_fBFfcH/" class="tag">青龙面板</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/OjnCBT0aB/" class="tag">docker</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/Yih9qrp-et/" class="tag">unraid</a>
+                
+              </span>
+              <h1>Unraid Docker安装青龙面板和无法访问的解决方法</h1>
+              <span class="meta">
+                Posted on
+                2022-04-04，3 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="unraid-docker安装青龙面板和无法访问的解决方法">Unraid Docker安装青龙面板和无法访问的解决方法</h1>
+<p>前一段时间，自己操作失误将群晖的存储池损毁了，自己没有能力解决，最后通过删除存储池，更换硬盘来解决问题，新建存储池以后，原来Docker中的容器都被删除了，由于自己没有备份，里面的资料也全部损失了。今天我需要重新安装的青龙面板就是其中之一，这次我将使用**<a href="https://www.rixin.info/tags/unraid">Unraid</a>**来安装青龙面板。</p>
+<p>青龙面板支持python3、javaScript、shell、typescript 的定时任务管理面板，为薅羊毛的不二神器。</p>
+<figure data-type="image" tabindex="1"><a href="https://cdn.rixin.info/images/2022/03/2022-03-16_203720.jpg"><img src="https://cdn.rixin.info/images/2022/03/2022-03-16_203720.jpg" alt="Unraid Docker安装青龙面板和无法访问的解决方法" loading="lazy"></a></figure>
+<h3 id="功能">功能</h3>
+<ul>
+<li>支持多种脚本语言（python3、javaScript、shell、typescript）</li>
+<li>支持在线管理脚本、环境变量、配置文件</li>
+<li>支持在线查看任务日志</li>
+<li>支持秒级任务设置</li>
+<li>支持系统级通知</li>
+<li>支持暗黑模式</li>
+<li>支持手机端操作</li>
+</ul>
+<h3 id="docker参数">Docker参数</h3>
+<pre><code>docker run -dit``-v ``$PWD``/ql/config:/ql/config``-v ``$PWD``/ql/log:/ql/log``-v ``$PWD``/ql/db:/ql/db``-v ``$PWD``/ql/repo:/ql/repo``-v ``$PWD``/ql/raw:/ql/raw``-v ``$PWD``/ql/scripts:/ql/scripts``-p 5700:5700``--name qinglong``--hostname qinglong``--restart unless-stopped``whyour/qinglong:latest
+</code></pre>
+<p>**<a href="https://www.rixin.info/tags/unraid">Unraid</a>**安装也很简单，参数设置如下面图片</p>
+<figure data-type="image" tabindex="2"><a href="https://cdn.rixin.info/images/2022/03/2022-03-16_203759.jpg"><img src="https://cdn.rixin.info/images/2022/03/2022-03-16_203759-1024x930.jpg" alt="Unraid Docker安装青龙面板和无法访问的解决方法" loading="lazy"></a></figure>
+<p>以上内容来源于网络，转载若夜彼岸博客。</p>
+<p>然而安装过程很顺利，结果无法访问。经过半个小时的搜索，发现问题所在，自己解决了，当然我遇到的只是其中的一个问题，希望能够对你有所帮助。</p>
+<figure data-type="image" tabindex="3"><a href="https://cdn.rixin.info/images/2022/03/2022-03-16_204704.jpg"><img src="https://cdn.rixin.info/images/2022/03/2022-03-16_204704.jpg" alt="Unraid Docker安装青龙面板和无法访问的解决方法" loading="lazy"></a></figure>
+<p>对于无法访问青龙面板的问题，分析后得到5700端口可能被**<a href="https://www.rixin.info/tags/unraid">Unraid</a>**的其它应用占用了，这个端口无法使用，通过修改成5800端口来实现访问。</p>
+<p>一般情况下，这时候可能已经成功访问了，也有可能还是无法访问，问题出在nginx的配置文件中，进入Docker的控制台，使用Linux命令来解决。</p>
+<p>输入：</p>
+<pre><code>cd /ql/docker
+</code></pre>
+<p>进入ql下的docker目录，修改front.conf文件中的nginx监听端口来解决无法访问，</p>
+<pre><code>vi front.conf
+</code></pre>
+<p>修改下面 listen 5700 为 listen 5800 ，这个监听端口要修改成你配置容器时填写的端口，然后按Esc，输入:wq来保存，到docker界面重新启动qinglong容器。<br>
+<a href="https://cdn.rixin.info/images/2022/03/2022-03-16_211324.jpg"><img src="https://cdn.rixin.info/images/2022/03/2022-03-16_211324.jpg" alt="Unraid Docker安装青龙面板和无法访问的解决方法" loading="lazy"></a></p>
+<p>我要继续去配置青龙面板了，现在拉库也是一件不容易的事情。</p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#unraid-docker%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%92%8C%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">Unraid Docker安装青龙面板和无法访问的解决方法</a><br>
+*
+<ul>
+<li><a href="#%E5%8A%9F%E8%83%BD">功能</a></li>
+<li><a href="#docker%E5%8F%82%E6%95%B0">Docker参数</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/qing-long-mian-ban-da-jian-duo-rong-qi-qing-long-mian-ban-xin-lao-ban-ben-ming-ling/">
+              <span class="post-title">
+                青龙面板搭建 / 多容器青龙面板 / 新老版本 / 命令&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

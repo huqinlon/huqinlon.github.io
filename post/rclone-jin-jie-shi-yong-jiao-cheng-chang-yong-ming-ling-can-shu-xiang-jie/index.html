@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>Rclone 进阶使用教程 - 常用命令参数详解 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="Rclone 进阶使用教程 - 常用命令参数详解 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="Rclone 进阶使用教程 - 常用命令参数详解" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/rclone-jin-jie-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu-xiang-jie/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://amiao.ioxoo.top/tag/d5NA0zBlI/" class="tag">rclone</a>
+                
+              </span>
+              <h1>Rclone 进阶使用教程 - 常用命令参数详解</h1>
+              <span class="meta">
+                Posted on
+                2021-06-22，7 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h2 id="前言">前言</h2>
+<p>Rclone 是一个的命令行工具，支持在不同对象存储、网盘间同步、上传、下载数据。并且通过一些设置可以实现离线下载、服务器备份等非常实用的功能。本篇文章将讲解 Rclone 常用的一些命令参数。</p>
+<h2 id="安装-rclone">安装 Rclone</h2>
+<h3 id="linuxmacosbsd">Linux/macOS/BSD</h3>
+<p>官方提供了<a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2luc3RhbGwvI3NjcmlwdC1pbnN0YWxsYXRpb24">一键安装脚本</a>：</p>
+<pre><code class="language-shell">curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<h3 id="windows">Windows</h3>
+<p><a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2Rvd25sb2Fkcy8">直接下载</a></p>
+<h2 id="rclone-设置">Rclone 设置</h2>
+<p><code>rclone config</code> - 进入交互式配置选项，进行添加、删除、管理网盘等操作。详细操作参见：《<a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">Rclone 安装配置教程</a>》</p>
+<pre><code>rclone config file` - 显示配置文件的路径，一般配置文件在 `~/.config/rclone/rclone.conf
+</code></pre>
+<p><code>rclone config show</code> - 显示配置文件信息</p>
+<h2 id="命令语法">命令语法</h2>
+<pre><code class="language-shell"># 本地到网盘
+rclone [功能选项] &lt;本地路径&gt; &lt;网盘名称:路径&gt; [参数] [参数] ...
+
+# 网盘到本地
+rclone [功能选项] &lt;网盘名称:路径&gt; &lt;本地路径&gt; [参数] [参数] ...
+
+# 网盘到网盘
+rclone [功能选项] &lt;网盘名称:路径&gt; &lt;网盘名称:路径&gt; [参数] [参数] ...
+</code></pre>
+<h3 id="用法示例">用法示例</h3>
+<pre><code class="language-shell">rclone move -v /Download Onedrive:/Download --transfers=1
+</code></pre>
+<h2 id="常用功能选项">常用功能选项</h2>
+<ul>
+<li><code>rclone copy</code> - 复制</li>
+<li><code>rclone move</code> - 移动，如果要在移动后删除空源目录，请加上 <code>--delete-empty-src-dirs</code> 参数</li>
+<li><code>rclone sync</code> - 同步：将源目录同步到目标目录，只更改目标目录。</li>
+<li><code>rclone size</code> - 查看网盘文件占用大小。</li>
+<li><code>rclone delete</code> - 删除路径下的文件内容。</li>
+<li><code>rclone purge</code> - 删除路径及其所有文件内容。</li>
+<li><code>rclone mkdir</code> - 创建目录。</li>
+<li><code>rclone rmdir</code> - 删除目录。</li>
+<li><code>rclone rmdirs</code> - 删除指定灵境下的空目录。如果加上 <code>--leave-root</code> 参数，则不会删除根目录。</li>
+<li><code>rclone check</code> - 检查源和目的地址数据是否匹配。</li>
+<li><code>rclone ls</code> - 列出指定路径下的所有的文件以及文件大小和路径。</li>
+<li><code>rclone lsl</code> - 比上面多一个显示上传时间。</li>
+<li><code>rclone lsd</code> 列出指定路径下的目录</li>
+<li><code>rclone lsf</code> - 列出指定路径下的目录和文件</li>
+</ul>
+<h2 id="常用参数">常用参数</h2>
+<ul>
+<li><code>-n</code> = <code>--dry-run</code> - 测试运行，用来查看 rclone 在实际运行中会进行哪些操作。</li>
+<li><code>-P</code> = <code>--progress</code> - 显示实时传输进度，500mS 刷新一次，否则默认 1 分钟刷新一次。</li>
+<li><code>--cache-chunk-size SizeSuffi</code> - 块的大小，默认5M，理论上是越大上传速度越快，同时占用内存也越多。如果设置得太大，可能会导致进程中断。</li>
+<li><code>--cache-chunk-total-size SizeSuffix</code> - 块可以在本地磁盘上占用的总大小，默认10G。</li>
+<li><code>--transfers=N</code> - 并行文件数，默认为4。在比较小的内存的VPS上建议调小这个参数，比如128M的小鸡上使用建议设置为1。</li>
+<li><code>--config string</code> - 指定配置文件路径，<code>string</code>为配置文件路径。</li>
+<li><code>--ignore-errors</code> - 跳过错误。比如 OneDrive 在传了某些特殊文件后会提示<code>Failed to copy: failed to open source object: malwareDetected: Malware detected</code>，这会导致后续的传输任务被终止掉，此时就可以加上这个参数跳过错误。但需要注意 RCLONE 的退出状态码不会为<code>0</code>。</li>
+</ul>
+<h2 id="日志">日志</h2>
+<p>rclone 有 4 个级别的日志记录，<code>ERROR</code>，<code>NOTICE</code>，<code>INFO</code> 和 <code>DEBUG</code>。默认情况下，rclone 将生成 <code>ERROR</code> 和 <code>NOTICE</code> 级别消息。</p>
+<ul>
+<li><code>-q</code> - rclone将仅生成 <code>ERROR</code> 消息。</li>
+<li><code>-v</code> - rclone将生成 <code>ERROR</code>，<code>NOTICE</code> 和 <code>INFO</code> 消息，<strong>推荐此项</strong>。</li>
+<li><code>-vv</code> - rclone 将生成 <code>ERROR</code>，<code>NOTICE</code>，<code>INFO</code>和 <code>DEBUG</code> 消息。</li>
+<li><code>--log-level LEVEL</code> - 标志控制日志级别。</li>
+</ul>
+<h3 id="输出日志到文件">输出日志到文件</h3>
+<p>使用 <code>--log-file=FILE</code> 选项，rclone 会将 <code>Error</code>，<code>Info</code> 和 <code>Debug</code> 消息以及标准错误重定向到 <code>FILE</code>，这里的 <code>FILE</code> 是你指定的日志文件路径。</p>
+<p>另一种方法是使用系统的指向命令，比如：</p>
+<pre><code class="language-shell">rclone sync -v Onedrive:/DRIVEX Gdrive:/DRIVEX &gt; &quot;~/DRIVEX.log&quot; 2&gt;&amp;1
+</code></pre>
+<h2 id="文件过滤">文件过滤</h2>
+<p><code>--exclude</code> - 排除文件或目录。</p>
+<p><code>--include</code> - 包含文件或目录。</p>
+<p><code>--filter</code> - 文件过滤规则，相当于上面两个选项的其它使用方式。包含规则以 <code>+</code> 开头，排除规则以 <code>-</code> 开头。</p>
+<h3 id="文件类型过滤">文件类型过滤</h3>
+<p>比如 <code>--exclude &quot;*.bak&quot;</code>、<code>--filter &quot;- *.bak&quot;</code>，排除所有 <code>bak</code> 文件。也可以写作。</p>
+<p>比如 <code>--include &quot;*.{png,jpg}&quot;</code>、<code>--filter &quot;+ *.{png,jpg}&quot;</code>，包含所有 <code>png</code> 和 <code>jpg</code> 文件，排除其他文件。</p>
+<p><code>--delete-excluded</code> 删除排除的文件。需配合过滤参数使用，否则无效。</p>
+<h3 id="目录过滤">目录过滤</h3>
+<p>目录过滤需要在目录名称后面加上 <code>/</code>，否则会被当做文件进行匹配。以 <code>/</code> 开头只会匹配根目录（指定目录下），否则匹配所目录。这同样适用于文件。</p>
+<p><code>--exclude &quot;.git/&quot;</code> 排除所有目录下的<code>.git</code> 目录。</p>
+<p><code>--exclude &quot;/.git/&quot;</code> 只排除根目录下的<code>.git</code> 目录。</p>
+<p><code>--exclude &quot;{Video,Software}/&quot;</code> 排除所有目录下的 <code>Video</code> 和 <code>Software</code> 目录。</p>
+<p><code>--exclude &quot;/{Video,Software}/&quot;</code> 只排除根目录下的 <code>Video</code> 和 <code>Software</code> 目录。</p>
+<p><code>--include &quot;/{Video,Software}/**&quot;</code> 仅包含根目录下的 <code>Video</code> 和 <code>Software</code> 目录的所有内容。</p>
+<h3 id="文件大小过滤">文件大小过滤</h3>
+<p>默认大小单位为 <code>kBytes</code> ，但可以使用 <code>k</code> ，<code>M</code> 或 <code>G</code> 后缀。</p>
+<p><code>--min-size</code> 过滤小于指定大小的文件。比如 <code>--min-size 50</code> 表示不会传输小于 50k 的文件。</p>
+<p><code>--max-size</code> 过滤大于指定大小的文件。比如 <code>--max-size 1G</code> 表示不会传输大于 1G 的文件。</p>
+<blockquote>
+<p><strong>TIPS:</strong> 博主在实际使用中发现大小过滤两个选项不能同时使用。</p>
+</blockquote>
+<h3 id="过滤规则文件">过滤规则文件</h3>
+<p><code>--filter-from &lt;规则文件&gt;</code> 从文件添加包含 / 排除规则。比如 <code>--filter-from filter-file.txt</code>。</p>
+<p>过滤规则文件示例：</p>
+<pre><code class="language-none">- secret*.jpg
++ *.jpg
++ *.png
++ file2.avi
+- /dir/Trash/**
++ /dir/**
+- *
+</code></pre>
+<p>这里只举例比较常用和简单的一些过滤用法，更复杂和高端的用法可以查看<a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2ZpbHRlcmluZy8">官方文档</a>。</p>
+<h2 id="环境变量">环境变量</h2>
+<p>rclone 中的每个选项都可以通过环境变量设置。环境变量的名称可以通过<a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2ZsYWdzLw">长选项名称</a>进行转换，删除 <code>--</code> 前缀，更改 <code>-</code> 为<code>_</code>，大写并添加前缀 <code>RCLONE_</code>。环境变量的优先级会低于命令行选项，即通过命令行追加相应的选项时会覆盖环境变量设定的值。</p>
+<p>比如设置最小上传大小 <code>--min-size 50</code>，使用环境变量是 <code>RCLONE_MIN_SIZE=50</code>。当环境变量设置后，在命令行中使用 <code>--min-size 100</code>，那么此时环境变量的值就会被覆盖。</p>
+<h3 id="常用环境变量">常用环境变量</h3>
+<ul>
+<li><code>RCLONE_CONFIG</code> - 自定义配置文件路径</li>
+<li><code>RCLONE_CONFIG_PASS</code> - 若 rclone 进行了加密设置，把此环境变量设置为密码，可自动解密配置文件。</li>
+<li><code>RCLONE_RETRIES</code> - 上传失败重试次数，默认 3 次</li>
+<li><code>RCLONE_RETRIES_SLEEP</code> - 上传失败重试等待时间，默认禁用，单位<code>s</code>、<code>m</code>、<code>h</code>分别代表秒、分钟、小时。</li>
+<li><code>CLONE_TRANSFERS</code> - 并行上传文件数。</li>
+<li><code>RCLONE_CACHE_CHUNK_SIZE</code> - 块的大小，默认5M，理论上是越大上传速度越快，同时占用内存也越多。如果设置得太大，可能会导致进程中断。</li>
+<li><code>RCLONE_CACHE_CHUNK_TOTAL_SIZE</code> - 块可以在本地磁盘上占用的总大小，默认10G。</li>
+<li><code>RCLONE_IGNORE_ERRORS=true</code> - 跳过错误。</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2RvY3Mv">Rclone 官方文档</a></p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85-rclone">安装 Rclone</a>
+<ul>
+<li><a href="#linuxmacosbsd">Linux/macOS/BSD</a></li>
+<li><a href="#windows">Windows</a></li>
+</ul>
+</li>
+<li><a href="#rclone-%E8%AE%BE%E7%BD%AE">Rclone 设置</a></li>
+<li><a href="#%E5%91%BD%E4%BB%A4%E8%AF%AD%E6%B3%95">命令语法</a>
+<ul>
+<li><a href="#%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B">用法示例</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD%E9%80%89%E9%A1%B9">常用功能选项</a></li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0">常用参数</a></li>
+<li><a href="#%E6%97%A5%E5%BF%97">日志</a>
+<ul>
+<li><a href="#%E8%BE%93%E5%87%BA%E6%97%A5%E5%BF%97%E5%88%B0%E6%96%87%E4%BB%B6">输出日志到文件</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%87%E4%BB%B6%E8%BF%87%E6%BB%A4">文件过滤</a>
+<ul>
+<li><a href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E8%BF%87%E6%BB%A4">文件类型过滤</a></li>
+<li><a href="#%E7%9B%AE%E5%BD%95%E8%BF%87%E6%BB%A4">目录过滤</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E8%BF%87%E6%BB%A4">文件大小过滤</a></li>
+<li><a href="#%E8%BF%87%E6%BB%A4%E8%A7%84%E5%88%99%E6%96%87%E4%BB%B6">过滤规则文件</a></li>
+</ul>
+</li>
+<li><a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a>
+<ul>
+<li><a href="#%E5%B8%B8%E7%94%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">常用环境变量</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/zi-jian-speedtest-fu-wu-qi-ce-su-qun-hui-docker-an-zhuang-speedtest/">
+              <span class="post-title">
+                自建 speedtest 服务器 测速 群晖docker安装speedtest&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

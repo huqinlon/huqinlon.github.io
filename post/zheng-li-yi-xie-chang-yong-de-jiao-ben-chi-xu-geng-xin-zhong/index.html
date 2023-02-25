@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>整理一些常用的脚本（持续更新中） | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="整理一些常用的脚本（持续更新中） | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="整理一些常用的脚本（持续更新中）" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/zheng-li-yi-xie-chang-yong-de-jiao-ben-chi-xu-geng-xin-zhong/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>整理一些常用的脚本（持续更新中）</h1>
+              <span class="meta">
+                Posted on
+                2023-02-25，10 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <img class="post-feature-header-image" src="https://raw.githubusercontent.com/huqinlon/img/master/v2-771aaa0ae3d03286784985452a0a4401_720w.webp" alt="封面图">
+          </img>
+          
+          <h2 id="更新列表">更新列表</h2>
+<p>2023-2-15 添加检测是否可以访问ChatGPT脚本</p>
+<pre><code>`bash &lt;(curl -Ls https://cpp.li/openai)` 
+</code></pre>
+<h2 id="综合工具箱强烈推荐集成了很多脚本">综合工具箱（强烈推荐，集成了很多脚本）</h2>
+<pre><code>`wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh &amp;&amp; chmod +x box.sh &amp;&amp; clear &amp;&amp; ./box.sh` 
+</code></pre>
+<h2 id="杜甫测试">杜甫测试</h2>
+<pre><code>`wget -q https://github.com/Aniverse/A/raw/i/a &amp;&amp; bash a` 
+</code></pre>
+<h2 id="dd相关">DD相关</h2>
+<h3 id="1-甲骨文dd脚本">1、甲骨文DD脚本</h3>
+<p>DD成Debian 10</p>
+<pre><code>`bash &lt;(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p &quot;自定义root密码&quot; -port &quot;自定义ssh端口&quot;` 
+</code></pre>
+<p>DD成Ubuntu 20.04</p>
+<pre><code>`bash &lt;(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -u 20.04 -v 64 -p &quot;自定义root密码&quot; -port &quot;自定义ssh端口&quot;` 
+</code></pre>
+<h3 id="2-moeclub脚本">2、MoeClub脚本</h3>
+<p><strong>重点推荐</strong>：</p>
+<p>时间：22/11/2021 15:21 萌咖更新脚本：</p>
+<p>1.新增对 Oracle AMD，Oracle ARM全面支持. 可支持从 Ubuntu, Oracle Linux 等系统网络重装.<br>
+2.更新 dd 镜像的基础系统版本.<br>
+3.移除对外部 wget 的依赖.<br>
+4.新增 -port 参数, 可更改默认SSH端口.<br>
+5.更新 内置的网络参数计算 逻辑.<br>
+6.更新 grub 配置文件定位逻辑, 可支持任意引导grub的系统.</p>
+<p>以下系统已通过测试(其他自测):<br>
+Debian: 9, 10, 11;<br>
+Ubuntu: 18.04, 20.04;<br>
+CentOS: 6.10;<br>
+以下平台已通过测试(其他自测):<br>
+Oracle、Do、Azure</p>
+<pre><code>`bash &lt;(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p &quot;自定义root密码&quot; -port &quot;自定义ssh端口&quot;` 
+</code></pre>
+<p>-d 10 -v 64<br>
+-d 9 -v 64<br>
+-u 20.04 -v 64<br>
+-u 18.04 -v 64</p>
+<p>开机改密码脚本：</p>
+<p>开机改密：</p>
+<pre><code>`#!/bin/bash
+echo root:Vicer |sudo chpasswd root
+sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
+sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
+sudo reboot` 
+</code></pre>
+<h3 id="3-另一位大佬的脚本">3、另一位大佬的脚本</h3>
+<pre><code>`wget --no-check-certificate -O AutoReinstall.sh https://git.io/AutoReinstall.sh &amp;&amp; bash AutoReinstall.sh` 
+</code></pre>
+<ul>
+<li>
+<p>CentOS默认密码Pwd@CentOS 其它系统Pwd@Linux</p>
+</li>
+<li>
+<p>OpenVZ / LXC 架构系统不适用</p>
+</li>
+</ul>
+<p>来源：<a href="https://blog.hicasper.com/post/135.html">https://blog.hicasper.com/post/135.html</a> 参考：<a href="https://www.ydyno.com/archives/1245.html">https://www.ydyno.com/archives/1245.html</a> 感谢大佬的付出！</p>
+<pre><code>`bash &lt;(wget --no-check-certificate -qO- 'https://file.geekn.net/CNODnjau/InstallNET.sh') -d 11 -v 64 -a -firmware` 
+</code></pre>
+<p>-firmware 额外的驱动支持<br>
+-d 后面是系统版本号<br>
+-v 后面写64位 32位<br>
+-a （不清楚这个干啥的但是每个脚本都带）<br>
+–mirror 后面是镜像源地址</p>
+<p>-p 后面写自定义密码</p>
+<pre><code>`镜像站地址
+官方给出的地址列表：https://www.debian.org/mirror/list
+
+一些国内的
+ftp.cn.debian.org
+mirror.bjtu.edu.cn
+mirror.lzu.edu.cn        
+mirror.nju.edu.cn        
+mirrors.163.com        
+mirrors.bfsu.edu.cn        
+mirrors.hit.edu.cn        
+mirrors.huaweicloud.com        
+mirror.sjtu.edu.cn        
+mirrors.tuna.tsinghua.edu.cn        
+mirrors.ustc.edu.cn        
+
+使用方法：（大致都是一样的）
+
+清华源
+--mirror 'https://mirrors.ustc.edu.cn/debian/'
+
+腾讯源
+--mirror 'https://mirrors.aliyun.com/debian/'
+
+阿里源
+--mirror 'https://mirrors.aliyun.com/debian/'
+
+华为源
+--mirror 'https://mirrors.huaweicloud.com/debian/'` 
+</code></pre>
+<h3 id="4-秋水逸冰-windows-2012201620192022-1011-dd-镜像">4、秋水逸冰 Windows 2012/2016/2019/2022 10/11 DD 镜像</h3>
+<p>适用于 UEFI 启动的多个 Windows 系统 DD 镜像：</p>
+<p><a href="https://teddysun.com/656.html">https://teddysun.com/656.html</a></p>
+<p>分别是：</p>
+<ol>
+<li>Windows Server 2012 R2 Datacenter</li>
+<li>Windows Server 2016 Datacenter (build: 14393.5006)</li>
+<li>Windows Server 2019 Datacenter (build: 17763.2686)</li>
+<li>Windows Server 2022 Datacenter (build: 20348.587)</li>
+<li>Windows 10 Enterprise LTSC (build: 19044.1288)</li>
+<li>Windows 11 Pro for Workstations 21H2 (build: 22000.194)</li>
+</ol>
+<p>适用于 BIOS 启动的 Windows Server 2022 Datacenter DD 镜像：</p>
+<p><a href="https://teddysun.com/629.html">https://teddysun.com/629.html</a></p>
+<p>适用于 BIOS 启动的 Windows 11 Pro for Workstations 21H2 DD 镜像：</p>
+<p><a href="https://teddysun.com/642.html">https://teddysun.com/642.html</a></p>
+<p>适用于 BIOS 启动的 Windows 10 Enterprise LTSC DD 镜像：</p>
+<p><a href="https://teddysun.com/640.html">https://teddysun.com/640.html</a></p>
+<p>适用于 BIOS 启动的 Windows Server 2019/2016/2012R2 Datacenter DD 镜像：</p>
+<p><a href="https://teddysun.com/545.html">https://teddysun.com/545.html</a></p>
+<p>分别是：</p>
+<ol>
+<li>Windows Server 2019 Datacenter（Build: 17763.2686）</li>
+<li>Windows Server 2016 Datacenter（Build: 14393.5006）</li>
+<li>Windows Server 2012 R2 Datacenter</li>
+</ol>
+<h2 id="测试相关">测试相关</h2>
+<h3 id="机器测试">机器测试</h3>
+<h4 id="单线程测试">单线程测试</h4>
+<pre><code>`bash &lt;(curl -Lso- https://bench.im/hyperspeed)` 
+</code></pre>
+<h4 id="最全测速脚本">最全测速脚本</h4>
+<pre><code>`curl -fsL https://ilemonra.in/LemonBenchIntl | bash -s fast` 
+</code></pre>
+<h4 id="superbench">superbench</h4>
+<pre><code>`wget -qO- git.io/superbench.sh | bash` 
+</code></pre>
+<h4 id="benchsh"><a href="http://Bench.sh">Bench.sh</a></h4>
+<pre><code>`wget -qO- bench.sh | bash` 
+</code></pre>
+<h3 id="速度测试">速度测试</h3>
+<h4 id="显示延迟-抖动">显示延迟、抖动</h4>
+<pre><code>`bash &lt;(wget -qO- https://bench.im/hyperspeed)` 
+</code></pre>
+<h4 id="直接显示回程线路">直接显示回程线路</h4>
+<pre><code>`curl https://raw.githubusercontent.com/zhucaidan/mtr_trace/main/mtr_trace.sh|bash` 
+</code></pre>
+<pre><code>`wget -q route.f2k.pub -O route &amp;&amp; bash route` 
+</code></pre>
+<pre><code>`# 第一个
+wget https://raw.githubusercontent.com/nanqinlang-script/testrace/master/testrace.sh
+bash testrace.sh
+
+# 第二个
+wget -qO- git.io/besttrace | bash` 
+</code></pre>
+<h4 id="四网测速">四网测速</h4>
+<pre><code>`wget -O jcnf.sh https://raw.githubusercontent.com/Netflixxp/jcnfbesttrace/main/jcnf.sh
+
+bash jcnf.sh` 
+</code></pre>
+<h4 id="三网测速">三网测速</h4>
+<pre><code>`bash &lt;(curl -Lso- https://git.io/superspeed_uxh)` 
+</code></pre>
+<p>带快速四网测试版本：</p>
+<pre><code>`bash &lt;(curl -Lso- https://dl.233.mba/d/sh/speedtest.sh)` 
+</code></pre>
+<pre><code>`bash &lt;(curl -Lso- https://git.io/J1SEh)` 
+</code></pre>
+<p>带综合测试的版本（CPU信息、Geekbench等）：</p>
+<pre><code>`bash &lt;(wget --no-check-certificate -O- https://dl.233.mba/d/sh/superbenchpro.sh)` 
+</code></pre>
+<p>来源：<a href="https://www.wrnxr.cn/163.html">https://www.wrnxr.cn/163.html</a></p>
+<h3 id="测试25端口是否开放">测试25端口是否开放</h3>
+<pre><code>`telnet smtp.aol.com 25` 
+</code></pre>
+<h3 id="测试ipv4优先还是ipv6优先">测试IPv4优先还是IPv6优先</h3>
+<pre><code>`curl ip.p3terx.com` 
+</code></pre>
+<h3 id="流媒体测试">流媒体测试</h3>
+<h4 id="全媒体测试">全媒体测试</h4>
+<pre><code>`bash &lt;(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)` 
+</code></pre>
+<h4 id="奈飞测试">奈飞测试</h4>
+<pre><code>`wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.5/nf_2.5_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; clear &amp;&amp; ./nf` 
+</code></pre>
+<pre><code>`#第一个
+bash &lt;(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)
+
+# 第二个
+bash &lt;(curl -sSL &quot;https://github.com/CoiaPrant/MediaUnlock_Test/raw/main/check.sh&quot;)` 
+</code></pre>
+<h2 id="warp">WARP</h2>
+<pre><code>`wget -N --no-check-certificate https://cdn.jsdelivr.net/gh/YG-tsj/CFWarp-Pro/multi.sh &amp;&amp; chmod +x multi.sh &amp;&amp; ./multi.sh` 
+</code></pre>
+<p>之后进入脚本快捷方式为 <code>bash multi.sh</code></p>
+<h2 id="服务器时间">服务器时间</h2>
+<h4 id="centos-同步时间">CentOS 同步时间</h4>
+<pre><code>`yum -y install ntpdate
+timedatectl set-timezone Asia/Shanghai
+ntpdate ntp1.aliyun.com` 
+</code></pre>
+<h2 id="bbr">BBR</h2>
+<h4 id="centos-7-bbr">CentOS 7 BBR</h4>
+<pre><code>`wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh` 
+</code></pre>
+<h4 id="一键开启bbr">一键开启BBR</h4>
+<p>注意：需要Linux Kernel 内核升级到 4.9 及以上版本可以实现 BBR 加速</p>
+<pre><code>`uname -srm` 
+</code></pre>
+<p>输出结果：</p>
+<pre><code>`Linux 3.10.0-957.12.2.el7.x86_64 x86_64
+3 - 内核版本.
+10 - 主修订版本.
+0-957 - 次要修订版本.
+12 - 补丁版本.` 
+</code></pre>
+<p>一般来说，Ubuntu18.04以上就可以(默认的内核<code>4.15</code>)</p>
+<pre><code>`echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf
+echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf
+
+sysctl -p
+
+sysctl net.ipv4.tcp_available_congestion_control
+
+lsmod | grep bbr` 
+</code></pre>
+<h2 id="docker相关">Docker相关</h2>
+<h4 id="更新-安装必备软件">更新、安装必备软件</h4>
+<pre><code>`apt-get update &amp;&amp; apt-get install -y wget vim` 
+</code></pre>
+<h3 id="海外服务器">海外服务器</h3>
+<h4 id="非大陆docker安装">非大陆Docker安装</h4>
+<pre><code>`wget -qO- get.docker.com | bash` 
+</code></pre>
+<h4 id="卸载docker">卸载Docker</h4>
+<pre><code>`sudo apt-get purge docker-ce docker-ce-cli containerd.io` 
+</code></pre>
+<pre><code>`sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd` 
+</code></pre>
+<h4 id="非大陆docker-compose安装">非大陆Docker-compose安装</h4>
+<pre><code> `sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose` 
+</code></pre>
+<pre><code>`sudo chmod +x /usr/local/bin/docker-compose` 
+</code></pre>
+<p>查看版本</p>
+<pre><code>`docker-compose --version` 
+</code></pre>
+<h3 id="大陆服务器">大陆服务器</h3>
+<h4 id="国内机安装docker">国内机安装docker</h4>
+<pre><code>`curl -sSL https://get.daocloud.io/docker | sh` 
+</code></pre>
+<h4 id="国内机安装docker-compose">国内机安装docker-compose</h4>
+<pre><code>``curl -L https://get.daocloud.io/docker/compose/releases/download/v2.1.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose`` 
+</code></pre>
+<h4 id="卸载docker-2">卸载docker</h4>
+<pre><code>`sudo apt-get remove docker docker-engine
+rm -fr /var/lib/docker/` 
+</code></pre>
+<h2 id="防火墙">防火墙</h2>
+<h4 id="centos-关闭防火墙">CentOS 关闭防火墙</h4>
+<pre><code>`systemctl start supervisord
+systemctl disable firewalld
+systemctl stop firewalld` 
+</code></pre>
+<h2 id="宝塔相关">宝塔相关</h2>
+<h4 id="宝塔去除登陆-已经失效解决方法见httpsbloglaodadearchivesbt-to-aapanel">宝塔去除登陆 (已经失效，解决方法见：<a href="https://blog.laoda.de/archives/bt-to-aapanel">https://blog.laoda.de/archives/bt-to-aapanel</a>)</h4>
+<pre><code>`sed -i &quot;s|if (bind_user == 'True') {|if (bind_user == 'REMOVED') {|g&quot; /www/server/panel/BTPanel/static/js/index.js
+rm -rf /www/server/panel/data/bind.pl` 
+</code></pre>
+<h4 id="宝塔aapanel破解">宝塔&amp;aapanel破解</h4>
+<pre><code>`# 宝塔&amp;aapanel破解
+编辑 /www/server/panel/class/panelplugin.py
+找到 softList['list'] = tmpList 这行代码
+在下面添加以下代码，注意缩进
+
+softList['pro'] = 1
+for soft in softList['list']:
+soft['endtime'] = 0
+
+编辑完毕后保存重启面板即可` 
+</code></pre>
+<h2 id="呆梨相关">呆梨相关</h2>
+<h4 id="xui">XUI</h4>
+<pre><code>`bash &lt;(curl -Ls https://raw.githubusercontent.com/sprov065/x-ui/master/install.sh) 0.2.0` 
+</code></pre>
+<h4 id="mack-a">mack-a</h4>
+<pre><code>`wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh` 
+</code></pre>
+<p>持续更新中</p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%9B%B4%E6%96%B0%E5%88%97%E8%A1%A8">更新列表</a></li>
+<li><a href="#%E7%BB%BC%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90%E9%9B%86%E6%88%90%E4%BA%86%E5%BE%88%E5%A4%9A%E8%84%9A%E6%9C%AC">综合工具箱（强烈推荐，集成了很多脚本）</a></li>
+<li><a href="#%E6%9D%9C%E7%94%AB%E6%B5%8B%E8%AF%95">杜甫测试</a></li>
+<li><a href="#dd%E7%9B%B8%E5%85%B3">DD相关</a>
+<ul>
+<li><a href="#1-%E7%94%B2%E9%AA%A8%E6%96%87dd%E8%84%9A%E6%9C%AC">1、甲骨文DD脚本</a></li>
+<li><a href="#2-moeclub%E8%84%9A%E6%9C%AC">2、MoeClub脚本</a></li>
+<li><a href="#3-%E5%8F%A6%E4%B8%80%E4%BD%8D%E5%A4%A7%E4%BD%AC%E7%9A%84%E8%84%9A%E6%9C%AC">3、另一位大佬的脚本</a></li>
+<li><a href="#4-%E7%A7%8B%E6%B0%B4%E9%80%B8%E5%86%B0-windows-2012201620192022-1011-dd-%E9%95%9C%E5%83%8F">4、秋水逸冰 Windows 2012/2016/2019/2022 10/11 DD 镜像</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E7%9B%B8%E5%85%B3">测试相关</a>
+<ul>
+<li><a href="#%E6%9C%BA%E5%99%A8%E6%B5%8B%E8%AF%95">机器测试</a>
+<ul>
+<li><a href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%B5%8B%E8%AF%95">单线程测试</a></li>
+<li><a href="#%E6%9C%80%E5%85%A8%E6%B5%8B%E9%80%9F%E8%84%9A%E6%9C%AC">最全测速脚本</a></li>
+<li><a href="#superbench">superbench</a></li>
+<li><a href="#benchsh">Bench.sh</a></li>
+</ul>
+</li>
+<li><a href="#%E9%80%9F%E5%BA%A6%E6%B5%8B%E8%AF%95">速度测试</a>
+<ul>
+<li><a href="#%E6%98%BE%E7%A4%BA%E5%BB%B6%E8%BF%9F-%E6%8A%96%E5%8A%A8">显示延迟、抖动</a></li>
+<li><a href="#%E7%9B%B4%E6%8E%A5%E6%98%BE%E7%A4%BA%E5%9B%9E%E7%A8%8B%E7%BA%BF%E8%B7%AF">直接显示回程线路</a></li>
+<li><a href="#%E5%9B%9B%E7%BD%91%E6%B5%8B%E9%80%9F">四网测速</a></li>
+<li><a href="#%E4%B8%89%E7%BD%91%E6%B5%8B%E9%80%9F">三网测速</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B5%8B%E8%AF%9525%E7%AB%AF%E5%8F%A3%E6%98%AF%E5%90%A6%E5%BC%80%E6%94%BE">测试25端口是否开放</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95ipv4%E4%BC%98%E5%85%88%E8%BF%98%E6%98%AFipv6%E4%BC%98%E5%85%88">测试IPv4优先还是IPv6优先</a></li>
+<li><a href="#%E6%B5%81%E5%AA%92%E4%BD%93%E6%B5%8B%E8%AF%95">流媒体测试</a>
+<ul>
+<li><a href="#%E5%85%A8%E5%AA%92%E4%BD%93%E6%B5%8B%E8%AF%95">全媒体测试</a></li>
+<li><a href="#%E5%A5%88%E9%A3%9E%E6%B5%8B%E8%AF%95">奈飞测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#warp">WARP</a></li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E9%97%B4">服务器时间</a><br>
+*
+<ul>
+<li><a href="#centos-%E5%90%8C%E6%AD%A5%E6%97%B6%E9%97%B4">CentOS 同步时间</a></li>
+</ul>
+</li>
+<li><a href="#bbr">BBR</a><br>
+*
+<ul>
+<li><a href="#centos-7-bbr">CentOS 7 BBR</a></li>
+<li><a href="#%E4%B8%80%E9%94%AE%E5%BC%80%E5%90%AFbbr">一键开启BBR</a></li>
+</ul>
+</li>
+<li><a href="#docker%E7%9B%B8%E5%85%B3">Docker相关</a><br>
+*
+<ul>
+<li><a href="#%E6%9B%B4%E6%96%B0-%E5%AE%89%E8%A3%85%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6">更新、安装必备软件</a></li>
+<li><a href="#%E6%B5%B7%E5%A4%96%E6%9C%8D%E5%8A%A1%E5%99%A8">海外服务器</a>
+<ul>
+<li><a href="#%E9%9D%9E%E5%A4%A7%E9%99%86docker%E5%AE%89%E8%A3%85">非大陆Docker安装</a></li>
+<li><a href="#%E5%8D%B8%E8%BD%BDdocker">卸载Docker</a></li>
+<li><a href="#%E9%9D%9E%E5%A4%A7%E9%99%86docker-compose%E5%AE%89%E8%A3%85">非大陆Docker-compose安装</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%A7%E9%99%86%E6%9C%8D%E5%8A%A1%E5%99%A8">大陆服务器</a>
+<ul>
+<li><a href="#%E5%9B%BD%E5%86%85%E6%9C%BA%E5%AE%89%E8%A3%85docker">国内机安装docker</a></li>
+<li><a href="#%E5%9B%BD%E5%86%85%E6%9C%BA%E5%AE%89%E8%A3%85docker-compose">国内机安装docker-compose</a></li>
+<li><a href="#%E5%8D%B8%E8%BD%BDdocker-2">卸载docker</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%98%B2%E7%81%AB%E5%A2%99">防火墙</a><br>
+*
+<ul>
+<li><a href="#centos-%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99">CentOS 关闭防火墙</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9D%E5%A1%94%E7%9B%B8%E5%85%B3">宝塔相关</a><br>
+*
+<ul>
+<li><a href="#%E5%AE%9D%E5%A1%94%E5%8E%BB%E9%99%A4%E7%99%BB%E9%99%86-%E5%B7%B2%E7%BB%8F%E5%A4%B1%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E8%A7%81httpsbloglaodadearchivesbt-to-aapanel">宝塔去除登陆 (已经失效，解决方法见：https://blog.laoda.de/archives/bt-to-aapanel)</a></li>
+<li><a href="#%E5%AE%9D%E5%A1%94aapanel%E7%A0%B4%E8%A7%A3">宝塔&amp;aapanel破解</a></li>
+</ul>
+</li>
+<li><a href="#%E5%91%86%E6%A2%A8%E7%9B%B8%E5%85%B3">呆梨相关</a><br>
+*
+<ul>
+<li><a href="#xui">XUI</a></li>
+<li><a href="#mack-a">mack-a</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/ddns-go-de-an-zhuang/">
+              <span class="post-title">
+                DDNS-GO的安装&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>黑群晖DSM7.0更换引导&amp;数据迁移 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="黑群晖DSM7.0更换引导&amp;数据迁移 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="黑群晖DSM7.0更换引导&amp;数据迁移" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/hei-qun-hui-dsm70-geng-huan-yin-dao-andshu-ju-qian-yi/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://amiao.ioxoo.top/tag/M1XvsGGHH/" class="tag">群晖</a>
+                
+              </span>
+              <h1>黑群晖DSM7.0更换引导&amp;数据迁移</h1>
+              <span class="meta">
+                Posted on
+                2022-02-09，5 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <img class="post-feature-header-image" src="https://a.zdmimg.com/202109/05/6134c6a49f7b72071.jpg_fo742.jpg" alt="封面图">
+          </img>
+          
+          <h1 id="黑群晖dsm70更换引导数据迁">黑群晖DSM7.0更换引导&amp;数据迁</h1>
+<p>**创作立场声明：**黑群晖引导已经发布了一段时间，虚拟机里测试下来感觉已经可以正式投入使用了，故将本人正在使用的黑群6.2.3升级到DSM7.0。（NAS有价，数据无价。不喜折腾人士切勿尝试！！！）</p>
+<p><strong>追加修改(2021-10-07 17:37:54):</strong><br>
+2021/10/7 目前通过redpill-tool-chainv0.10.4版生成的引导已经可以支持Esxi环境下完美升级到DSM7.0.1，自动识别引导分区，不再需要使用mknod命令映射synoboot分区。 针对直通SATA控制器的方案中，仍然需要将SATA控制器进行映射（DiskIdxMap=XX SataPortMap=Y），以确保所有硬盘都被正确识别。 附加7.0.1正式版（42218）引导链接：https://pan.baidu.com/s/1QS7iJ8NC7eqfmtJTgS0PGg 提取码: 3qdb</p>
+<p>黑<a href="https://pinpai.smzdm.com/2315/">群晖</a>引导已经发布了一段时间，虚拟机里测试下来感觉已经可以正式投入使用了，故将本人正在使用的黑群6.2.3升级到DSM7.0。（NAS有价，数据无价。不喜折腾人士切勿尝试！！！）</p>
+<p>https://post.smzdm.com/p/aoxg2vdn/)</p>
+<p>镜像转换</p>
+<p>本人使用Esxi搭建黑群晖环境，需要将引导镜像转换成VMDK文件，工具使用StarWindConverter，步骤如下：</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_2/"><img src="https://s2.loli.net/2022/02/09/6kSd8my4fxeVb1F.png" alt="选择引导镜像" loading="lazy"></a>选择引导镜像</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_3/"><img src="https://s2.loli.net/2022/02/09/aB6ekn9ZhpSirV8.png" alt="选择转换格式" loading="lazy"></a>选择转换格式</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_4/"><img src="https://s2.loli.net/2022/02/09/3RA7nJhPtkSio6u.png" alt="选择保存位置" loading="lazy"></a>选择保存位置</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_5/"><img src="https://s2.loli.net/2022/02/09/8uDSTKGxNjwyA7W.png" alt="完成转换" loading="lazy"></a>完成转换</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_6/"><img src="https://s2.loli.net/2022/02/09/hO7UPZAnuWpI4HB.png" alt="生成的文件" loading="lazy"></a>生成的文件</p>
+<p>生成2个文件，都要传到Esxi的存储中，上传完成后只显示一个。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_7/"><img src="https://s2.loli.net/2022/02/09/d3cUFo8CHwLrZSG.png" alt="上传引导镜像到存储中" loading="lazy"></a>上传引导镜像到存储中</p>
+<h2 id="虚机建立">虚机建立</h2>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_8/"><img src="https://s2.loli.net/2022/02/09/7yFhIObu8npZ4XA.png" alt="创建虚机" loading="lazy"></a>创建虚机</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_9/"><img src="https://s2.loli.net/2022/02/09/SX8FMhvcnwmjPka.png" alt="选择系统" loading="lazy"></a>选择系统</p>
+<p>使用BIOS引导故选择3.X Linux，UEFI未测试。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_10/"><img src="https://s2.loli.net/2022/02/09/lbSRGOZCHfsuxq3.png" alt="添加引导文件" loading="lazy"></a>添加引导文件</p>
+<p>删除多余的<a href="https://www.smzdm.com/fenlei/guangqu/">光驱</a>、SCSI控制器，添加之前上传的引导文件，挂载在SATA控制器(0:0)。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_11/"><img src="https://s2.loli.net/2022/02/09/Yl4wPvUFfgxECqV.png" alt="修改网卡类型" loading="lazy"></a>修改网卡类型</p>
+<p>必须使用E1000e类型，否则启动后找不到IP。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_12/"><img src="https://am.zdmimg.com/202109/05/6134ce2a2966f9668.png_e1080.jpg" alt="强制下次启动进入BIOS" loading="lazy"></a>强制下次启动进入BIOS</p>
+<p>为了防止启动速度过快，来不及选择Grub选项，勾选这里，单身30年请随意。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_13/"><img src="https://qnam.smzdm.com/202109/05/6134ce2a8e4f48981.png_e1080.jpg" alt="确认信息" loading="lazy"></a>确认信息</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_14/"><img src="https://qnam.smzdm.com/202109/05/6134ce2a9f5075805.png_e1080.jpg" alt="添加直通设备" loading="lazy"></a>添加直通设备</p>
+<p>有直通SATA控制器的可以修改虚机配置，添加对应的PCI设备，具体板载SATA控制器直通的方法请见：https://wp.gxnas.com/8185.html</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_15/"><img src="https://am.zdmimg.com/202109/05/6134ce2aad46c8625.png_e1080.jpg" alt="添加SATA控制器" loading="lazy"></a>添加SATA控制器</p>
+<p>添加SATA控制器，我这里有2个。添加完成后保存退出。完成上面那些步骤后就可以开机了。</p>
+<h2 id="开机">开机</h2>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_16/"><img src="https://qnam.smzdm.com/202109/05/6134ce2b1b89c4100.png_e1080.jpg" alt="确认引导盘位置" loading="lazy"></a>确认引导盘位置</p>
+<p>加电后进入BIOS，确认引导盘为第一引导项，F10保存退出。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_17/"><img src="https://qnam.smzdm.com/202109/05/6134ce2b2c4207516.png_e1080.jpg" alt="确认修改参数" loading="lazy"></a>确认修改参数</p>
+<p>确认图中红线部分被正确修改。</p>
+<h3 id="洗白部分">洗白部分：</h3>
+<p>mac1：修改为mac地址</p>
+<p>sn：序列号</p>
+<h3 id="sata盘编号相关">SATA盘编号相关：</h3>
+<p>DiskIdxMap：每个控制器上挂载盘位的起始编号</p>
+<p>SataPortMap：控制器及每个控制器挂载的数量</p>
+<p>具体参见https://isrey.com/archives/129/</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_18/"><img src="https://qnam.smzdm.com/202109/05/6134ce2b34ba5716.png_e1080.jpg" alt="加载引导" loading="lazy"></a>加载引导</p>
+<p>Ctrl+X开始引导。（注意在开机过程中修改Grub只能临时修改，如需永久修改，需要挂载后修改）</p>
+<h2 id="初始化流程">初始化流程</h2>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_19/"><img src="https://qnam.smzdm.com/202109/05/6134ce2b92fed8367.png_e1080.jpg" alt="初始化" loading="lazy"></a>初始化</p>
+<p>通过synology assistant找到NASip，进入web界面进行初始化。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_20/"><img src="https://am.zdmimg.com/202109/05/6134ce2ba4ab46134.png_e1080.jpg" alt="选择保留系统配置" loading="lazy"></a>选择保留系统配置</p>
+<p>DSM7.0认出盘内6.2.3的系统，选择保留配置进行安装。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_21/"><img src="https://qnam.smzdm.com/202109/05/6134ce2bbcdef8043.png_e1080.jpg" alt="上传pat" loading="lazy"></a>上传pat</p>
+<p>上传DS918+对应的PAT文件，请到官网下载未经修改过的镜像。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_22/"><img src="https://qnam.smzdm.com/202109/05/6134ce2c0ef412202.png_e1080.jpg" alt="第一次安装失败" loading="lazy"></a>第一次安装失败</p>
+<p><strong>Esxi引导第一次安装必定失败，此时后台已经开启telnet。</strong></p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_23/"><img src="https://qnam.smzdm.com/202109/05/6134ce2c361a67199.png_e1080.jpg" alt="telnet" loading="lazy"></a>telnet</p>
+<p>使用终端软件telnetNAS，用户名：root 密码：空</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_24/"><img src="https://am.zdmimg.com/202109/05/6134ce2c554448470.png_e1080.jpg" alt="找到引导盘的编号" loading="lazy"></a>找到引导盘的编号</p>
+<p>通过fdisk -l 确认引导盘的编号，可以通过磁盘大小确认引导盘编号，我这里是sde。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_25/"><img src="https://qnam.smzdm.com/202109/05/6134ce2cb94944582.png_e1080.jpg" alt="查找引导盘位置" loading="lazy"></a>查找引导盘位置</p>
+<p>通过cat /proc/partitions 找到sde的major与minor。有4个，只需要前3个，我这里对应64-67。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_26/"><img src="https://qnam.smzdm.com/202109/05/6134ce2cbf8c62234.png_e1080.jpg" alt="mknod" loading="lazy"></a>mknod</p>
+<p>使用mknod创建块文件：</p>
+<p>mknod /dev/synoboot b 8 64</p>
+<p>mknod /dev/synoboot1 b 8 65</p>
+<p>mknod /dev/synoboot2 b 8 66</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_27/"><img src="https://qnam.smzdm.com/202109/05/6134ce2cbf8c62234.png_e1080.jpg" alt="创建块文件" loading="lazy"></a>创建块文件</p>
+<p>之后点击确定，重新上传PAT进行安装。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_28/"><img src="https://qnam.smzdm.com/202109/05/6134ce2bbcdef8043.png_e1080.jpg" alt="再次上传镜像" loading="lazy"></a>再次上传镜像</p>
+<p>这次突破55%就说明成功了，很快，就能看到NAS自动重启。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_29/"><img src="https://am.zdmimg.com/202109/05/6134ce2cde75f5537.png_e1080.jpg" alt="重启了" loading="lazy"></a>重启了</p>
+<h2 id="系统数据库更新">系统数据库更新</h2>
+<figure data-type="image" tabindex="1"><a href="https://post.smzdm.com/p/aoxmzwr6/pic_30/"><img src="https://qnam.smzdm.com/202109/05/6134ce2d39b8143.png_e1080.jpg" alt="黑群晖DSM7.0更换引导&amp;数据迁移" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="2"><a href="https://post.smzdm.com/p/aoxmzwr6/pic_31/"><img src="https://qnam.smzdm.com/202109/05/6134ce2d5766b9496.png_e1080.jpg" alt="黑群晖DSM7.0更换引导&amp;数据迁移" loading="lazy"></a></figure>
+<p>漫长的等待。。。。。。。</p>
+<h2 id="登录dsm">登录DSM</h2>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_32/"><img src="https://am.zdmimg.com/202109/05/6134ce2ee0394388.png_e1080.jpg" alt="登陆界面" loading="lazy"></a>登陆界面</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_33/"><img src="https://am.zdmimg.com/202109/05/6134ce2f0c75d9160.png_e1080.jpg" alt="数据都保留了" loading="lazy"></a>数据都保留了</p>
+<p>漫长的等待后，所有数据迁移成功，可以看到登录界面了，所有之前的数据都保留下来了。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_34/"><img src="https://qnam.smzdm.com/202109/05/6134d8869a8749611.png_e1080.jpg" alt="升级成功" loading="lazy"></a>升级成功</p>
+<h2 id="总结">总结</h2>
+<p>系统禁用了不支持的套件，需要进入修复，目前感觉redpill-tool-chainv0.6版本编译出来的版本已经很稳定了，目前只发现synology photos中人脸识别不能使用，可能与我只做了半洗白有关。</p>
+<p><strong>最后提醒一下大家：</strong></p>
+<p><strong>数据无价，升级/迁移之前备份数据！！！！！！！</strong></p>
+<p><strong>数据无价，升级/迁移之前备份数据！！！！！！！</strong></p>
+<p><strong>数据无价，升级/迁移之前备份数据！！！！！！！</strong></p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E9%BB%91%E7%BE%A4%E6%99%96dsm70%E6%9B%B4%E6%8D%A2%E5%BC%95%E5%AF%BC%E6%95%B0%E6%8D%AE%E8%BF%81">黑群晖DSM7.0更换引导&amp;数据迁</a>
+<ul>
+<li><a href="#%E8%99%9A%E6%9C%BA%E5%BB%BA%E7%AB%8B">虚机建立</a></li>
+<li><a href="#%E5%BC%80%E6%9C%BA">开机</a>
+<ul>
+<li><a href="#%E6%B4%97%E7%99%BD%E9%83%A8%E5%88%86">洗白部分：</a></li>
+<li><a href="#sata%E7%9B%98%E7%BC%96%E5%8F%B7%E7%9B%B8%E5%85%B3">SATA盘编号相关：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%B5%81%E7%A8%8B">初始化流程</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9B%B4%E6%96%B0">系统数据库更新</a></li>
+<li><a href="#%E7%99%BB%E5%BD%95dsm">登录DSM</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/debian-ruan-jian-bao-chang-yong-guan-li-ming-ling-zheng-li/">
+              <span class="post-title">
+                Debian软件包常用管理命令整理&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

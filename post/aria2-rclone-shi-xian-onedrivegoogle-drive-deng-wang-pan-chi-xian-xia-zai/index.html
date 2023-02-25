@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/aria2-rclone-shi-xian-onedrivegoogle-drive-deng-wang-pan-chi-xian-xia-zai/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://amiao.ioxoo.top/tag/6xPHa-vix/" class="tag">aria2</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/Ov6NrFUTj_/" class="tag">onedrive</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/Re5I6gz4y9/" class="tag">googledrive</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/d5NA0zBlI/" class="tag">rclone</a>
+                
+              </span>
+              <h1>Aria2 + Rclone 实现 OneDrive、Google Drive 等网盘离线下载</h1>
+              <span class="meta">
+                Posted on
+                2021-10-08，5 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h2 id="前言">前言</h2>
+<p>Aria2 有一个配置项 <code>on-download-complete</code>，即在下载完后执行一个脚本或命令。当下载完成后 Aria2 会给脚本传递分别为 GID 、文件数量、文件路径的 3 个变量。利用这个配置项和这些变量就可以实现诸如下载完成后调用 Rclone 进行上传的操作。整个过程简单来说就是，Aria2 下载文件到 VPS ，完成后告诉 Rclone 将文件上传到网盘。理论上只要是 Rclone 支持的网盘，都可以按照这个思路来实现<s>伪</s>离线下载。当然这篇教程并不是教你如何去写脚本，而是直接用博主已做好的一套方案，按照教程操作很容易就能实现。</p>
+<h2 id="准备工作">准备工作</h2>
+<p>首先你需要一个适合下载的 VPS ，如果你还没有合适 VPS 推荐去看《<a href="https://p3terx.com/archives/cheap-and-costeffective-vps-recommended.html">便宜高性价比和白嫖 VPS 推荐</a>》，这里精选了博主这些年来使用过的好用的 VPS ，大盘鸡最低只需十几块钱一个月。</p>
+<h2 id="安装-aria2">安装 Aria2</h2>
+<p>这里使用 <a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA">Aria2 一键安装管理脚本 增强版</a>，执行下面的代码下载并运行脚本，出现脚本操作菜单输入 <code>1</code> 开始安装。</p>
+<pre><code class="language-none">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; ./aria2.sh
+</code></pre>
+<h2 id="安装和配置-rclone">安装和配置 Rclone</h2>
+<p>RCLONE 官方提供了<a href="https://p3terx.com/go/aHR0cHM6Ly9yY2xvbmUub3JnL2luc3RhbGwvI3NjcmlwdC1pbnN0YWxsYXRpb24">一键安装脚本</a>：</p>
+<pre><code class="language-none">curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看《<a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">Rclone 安装配置教程</a>》来了解配置的详细过程。</p>
+<h2 id="配置自动上传脚本">配置自动上传脚本</h2>
+<p><a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA">Aria2 一键安装管理脚本 增强版</a> 整合了 <a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMl9wZXJmZWN0X2NvbmZpZw">Aria2 完美配置</a> ，安装后会附带一些附加功能脚本功能脚本，RCLONE 自动上传脚本就是其中之一。由于默认不启用，所以需要手动启用。</p>
+<blockquote>
+<p><strong>TIPS:</strong> 本项目的上传脚本使用更稳定快速的原生命令上传方式，而非处在测试阶段的挂载方式，这点和一般的脚本不同。</p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用<a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL1AzVEVSWC9hcmlhMi5zaA">Aria2 一键安装管理脚本 增强版</a>中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把<code>clean.sh</code>替换为<code>upload.sh</code>。</li>
+</ul>
+<pre><code class="language-none"># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+</code></pre>
+<blockquote>
+<p>nano 编辑器的操作方法参见《<a href="https://p3terx.com/archives/linux-nano-tutorial.html">Linux 下适合新手的文本编辑器 nano 使用教程</a>》</p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，第一次使用只建议修改网盘名称。</li>
+</ul>
+<pre><code class="language-none"># 网盘名称(RCLONE 配置时填写的 name)
+drive-name=OneDrive
+</code></pre>
+<ul>
+<li>重启 Aria2 。脚本选项重启或者执行以下命令：</li>
+</ul>
+<pre><code class="language-none">service aria2 restart
+</code></pre>
+<h2 id="检查配置是否成功">检查配置是否成功</h2>
+<ul>
+<li>执行<code>upload.sh</code>脚本，提示<code>success</code>即代上传脚本能正常被调用，否则请检查与 RCLONE 有关的配置。</li>
+</ul>
+<pre><code class="language-none">/root/.aria2c/upload.sh
+</code></pre>
+<ul>
+<li>打开实时日志并下载任意文件，出现上传成功信息即代表配置成功，否则请认真阅读教程并重新开始。</li>
+<li>检查网盘是否存在相关文件，若不存在说明你搞错网盘了。</li>
+</ul>
+<h2 id="使用方法">使用方法</h2>
+<p>当进行完以上所有操作，现在下载文件就会自动上传至相应的网盘。</p>
+<p>Aria2 是命令行后端软件，需要配合前端 GUI 才能有更好的使用体验，对于从来没有接触过的萌新，建议去看《<a href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">Aria2 前端面板 AriaNg 使用教程</a>》来了解相关基础知识。</p>
+<h2 id="遇到问题如何处理">遇到问题如何处理</h2>
+<p>请仔细阅读教程中的每一个字，严格按照教程来进行操作几乎不会遇到问题。</p>
+<h3 id="faq">FAQ</h3>
+<p><a href="https://p3terx.com/archives/aria2_perfect_config-faq.html">FAQ</a> 记录了有关 Aria2 的常见问题与解决方案。</p>
+<h3 id="提问">提问</h3>
+<p>加入 <a href="https://p3terx.com/go/aHR0cHM6Ly90Lm1lL0FyaWEyYw">Aria2 TG 群</a>和小伙伴们一起讨论。要注意提问的方式和提供有用的信息。提问请确认阅读过《<a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL3J5YW5oYW53dS9Ib3ctVG8tQXNrLVF1ZXN0aW9ucy1UaGUtU21hcnQtV2F5L2Jsb2IvbWFzdGVyL1JFQURNRS16aF9DTi5tZA">提问的智慧</a>》，这能更好的帮助你去解决问题和节约时间。诸如 “为什么不能使用？”、“那你能帮帮我吗？” 之类的问题应该没人会知道。另外不要把热心网友当做淘宝客服，没人会陪你打太极，帮你是缘分，不帮是本分。</p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85-aria2">安装 Aria2</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-rclone">安装和配置 Rclone</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E8%84%9A%E6%9C%AC">配置自动上传脚本</a></li>
+<li><a href="#%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F">检查配置是否成功</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a></li>
+<li><a href="#%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86">遇到问题如何处理</a>
+<ul>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#%E6%8F%90%E9%97%AE">提问</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/home-assistant-zhong-xian-shi-zui-xin-you-jie-xin-xi/">
+              <span class="post-title">
+                Home Assistant中显示最新油价信息&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

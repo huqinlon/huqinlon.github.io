@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>安装HASSIO | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="安装HASSIO | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="安装HASSIO" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/an-zhuang-hassio/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>安装HASSIO</h1>
+              <span class="meta">
+                Posted on
+                2021-06-08，1 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h2 id="安装hassio">安装HASSIO</h2>
+<p>以 root 身份运行以下命令。</p>
+<pre><code>wget https://code.aliyun.com/neroxps/hassio_install/raw/master/install.sh
+chmod a+x install.sh
+./install.sh
+</code></pre>
+<h4 id="操作说明">操作说明</h4>
+<h5 id="停止但重启依然会自启动">停止（但重启依然会自启动）</h5>
+<pre><code>systemctl stop hassio-supervisor.service
+</code></pre>
+<h5 id="重启">重启</h5>
+<pre><code>systemctl restart hassio-supervisor.service
+</code></pre>
+<h5 id="禁用自启动">禁用自启动</h5>
+<pre><code>systemctl disable hassio-supervisor.service
+</code></pre>
+<h5 id="启用自启动">启用自启动</h5>
+<pre><code>systemctl enable hassio-supervisor.service
+</code></pre>
+<h5 id="查询当前启动状态">查询当前启动状态</h5>
+<pre><code>systemctl status hassio-supervisor.service
+</code></pre>
+<h5 id="查询当前是否自启动">查询当前是否自启动</h5>
+<pre><code>systemctl  is-enabled hassio-supervisor.service
+</code></pre>
+<h5 id="查询-hassio-日志">查询 hassio 日志</h5>
+<pre><code>docker logs -f hassio_supervisor
+</code></pre>
+<h5 id="查询-hassio-日志最新20行信息">查询 hassio 日志最新20行信息</h5>
+<pre><code>docker logs -f hassio_supervisor --tail 20
+</code></pre>
+<h5 id="查询-ha-日志">查询 ha 日志</h5>
+<pre><code>docker logs -f homeassistant
+</code></pre>
+<h5 id="查询-ha-日志最新20行信息">查询 ha 日志最新20行信息</h5>
+<pre><code>docker logs -f homeassistant --tail 20
+</code></pre>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85hassio">安装HASSIO</a><br>
+*
+<ul>
+<li><a href="#%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E">操作说明</a>
+<ul>
+<li><a href="#%E5%81%9C%E6%AD%A2%E4%BD%86%E9%87%8D%E5%90%AF%E4%BE%9D%E7%84%B6%E4%BC%9A%E8%87%AA%E5%90%AF%E5%8A%A8">停止（但重启依然会自启动）</a></li>
+<li><a href="#%E9%87%8D%E5%90%AF">重启</a></li>
+<li><a href="#%E7%A6%81%E7%94%A8%E8%87%AA%E5%90%AF%E5%8A%A8">禁用自启动</a></li>
+<li><a href="#%E5%90%AF%E7%94%A8%E8%87%AA%E5%90%AF%E5%8A%A8">启用自启动</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E5%BD%93%E5%89%8D%E5%90%AF%E5%8A%A8%E7%8A%B6%E6%80%81">查询当前启动状态</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E5%BD%93%E5%89%8D%E6%98%AF%E5%90%A6%E8%87%AA%E5%90%AF%E5%8A%A8">查询当前是否自启动</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2-hassio-%E6%97%A5%E5%BF%97">查询 hassio 日志</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2-hassio-%E6%97%A5%E5%BF%97%E6%9C%80%E6%96%B020%E8%A1%8C%E4%BF%A1%E6%81%AF">查询 hassio 日志最新20行信息</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2-ha-%E6%97%A5%E5%BF%97">查询 ha 日志</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2-ha-%E6%97%A5%E5%BF%97%E6%9C%80%E6%96%B020%E8%A1%8C%E4%BF%A1%E6%81%AF">查询 ha 日志最新20行信息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/35-ying-cun-ying-pan-gong-hao-dao-di-duo-shao-wa-fu-qi-ta-gong-hao-can-kao/">
+              <span class="post-title">
+                3.5英寸硬盘功耗，到底多少瓦，附其它功耗参考&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

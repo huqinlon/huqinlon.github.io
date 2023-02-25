@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>Debian软件包常用管理命令整理 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="Debian软件包常用管理命令整理 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="Debian软件包常用管理命令整理" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/debian-ruan-jian-bao-chang-yong-guan-li-ming-ling-zheng-li/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://amiao.ioxoo.top/tag/-165CZTej/" class="tag">Debian</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/1nduAzknJo/" class="tag">ubuntu</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/nVSfPFepMG/" class="tag">linux</a>
+                
+              </span>
+              <h1>Debian软件包常用管理命令整理</h1>
+              <span class="meta">
+                Posted on
+                2022-01-24，4 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <img class="post-feature-header-image" src="https://miro.medium.com/max/700/1*ABo4dTsrgA7UboVI7c6yIA.jpeg" alt="封面图">
+          </img>
+          
+          <h1 id="debian软件包常用管理命令整理">Debian软件包常用管理命令整理</h1>
+<p>在Debian及其衍生的系统中，我们需要经常使用的软件包管理命令，对系统进行管理，以便系统达到预期的状态。Debian系统中，常用的软件包命令有 apt、apt-get、dpkg、apt-cache等，这里我们着重列举常见的一些用法。</p>
+<h3 id="软件包查询不需要sudo权限">软件包查询（不需要sudo权限）</h3>
+<pre><code class="language-javascript">$ apt-cache search pkg_keyword     #列出匹配关键字的软件包
+$ apt search pkg_keyword           #列出匹配关键字的软件包，包括了版本信息
+$ apt list pkgname                 #查找该软件包，会显示版本信息
+$ apt-cache show pkgname           #查询软件包详细信息
+$ apt show pkgname                 #查询软件包详细信息
+$ apt-cache depends pkgname        #查询软件包依赖关系
+$ apt-cache rdepends pkgname       #查询被哪些软件包依赖
+$ apt-cache showpkg pkgname        #同上
+$ apt-cache policy pkgname         #查询软件包的安装状态和版本
+$ apt-cache stats                  #查看软件库的统计信息
+</code></pre>
+<h3 id="软件包安装">软件包安装</h3>
+<pre><code class="language-javascript">$ sudo apt-get install pkgname
+$ sudo apt install pkgname
+
+$ sudo apt install -f                               #自动修复依赖
+$ sudo apt-get install -f
+</code></pre>
+<p>在安装软件包之前，我们一般会执行 apt-get update，更新 apt-get 缓存中的软件包信息，获取最新软件包列表。软件的安装源，是由 /etc/apt/sources.list 和 /etc/apt/sources.list.d/ 目录下的 .list 文件定义的。</p>
+<pre><code class="language-javascript">$ sudo apt-get upgrade           #更新系统所有已安装软件包，只更新包会忽略依赖关系
+$ sudo apt upgrade
+$ sudo apt-get upgrade -u        #-u 列出可升级软件列表
+$ sudo apt-get upgrade -s        #模拟升级
+$ sudo apt-get dist-upgrade      #根据依赖关系更新系统所有已安装软件包
+$ sudo apt-get --reinstall install pkgname        #只升级指定的软件包
+$ sudo apt-get source pkgname    #只下载源码包
+$ sudo apt-get check             #检查破损的依赖关系
+$ sudo apt-get autoclean         #自动清楚apt-get缓存
+</code></pre>
+<h3 id="软件包卸载">软件包卸载</h3>
+<pre><code class="language-javascript">$ sudo apt-get remove pkgname       #删除已安装的软件包（保留配置文件）
+$ sudo apt-get purge pkgname        #卸载软件，同时删除配置文件
+$ sudo apt-get autoremove pkgname   #彻底自动卸载软件，删除该软件包及所依赖的，以及不再使用和未使用的软件包
+</code></pre>
+<p>在清理本地缓存时，我们会用到 apt 的 clean 命令。值得一提的是，apt-get autoclean 和 apt-get clean 是略微有区别的。</p>
+<p>APT的底层包管理器是dpkg, dpkg 安装软件包时, 会将 *.deb 放在 /var/cache/apt/archives 中。apt-get autoclean 只会删除 /var/cache/apt/archives 已经过期的deb。使用 apt-get clean 会将 /var/cache/apt/archives 的 所有 deb 删掉。</p>
+<h4 id="dpkg工具管理deb格式软件包">dpkg工具管理deb格式软件包</h4>
+<pre><code class="language-javascript">$ dpkg -l                      #列出所有安装的deb软件包
+$ dpkg -l|grep nginx           #查询nginx是否已安装
+$ dpkg -s zip                  #查看软件包zip的状态和详细信息
+$ dpkg -S openssh-server       #查看软件包openssh-server包含的所有文件
+$ dpkg -S /path/to/file        #查看某文件对应的软件包名
+$ sudo dpkg -i pkgname.deb     #安装.deb软件包，需要自己解决依赖关系
+$ sudo dpkg -r pkgname         #卸载deb格式的软件包（保留配置文件），需要自己解决依赖关系
+$ sudo dpkg -P pkgname         #卸载deb格式的软件包（不保留配置文件），需要自己解决依赖关系
+$ sudo dpkg -P package-name    #清除软件包的所有文件（removes everything, including conffiles）
+</code></pre>
+<h4 id="使用ppa源安装软件包">使用PPA源安装软件包</h4>
+<p>所有的PPA都寄存在launchpad.net网站上，该网站由Canonical公司架设。</p>
+<ul>
+<li><code>ppa:user/ppa-name      #ppa源语法格式</code></li>
+<li><code>sudo add-apt-repository ppa:user/ppa-name   #添加ppa源</code></li>
+<li><code>sudo add-apt-repository -r ppa:user/ppa-name  #删除ppa源</code></li>
+</ul>
+<p>注意，任何人都可以上传软件包到ppa，所有尽量避免使用ppa，如果必须使用，应选用可以信任的，有固定团队维护的ppa。</p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#debian%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%B8%B8%E7%94%A8%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86">Debian软件包常用管理命令整理</a><br>
+*
+<ul>
+<li><a href="#%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%9F%A5%E8%AF%A2%E4%B8%8D%E9%9C%80%E8%A6%81sudo%E6%9D%83%E9%99%90">软件包查询（不需要sudo权限）</a></li>
+<li><a href="#%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%AE%89%E8%A3%85">软件包安装</a></li>
+<li><a href="#%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%8D%B8%E8%BD%BD">软件包卸载</a>
+<ul>
+<li><a href="#dpkg%E5%B7%A5%E5%85%B7%E7%AE%A1%E7%90%86deb%E6%A0%BC%E5%BC%8F%E8%BD%AF%E4%BB%B6%E5%8C%85">dpkg工具管理deb格式软件包</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8ppa%E6%BA%90%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85">使用PPA源安装软件包</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/unraid-jie-zhu-rclone-bei-fen-shu-ju-dao-a-li-yun-pan/">
+              <span class="post-title">
+                Unraid 借助 rclone 备份数据到 阿里云盘&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

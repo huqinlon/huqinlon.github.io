@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>软路由中OpenWRT作为旁路由的安装设置教程 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="软路由中OpenWRT作为旁路由的安装设置教程 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="软路由中OpenWRT作为旁路由的安装设置教程" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/ruan-lu-you-zhong-openwrt-zuo-wei-pang-lu-you-de-an-zhuang-she-zhi-jiao-cheng/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://amiao.ioxoo.top/tag/jNse3n62z/" class="tag">openwrt</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/GCsXnGR7B4/" class="tag">软路由</a>
+                
+                <a href="https://amiao.ioxoo.top/tag/nVSfPFepMG/" class="tag">linux</a>
+                
+              </span>
+              <h1>软路由中OpenWRT作为旁路由的安装设置教程</h1>
+              <span class="meta">
+                Posted on
+                2022-04-04，10 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="玩转软路由-篇四软路由中openwrt作为旁路由的安装设置教程">玩转软路由 篇四：软路由中OpenWRT作为旁路由的安装设置教程</h1>
+<p>开篇说一些仁者见仁智者见智的话，先声明，这只是代表我自己近期浅陋的看法。看到很多人玩<a href="https://www.smzdm.com/fenlei/luyouqi/">路由器</a>，刷各种固件，什么爱快、高格、老毛子、OpenWRT什么的，自己也折腾过，也在恩山论坛里下载各路大神的固件使用。作为一个小白，就自然而然想到，这么多固件，哪个最好？当然对于这个问题，每个人的回答都不一样，毕竟适合自己的才重要。经过我自己不断在网上寻找答案，最后形成了一个成熟的看法，那就是真正的好不好，关键点在驱动，驱动做得会使得路由系统如虎添翼。但是，很多芯片厂家在卖芯片的时候是需要承诺不可进行二次开发的，所以路由器大厂<a href="https://pinpai.smzdm.com/1681/">华硕</a>、网件是可以直接向芯片厂商比如高通、博通、MTK买成套的服务，那支持的效果肯定更好。而OpenWRT是开源社区，自然不会购买，所以我们刷在硬路由上的OpenWRT，只能靠破解出来的驱动或者阉割过的开源驱动，所以在效果上会明显跟不上。最后我得出结论，OpenWRT还是装在x86平台上，专注路由功能，WIFI部分还是交给硬路由。</p>
+<p>所以，最后我个人感觉说的过去的方案就是工控机里安装主路由、旁路由。主路由负责拨号，旁路由负责外网。主路由和旁路由系统每个人根据自己的情况选择，我采用ROS作为主路由，OpenWRT作为旁路由的方案。之前介绍了ROS在Esxi下的安装（<a href="https://post.smzdm.com/detail_preview/a07nqeor/">玩转软路由 篇三：虚拟机ESXI中Mikrotik RouterOS(ROS)的安装设置教程</a>），那么下面介绍一下作为旁路由的OpenWRT安装，如果你准备用OpenWRT作为主路由，当然本篇的安装可以参考一下，上网设置就需要自己再摸索一下了。</p>
+<h2 id="一-openwrt的主要固件">一、OpenWRT的主要固件</h2>
+<ol>
+<li>基于Lean大神的源码编译的固件</li>
+<li>Koolshare固件，koolshare也是根据Lean大神的源码编译的，不过提供的功能更多</li>
+<li>原版OpenWRT，官方的固件，不需要自己编译，但是一些额外的功能比较少。 <a href="https://downloads.openwrt.org/releases/">官方下载地址</a>。</li>
+<li>不想用koolshare的同学，可以考虑使用eSir编译的固件功能比较全。</li>
+</ol>
+<h2 id="二-openwrt固件格式转换">二、OpenWRT固件格式转换</h2>
+<p>\1. 如果你下载的固件，直接是两个“vmdk”文件，那么可以直接装到Esxi中去的，不需要转换，可以跳过此步骤。如下图所示：</p>
+<figure data-type="image" tabindex="1"><a href="https://post.smzdm.com/p/a83gxxx7/pic_2/"><img src="https://qnam.smzdm.com/202011/02/5f9fc84fc7c0d2899.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>\2. 如果你下载的固件是“img”格式的，那么需要“starwind-v2v-converter”这个软件把“img”转换成“vmdk”格式。<a href="https://pan.baidu.com/s/1rVyD9ZZ4jhfKV7zcPbA93Q">下载地址</a>，提取码：mdkx。</p>
+<p>\3. Starwind软件的使用。</p>
+<p>第一步：安装并打开软件，选择“Local File”，如下图所示：</p>
+<figure data-type="image" tabindex="2"><a href="https://post.smzdm.com/p/a83gxxx7/pic_3/"><img src="https://qnam.smzdm.com/202011/02/5f9fc84fc85451041.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：选择本地“img”格式的OpenWRT镜像，如下图所示：</p>
+<figure data-type="image" tabindex="3"><a href="https://post.smzdm.com/p/a83gxxx7/pic_4/"><img src="https://qnam.smzdm.com/202011/02/5f9fc84fd01aa2780.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第三步：选择转换文件放在何处，选择“Local file”，如下图所示：</p>
+<figure data-type="image" tabindex="4"><a href="https://post.smzdm.com/p/a83gxxx7/pic_5/"><img src="https://qnam.smzdm.com/202011/02/5f9fc84fca1d45952.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第四步：选择生成的镜像格式，因为要在Esxi中安装，所以选择“VMDK”:</p>
+<figure data-type="image" tabindex="5"><a href="https://post.smzdm.com/p/a83gxxx7/pic_6/"><img src="https://am.zdmimg.com/202011/02/5f9fc84fb1c104271.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第五步：选择镜像属性，根据镜像应用需求选择“ESXi Server image”：</p>
+<figure data-type="image" tabindex="6"><a href="https://post.smzdm.com/p/a83gxxx7/pic_7/"><img src="https://qnam.smzdm.com/202011/02/5f9fc84faf2089360.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第六步：选择磁盘分配模式，这里选择“pre-allocated”：</p>
+<figure data-type="image" tabindex="7"><a href="https://post.smzdm.com/p/a83gxxx7/pic_8/"><img src="https://am.zdmimg.com/202011/02/5f9fc85040f651817.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第七步：点击“Convert”开始转换，转换成功后日志中有“successfully”字样。</p>
+<figure data-type="image" tabindex="8"><a href="https://post.smzdm.com/p/a83gxxx7/pic_9/"><img src="https://qnam.smzdm.com/202011/02/5f9fc85040d871471.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h2 id="三-esxi下openwrt的安装">三、Esxi下OpenWRT的安装</h2>
+<h3 id="1-创建虚拟机">1. 创建虚拟机。</h3>
+<p>第一步：点击ESXI左侧导航栏中的【虚拟机】，然后在视图窗口点击【创建/注册虚拟机】，在弹出的窗口中点击【创建新虚拟机】。</p>
+<figure data-type="image" tabindex="9"><a href="https://post.smzdm.com/p/a83gxxx7/pic_10/"><img src="https://qnam.smzdm.com/202011/02/5f9fc8504a24f8547.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：选择名称和客户机操作系统。</p>
+<p>“名称”自定义填写；“客户机操作系统系列”选择“Linux”；“客户机操作系统版本”选择“其他4.x或更高版本的Linux（64）位”。</p>
+<figure data-type="image" tabindex="10"><a href="https://post.smzdm.com/p/a83gxxx7/pic_11/"><img src="https://qnam.smzdm.com/202011/02/5f9fc8504a9581733.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第三步：选择存储空间。</p>
+<p>如果只有一块<a href="https://www.smzdm.com/fenlei/yingpan/">硬盘</a>，那就默认就可以，如果多个硬盘，请选择要安装的硬盘位置。</p>
+<figure data-type="image" tabindex="11"><a href="https://post.smzdm.com/p/a83gxxx7/pic_12/"><img src="https://qnam.smzdm.com/202011/02/5f9fc85068984503.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第四步：删除虚拟机默认硬件配置</p>
+<p>这里只需要删除“CD/DVD驱动器”和“硬盘1”即可。</p>
+<figure data-type="image" tabindex="12"><a href="https://post.smzdm.com/p/a83gxxx7/pic_13/"><img src="https://qnam.smzdm.com/202011/02/5f9fc8505609b2852.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第五步：根据个人硬件情况修改CPU和<a href="https://www.smzdm.com/fenlei/neicun/">内存</a>。</p>
+<p>一般作为旁路由1G内存就够用了，如果上外网的情况，可以把CPU多分配一点。配置完成后确认。</p>
+<figure data-type="image" tabindex="13"><a href="https://post.smzdm.com/p/a83gxxx7/pic_14/"><img src="https://qnam.smzdm.com/202011/02/5f9fc850c5d00736.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h3 id="2-配置openwrt虚拟机">2. 配置OpenWRT虚拟机</h3>
+<p>第一步：点击ESXI左侧导航栏中的【存储】，然后在视图窗口点击【数据存储浏览器】，在弹出的窗口中选择刚刚创建的OpenWRT虚拟机目录，这个目录名字跟你OpenWRT虚拟机的名称一样，我这里是“OpenWRT”。选中虚拟机目录后，点击窗口左上方的【上载】，把你转换的或者下载的“vmdk”文件，上传到虚拟机目录下。请注意，镜像文件有两个“vmdk”文件，需要全部上传。但是上传完成后，Esxi窗口中只显示一个，不要担心。</p>
+<figure data-type="image" tabindex="14"><a href="https://post.smzdm.com/p/a83gxxx7/pic_15/"><img src="https://am.zdmimg.com/202011/02/5f9fc850dc90d5406.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="15"><a href="https://post.smzdm.com/p/a83gxxx7/pic_16/"><img src="https://qnam.smzdm.com/202011/02/5f9fc850ea76e5963.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：点击ESXI左侧导航栏中的【虚拟机】，然后点击下面，然后在右侧视图窗口点击刚刚创建的虚拟机【OpenWRT】，然后点击【编辑】。</p>
+<figure data-type="image" tabindex="16"><a href="https://post.smzdm.com/p/a83gxxx7/pic_17/"><img src="https://qnam.smzdm.com/202011/02/5f9fc850ebf6e1808.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="17"><a href="https://post.smzdm.com/p/a83gxxx7/pic_18/"><img src="https://am.zdmimg.com/202011/02/5f9fc850f0a08819.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第三步：添加硬盘。在第二步点击【编辑】后，弹出对话框中，选择【添加硬盘】-&gt;【现有硬盘】，在弹出的对话框中，选择刚刚第一步中上传的镜像文件。</p>
+<figure data-type="image" tabindex="18"><a href="https://post.smzdm.com/p/a83gxxx7/pic_19/"><img src="https://am.zdmimg.com/202011/02/5f9fc850d6b29624.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="19"><a href="https://post.smzdm.com/p/a83gxxx7/pic_20/"><img src="https://qnam.smzdm.com/202011/02/5f9fc85165e4c9001.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>上图中【网络适配器1】这部分内容，有的人可能跟我的不一样，如果你有多个适配器一定要选择正确的适配器，要跟你的主路由的网络适配器一直才行。</p>
+<p>第四步：修改引导选项，还是在上图中的窗口，进入【虚拟机选项】，往下找到【引导选项】，选择“BIOS”来引导虚拟机的固件。然后点击保存即可。</p>
+<figure data-type="image" tabindex="20"><a href="https://post.smzdm.com/p/a83gxxx7/pic_21/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851639b96375.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h3 id="3-修改openwrt虚拟机的ip">3. 修改OpenWRT虚拟机的IP</h3>
+<p>第一步：点击ESXI左侧导航栏中的【虚拟机】，然后在视图窗口点击刚刚创建并编辑好的虚拟机【OpenWRT】，然后点击左边的那个三角形播放按钮。</p>
+<figure data-type="image" tabindex="21"><a href="https://post.smzdm.com/p/a83gxxx7/pic_22/"><img src="https://am.zdmimg.com/202011/02/5f9fc8516330d5073.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：进入OpenWRT的命令行模式，等待OpenWRT加载完毕后按下回车，输入“vi /etc/config/netowork”这条命令进行IP地址的修改。</p>
+<figure data-type="image" tabindex="22"><a href="https://post.smzdm.com/p/a83gxxx7/pic_23/"><img src="https://am.zdmimg.com/202011/02/5f9fc851698925738.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第三步：键入“i”进入编辑模式，然后找到“ipaddr”，把里面的IP修改为规划好的IP地址，我这里测试用的，暂时为“10.0.0.15”，需要跟你的主路由和Esxi在同一网段。编辑好之后，键下“Esc”键，退出编辑模式，然后键入“:wq”进行保存，注意“wq”前面有一个英文的冒号。</p>
+<figure data-type="image" tabindex="23"><a href="https://post.smzdm.com/p/a83gxxx7/pic_24/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851789293724.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第四步：把本地连接（比如笔记本）的IP地址，跟上面设置的IP放到同一网段，然后在浏览器中输入OpenWRT设置的IP地址，就可以通过Web访问OpenWRT了。Lean大神的OpenWRT，默认账号“root”，默认密码是“password”。</p>
+<figure data-type="image" tabindex="24"><a href="https://post.smzdm.com/p/a83gxxx7/pic_25/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851abddd5071.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="25"><a href="https://post.smzdm.com/p/a83gxxx7/pic_26/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851db0a03202.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h2 id="四-旁路由openwrt的设置">四、旁路由OpenWRT的设置</h2>
+<p>先说明一下，这里OpenWRT是作为旁路由的，所以我是按照旁路由的设置在出教程，如果准备把OpenWRT作为主路由，那是另外的情况，需要配置的东西更多，以后有机会重新开一篇来讲。</p>
+<h3 id="1-openwrt接口设置">1. OpenWRT接口设置</h3>
+<p>第一步：因为作为旁路由，其他的接口都不需要，删除即可。</p>
+<figure data-type="image" tabindex="26"><a href="https://post.smzdm.com/p/a83gxxx7/pic_27/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851c33a45739.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：修改仅剩的LAN接口</p>
+<figure data-type="image" tabindex="27"><a href="https://post.smzdm.com/p/a83gxxx7/pic_28/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851cd3893036.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="28"><a href="https://post.smzdm.com/p/a83gxxx7/pic_29/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851e6b6d2017.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>IPv4地址设置OpenWRT旁路由IP（需要与主路由ROS在同一个网段内）。IPv4网关设置为ROS主路由IP。IPv4广播留空即可。DNS使用公共DNS地址114.114.114.114、 119.29.29.29、223.5.5.5。</p>
+<p>第三步：禁用旁路由的DHCP，因为这个OpenWRT只是作为旁路由，DHCP功能是由主路由ROS提供。</p>
+<figure data-type="image" tabindex="29"><a href="https://post.smzdm.com/p/a83gxxx7/pic_30/"><img src="https://qnam.smzdm.com/202011/02/5f9fc85203c512481.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="30"><a href="https://post.smzdm.com/p/a83gxxx7/pic_31/"><img src="https://qnam.smzdm.com/202011/02/5f9fc852370964915.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>由上图所示，DHCP<a href="https://www.smzdm.com/fenlei/fuwuqi/">服务器</a>里IPv6的相关服务也都禁用。到目前为止作为旁路由的OpenWRT就可以上网了。</p>
+<h3 id="2-openwrt防火墙设置">2. OpenWRT防火墙设置</h3>
+<p>第一步：把“启用 SYN-flood 防御”选项取消。</p>
+<figure data-type="image" tabindex="31"><a href="https://post.smzdm.com/p/a83gxxx7/pic_32/"><img src="https://am.zdmimg.com/202011/02/5f9fc852370767156.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：删除与LAN口无关的规则，删除后如下图，并保存应用。</p>
+<figure data-type="image" tabindex="32"><a href="https://post.smzdm.com/p/a83gxxx7/pic_33/"><img src="https://qnam.smzdm.com/202011/02/5f9fc8523af332878.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h3 id="3-openwrt联网检测">3. OpenWRT联网检测</h3>
+<p>通过上面的设置，OpenWRT作为旁路由，应该是可以上网了，最后可以再检查一下是否联网成功。</p>
+<figure data-type="image" tabindex="33"><a href="https://post.smzdm.com/p/a83gxxx7/pic_34/"><img src="https://qnam.smzdm.com/202011/02/5f9fc852719054823.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h3 id="4-其他服务设置">4. 其他服务设置</h3>
+<p>一般旁路由都是用来做一些特殊需求的，我编译的Lean大神的源码，已经把需要的加进来了，每个人的需求不一样，我除了这个特殊需求，其他用地不多，所以我自己编译的只是适合我自己需求的固件。如果你的需求更多，就自己编译或者网上找现成的固件吧。如果确实不介意东西很多而且闭源，那就直接koolshare编译的Lean大神源码固件吧。Lean大神只在GitHub上提供源码，没有现成的固件，所以要么自己编译，要么用其他人编译现成的。后面我会出一片编译Lean大神源码的教程，敬请关注哈哈。</p>
+<h2 id="五-主路由ros设置">五、主路由（ROS）设置</h2>
+<p>我的方案里面主路由是ROS，旁路由是OpenWRT，所以旁路由设置完，要稍微修改一下ROS里面的设置，Esxi的网络设置以及ROS的安装部署请参考我这篇文章《<a href="https://post.smzdm.com/detail_preview/a07nqeor/">玩转软路由 篇三：虚拟机ESXI中Mikrotik RouterOS(ROS)的安装设置教程</a>》。</p>
+<h3 id="1-主路由ros网关设置">1. 主路由（ROS）网关设置</h3>
+<p>使用WinBox登入ROS，点击左侧导航栏的【IP】，在弹出的菜单栏中点击【DHCP Server】菜单，在弹出的【DHCP Server】对话框中点击【Network】选项卡，然后双击之前建好的条目，弹出【DHCP Network】对话框，对“Gateway”进行修改，修改为旁路由的IP地址。</p>
+<figure data-type="image" tabindex="34"><a href="https://post.smzdm.com/p/a83gxxx7/pic_35/"><img src="https://qnam.smzdm.com/202011/02/5f9fc852612a18706.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h3 id="2-主路由rosdns设置">2. 主路由（ROS）DNS设置</h3>
+<p>使用WinBox登入ROS，点击左侧导航栏的【IP】，在弹出的菜单栏中点击【DNS】菜单，在弹出的【DNS Setting】对话框中，修改“Servers”的值，修改为旁路由的IP地址。</p>
+<figure data-type="image" tabindex="35"><a href="https://post.smzdm.com/p/a83gxxx7/pic_36/"><img src="https://qnam.smzdm.com/202011/02/5f9fc8526ab483507.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h2 id="六-注意事项">六、注意事项</h2>
+<ol>
+<li>主路由加旁路由模式，基本上就是互为网关，这个模式下，旁路由如果挂了，那么就上不了网了。也有旁路由挂了不影响上网的办法，这里暂时略过，以后有机会再讲。</li>
+<li>主路由加旁路由模式，特别是我这里的ROS加OpenWRT模式，有人会说直接用OpenWRT多好啊，干嘛还要加个ROS呢，有些时候知道的话不方便讲出来，有些固件爆出过后门，有些固件还爆出过替人挖矿，这些事情也不知道真假。但是听过之后总归心里不舒服，所以这是我主路由选ROS的原因，纯属个人选择，大家别喷我。旁路由OpenWRT可以设置去广告，特殊需求等等效果，我个人也不是极客玩家，特殊需求只是偶尔为之，去广告也属于可有可无的功能，想折腾的就换固件。</li>
+</ol>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E7%8E%A9%E8%BD%AC%E8%BD%AF%E8%B7%AF%E7%94%B1-%E7%AF%87%E5%9B%9B%E8%BD%AF%E8%B7%AF%E7%94%B1%E4%B8%ADopenwrt%E4%BD%9C%E4%B8%BA%E6%97%81%E8%B7%AF%E7%94%B1%E7%9A%84%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B">玩转软路由 篇四：软路由中OpenWRT作为旁路由的安装设置教程</a>
+<ul>
+<li><a href="#%E4%B8%80-openwrt%E7%9A%84%E4%B8%BB%E8%A6%81%E5%9B%BA%E4%BB%B6">一、OpenWRT的主要固件</a></li>
+<li><a href="#%E4%BA%8C-openwrt%E5%9B%BA%E4%BB%B6%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2">二、OpenWRT固件格式转换</a></li>
+<li><a href="#%E4%B8%89-esxi%E4%B8%8Bopenwrt%E7%9A%84%E5%AE%89%E8%A3%85">三、Esxi下OpenWRT的安装</a>
+<ul>
+<li><a href="#1-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA">1. 创建虚拟机。</a></li>
+<li><a href="#2-%E9%85%8D%E7%BD%AEopenwrt%E8%99%9A%E6%8B%9F%E6%9C%BA">2. 配置OpenWRT虚拟机</a></li>
+<li><a href="#3-%E4%BF%AE%E6%94%B9openwrt%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84ip">3. 修改OpenWRT虚拟机的IP</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-%E6%97%81%E8%B7%AF%E7%94%B1openwrt%E7%9A%84%E8%AE%BE%E7%BD%AE">四、旁路由OpenWRT的设置</a>
+<ul>
+<li><a href="#1-openwrt%E6%8E%A5%E5%8F%A3%E8%AE%BE%E7%BD%AE">1. OpenWRT接口设置</a></li>
+<li><a href="#2-openwrt%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE">2. OpenWRT防火墙设置</a></li>
+<li><a href="#3-openwrt%E8%81%94%E7%BD%91%E6%A3%80%E6%B5%8B">3. OpenWRT联网检测</a></li>
+<li><a href="#4-%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1%E8%AE%BE%E7%BD%AE">4. 其他服务设置</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94-%E4%B8%BB%E8%B7%AF%E7%94%B1ros%E8%AE%BE%E7%BD%AE">五、主路由（ROS）设置</a>
+<ul>
+<li><a href="#1-%E4%B8%BB%E8%B7%AF%E7%94%B1ros%E7%BD%91%E5%85%B3%E8%AE%BE%E7%BD%AE">1. 主路由（ROS）网关设置</a></li>
+<li><a href="#2-%E4%B8%BB%E8%B7%AF%E7%94%B1rosdns%E8%AE%BE%E7%BD%AE">2. 主路由（ROS）DNS设置</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">六、注意事项</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/hei-qun-hui-dsm70-geng-huan-yin-dao-andshu-ju-qian-yi/">
+              <span class="post-title">
+                黑群晖DSM7.0更换引导&amp;数据迁移&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

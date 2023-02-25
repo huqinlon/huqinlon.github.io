@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>AdGuardHome 安装及部署教程 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="AdGuardHome 安装及部署教程 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="AdGuardHome 安装及部署教程" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/adguardhome-an-zhuang-ji-bu-shu-jiao-cheng/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+                <a href="https://amiao.ioxoo.top/tag/D8-qYBDNC/" class="tag">AdGuardHome</a>
+                
+              </span>
+              <h1>AdGuardHome 安装及部署教程</h1>
+              <span class="meta">
+                Posted on
+                2022-04-04，14 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="adguardhome-安装及部署教程">AdGuardHome 安装及部署教程</h1>
+<h1 id="adguardhome是什么">AdGuardHome是什么</h1>
+<blockquote>
+<p>AdGuardHome 是一款全网广告拦截与反跟踪软件。它是一个开源的 DNS 服务器，部署方便、UI 友好易用，有着防污染、防跟踪、防篡改的能力，其次才是它的去广告、反跟踪功能，是通过重定向 DNS 解析记录实现的。</p>
+</blockquote>
+<p><a href="https://adguard.com/adguard-home.html">官网地址</a></p>
+<p><a href="https://github.com/AdguardTeam/AdGuardHome">项目GitHub地址</a></p>
+<p><a href="https://hub.docker.com/r/adguard/adguardhome">项目Docker地址</a></p>
+<h1 id="adguard-home-去广告效果怎样">AdGuard Home 去广告效果怎样？</h1>
+<p>既然有去广告功能，自然还是要讨论它的去广告效果的。不过在这里博主要给小伙伴们直接泼一盆冷水了，广告的种类和形态是多样的，不要指望一个 DNS 能把所有的广告消灭干净了。</p>
+<p>对于 PC 端的网页广告效果最好的有且仅有浏览器插件，如果配合 Ad­Guard Home 在广告到达浏览器之前进行阻挡一些会给设备节省不少的计算开销，理论上来说会起到一定的省电效果，但估计也没人会在意。如果只是单纯的使用 Ad­Guard Home 并没有什么效果，少量的被拦截的广告会在页面上留下一个空白区域。</p>
+<p>对于手机上的广告最直观的感受是手机收到的推送广告明显减少了，然后是部分 App 的开屏广告消失了，还是能起到一定作用的。对于 ADUI 这样的广告级魔改安卓系统效果尤其明显</p>
+<h1 id="adguard-home安装教程">AdGuard Home安装教程</h1>
+<h2 id="1-开放端口">1、开放端口</h2>
+<pre><code class="language-javascript">`53`：DNS 端口。即其他设备访问 AdGuard Home 进行 DNS 解析的默认端口。因为部分系统不支持自定义 DNS 端口，所以不建议自定义。部署前务必要查看是否有其它程序占用。
+`67, 68`： DHCP 端口。除非想代替你路由上的 DHCP 服务器，否则用不到。
+`80`: 管理页面默认 HTTP 端口。可忽略，在初始化页面设置管理端口为 `3000` 端口即可。
+`443`：HTTPS 和 DoH 端口。本地内网环境不需要。
+`853`：DoT 端口。不使用相关功能可忽略。
+`3000`：初始化设置端口。除非通过配置文件去设置，否则必须开启。
+</code></pre>
+<h2 id="2-自动安装linux和mac">2、自动安装（Linux和Mac）</h2>
+<p>在终端中运行以下命令：</p>
+<pre><code class="language-javascript">curl -sSL https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh
+</code></pre>
+<p>如果提示 curl: command not found ，那是因为没装 Curl ubuntu/debian 系统安装 Curl 方法:</p>
+<pre><code class="language-javascript">apt-get install curl -y
+</code></pre>
+<p>centos 系统安装 Curl 方法:</p>
+<pre><code class="language-javascript">yum install curl -y
+</code></pre>
+<h2 id="3-手动安装linux-x64">3、手动安装（Linux x64）</h2>
+<p>在终端中运行以下命令：</p>
+<pre><code class="language-javascript">wget https://static.adguard.com/adguardhome/release/AdGuardHome_linux_amd64.tar.gz
+tar xvf AdGuardHome_linux_amd64.tar.gz
+</code></pre>
+<p>进入解压目录执行以下命令安装</p>
+<pre><code class="language-javascript">cd AdGuardHome
+./AdGuardHome -s install
+</code></pre>
+<h2 id="4-windows安装">4、Windows安装</h2>
+<p>前往 <a href="https://adguard.com/zh_cn/adguard-home/overview.html">AdGuard Home 官网</a>下载安装包。<br>
+下载二进制文件</p>
+<p>使用浏览器 / 下载工具下载：https://static.adguard.com/adguardhome/edge/AdGuardHome_windows_amd64.zip<br>
+解压压缩包得到 ​<code>AdGuardHome.exe</code>​ 文件<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667954788.png" alt="enter description here" loading="lazy"></p>
+<p>将 <code>AdGuardHome.exe</code> 移动到 <code>C:\Program Files\AdGuard_Home</code> 文件夹中<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619668027249.png" alt="enter description here" loading="lazy"><br>
+<strong>以管理员身份打开命令提示符，执行以下命令</strong></p>
+<pre><code class="language-javascript">cd &quot;C:\Program Files\AdGuard_Home&quot;
+.\AdGuardHome.exe --service install
+</code></pre>
+<p><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619668061778.png" alt="enter description here" loading="lazy"><br>
+当提示 <code>AdGuard Home is successfully installed and will automatically start on boot</code>. 即表示 AdGuard Home 在当前系统上安装成功。在命令行中会显示管理后台的地址与端口，默认为 ​<code>http://IP:3000​</code></p>
+<h2 id="5-docker安装linux-x64">5、Docker安装（Linux x64）</h2>
+<h3 id="1bridge-网络模式">(1)Bridge 网络模式</h3>
+<pre><code class="language-javascript">docker run -d \
+    --name adguardhome \
+    -v $PWD/adguardhome/work:/opt/adguardhome/work \
+    -v $PWD/adguardhome/conf:/opt/adguardhome/conf \
+    -p 53:53/tcp \
+    -p 53:53/udp \
+    -p 3000:3000/tcp \
+    adguard/adguardhome
+</code></pre>
+<h3 id="2host-网络模式">(2)Host 网络模式</h3>
+<blockquote>
+<p>Host 网络模式直接使用宿主机的网络，没有网络隔离，不需要考虑容器端口的映射，在容器启动后可以自由调整被占用的端口。适合在本机使用 (lo­cal­host)，或者直通外网的设备对外开放服务，就比如 VPS 、主路由。</p>
+</blockquote>
+<pre><code class="language-javascript">docker run -d \
+    --name adguardhome \
+    --restart unless-stopped \
+    --log-opt max-size=1m \
+    --network host \
+    -v $PWD/adguardhome/work:/opt/adguardhome/work \
+    -v $PWD/adguardhome/conf:/opt/adguardhome/conf \
+    adguard/adguardhome
+</code></pre>
+<h1 id="adguard-home设置教程">AdGuard Home设置教程</h1>
+<h2 id="1-初始化设置">1、初始化设置</h2>
+<p>使用网页浏览器访问 IP + 3000 端口即可进入到 Ad­Guard Home 的初始化界面，比如 IP 是 10.0.0.53，那么就访问 <a href="http://10.0.0.53:3000/">http://10.0.0.53:3000</a><br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/001.png" alt="enter description here" loading="lazy"><br>
+接着是监听接口（网卡）和端口设置，根据不同的网络模式和实际情况需要作出不同的修改<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/002.png" alt="enter description here" loading="lazy"><br>
+然后是设置管理用户名和密码，后面都是直接下一步：<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/003.png" alt="enter description here" loading="lazy"><br>
+完事之后输入用户名和密码登录，就来到了仪表盘页面。<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/004.png" alt="enter description here" loading="lazy"><br>
+至此 Ad­Guard Home 就部署完成了。</p>
+<h2 id="2-高级配置">2、高级配置</h2>
+<p><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619665219010.png" alt="enter description here" loading="lazy"><br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619665239311.png" alt="enter description here" loading="lazy"></p>
+<h3 id="1常规设置">（1）常规设置</h3>
+<figure data-type="image" tabindex="1"><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619665254747.png" alt="常规设置" loading="lazy"></figure>
+<ul>
+<li><code>过滤器更新间隔</code>：DNS 过滤清单默认更新间隔，一般为 3 天 - 7 天</li>
+<li><code>使用 AdGuard 「浏览安全」网页服务</code>：作用与 Chrome 网页安全性检查类似，开启后，当用户访问存在潜在威胁的网站时，AdGuard 会主动拦截并弹出提示</li>
+<li><code>使用 AdGuard 「家长控制」 服务</code>：如果家中有尚未成年的孩子，建议开启，避免访问不良网站</li>
+<li><code>强制安全搜索</code>：隐藏 Bing、Google、Yandex、YouTube 网站上 NSFW 等不适宜的内容</li>
+<li><code>查询记录保留时间</code>：AdGuard Home 服务端采用 Sqlite 文件数据库存储日志，长时间保留可能会降低运行速度，同时占用大量的储存空间，家庭用户一般保留 24 小时 - 7 天即可</li>
+<li><code>统计数据保留时间</code>：用于仪表盘的数据展示，一般保留 24 小时 - 7 天即可</li>
+</ul>
+<h3 id="2dns-设置">(2)DNS 设置</h3>
+<figure data-type="image" tabindex="2"><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619665730253.png" alt="DNS 设置" loading="lazy"></figure>
+<ul>
+<li>
+<p><code>上游 DNS 服务器</code>：AdGuard Home 的上游 DNS 服务器，可参考下方推荐列表，一般保留 1 - 2 个即可。AdGuard Home 除了可以作为广告过滤网关，如果设置了纯净 DNS 后，还可以避免运营商的 DNS 劫持</p>
+<pre><code class="language-javascript">tls://dot.360.cn
+https://doh.360.cn/dns-query
+tls://dns.pub
+https://dns.pub/dns-query
+tls://dns.alidns.com
+https://dns.alidns.com/dns-query
+tls://dns.ipv6dns.com
+https://dns.ipv6dns.com/dns-query
+</code></pre>
+</li>
+<li>
+<p><code>BootStrap DNS 服务器地址</code>：作为 DoH / DoT DNS 的前置 DNS 解析器，可参考下方推荐列表</p>
+<pre><code class="language-javascript">119.29.29.29
+223.5.5.5
+180.76.76.76
+2400:1
+2400:6666
+240C::6666
+</code></pre>
+</li>
+<li>
+<p>查询方式、速度限制、EDNS、DNSSEC、拦截模式、DNS 缓存设置、访问设置可根据需要进行调整，一般保持默认设置即可</p>
+</li>
+<li>
+<p><code>速度限制</code>：0</p>
+</li>
+<li>
+<p><code>使用 EDNS</code> ：已知前面提及的上游 DNS 服务器都是支持 EDNS 技术的，它有助于获取到更合适的 CDN 节点，建议勾选。</p>
+</li>
+<li>
+<p><code>使用 DNSSEC</code> : 用于效验 DNS 记录的签名，防止 DNS 缓存被投毒，建议勾选。勾选后会在日志页面请求列显示小绿锁图标。</p>
+</li>
+<li>
+<p><code>禁用 IPv6</code> ：丢弃 IPv6 的 DNS 查询。在本地网络和网站都支持 IPv6 会优先使用 IPv6 去访问网站，但目前 IPv6 的建设还处于初级阶段，大多数地区的 IPv6 网络体验都一般。还有一些代理软件对 IPv6 支持不佳，开启后可能会影响国际互联网的访问。如果对此没有特殊需求，那么直勾选即可，这样既不影响 BT 软件连接 IPv6 网络，又可以优先使用 IPv4 来上网。如果只有 IPv4 ，那么是否勾选没有区别</p>
+</li>
+<li>
+<p><code>DNS 缓存配置</code>，目前多数域名的 TTL 值普遍在 300 以内，所以给出以下设置参考值：<code>覆盖最小 TTL 值：600；覆盖最大 TTL 值：3600</code></p>
+</li>
+</ul>
+<h3 id="3-dns-封锁清单">(3) DNS 封锁清单</h3>
+<p>为了更好地发挥 AdGuard Home 去广告的功能，仅依靠默认的过滤规则是不够的，但也不宜过多，过多的过滤规则会影响解析的速度，各位可以根据需要添加过滤规则。<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619666197223.png" alt="enter description here" loading="lazy"></p>
+<pre><code class="language-javascript">halflife
+https://raw.githubusercontent.com/o0HalfLife0o/list/master/ad.txt
+
+anti-AD
+https://anti-ad.net/easylist.txt
+
+neoHosts
+https://cdn.jsdelivr.net/gh/neoFelhz/neohosts@gh-pages/full/hosts.txt
+
+大圣净化 - 针对国内视频网站
+https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts
+
+adgk手机去广告规则
+https://raw.githubusercontent.com/banbendalao/ADgk/master/ADgk.txt
+
+广告终结者
+http://sub.adtchrome.com/adt-chinalist-easylist.txt
+
+Adbyby
+https://raw.githubusercontent.com/adbyby/xwhyc-rules/master/lazy.txt
+
+EasyList China+EasyList
+https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt
+
+EasyPrivacy
+https://easylist-downloads.adblockplus.org/easyprivacy.txt
+</code></pre>
+<h3 id="4-dns允许清单">(4) DNS允许清单</h3>
+<pre><code class="language-javascript">anti-ad白名单
+https://raw.githubusercontent.com/privacy-protection-tools/dead-horse/master/anti-ad-white-list.txt
+
+filter_whitelist
+https://raw.githubusercontent.com/hl2guide/Filterlist-for-AdGuard/master/filter_whitelist.txt
+
+LWJ's white list
+https://raw.githubusercontent.com/liwenjie119/adg-rules/master/white.txt
+
+DNS允许白名单
+https://raw.githubusercontent.com/ChengJi-e/AFDNS/master/QD.txt
+</code></pre>
+<p>AdGuard Home 所有的配置参数都保存在一个名为 AdGuardHome.yaml 的配置文件中，这个配置文件默认路径通常为 AdGuard Home 二进制文件 AdGuardHome 所在的目录。</p>
+<p>这里我们只需调整以下两个参数，就是可以明显提升 AdGuard Home 的 QPS 能力。</p>
+<ul>
+<li><code>ratelimit</code> : DDoS保护，客户端每秒接收的数据包数。默认值是 20，建议禁用该参数（将值改为 0）。</li>
+<li><code>blocked_response_ttl</code> : 缓存时间，默认值是 10，建议设置为 60 。</li>
+</ul>
+<h3 id="5开启dohdot">（5）开启DoH/DoT</h3>
+<p>设置一个DNS的解析域名并申请SSL证书，进入加密设置，勾选启用加密，输入自己刚刚设置好的域名，HTTPS端口填写没有被占用的端口，粘贴好SSL证书和秘钥后保存配置即大功告成，宝塔面板反代<a href="http://ip:8080%E5%B9%B6%E5%BC%80%E5%90%AFSSL%E3%80%82/">http://ip:8080并开启SSL。</a><br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667813958.png" alt="enter description here" loading="lazy"></p>
+<h1 id="在设备上使用-adguard-home-dns">在设备上使用 AdGuard Home DNS</h1>
+<p>最后你可以在 Ad­Guard Home 的设置指导页面找到相应系统的 DNS 设置方法，先不要着急在路由器上使用，建议先设置电脑或手机，通过访问一些网站来测试是否能正常解析。正常的情况下在仪表盘界面会有统计信息，在查询日志界面你会看到解析的详细记录信息。<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/005.png" alt="enter description here" loading="lazy"></p>
+<p>完成 AdGuard Home 的设置后，便可将 AdGuard Home 的 DNS 地址部署到局域网设备上。</p>
+<h2 id="1-更改路由器-dns-地址">1、更改路由器 DNS 地址</h2>
+<p>不同品牌路由器修改的方法各有差异，具体步骤可参照说明书或网上的教程（路由器型号 + 更改 DNS），下方以 Redmi AC2100 路由器为例。</p>
+<p>打开并登录路由器的后台管理页面。<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619666999879.png" alt="enter description here" loading="lazy"><br>
+在局域网设置中找到 DNS 设置，将首选 DNS 服务器更改为 AdGuard Home 的 DNS 地址，可设置为其它的 DNS 服务商，避免因 AdGuard Home 服务器宕机而导致局域网无法访问互联网。更改完成后点击保存即可。在路由器更改 DNS 后，局域网内的所有设备的 DNS 解析都会通过 AdGuard Home DNS 完成，实现过滤广告与反隐私跟踪。<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667021221.png" alt="enter description here" loading="lazy"></p>
+<h2 id="2-更改手机-dns-地址">2、更改手机 DNS 地址</h2>
+<figure data-type="image" tabindex="3"><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667094376.png" alt="enter description here" loading="lazy"></figure>
+<ul>
+<li>
+<p>进入「设定 - 网络和互联网 - Wi-Fi」，点击当前已连接网络的一旁的设置按钮，在 Wi-Fi 详情信息页面点击「编辑」按钮</p>
+</li>
+<li>
+<p>找到「IP 设定」</p>
+</li>
+<li>
+<p>分别输入该设备的 IP、网关与 AdGuard Home 服务器地址</p>
+<h2 id="3-ios-设备">3、 iOS 设备</h2>
+</li>
+<li>
+<p>进入「设置 - 无线局域网」，点击当前已连接网络的名称</p>
+</li>
+<li>
+<p>在 Wi-Fi 详情信息页面找到「配置 DNS」</p>
+</li>
+<li>
+<p>切换为手动设置，并输入 AdGuard Home 服务器地址</p>
+</li>
+</ul>
+<h2 id="4-更改电脑-dns-地址">4、更改电脑 DNS 地址</h2>
+<p><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667218483.png" alt="enter description here" loading="lazy"><br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667224437.png" alt="enter description here" loading="lazy"><br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667231328.png" alt="enter description here" loading="lazy"></p>
+<ul>
+<li>打开「Windows 设置 - 网络和 Internet」，点击「更改适配器选项」</li>
+<li>选中有线 / 无线网卡，点击工具栏「更改此连接的设置」</li>
+<li>找到「Internet 协议版本 4」，点击「属性」按钮</li>
+<li>填写 DNS 服务器，点击「编辑」按钮</li>
+</ul>
+<h1 id="常见问题">常见问题</h1>
+<h2 id="1-端口冲突">1、端口冲突</h2>
+<p>在 Linux 设备上运行 AdGuard Home，通常会出现 53（本地 DNS 服务器）、68（DHCP 客户端）、80（Http）、443（Https） 端口冲突的问题，可以通过<code>netstat -tunlp | grep</code>端口号 查询占用进程。有两种解决方案：使用不同端口、停用冲突进程。<br>
+如果是通过 Docker 方式运行 AdGuard Home，出现 ​listen udp 0.0.0.0<img src="https://cdn.staticfile.org/emoji-cheat-sheet/1.0.0/53.png" alt=":53:" loading="lazy"> bind: address already in use​ 的提示，需要手动处理，方法如下：</p>
+<pre><code class="language-javascript">#停止 DNSStubListener
+systemctl stop systemd-resolved
+
+#创建文件夹（如果不存在）
+mkdir /etc/systemd/resolved.conf.d/
+
+#使用 Nano 创建配置文件2021-04-29 16:16:00 星期四
+nano /etc/systemd/resolved.conf.d/adguardhome.conf
+</code></pre>
+<p>在编辑器中粘贴以下内容：</p>
+<pre><code class="language-javascript">[Resolve]
+DNS=127.0.0.1
+DNSStubListener=no
+</code></pre>
+<p>保存后执行以下命令。</p>
+<pre><code class="language-javascript">#创建备份
+sudo mv /etc/resolv.conf /etc/resolv.conf.backup
+
+#将 /etc/resolv.conf 链接至 /run/systemd/resolve/resolv.conf
+ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+#重启 DNSStubListener
+systemctl restart systemd-resolved
+</code></pre>
+<p>完成后使用 <code>netstat -tunlp | grep 53</code> 命令检查是否依旧有进程占用 53 端口，如无冲突，重启 AdGuard Home 容器即可。</p>
+<h2 id="2-平均处理时间过长">2、平均处理时间过长？</h2>
+<p>以下几个因素会使 AdGuard Home 的处理时间过长：</p>
+<ul>
+<li>本地到上游DNS的速度：如果本地运营商的 DNS 没有 DNS 劫持、投毒的问题，建议使用运营商 DNS + 公共 DNS 的方案，DNS 速度可以通过 Ping 值比较。并在 AdGuard Home 中选择以「并行请求」的方式处理 DNS 请求</li>
+<li>浏览安全、家庭控制与强制安全搜索服务：以上三个功能，在 DNS 请求时不会经过 DNS 缓存，直接向上游 DNS 服务器请求，从而减慢 AdGuard Home 的处理速度</li>
+<li>IPv6：如果使用的宽带、校园网不支持 IPv6，可以禁用解析 IPv6，提高响应速度</li>
+<li>过滤规则：过多的过滤规则会影响响应速度，宁缺毋滥，选择最合适自己的规则，一般保留 3 - 4 个广告过滤规则即可。</li>
+<li>统计周期： 在完成以上优化后，发现平均处理时间并没有太大改变，使用体验上也并不慢，有可能是因为统计周期过长，将优化前的结果计入，导致优化前后的结果无太大差异。不妨将仪表盘的统计周期缩短为 24 小时再看看。</li>
+<li>完成以上步骤后使用体验比没有使用 AdGuard Home 还要糟糕，问题有亿点严重了。这个时候需要查找 AdGuard Home 的日志，寻找问题的原因。</li>
+</ul>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#adguardhome-%E5%AE%89%E8%A3%85%E5%8F%8A%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B">AdGuardHome 安装及部署教程</a></li>
+<li><a href="#adguardhome%E6%98%AF%E4%BB%80%E4%B9%88">AdGuardHome是什么</a></li>
+<li><a href="#adguard-home-%E5%8E%BB%E5%B9%BF%E5%91%8A%E6%95%88%E6%9E%9C%E6%80%8E%E6%A0%B7">AdGuard Home 去广告效果怎样？</a></li>
+<li><a href="#adguard-home%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B">AdGuard Home安装教程</a>
+<ul>
+<li><a href="#1-%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3">1、开放端口</a></li>
+<li><a href="#2-%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85linux%E5%92%8Cmac">2、自动安装（Linux和Mac）</a></li>
+<li><a href="#3-%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85linux-x64">3、手动安装（Linux x64）</a></li>
+<li><a href="#4-windows%E5%AE%89%E8%A3%85">4、Windows安装</a></li>
+<li><a href="#5-docker%E5%AE%89%E8%A3%85linux-x64">5、Docker安装（Linux x64）</a>
+<ul>
+<li><a href="#1bridge-%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F">(1)Bridge 网络模式</a></li>
+<li><a href="#2host-%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F">(2)Host 网络模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#adguard-home%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B">AdGuard Home设置教程</a>
+<ul>
+<li><a href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AE%BE%E7%BD%AE">1、初始化设置</a></li>
+<li><a href="#2-%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE">2、高级配置</a>
+<ul>
+<li><a href="#1%E5%B8%B8%E8%A7%84%E8%AE%BE%E7%BD%AE">（1）常规设置</a></li>
+<li><a href="#2dns-%E8%AE%BE%E7%BD%AE">(2)DNS 设置</a></li>
+<li><a href="#3-dns-%E5%B0%81%E9%94%81%E6%B8%85%E5%8D%95">(3) DNS 封锁清单</a></li>
+<li><a href="#4-dns%E5%85%81%E8%AE%B8%E6%B8%85%E5%8D%95">(4) DNS允许清单</a></li>
+<li><a href="#5%E5%BC%80%E5%90%AFdohdot">（5）开启DoH/DoT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%9C%A8%E8%AE%BE%E5%A4%87%E4%B8%8A%E4%BD%BF%E7%94%A8-adguard-home-dns">在设备上使用 AdGuard Home DNS</a>
+<ul>
+<li><a href="#1-%E6%9B%B4%E6%94%B9%E8%B7%AF%E7%94%B1%E5%99%A8-dns-%E5%9C%B0%E5%9D%80">1、更改路由器 DNS 地址</a></li>
+<li><a href="#2-%E6%9B%B4%E6%94%B9%E6%89%8B%E6%9C%BA-dns-%E5%9C%B0%E5%9D%80">2、更改手机 DNS 地址</a></li>
+<li><a href="#3-ios-%E8%AE%BE%E5%A4%87">3、 iOS 设备</a></li>
+<li><a href="#4-%E6%9B%B4%E6%94%B9%E7%94%B5%E8%84%91-dns-%E5%9C%B0%E5%9D%80">4、更改电脑 DNS 地址</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</a>
+<ul>
+<li><a href="#1-%E7%AB%AF%E5%8F%A3%E5%86%B2%E7%AA%81">1、端口冲突</a></li>
+<li><a href="#2-%E5%B9%B3%E5%9D%87%E5%A4%84%E7%90%86%E6%97%B6%E9%97%B4%E8%BF%87%E9%95%BF">2、平均处理时间过长？</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/ruan-lu-you-zhong-openwrt-zuo-wei-pang-lu-you-de-an-zhuang-she-zhi-jiao-cheng/">
+              <span class="post-title">
+                软路由中OpenWRT作为旁路由的安装设置教程&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>Rclone 使用教程 - 常用命令参数 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="Rclone 使用教程 - 常用命令参数 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="Rclone 使用教程 - 常用命令参数" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/rclone-shi-yong-jiao-cheng-chang-yong-ming-ling-can-shu/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>Rclone 使用教程 - 常用命令参数</h1>
+              <span class="meta">
+                Posted on
+                2021-03-14，6 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/02/28/9qCaB6nsNrpXgJT.jpg" alt="img" loading="lazy"></figure>
+<h1 id="设置">设置</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th><code>说明</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rclone config</td>
+<td>添加、删除、管理网盘等操作</td>
+</tr>
+<tr>
+<td>rclone config file</td>
+<td>显示配置文件的路径</td>
+</tr>
+<tr>
+<td>rclone config show</td>
+<td>显示配置文件信息</td>
+</tr>
+</tbody>
+</table>
+<pre><code>root@SunPma:~# rclone config
+Current remotes:
+
+Name                 Type
+====                 ====
+DB                 dropbox
+GD                 drive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q&gt;
+</code></pre>
+<h1 id="语法">语法</h1>
+<pre><code># 本地到网盘
+rclone [功能选项] &lt;本地路径&gt; &lt;配置名称:路径&gt; [参数] [参数]
+
+# 网盘到本地
+rclone [功能选项] &lt;配置名称:路径&gt; &lt;本地路径&gt; [参数] [参数]
+
+# 网盘到网盘
+rclone [功能选项] &lt;配置名称:路径&gt; &lt;配置名称:路径&gt; [参数] [参数]
+
+# [参数]为可选项
+</code></pre>
+<p><strong>示例</strong></p>
+<pre><code># 复制到网盘，并显示实时传输进度，设置并行上传数为8
+
+rclone copy -P /home/SunPma GD:/home/SunPma --transfers=8
+
+# 如果需要服务端对服务端的传输可加以下参数（不消耗本地流量）
+
+rclone copy 配置名称:网盘路径 配置名称:网盘路径 --drive-server-side-across-configs
+</code></pre>
+<h1 id="功能">功能</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rclone copy</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>rclone move</td>
+<td>移动，如果要在移动后删除空源目录，加上 --delete-empty-src-dirs 参数</td>
+</tr>
+<tr>
+<td>rclone sync</td>
+<td>同步：将源目录同步到目标目录，只更改目标目录</td>
+</tr>
+<tr>
+<td>rclone size</td>
+<td>查看网盘文件占用大小</td>
+</tr>
+<tr>
+<td>rclone delete</td>
+<td>删除路径下的文件内容</td>
+</tr>
+<tr>
+<td>rclone purge</td>
+<td>删除路径及其所有文件内容</td>
+</tr>
+<tr>
+<td>rclone mkdir</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>rclone rmdir</td>
+<td>删除目录</td>
+</tr>
+<tr>
+<td>rclone rmdirs</td>
+<td>删除指定环境下的空目录。如果加上 --leave-root 参数，则不会删除根目录</td>
+</tr>
+<tr>
+<td>rclone check</td>
+<td>检查源和目的地址数据是否匹配</td>
+</tr>
+<tr>
+<td>rclone ls</td>
+<td>列出指定路径下的所有的文件以及文件大小和路径</td>
+</tr>
+<tr>
+<td>rclone lsl</td>
+<td>比上面多一个显示上传时间</td>
+</tr>
+<tr>
+<td>rclone lsd</td>
+<td>列出指定路径下的目录</td>
+</tr>
+<tr>
+<td>rclone lsf</td>
+<td>列出指定路径下的目录和文件</td>
+</tr>
+</tbody>
+</table>
+<h1 id="参数">参数</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n = --dry-run</td>
+<td>测试运行，查看Rclon在实际运行中会进行哪些操作</td>
+</tr>
+<tr>
+<td>-P = --progress</td>
+<td>显示实时传输进度，500mS刷新一次，否则默认1分钟刷新一次</td>
+</tr>
+<tr>
+<td>--cache-chunk-size SizeSuffi</td>
+<td>块的大小，默认5M越大上传越快，占用内存越多，太大可能会导致进程中断</td>
+</tr>
+<tr>
+<td>--cache-chunk-total-size SizeSuffix</td>
+<td>块可以在本地磁盘上占用的总大小，默认10G</td>
+</tr>
+<tr>
+<td>--transfers=N</td>
+<td>并行文件数，默认为4</td>
+</tr>
+<tr>
+<td>--config string</td>
+<td>指定配置文件路径，string为配置文件路径</td>
+</tr>
+<tr>
+<td>--ignore-errors</td>
+<td>跳过错误</td>
+</tr>
+</tbody>
+</table>
+<h1 id="日志">日志</h1>
+<p>有4个级别的日志记录：<code>ERROR</code> <code>NOTICE</code> <code>INFO</code> <code>DEBUG</code><br>
+默认情况下<code>Rclon</code>将生成<code>ERROR</code> <code>NOTICE</code>日志</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-q</td>
+<td>rclone将仅生成ERROR消息</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>rclone将生成ERROR NOTICE INFO 消息</td>
+</tr>
+<tr>
+<td>-vv</td>
+<td>rclone 将生成ERROR NOTICE INFO DEBUG 消息</td>
+</tr>
+<tr>
+<td>--log-level LEVEL</td>
+<td>标志控制日志级别</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出日志到文件</strong><br>
+使用<code>--log-file=FILE</code>选项<code>rclone</code>会将<code>Error</code> <code>Info</code> <code>Debug</code>消息以及标准错误重定向到<code>FILE</code><br>
+这里的<code>FILE</code>是你指定的日志文件路径</p>
+<h1 id="过滤">过滤</h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--exclude</td>
+<td>排除文件或目录</td>
+</tr>
+<tr>
+<td>--include</td>
+<td>包含文件或目录</td>
+</tr>
+<tr>
+<td>--filter</td>
+<td>文件过滤规则，相当于上面两个选项的其它使用方式。包含规则以+开头，排除规则以-开头</td>
+</tr>
+</tbody>
+</table>
+<p><strong>文件类型过滤</strong><br>
+比如<code>--exclude &quot;*.bak&quot; --filter &quot;- *.bak&quot;</code>排除所有<code>bak</code>文件<br>
+比如<code>--include &quot;*.{png,jpg}&quot; --filter &quot;+ *.{png,jpg}&quot;</code>包含所有<code>png</code>和<code>jpg</code>文件，排除其他文件<br>
+<code>--delete-excluded</code>删除排除的文件。需配合过滤参数使用，否则无效<br>
+<strong>目录过滤</strong><br>
+目录过滤需要在目录名称后面加上<code>/</code>否则会被当做文件进行匹配<br>
+以<code>/</code>开头只会匹配根目录（指定目录下），否则匹配所目录，这同样适用于文件<br>
+<code>--exclude &quot;.git/&quot;</code>排除所有目录下的<code>.git</code>目录<br>
+<code>--exclude &quot;/.git/&quot;</code>只排除根目录下的<code>.git</code>目录<br>
+<code>--exclude &quot;{Video,Software}/&quot;</code>排除所有目录下的<code>Video</code>和<code>Software</code>目录<br>
+<code>--exclude &quot;/{Video,Software}/&quot;</code>只排除根目录下的<code>Video</code>和<code>Software</code>目录<br>
+<code>--include &quot;/{Video,Software}/**&quot;</code>仅包含根目录下的<code>Video</code>和<code>Software</code>目录的所有内容<br>
+<strong>大小过滤</strong><br>
+默认大小单位为<code>kBytes</code>但可以使用<code>k</code> <code>M</code>或<code>G</code>后缀<br>
+<code>--min-size</code>过滤小于指定大小的文件。比如<code>--min-size 50</code>表示不会传输小于<code>50k</code>的文件。<br>
+<code>--max-size</code>过滤大于指定大小的文件。比如<code>--max-size 1G</code>表示不会传输大于<code>1G</code>的文件。<br>
+<strong>实际使用中发现大小过滤两个选项不能同时使用</strong><br>
+<strong>过滤规则文件</strong><br>
+<code>--filter-from &lt;规则文件&gt;</code>从文件添加包含<code>/</code>排除规则<br>
+比如<code>--filter-from filter-file.txt</code><br>
+<strong>过滤规则文件示例：</strong></p>
+<pre><code>- secret*.jpg
++ *.jpg
++ *.png
++ file2.avi
+- /dir/Trash/**
++ /dir/**
+- *
+</code></pre>
+<h1 id="环境变量">环境变量</h1>
+<p><code>rclone</code>中的每个选项都可以通过环境变量设置。环境变量的名称可以通过长选项名称进行转换，删除<code>--</code>前缀，更改<code>-</code>为<code>_</code>大写并添加前缀<code>RCLONE_</code>环境变量的优先级会低于命令行选项，即通过命令行追加相应的选项时会覆盖环境变量设定的值。<br>
+比如设置最小上传大小<code>--min-size 50</code>使用环境变量是<code>RCLONE_MIN_SIZE=50</code>当环境变量设置后，在命令行中使用<code>--min-size 100</code>那么此时环境变量的值就会被覆盖<br>
+<strong>常用环境变量</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RCLONE_CONFIG</td>
+<td>自定义配置文件路径</td>
+</tr>
+<tr>
+<td>RCLONE_CONFIG_PASS</td>
+<td>若 rclone 进行了加密设置，把此环境变量设置为密码，可自动解密配置文件</td>
+</tr>
+<tr>
+<td>RCLONE_RETRIES</td>
+<td>上传失败重试次数，默认 3 次</td>
+</tr>
+<tr>
+<td>RCLONE_RETRIES_SLEEP</td>
+<td>上传失败重试等待时间，默认禁用，单位s、m、h分别代表秒、分钟、小时</td>
+</tr>
+<tr>
+<td>CLONE_TRANSFERS</td>
+<td>并行上传文件数</td>
+</tr>
+<tr>
+<td>RCLONE_CACHE_CHUNK_SIZE</td>
+<td>块的大小，默认5M</td>
+</tr>
+<tr>
+<td>RCLONE_CACHE_CHUNK_TOTAL_SIZE</td>
+<td>块可以在本地磁盘上占用的总大小，默认10G</td>
+</tr>
+<tr>
+<td>RCLONE_IGNORE_ERRORS=true</td>
+<td>跳过错误</td>
+</tr>
+</tbody>
+</table>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#%E8%AE%BE%E7%BD%AE">设置</a></li>
+<li><a href="#%E8%AF%AD%E6%B3%95">语法</a></li>
+<li><a href="#%E5%8A%9F%E8%83%BD">功能</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0">参数</a></li>
+<li><a href="#%E6%97%A5%E5%BF%97">日志</a></li>
+<li><a href="#%E8%BF%87%E6%BB%A4">过滤</a></li>
+<li><a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">环境变量</a></li>
+</ul>
+</div>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>debian常用指令 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="debian常用指令 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="debian常用指令" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/debian-chang-yong-zhi-ling/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>debian常用指令</h1>
+              <span class="meta">
+                Posted on
+                2021-06-14，10 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h1 id="debian常用指令">debian常用指令</h1>
+<h2 id="查看软件xxx安装内容">查看软件xxx安装内容</h2>
+<p>dpkg -L xxx</p>
+<h2 id="查找软件">查找软件</h2>
+<p>apt-cache search 正则表达式</p>
+<h2 id="查找文件属于哪个包">查找文件属于哪个包</h2>
+<p>dpkg -S filename<br>
+apt-file search filename</p>
+<h2 id="查询软件xxx依赖哪些包">查询软件xxx依赖哪些包</h2>
+<p>apt-cache depends xxx</p>
+<h2 id="查询软件xxx被哪些包依赖">查询软件xxx被哪些包依赖</h2>
+<p>apt-cache rdepends xxx</p>
+<h2 id="增加一个光盘源">增加一个光盘源</h2>
+<p>apt-cdrom add</p>
+<h2 id="系统升级">系统升级</h2>
+<p>apt-get update<br>
+apt-get upgrade<br>
+apt-get dist-upgrade</p>
+<h2 id="清除所有删除包的残余配置文件">清除所有删除包的残余配置文件</h2>
+<p>dpkg -l |grep ^rc|awk ''{print $2}'' |tr [&quot;\n&quot;] [&quot; &quot;]|sudo xargs dpkg -P -</p>
+<h2 id="编译时缺少h文件的自动处理">编译时缺少h文件的自动处理</h2>
+<p>auto-apt run ./configure</p>
+<h2 id="查看安装软件时下载包的临时存放目录">查看安装软件时下载包的临时存放目录</h2>
+<p>ls /var/cache/apt/archives</p>
+<h2 id="备份当前系统安装的所有包的列表">备份当前系统安装的所有包的列表</h2>
+<p>dpkg --get-selections | grep -v deinstall &gt; ~/somefile</p>
+<h2 id="从上面备份的安装包的列表文件恢复所有包">从上面备份的安装包的列表文件恢复所有包</h2>
+<p>dpkg --set-selections &lt; ~/somefile<br>
+dselect</p>
+<h2 id="清理旧版本的软件缓存">清理旧版本的软件缓存</h2>
+<p>apt-get autoclean</p>
+<h2 id="清理所有软件缓存">清理所有软件缓存</h2>
+<p>apt-get clean</p>
+<h2 id="删除系统不再使用的孤立软件">删除系统不再使用的孤立软件</h2>
+<p>apt-get autoremove</p>
+<h2 id="查看包在服务器上面的地址">查看包在服务器上面的地址</h2>
+<p>apt-get -qq --print-uris install ssh | cut -d'' -f2</p>
+<h2 id="查看内核">查看内核</h2>
+<p>uname -a</p>
+<h2 id="查看ubuntu版本">查看Ubuntu版本</h2>
+<p>cat /etc/issue</p>
+<h2 id="查看内核加载的模块">查看内核加载的模块</h2>
+<p>lsmod</p>
+<h2 id="查看pci设备">查看PCI设备</h2>
+<p>lspci</p>
+<h2 id="查看usb设备">查看USB设备</h2>
+<p>lsusb</p>
+<h2 id="查看网卡状态">查看网卡状态</h2>
+<p>ethtool eth0</p>
+<h2 id="查看cpu信息">查看CPU信息</h2>
+<p>cat /proc/cpuinfo</p>
+<h2 id="显示当前硬件信息">显示当前硬件信息</h2>
+<p>lshw</p>
+<h2 id="查看硬盘的分区">查看硬盘的分区</h2>
+<p>fdisk -l</p>
+<h2 id="查看ide硬盘信息">查看IDE硬盘信息</h2>
+<p>hdparm -i /dev/hda</p>
+<h2 id="查看stat硬盘信息">查看STAT硬盘信息</h2>
+<p>hdparm -I /dev/sda<br>
+或<br>
+apt-get install blktool<br>
+blktool /dev/sda id</p>
+<h2 id="查看硬盘剩余空间">查看硬盘剩余空间</h2>
+<p>df -h<br>
+df -H</p>
+<h2 id="查看目录占用空间">查看目录占用空间</h2>
+<p>du -hs 目录名</p>
+<h2 id="优盘没法卸载">优盘没法卸载</h2>
+<p>sync<br>
+fuser -km /media/usbdisk</p>
+<h2 id="查看当前的内存使用情况">查看当前的内存使用情况</h2>
+<p>free -m</p>
+<h2 id="查看当前有哪些进程">查看当前有哪些进程</h2>
+<p>ps -aux</p>
+<h2 id="中止一个进程">中止一个进程</h2>
+<p>kill 进程号</p>
+<h3 id="或">或</h3>
+<p>killall 进程名</p>
+<h2 id="强制中止一个进程">强制中止一个进程</h2>
+<p>kill -9 进程号</p>
+<h3 id="或-2">或</h3>
+<p>killall -9 进程名</p>
+<h2 id="查看当前进程的实时状况">查看当前进程的实时状况</h2>
+<p>top</p>
+<h2 id="查看进程打开的文件">查看进程打开的文件</h2>
+<p>lsof -p</p>
+<h2 id="配置-adsl">配置 ADSL</h2>
+<p>pppoeconf</p>
+<h2 id="adsl手工拨号">ADSL手工拨号</h2>
+<p>pon dsl-provider</p>
+<h2 id="激活-adsl">激活 ADSL</h2>
+<p>/etc/ppp/pppoe_on_boot</p>
+<h2 id="断开-adsl">断开 ADSL</h2>
+<p>poff</p>
+<h2 id="查看拨号日志">查看拨号日志</h2>
+<p>plog</p>
+<h2 id="根据ip查网卡地址">根据IP查网卡地址</h2>
+<p>arping IP地址</p>
+<h2 id="查看当前ip地址">查看当前IP地址</h2>
+<p>ifconfig eth0</p>
+<h2 id="查看当前监听80端口的程序">查看当前监听80端口的程序</h2>
+<p>lsof -i :80</p>
+<h2 id="查看当前网卡的物理地址">查看当前网卡的物理地址</h2>
+<p>arp -a | awk ''{print $4}''<br>
+ifconfig eth0 | head -1 | awk ''{print $5}''</p>
+<h2 id="立即让网络支持nat">立即让网络支持nat</h2>
+<p>echo 1 &gt; /proc/sys/net/ipv4/ip_forward<br>
+iptables -t nat -I POSTROUTING -j MASQUERADE</p>
+<h2 id="查看路由信息">查看路由信息</h2>
+<p>netstat -rn<br>
+route -n</p>
+<h2 id="手工增加删除一条路由">手工增加删除一条路由</h2>
+<p>route add -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1<br>
+route del -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1</p>
+<h2 id="修改网卡mac地址的方法">修改网卡MAC地址的方法</h2>
+<p>ifconfig eth0 down #关闭网卡<br>
+ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE #然后改地址<br>
+ifconfig eth0 up #然后启动网卡</p>
+<h2 id="统计当前ip连接的个数">统计当前IP连接的个数</h2>
+<p>netstat -na|grep ESTABLISHED|awk ''{print $5}''|awk -F: ''{print $1}''|sort|uniq -c|sort -r -n<br>
+netstat -na|grep SYN|awk ''{print $5}''|awk -F: ''{print $1}''|sort|uniq -c|sort -r -n</p>
+<h2 id="统计当前20000个ip包中大于100个ip包的ip地址">统计当前20000个IP包中大于100个IP包的IP地址</h2>
+<p>tcpdump -tnn -c 20000 -i eth0 | awk -F &quot;.&quot; ''{print $1&quot;.&quot;$2&quot;.&quot;$3&quot;.&quot;$4}'' | sort | uniq -c | sort -nr | awk '' $1 &gt; 100 ''</p>
+<h2 id="屏蔽ipv6">屏蔽IPV6</h2>
+<p>echo &quot;blacklist ipv6&quot; | tee /etc/modprobe.d/blacklist-ipv6</p>
+<h2 id="添加一个服务">添加一个服务</h2>
+<p>update-rc.d 服务名 defaults 99</p>
+<h2 id="删除一个服务">删除一个服务</h2>
+<p>update-rc.d 服务名 remove</p>
+<h2 id="临时重启一个服务">临时重启一个服务</h2>
+<p>/etc/init.d/服务名 restart</p>
+<h2 id="临时关闭一个服务">临时关闭一个服务</h2>
+<p>/etc/init.d/服务名 stop</p>
+<h2 id="临时启动一个服务">临时启动一个服务</h2>
+<p>/etc/init.d/服务名 start</p>
+<h2 id="配置默认java使用哪个">配置默认Java使用哪个</h2>
+<p>update-alternatives --config java</p>
+<h2 id="修改用户资料">修改用户资料</h2>
+<p>chfn userid</p>
+<h2 id="给apt设置代理">给apt设置代理</h2>
+<p>export http_proxy=http://xx.xx.xx.xx:xxx</p>
+<h2 id="修改系统登录信息">修改系统登录信息</h2>
+<p>vi /etc/motd</p>
+<h2 id="转换文件名由gbk为utf8">转换文件名由GBK为UTF8</h2>
+<p>apt-get install convmv<br>
+convmv -r -f cp936 -t utf8 --notest --nosmart *</p>
+<h2 id="批量转换src目录下的所有文件内容由gbk到utf8">批量转换src目录下的所有文件内容由GBK到UTF8</h2>
+<p>find src -type d -exec mkdir -p utf8/{} ;<br>
+find src -type f -exec iconv -f GBK -t UTF-8 {} -o utf8/{} ;<br>
+mv utf8/* src<br>
+rm -fr utf8</p>
+<h2 id="转换文件内容由gbk到utf8">转换文件内容由GBK到UTF8</h2>
+<p>iconv -f gbk -t utf8 $i &gt; newfile</p>
+<h2 id="转换-mp3-标签编码">转换 mp3 标签编码</h2>
+<p>apt-get install python-mutagen<br>
+find . -iname “*.mp3” -execdir mid3iconv -e GBK {} ;</p>
+<h2 id="控制台下显示中文">控制台下显示中文</h2>
+<p>apt-get install zhcon<br>
+使用时，输入zhcon即可</p>
+<h2 id="快速查找某个文件">快速查找某个文件</h2>
+<p>whereis filename<br>
+find 目录 -name 文件名</p>
+<h2 id="查看文件类型">查看文件类型</h2>
+<p>file filename</p>
+<h2 id="显示xxx文件倒数6行的内容">显示xxx文件倒数6行的内容</h2>
+<p>tail -n 6 xxx</p>
+<h2 id="让tail不停地读地最新的内容">让tail不停地读地最新的内容</h2>
+<p>tail -n 10 -f /var/log/apache2/access.log</p>
+<h2 id="查看文件中间的第五行-含-到第-10-行-含-的内容">查看文件中间的第五行 ( 含 ) 到第 10 行 ( 含 ) 的内容</h2>
+<p>sed -n ''5,10p'' /var/log/apache2/access.log</p>
+<h2 id="查找包含xxx字符串的文件">查找包含xxx字符串的文件</h2>
+<p>grep -l -r xxx .</p>
+<h2 id="查找关于xxx的命令">查找关于xxx的命令</h2>
+<p>apropos xxx<br>
+man -k xxx</p>
+<h2 id="通过ssh传输文件">通过ssh传输文件</h2>
+<p>scp -rp /path/filename username@remoteIP:/path #将本地文件拷贝到服务器上<br>
+scp -rp username@remoteIP:/path/filename /path #将远程文件从服务器下载到本地</p>
+<h2 id="查看某个文件被哪些应用程序读写">查看某个文件被哪些应用程序读写</h2>
+<p>lsof 文件名</p>
+<h2 id="把所有文件的后辍由rm改为rmvb">把所有文件的后辍由rm改为rmvb</h2>
+<p>rename ''s/.rm$/.rmvb/'' *</p>
+<h2 id="把所有文件名中的大写改为小写">把所有文件名中的大写改为小写</h2>
+<p>rename ''tr/A-Z/a-z/'' *</p>
+<h2 id="删除特殊文件名的文件如文件名-helptxt">删除特殊文件名的文件，如文件名：--help.txt</h2>
+<p>rm -- --help.txt 或者 rm ./--help.txt</p>
+<h2 id="查看当前目录的子目录">查看当前目录的子目录</h2>
+<p>ls -d */. 或 echo */.</p>
+<h2 id="将当前目录下最近30天访问过的文件移动到上级back目录">将当前目录下最近30天访问过的文件移动到上级back目录</h2>
+<p>find . -type f -atime -30 -exec mv {} ../back ;</p>
+<h2 id="将当前目录下最近2小时到8小时之内的文件显示出来">将当前目录下最近2小时到8小时之内的文件显示出来</h2>
+<p>find . -mmin +120 -mmin -480 -exec more {} ;</p>
+<h2 id="删除修改时间在30天之前的所有文件">删除修改时间在30天之前的所有文件</h2>
+<p>find . -type f -mtime +30 -mtime -3600 -exec rm {} ;</p>
+<h2 id="查找guest用户的以avi或者rm结尾的文件并删除掉">查找guest用户的以avi或者rm结尾的文件并删除掉</h2>
+<p>find . -name ''<em>.avi'' -o -name ''</em>.rm'' -user ''guest'' -exec rm {} ;</p>
+<h2 id="查找的不以java和xml结尾并7天没有使用的文件删除掉">查找的不以java和xml结尾,并7天没有使用的文件删除掉</h2>
+<p>find . ! -name <em>.java ! -name ‘</em>.xml’ -atime +7 -exec rm {} ;</p>
+<h2 id="统计当前文件个数">统计当前文件个数</h2>
+<p>ls /usr/bin|wc -w</p>
+<h2 id="统计当前目录个数">统计当前目录个数</h2>
+<p>ls -l /usr/bin|grep ^d|wc -l</p>
+<h2 id="显示当前目录下2006-01-01的文件名">显示当前目录下2006-01-01的文件名</h2>
+<p>ls -l |grep 2006-01-01 |awk ''{print $8}''</p>
+<h2 id="解压缩-xxxtargz">解压缩 xxx.tar.gz</h2>
+<p>tar -zxvf xxx.tar.gz</p>
+<h2 id="解压缩-xxxtarbz2">解压缩 xxx.tar.bz2</h2>
+<p>tar -jxvf xxx.tar.bz2</p>
+<h2 id="压缩aaa-bbb目录为xxxtargz">压缩aaa bbb目录为xxx.tar.gz</h2>
+<p>tar -zcvf xxx.tar.gz aaa bbb</p>
+<h2 id="压缩aaa-bbb目录为xxxtarbz2">压缩aaa bbb目录为xxx.tar.bz2</h2>
+<p>tar -jcvf xxx.tar.bz2 aaa bbb</p>
+<h2 id="特殊-uri-地址">特殊 URI 地址</h2>
+<p>* computer:/// - 全部挂载的设备和网络<br>
+* network:/// - 浏览可用的网络<br>
+* burn:/// - 一个刻录 CDs/DVDs 的数据虚拟目录<br>
+* smb:/// - 可用的 windows/samba 网络资源<br>
+* x-nautilus-desktop:/// - 桌面项目和图标<br>
+* file:/// - 本地文件<br>
+* trash:/// - 本地回收站目录<br>
+* ftp:// - FTP 文件夹<br>
+* ssh:// - SSH 文件夹<br>
+* fonts:/// - 字体文件夹，可将字体文件拖到此处以完成安装 * themes:/// - 系统主题文件夹</p>
+<h2 id="详细显示程序的运行信息">详细显示程序的运行信息</h2>
+<p>strace -f -F -o outfile</p>
+<h2 id="设置日期">设置日期</h2>
+<p>date -s mm/dd/yy</p>
+<h2 id="设置时间">设置时间</h2>
+<p>date -s HH:MM</p>
+<h2 id="将时间写入cmos">将时间写入CMOS</h2>
+<p>hwclock --systohc</p>
+<h2 id="读取cmos时间">读取CMOS时间</h2>
+<p>hwclock --hctosys</p>
+<h2 id="从服务器上同步时间">从服务器上同步时间</h2>
+<p>ntpdate time.nist.gov<br>
+ntpdate time.windows.com</p>
+<h2 id="从mysql中导出和导入数据">从mysql中导出和导入数据</h2>
+<p>mysqldump 数据库名 &gt; 文件名 #导出数据库mysqladmin create 数据库名 #建立数据库<br>
+mysql 数据库名 &lt; 文件名 #导入数据库</p>
+<h2 id="忘了mysql的root口令怎么办">忘了mysql的root口令怎么办</h2>
+<p>/etc/init.d/mysql stop<br>
+mysqld_safe --skip-grant-tables &amp;<br>
+mysqladmin -u user password ''newpassword''''<br>
+mysqladmin flush-privileges</p>
+<h2 id="修改mysql的root口令">修改mysql的root口令</h2>
+<p>mysqladmin -uroot -p password ''你的新密码''</p>
+<h2 id="下载网站文档">下载网站文档</h2>
+<p>wget -r -p -np -k <a href="http://www.21cn.com/">http://www.21cn.com</a><br>
+· -r：在本机建立服务器端目录结构；<br>
+· -p: 下载显示HTML文件的所有图片；<br>
+· -np：只下载目标站点指定目录及其子目录的内容；<br>
+· -k: 转换非相对链接为相对链接。</p>
+<h2 id="如何删除totem电影播放机的播放历史记录">如何删除Totem电影播放机的播放历史记录</h2>
+<p>rm ~/.recently-used</p>
+<p>安装了debian10和ubuntu18后，发现没有ifconfig，感觉很不习惯。</p>
+<h2 id="安装ifconfig">安装ifconfig</h2>
+<p>1.先更新国内的源，我一般都改成163.com的源，个人习惯，国内还有好多可用的源。</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>sudo apt install net-tools<br>
+然后你就发现ifconfig就又可以用了。</p>
+<p>如果你不想用ifconfig，可以试试ip addr ，效果一样。<br>
+————————————————<br>
+版权声明：本文为CSDN博主「Yaser-Z」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
+原文链接：https://blog.csdn.net/lovescorpio/article/details/103823703</p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li><a href="#debian%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4">debian常用指令</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BD%AF%E4%BB%B6xxx%E5%AE%89%E8%A3%85%E5%86%85%E5%AE%B9">查看软件xxx安装内容</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E8%BD%AF%E4%BB%B6">查找软件</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6%E5%B1%9E%E4%BA%8E%E5%93%AA%E4%B8%AA%E5%8C%85">查找文件属于哪个包</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E8%BD%AF%E4%BB%B6xxx%E4%BE%9D%E8%B5%96%E5%93%AA%E4%BA%9B%E5%8C%85">查询软件xxx依赖哪些包</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E8%BD%AF%E4%BB%B6xxx%E8%A2%AB%E5%93%AA%E4%BA%9B%E5%8C%85%E4%BE%9D%E8%B5%96">查询软件xxx被哪些包依赖</a></li>
+<li><a href="#%E5%A2%9E%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%85%89%E7%9B%98%E6%BA%90">增加一个光盘源</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E5%8D%87%E7%BA%A7">系统升级</a></li>
+<li><a href="#%E6%B8%85%E9%99%A4%E6%89%80%E6%9C%89%E5%88%A0%E9%99%A4%E5%8C%85%E7%9A%84%E6%AE%8B%E4%BD%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">清除所有删除包的残余配置文件</a></li>
+<li><a href="#%E7%BC%96%E8%AF%91%E6%97%B6%E7%BC%BA%E5%B0%91h%E6%96%87%E4%BB%B6%E7%9A%84%E8%87%AA%E5%8A%A8%E5%A4%84%E7%90%86">编译时缺少h文件的自动处理</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%97%B6%E4%B8%8B%E8%BD%BD%E5%8C%85%E7%9A%84%E4%B8%B4%E6%97%B6%E5%AD%98%E6%94%BE%E7%9B%AE%E5%BD%95">查看安装软件时下载包的临时存放目录</a></li>
+<li><a href="#%E5%A4%87%E4%BB%BD%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E7%9A%84%E6%89%80%E6%9C%89%E5%8C%85%E7%9A%84%E5%88%97%E8%A1%A8">备份当前系统安装的所有包的列表</a></li>
+<li><a href="#%E4%BB%8E%E4%B8%8A%E9%9D%A2%E5%A4%87%E4%BB%BD%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E7%9A%84%E5%88%97%E8%A1%A8%E6%96%87%E4%BB%B6%E6%81%A2%E5%A4%8D%E6%89%80%E6%9C%89%E5%8C%85">从上面备份的安装包的列表文件恢复所有包</a></li>
+<li><a href="#%E6%B8%85%E7%90%86%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E8%BD%AF%E4%BB%B6%E7%BC%93%E5%AD%98">清理旧版本的软件缓存</a></li>
+<li><a href="#%E6%B8%85%E7%90%86%E6%89%80%E6%9C%89%E8%BD%AF%E4%BB%B6%E7%BC%93%E5%AD%98">清理所有软件缓存</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E7%B3%BB%E7%BB%9F%E4%B8%8D%E5%86%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%A4%E7%AB%8B%E8%BD%AF%E4%BB%B6">删除系统不再使用的孤立软件</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%8C%85%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%9C%B0%E5%9D%80">查看包在服务器上面的地址</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E6%A0%B8">查看内核</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bubuntu%E7%89%88%E6%9C%AC">查看Ubuntu版本</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E6%A0%B8%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%A8%A1%E5%9D%97">查看内核加载的模块</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bpci%E8%AE%BE%E5%A4%87">查看PCI设备</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Busb%E8%AE%BE%E5%A4%87">查看USB设备</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E5%8D%A1%E7%8A%B6%E6%80%81">查看网卡状态</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bcpu%E4%BF%A1%E6%81%AF">查看CPU信息</a></li>
+<li><a href="#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF">显示当前硬件信息</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%A1%AC%E7%9B%98%E7%9A%84%E5%88%86%E5%8C%BA">查看硬盘的分区</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bide%E7%A1%AC%E7%9B%98%E4%BF%A1%E6%81%AF">查看IDE硬盘信息</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bstat%E7%A1%AC%E7%9B%98%E4%BF%A1%E6%81%AF">查看STAT硬盘信息</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%A1%AC%E7%9B%98%E5%89%A9%E4%BD%99%E7%A9%BA%E9%97%B4">查看硬盘剩余空间</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%9B%AE%E5%BD%95%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4">查看目录占用空间</a></li>
+<li><a href="#%E4%BC%98%E7%9B%98%E6%B2%A1%E6%B3%95%E5%8D%B8%E8%BD%BD">优盘没法卸载</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9A%84%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5">查看当前的内存使用情况</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%9C%89%E5%93%AA%E4%BA%9B%E8%BF%9B%E7%A8%8B">查看当前有哪些进程</a></li>
+<li><a href="#%E4%B8%AD%E6%AD%A2%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B">中止一个进程</a>
+<ul>
+<li><a href="#%E6%88%96">或</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BC%BA%E5%88%B6%E4%B8%AD%E6%AD%A2%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B">强制中止一个进程</a>
+<ul>
+<li><a href="#%E6%88%96-2">或</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%AE%9E%E6%97%B6%E7%8A%B6%E5%86%B5">查看当前进程的实时状况</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E6%89%93%E5%BC%80%E7%9A%84%E6%96%87%E4%BB%B6">查看进程打开的文件</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE-adsl">配置 ADSL</a></li>
+<li><a href="#adsl%E6%89%8B%E5%B7%A5%E6%8B%A8%E5%8F%B7">ADSL手工拨号</a></li>
+<li><a href="#%E6%BF%80%E6%B4%BB-adsl">激活 ADSL</a></li>
+<li><a href="#%E6%96%AD%E5%BC%80-adsl">断开 ADSL</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%8B%A8%E5%8F%B7%E6%97%A5%E5%BF%97">查看拨号日志</a></li>
+<li><a href="#%E6%A0%B9%E6%8D%AEip%E6%9F%A5%E7%BD%91%E5%8D%A1%E5%9C%B0%E5%9D%80">根据IP查网卡地址</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8Dip%E5%9C%B0%E5%9D%80">查看当前IP地址</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%91%E5%90%AC80%E7%AB%AF%E5%8F%A3%E7%9A%84%E7%A8%8B%E5%BA%8F">查看当前监听80端口的程序</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%BD%91%E5%8D%A1%E7%9A%84%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80">查看当前网卡的物理地址</a></li>
+<li><a href="#%E7%AB%8B%E5%8D%B3%E8%AE%A9%E7%BD%91%E7%BB%9C%E6%94%AF%E6%8C%81nat">立即让网络支持nat</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF">查看路由信息</a></li>
+<li><a href="#%E6%89%8B%E5%B7%A5%E5%A2%9E%E5%8A%A0%E5%88%A0%E9%99%A4%E4%B8%80%E6%9D%A1%E8%B7%AF%E7%94%B1">手工增加删除一条路由</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E7%BD%91%E5%8D%A1mac%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95">修改网卡MAC地址的方法</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8Dip%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%B8%AA%E6%95%B0">统计当前IP连接的个数</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D20000%E4%B8%AAip%E5%8C%85%E4%B8%AD%E5%A4%A7%E4%BA%8E100%E4%B8%AAip%E5%8C%85%E7%9A%84ip%E5%9C%B0%E5%9D%80">统计当前20000个IP包中大于100个IP包的IP地址</a></li>
+<li><a href="#%E5%B1%8F%E8%94%BDipv6">屏蔽IPV6</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">添加一个服务</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">删除一个服务</a></li>
+<li><a href="#%E4%B8%B4%E6%97%B6%E9%87%8D%E5%90%AF%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">临时重启一个服务</a></li>
+<li><a href="#%E4%B8%B4%E6%97%B6%E5%85%B3%E9%97%AD%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">临时关闭一个服务</a></li>
+<li><a href="#%E4%B8%B4%E6%97%B6%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1">临时启动一个服务</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4java%E4%BD%BF%E7%94%A8%E5%93%AA%E4%B8%AA">配置默认Java使用哪个</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E7%94%A8%E6%88%B7%E8%B5%84%E6%96%99">修改用户资料</a></li>
+<li><a href="#%E7%BB%99apt%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">给apt设置代理</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AF">修改系统登录信息</a></li>
+<li><a href="#%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E5%90%8D%E7%94%B1gbk%E4%B8%BAutf8">转换文件名由GBK为UTF8</a></li>
+<li><a href="#%E6%89%B9%E9%87%8F%E8%BD%AC%E6%8D%A2src%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E7%94%B1gbk%E5%88%B0utf8">批量转换src目录下的所有文件内容由GBK到UTF8</a></li>
+<li><a href="#%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E7%94%B1gbk%E5%88%B0utf8">转换文件内容由GBK到UTF8</a></li>
+<li><a href="#%E8%BD%AC%E6%8D%A2-mp3-%E6%A0%87%E7%AD%BE%E7%BC%96%E7%A0%81">转换 mp3 标签编码</a></li>
+<li><a href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8B%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87">控制台下显示中文</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E6%9F%A5%E6%89%BE%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6">快速查找某个文件</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B">查看文件类型</a></li>
+<li><a href="#%E6%98%BE%E7%A4%BAxxx%E6%96%87%E4%BB%B6%E5%80%92%E6%95%B06%E8%A1%8C%E7%9A%84%E5%86%85%E5%AE%B9">显示xxx文件倒数6行的内容</a></li>
+<li><a href="#%E8%AE%A9tail%E4%B8%8D%E5%81%9C%E5%9C%B0%E8%AF%BB%E5%9C%B0%E6%9C%80%E6%96%B0%E7%9A%84%E5%86%85%E5%AE%B9">让tail不停地读地最新的内容</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E4%B8%AD%E9%97%B4%E7%9A%84%E7%AC%AC%E4%BA%94%E8%A1%8C-%E5%90%AB-%E5%88%B0%E7%AC%AC-10-%E8%A1%8C-%E5%90%AB-%E7%9A%84%E5%86%85%E5%AE%B9">查看文件中间的第五行 ( 含 ) 到第 10 行 ( 含 ) 的内容</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E5%8C%85%E5%90%ABxxx%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%87%E4%BB%B6">查找包含xxx字符串的文件</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E5%85%B3%E4%BA%8Exxx%E7%9A%84%E5%91%BD%E4%BB%A4">查找关于xxx的命令</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87ssh%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6">通过ssh传输文件</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6%E8%A2%AB%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AF%BB%E5%86%99">查看某个文件被哪些应用程序读写</a></li>
+<li><a href="#%E6%8A%8A%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E7%9A%84%E5%90%8E%E8%BE%8D%E7%94%B1rm%E6%94%B9%E4%B8%BArmvb">把所有文件的后辍由rm改为rmvb</a></li>
+<li><a href="#%E6%8A%8A%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%AD%E7%9A%84%E5%A4%A7%E5%86%99%E6%94%B9%E4%B8%BA%E5%B0%8F%E5%86%99">把所有文件名中的大写改为小写</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E6%96%87%E4%BB%B6%E5%A6%82%E6%96%87%E4%BB%B6%E5%90%8D-helptxt">删除特殊文件名的文件，如文件名：--help.txt</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%9A%84%E5%AD%90%E7%9B%AE%E5%BD%95">查看当前目录的子目录</a></li>
+<li><a href="#%E5%B0%86%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%9C%80%E8%BF%9130%E5%A4%A9%E8%AE%BF%E9%97%AE%E8%BF%87%E7%9A%84%E6%96%87%E4%BB%B6%E7%A7%BB%E5%8A%A8%E5%88%B0%E4%B8%8A%E7%BA%A7back%E7%9B%AE%E5%BD%95">将当前目录下最近30天访问过的文件移动到上级back目录</a></li>
+<li><a href="#%E5%B0%86%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%9C%80%E8%BF%912%E5%B0%8F%E6%97%B6%E5%88%B08%E5%B0%8F%E6%97%B6%E4%B9%8B%E5%86%85%E7%9A%84%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA%E5%87%BA%E6%9D%A5">将当前目录下最近2小时到8小时之内的文件显示出来</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%E5%9C%A830%E5%A4%A9%E4%B9%8B%E5%89%8D%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6">删除修改时间在30天之前的所有文件</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BEguest%E7%94%A8%E6%88%B7%E7%9A%84%E4%BB%A5avi%E6%88%96%E8%80%85rm%E7%BB%93%E5%B0%BE%E7%9A%84%E6%96%87%E4%BB%B6%E5%B9%B6%E5%88%A0%E9%99%A4%E6%8E%89">查找guest用户的以avi或者rm结尾的文件并删除掉</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE%E7%9A%84%E4%B8%8D%E4%BB%A5java%E5%92%8Cxml%E7%BB%93%E5%B0%BE%E5%B9%B67%E5%A4%A9%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E6%8E%89">查找的不以java和xml结尾,并7天没有使用的文件删除掉</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E4%B8%AA%E6%95%B0">统计当前文件个数</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%AA%E6%95%B0">统计当前目录个数</a></li>
+<li><a href="#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B2006-01-01%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D">显示当前目录下2006-01-01的文件名</a></li>
+<li><a href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9-xxxtargz">解压缩 xxx.tar.gz</a></li>
+<li><a href="#%E8%A7%A3%E5%8E%8B%E7%BC%A9-xxxtarbz2">解压缩 xxx.tar.bz2</a></li>
+<li><a href="#%E5%8E%8B%E7%BC%A9aaa-bbb%E7%9B%AE%E5%BD%95%E4%B8%BAxxxtargz">压缩aaa bbb目录为xxx.tar.gz</a></li>
+<li><a href="#%E5%8E%8B%E7%BC%A9aaa-bbb%E7%9B%AE%E5%BD%95%E4%B8%BAxxxtarbz2">压缩aaa bbb目录为xxx.tar.bz2</a></li>
+<li><a href="#%E7%89%B9%E6%AE%8A-uri-%E5%9C%B0%E5%9D%80">特殊 URI 地址</a></li>
+<li><a href="#%E8%AF%A6%E7%BB%86%E6%98%BE%E7%A4%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E4%BF%A1%E6%81%AF">详细显示程序的运行信息</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E6%97%A5%E6%9C%9F">设置日期</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E9%97%B4">设置时间</a></li>
+<li><a href="#%E5%B0%86%E6%97%B6%E9%97%B4%E5%86%99%E5%85%A5cmos">将时间写入CMOS</a></li>
+<li><a href="#%E8%AF%BB%E5%8F%96cmos%E6%97%B6%E9%97%B4">读取CMOS时间</a></li>
+<li><a href="#%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%90%8C%E6%AD%A5%E6%97%B6%E9%97%B4">从服务器上同步时间</a></li>
+<li><a href="#%E4%BB%8Emysql%E4%B8%AD%E5%AF%BC%E5%87%BA%E5%92%8C%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE">从mysql中导出和导入数据</a></li>
+<li><a href="#%E5%BF%98%E4%BA%86mysql%E7%9A%84root%E5%8F%A3%E4%BB%A4%E6%80%8E%E4%B9%88%E5%8A%9E">忘了mysql的root口令怎么办</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9mysql%E7%9A%84root%E5%8F%A3%E4%BB%A4">修改mysql的root口令</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%AB%99%E6%96%87%E6%A1%A3">下载网站文档</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4totem%E7%94%B5%E5%BD%B1%E6%92%AD%E6%94%BE%E6%9C%BA%E7%9A%84%E6%92%AD%E6%94%BE%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95">如何删除Totem电影播放机的播放历史记录</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85ifconfig">安装ifconfig</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/an-zhuang-hassio/">
+              <span class="post-title">
+                安装HASSIO&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

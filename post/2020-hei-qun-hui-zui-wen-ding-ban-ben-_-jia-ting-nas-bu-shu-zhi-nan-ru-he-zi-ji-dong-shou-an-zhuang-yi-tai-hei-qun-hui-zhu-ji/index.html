@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta name="referrer" content="never">
+<meta name="keywords" content="">
+<meta name="description" content="欢迎访问[Gridea]的个人博客">
+<meta name="author" content="kveln">
+<title>2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机 | Gridea</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" title="2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机 | Gridea » Feed"
+  href="https://amiao.ioxoo.top/atom.xml">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/styles/androidstudio.min.css">
+<link href="https://amiao.ioxoo.top/styles/main.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+  <meta property="og:description" content="2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机" />
+  <meta property="og:url" content="https://amiao.ioxoo.top/post/2020-hei-qun-hui-zui-wen-ding-ban-ben-_-jia-ting-nas-bu-shu-zhi-nan-ru-he-zi-ji-dong-shou-an-zhuang-yi-tai-hei-qun-hui-zhu-ji/" />
+  <meta property="og:locale" content="zh-CN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gridea" />
+  <!-- <script src="../assets/styles/scripts/tocScript.js"></script> -->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <!-- Page Header -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="https://amiao.ioxoo.top">Gridea</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/">首页</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/archives">归档</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/tags">标签</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          
+          <a class="nav-link" href="/post/about">关于</a>
+          
+        </li>
+        
+        <li class="nav-item">
+          <div class="gridea-search-container">
+            <form id="gridea-search-form" style="position: relative" data-update="1677332748128"
+              action="/search/index.html">
+              <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+              <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://amiao.ioxoo.top/media/images/home-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        
+          <!-- 没Title为其他页面Header -->
+          
+            <!-- 没Title并且有headerType为Post：文章Header -->
+            <div class="post-heading">
+              <span class="tags">
+                
+              </span>
+              <h1>2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机</h1>
+              <span class="meta">
+                Posted on
+                2021-04-24，9 min read
+              </span>
+            </div>
+          
+        
+      </div>
+    </div>
+  </div>
+</header>
+  <!-- Post Content -->
+  <article id="post-content-article">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto post-content-container">
+          
+          <h2 id="2020黑群晖最稳定版本_家庭nas部署指南-如何自己动手安装一台黑群晖主机">2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机...</h2>
+<p><strong>大家好，上次写了一篇NAS总论。聊了聊NAS的一些常用功能和硬件的选择。作为新手小白来说，我们用手头的主机或者购入了一台类似蜗牛星际的廉价NAS主机之后。该如何装入NAS系统呢？这次我们就来动手组建自己第一个NAS系统。</strong></p>
+<h2 id="懒人目录">懒人目录：</h2>
+<h3 id="1-群辉系统介绍">1、群辉系统介绍</h3>
+<h3 id="2-安装工具和软件">2、安装工具和软件</h3>
+<h3 id="3-群晖版本的选择">3、群晖版本的选择</h3>
+<h3 id="4-制作启动u盘">4、制作启动U盘</h3>
+<h3 id="5-用u盘引导并安装系统">5、用U盘引导并安装系统</h3>
+<h3 id="6-使用注意事项">6、使用注意事项</h3>
+<h3 id="7-结尾的几句唠叨">7、结尾的几句唠叨</h3>
+<h2 id="一-群晖系统介绍">一、群晖系统介绍</h2>
+<p>上次文章提到过，NAS可以分为成品NAS和DIY NAS两种方案。如何可以根据自己的预算和喜欢折腾程度选择。无论你选择成品还是DIY方案，对于初入门的NAS用户来说。第一台NAS的系统我都建议你从群晖系统开始。</p>
+<p>群晖系统无论从友好度和便捷性来说都非常好。能让我们非常直观的体验到NAS的便捷性。手机、平板、电脑的跨平台共享方面的体验也做得非常好。（当然，隔壁的威联通似乎也不差。只是我入了群晖的坑而已）</p>
+<p>这一篇我们主要介绍下如何DIY一台群晖NAS主机（也就是黑群晖）。想用成品NAS的用户可以略过此此篇，直接去网购一台白群晖NAS主机添加硬盘即可。我下一篇开始会重点介绍群晖NAS的各项功能。</p>
+<h2 id="二-安装所需的工具和软件">二、安装所需的工具和软件</h2>
+<p>要搭建群晖系统，我们首先需要一台NAS主机。群晖系统的兼容性还是不错的，几乎所有主机的品牌、配置不限主机内存只要大于1G均可以安装。（群晖nas对硬件要求非常低）</p>
+<p>我们需要用一个U盘来安装系统引导文件，U盘大小不限（128MB以上就行）。最好是品牌U盘（兼容性更好）。如果手头没有U盘。读卡器+TF或SD卡也可。（我就是用读卡器+TF卡安装的）。当然群晖的引导文件也可以被装在硬盘上，有些用户就是用固态硬盘作为引导盘使用。</p>
+<p>一台可以正常工作的电脑，用来制作引导盘。</p>
+<p>所需软件：ChipEasy芯片无忧（查找U盘的VID和PID）</p>
+<p>DiskGenius （修改grub.cfg配置）</p>
+<p>Win32 Disk Imager（写入镜像）</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/04/23/zWTyp4kbN7rtPlJ.jpg" alt="5922c47035e94d3b10a1ed0e8e098026.png" loading="lazy"></figure>
+<h2 id="三-系统版本的选择">三、系统版本的选择</h2>
+<p>黑群辉DSM系统的引导文件，大致有DSM 5.2、1.02b、1.03b、1.04b，都是由国外大神制作。可以根据你的CPU和主板的型号来选择引导版本。</p>
+<h3 id="引导版本-104b">引导版本: 1.04b</h3>
+<p>黑群晖系统: DSM 6.2.0--6.2.2</p>
+<p>对应机型：DS918+</p>
+<p>引导方式: 传统BIOS和UEFI</p>
+<p>此为目前最新版本，对应机型是群晖目前主力机型DS918+。功能相对最强大，intel酷睿4代以上CPU推荐安装。老主机和AMD机型安装此引导程序有可能会无法引导。（我没在在旧机型上安装成功过，也有可能是个人技术问题）</p>
+<p>###引导版本: 1.03b</p>
+<p>黑群晖系统: DSM 6.2.0--6.2.2</p>
+<p>对应机型：DS3617+ DS3615+</p>
+<p>引导方式: 传统BIOS</p>
+<p>此版本我没有安装过，建议1.04b 安装不成功可以来试试这个。</p>
+<h3 id="引导版本-102b">引导版本: 1.02b</h3>
+<p>黑群晖系统: DSM 6.1.7-15284 Update3</p>
+<p>对应机型: DS3617+<br>
+引导方式: UEFI</p>
+<p>此版本的兼容性甚佳，只要支持UEFI主板基本都能成功引导。目前我的主力nas正在使用的版本，6.17系统基本上也能实现群晖上80%以上的功能。如果1.04b 安装不成功，推荐来试试这个版本。</p>
+<h3 id="引导版本-xpenoboot-for-dsm-52-59671-x64">引导版本: XPEnoboot for DSM 5.2-5967.1 x64</h3>
+<p>黑群晖系统: DSM 5.2-5967.1</p>
+<p>对应机型: DS3615+</p>
+<p>引导方式: 传统BIOS</p>
+<p>最初的群晖版本，相对功能最少（但还是具备了大部分基本功能）。因为是传统BIOS引导，所以支持那些不能用UEFI引导的老主板。另外对于一些低功耗低性能的ARM主机，这个版本也是不错的选择。</p>
+<p>引导文件一般是img格式，而另外一个Pat格式文件就是就是群晖系统文件。注意：两个文件的版本必须对应才能安装成功</p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/04/23/jClDz1p2e35qIbt.png" alt="9d581ab44a0f04f3da7a4394d9b65e51.png" loading="lazy"></figure>
+<h2 id="四-安装过程"><strong>四、安装过程</strong></h2>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2021/04/23/uSs68hQXpBzxNUH.jpg" alt="74e42d186fff0e2c055127180f08e5c2.png" loading="lazy"></figure>
+<h3 id="1-首先我们使用chipeasy芯片无忧查找u盘的vid和pid">1、首先我们使用ChipEasy芯片无忧查找U盘的VID和PID</h3>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2021/04/23/fDxhicHbNdYL9vM.jpg" alt="241c2199b84fe5044c60c0d00e80217c.png" loading="lazy"></figure>
+<p>然后DiskGenius编辑配置文件grub.cfg</p>
+<p>打开DiskGenius在顶部硬盘菜单中选择“打开虚拟硬盘文件”，然后选择打开下载的img文件打开。</p>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2021/04/23/AeGRygM7chQOw39.jpg" alt="8a91095979c89df4fbed8d8fa871065d.png" loading="lazy"></figure>
+<p>在左边找到刚刚打开的img文件, 点击ESP-grub, 在右边找到grub.cfg, 选择复制到桌面.</p>
+<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2021/04/23/ZgPFqCi8tJQlWYk.jpg" alt="b4114aa1786f2d1f63b7a8a125a74e63.png" loading="lazy"></figure>
+<p>用文本编辑器打开刚刚复制到桌面的grub.cfg文件。找到vid和pid的值，将你刚刚在ChipEasy芯片无忧上找到的数值输到这里。（这里只用修改0X后的四位数字）</p>
+<figure data-type="image" tabindex="7"><img src="https://img-blog.csdnimg.cn/img_convert/9dcee675c01d23c314fad90b89c203ae.png" alt="9dcee675c01d23c314fad90b89c203ae.png" loading="lazy"></figure>
+<p>再把编辑好的grub.cfg文件替换覆盖原文件。其实很多时候，不修改vid和pid的值也可以安装成功。如果你嫌麻烦略过这一步也可以。不过修改了以后有助于安装的顺利进行。</p>
+<figure data-type="image" tabindex="8"><img src="https://img-blog.csdnimg.cn/img_convert/6e6d0c2abfc6a545c1a87430d4a657a9.png" alt="6e6d0c2abfc6a545c1a87430d4a657a9.png" loading="lazy"></figure>
+<p>接下来就可以用Win32 Disk Imager磁盘映像工具，将镜像写入U盘。 写入之前请确定好引导U盘已经插入，并且确定盘符正确。</p>
+<figure data-type="image" tabindex="9"><img src="https://img-blog.csdnimg.cn/img_convert/88e66a62e2ece616d972681660a2e7e5.png" alt="88e66a62e2ece616d972681660a2e7e5.png" loading="lazy"></figure>
+<p>显示写入成功，就说明引导U盘已经制作成功了。</p>
+<h2 id="五-安装群晖系统"><strong>五、安装群晖系统</strong></h2>
+<p>在安装群晖系统之前，最好对NAS主机的BIOS进行设置。先插入U盘，然后按delete键进入BIOS设置页面。</p>
+<figure data-type="image" tabindex="10"><img src="https://img-blog.csdnimg.cn/img_convert/382f9bde253e7976f732a275cb320299.png" alt="382f9bde253e7976f732a275cb320299.png" loading="lazy"></figure>
+<p>将Fast boot（快速启动）选项关闭，并且将第一启动盘设置为你刚刚制作的引导盘</p>
+<figure data-type="image" tabindex="11"><img src="https://img-blog.csdnimg.cn/img_convert/bccee2f76c3667328f4ce581a39e8bf3.png" alt="bccee2f76c3667328f4ce581a39e8bf3.png" loading="lazy"></figure>
+<p>系统选择这里，我们选择安卓系统。然后保存重启。</p>
+<figure data-type="image" tabindex="12"><img src="https://img-blog.csdnimg.cn/img_convert/9343f885d0000e55a1b82a54058ab29b.png" alt="9343f885d0000e55a1b82a54058ab29b.png" loading="lazy"></figure>
+<p>顺利从引导盘启动的话，就会看到这个界面（一闪而过）。全新安装时我们不用理它，默认第一项即可。</p>
+<figure data-type="image" tabindex="13"><img src="https://img-blog.csdnimg.cn/img_convert/aa62275aca419895fa9110ed3d7c8ab6.png" alt="aa62275aca419895fa9110ed3d7c8ab6.png" loading="lazy"></figure>
+<p>显示到这里，就说明引导已经完成。接下来就可以转到网页远程操作了。在看到“Booting the kernel”等待1-2分钟。在浏览器中输入http://find.synology.com/ 搜索新系统即可跳转到群晖页面。</p>
+<p>或者去路由器界面中查找新获得设备的IP。找到了IP地址，就可以从另一台电脑的网页登陆。进行下一步安装。</p>
+<figure data-type="image" tabindex="14"><img src="https://img-blog.csdnimg.cn/img_convert/ab4e16cd30afd5cd6ee6a0687547d4f2.png" alt="ab4e16cd30afd5cd6ee6a0687547d4f2.png" loading="lazy"></figure>
+<p>安装时请大家注意，需要下载与之对应的群晖系统文件，否则安装会不成功。这里点击联机——然后设置</p>
+<figure data-type="image" tabindex="15"><img src="https://img-blog.csdnimg.cn/img_convert/02947d91100d6c85f0d5cb9710247937.png" alt="02947d91100d6c85f0d5cb9710247937.png" loading="lazy"></figure>
+<p>注意在这个页面选择手动安装。选择之前下载的.pat文件后点击立即安装。</p>
+<figure data-type="image" tabindex="16"><img src="https://img-blog.csdnimg.cn/img_convert/ef6fbb9f207aa1c8e121d97576084787.png" alt="ef6fbb9f207aa1c8e121d97576084787.png" loading="lazy"></figure>
+<p>硬盘数据会被清空，注意要备份原先硬盘中的资料。这里选择“确定”</p>
+<figure data-type="image" tabindex="17"><img src="https://img-blog.csdnimg.cn/img_convert/8dd5087ce59af36f667546489bef2934.png" alt="8dd5087ce59af36f667546489bef2934.png" loading="lazy"></figure>
+<p>接下来就耐心等待安装完成，通常需要10-20分钟时间。</p>
+<figure data-type="image" tabindex="18"><img src="https://img-blog.csdnimg.cn/img_convert/a7aaa1d978927895dd939c6585055ae4.png" alt="a7aaa1d978927895dd939c6585055ae4.png" loading="lazy"></figure>
+<p>安装成功后页面会自动跳转到账户设置界面，设置好服务器名，管理员账户和密码</p>
+<figure data-type="image" tabindex="19"><img src="https://img-blog.csdnimg.cn/img_convert/4e79f551b420fd75f4bba0a12784f14e.png" alt="4e79f551b420fd75f4bba0a12784f14e.png" loading="lazy"></figure>
+<p>这里选择跳过。黑群晖也是可以通过“洗白”注册ID实现内网穿透。但个人觉得没有必要。我们可以通过其他软件来实现类似的功能。更何况已经用了别人的系统，就不要再让他们负担服务器费用了。也有人反映这个QuickConnect功能在某些网络环境下也并不好用。</p>
+<figure data-type="image" tabindex="20"><img src="https://img-blog.csdnimg.cn/img_convert/4b808f0ed59b9d7fdd04c01059c0cfef.png" alt="4b808f0ed59b9d7fdd04c01059c0cfef.png" loading="lazy"></figure>
+<p>恭喜，安装顺利完成。接下来就可以愉快地使用NAS系统了。 在这之前，我们需要配置一下硬盘空间。</p>
+<p>以下步骤基本没有难度，只要花5分钟时间就可以配置完成。</p>
+<figure data-type="image" tabindex="21"><img src="https://img-blog.csdnimg.cn/img_convert/f68dbbc8a542e6d4c9520c6e1d36dd1b.png" alt="f68dbbc8a542e6d4c9520c6e1d36dd1b.png" loading="lazy"></figure>
+<p>点击左上角的主菜单——选择存储空间管理员</p>
+<figure data-type="image" tabindex="22"><img src="https://img-blog.csdnimg.cn/img_convert/2561ddaceb6c438642d9480be4daa932.png" alt="2561ddaceb6c438642d9480be4daa932.png" loading="lazy"></figure>
+<p>在存储空间中，选择新增</p>
+<figure data-type="image" tabindex="23"><img src="https://img-blog.csdnimg.cn/img_convert/1c45683964238994f391c9cd2345c469.png" alt="1c45683964238994f391c9cd2345c469.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="24"><img src="https://img-blog.csdnimg.cn/img_convert/600252dea8618824ac5971656fddf4c7.png" alt="600252dea8618824ac5971656fddf4c7.png" loading="lazy"></figure>
+<p>选择“灵活性提高”</p>
+<figure data-type="image" tabindex="25"><img src="https://img-blog.csdnimg.cn/img_convert/28ebcd86850b99665872124d1f16bb6e.png" alt="28ebcd86850b99665872124d1f16bb6e.png" loading="lazy"></figure>
+<p>关于硬盘模式，有非常多的选择方式。我们今天就不在这里讲了，建议大家去了解下磁盘阵列知识。（SHR是群晖专用RAID模式相当于RAID 5。SHR2有两块校验盘，相当于RAID 6）。</p>
+<h2 id="六-使用注意事项">六、使用注意事项</h2>
+<p>注意黑群晖最好不要更新升级，否则有会造成引导不成功。去计划任何里面关闭DSM自动更新选项。除了不能升级和无法使用官方的内网穿透，黑群晖在使用上与白群晖没有区别。</p>
+<p>最后也要感谢下群晖公司对于黑群晖的宽容态度。正因为有群晖NAS，NAS系统才能更好的普及和走进大众的视野。当然现在也有很多黑群晖玩家现在已经转投白群晖，也算是对群晖公司的一些回报吧。</p>
+
+          <div class="toc-container"><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#2020%E9%BB%91%E7%BE%A4%E6%99%96%E6%9C%80%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC_%E5%AE%B6%E5%BA%ADnas%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97-%E5%A6%82%E4%BD%95%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%89%E8%A3%85%E4%B8%80%E5%8F%B0%E9%BB%91%E7%BE%A4%E6%99%96%E4%B8%BB%E6%9C%BA">2020黑群晖最稳定版本_家庭NAS部署指南 —— 如何自己动手安装一台黑群晖主机...</a></li>
+<li><a href="#%E6%87%92%E4%BA%BA%E7%9B%AE%E5%BD%95">懒人目录：</a>
+<ul>
+<li><a href="#1-%E7%BE%A4%E8%BE%89%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D">1、群辉系统介绍</a></li>
+<li><a href="#2-%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6">2、安装工具和软件</a></li>
+<li><a href="#3-%E7%BE%A4%E6%99%96%E7%89%88%E6%9C%AC%E7%9A%84%E9%80%89%E6%8B%A9">3、群晖版本的选择</a></li>
+<li><a href="#4-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8u%E7%9B%98">4、制作启动U盘</a></li>
+<li><a href="#5-%E7%94%A8u%E7%9B%98%E5%BC%95%E5%AF%BC%E5%B9%B6%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F">5、用U盘引导并安装系统</a></li>
+<li><a href="#6-%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">6、使用注意事项</a></li>
+<li><a href="#7-%E7%BB%93%E5%B0%BE%E7%9A%84%E5%87%A0%E5%8F%A5%E5%94%A0%E5%8F%A8">7、结尾的几句唠叨</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80-%E7%BE%A4%E6%99%96%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D">一、群晖系统介绍</a></li>
+<li><a href="#%E4%BA%8C-%E5%AE%89%E8%A3%85%E6%89%80%E9%9C%80%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6">二、安装所需的工具和软件</a></li>
+<li><a href="#%E4%B8%89-%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E7%9A%84%E9%80%89%E6%8B%A9">三、系统版本的选择</a>
+<ul>
+<li><a href="#%E5%BC%95%E5%AF%BC%E7%89%88%E6%9C%AC-104b">引导版本: 1.04b</a></li>
+<li><a href="#%E5%BC%95%E5%AF%BC%E7%89%88%E6%9C%AC-102b">引导版本: 1.02b</a></li>
+<li><a href="#%E5%BC%95%E5%AF%BC%E7%89%88%E6%9C%AC-xpenoboot-for-dsm-52-59671-x64">引导版本: XPEnoboot for DSM 5.2-5967.1 x64</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B"><strong>四、安装过程</strong></a>
+<ul>
+<li><a href="#1-%E9%A6%96%E5%85%88%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8chipeasy%E8%8A%AF%E7%89%87%E6%97%A0%E5%BF%A7%E6%9F%A5%E6%89%BEu%E7%9B%98%E7%9A%84vid%E5%92%8Cpid">1、首先我们使用ChipEasy芯片无忧查找U盘的VID和PID</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94-%E5%AE%89%E8%A3%85%E7%BE%A4%E6%99%96%E7%B3%BB%E7%BB%9F"><strong>五、安装群晖系统</strong></a></li>
+<li><a href="#%E5%85%AD-%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">六、使用注意事项</a></li>
+</ul>
+</li>
+</ul>
+</div>
+          
+          <hr />
+          <p class="next-post">下一篇：
+            <a href="https://amiao.ioxoo.top/post/wo-jia-yun-shua-ji-ji-shi-yong-jiao-cheng/">
+              <span class="post-title">
+                我家云刷机及使用教程&rarr;
+              </span>
+            </a>
+          </p>
+          
+          <div class="comment" style="text-align: center;">
+            
+
+            
+            
+          </div>
+        </div>
+      </div>
+  </article>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+              <!-- <li class="list-inline-item">
+              <a href="https://amiao.ioxoo.top/atom.xml" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              </li> -->
+          </ul>
+          <p class="copyright text-muted">Copyright &copy;<span>Gridea</span><br><a href="https://github.com/getgridea/gridea" class="Themeinfo">Powered by Gridea</a></p>
+        </div>
+      </div>
+    </div>
+   </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/Alanrk/clean-cdn@1.0/scripts/clean-blog.min.js"></script>
+  <!-- <script src="https://amiao.ioxoo.top/media/scripts/clean-blog.min.js"></script> -->
+  <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  <style type="text/css">a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-propety:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}@media print,screen and(max-width:580px){.back_to_top{display:none!important}}</style>
+<a id="back_to_top" href="#" class="back_to_top">
+  <span>▲</span></a>
+<script>$(document).ready((function(_this) {
+    return function() {
+      var bt;
+      bt = $('#back_to_top');
+      if ($(document).width() > 480) {
+        $(window).scroll(function() {
+          var st;
+          st = $(window).scrollTop();
+          if (st > 30) {
+            return bt.css('display', 'block')
+          } else {
+            return bt.css('display', 'none')
+          }
+        });
+        return bt.click(function() {
+          $('body,html').animate({
+            scrollTop: 0
+          },
+          800);
+          return false
+        })
+      }
+    }
+  })(this));</script>
+  
+  <script src="https://amiao.ioxoo.top/media/scripts/tocScript.js"></script>
+</body>
+
+</html>

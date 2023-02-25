@@ -1,0 +1,1689 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://amiao.ioxoo.top</id>
+    <title>Gridea</title>
+    <updated>2023-02-25T13:45:55.665Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://amiao.ioxoo.top"/>
+    <link rel="self" href="https://amiao.ioxoo.top/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://amiao.ioxoo.top/images/avatar.png</logo>
+    <icon>https://amiao.ioxoo.top/favicon.ico</icon>
+    <rights>All rights reserved 2023, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[宝塔 Linux 面板 7.9.5 开心版]]></title>
+        <id>https://amiao.ioxoo.top/post/bao-ta-linux-mian-ban-795-kai-xin-ban/</id>
+        <link href="https://amiao.ioxoo.top/post/bao-ta-linux-mian-ban-795-kai-xin-ban/">
+        </link>
+        <updated>2023-02-25T13:37:57.000Z</updated>
+        <content type="html"><![CDATA[<p>本次更新时间：11月24日<br>
+1. 进程守护管理器 2.3 ~ 进程守护管理器 2.4<br>
+2. 日志清理工具 2.2 ~ 进程守护管理器 2.3<br>
+3. 堡塔网站加速 4.2 ~ 进程守护管理器 4.3<br>
+4. Node.js版本管理器 1.7 ~ 进程守护管理器 1.8<br>
+5. 宝塔邮局管理器 4.7 ~ 进程守护管理器 4.8<br>
+6. 宝塔一键迁移API版本 3.3 ~ 进程守护管理器 3.4<br>
+7. MySQL主从复制(重构版) 1.2 ~ MySQL主从复制(重构版)  1.3<br>
+8. 宝塔数据同步工具 3.4 ~ 宝塔数据同步工具 3.5<br>
+9. 网站监控报表 7.2.1 ~ 网站监控报表 7.2.2<br>
+10. Nginx防火墙 9.0.7 ~ Nginx防火墙 9.0.8</p>
+<p>历史更新时间：11月1日<br>
+【更新】IP配置工具 1.3 – 1.4<br>
+【新增】微步木马检测 1.0<br>
+【更新】系统防火墙 3.2 – 3.3<br>
+【更新】Linux工具箱 1.8 – 1.9<br>
+【更新】进程守护管理器 2.2 – 2.3<br>
+【更新】日志清理工具 2.1 – 2.2<br>
+【更新】堡塔应用管理器 1.6 – 1.8<br>
+【更新】又拍云存储 4.7 – 4.8<br>
+【更新】堡塔应用管理器 1.7 – 1.8<br>
+【更新】FTP存储空间 5.1 – 5.3<br>
+【更新】阿里云OSS 5.3 – 6.1<br>
+【更新】亚马逊S3云存储 1.1 – 1.4<br>
+【更新】七牛云存储 5.3 – 5.4<br>
+【更新】谷歌云网盘 2.0 – 2.1<br>
+【更新】谷歌云存储 1.5 – 1.6<br>
+【更新】腾讯云COS 4.8 – 5.1<br>
+【更新】百度云存储 1.1 – 1.2<br>
+【更新】华为云存储 1.1 – 1.2<br>
+【更新】京东云存储 1.0 – 1.1<br>
+【更新】Apache防火墙 9.0 – 9.1<br>
+【更新】Nginx防火墙 9.0.6 – 9.0.7<br>
+【更新】网站监控报表 7.0 – 7.2.1<br>
+【更新】宝塔数据同步工具 3.3 – 3.4<br>
+【更新】宝塔系统加固 3.3 – 3.5<br>
+【更新】宝塔任务管理器 2.1 – 2.2<br>
+【更新】对象存储自动挂载 1.1 – 1.2<br>
+【更新】部分环境升级<br>
+【优化】软件列表优化<br>
+【移除】11月7日：1. 去除访问日志自动生成<br>
+【移除】11月7日：2. 去除WebRTC连接<br>
+【移除】11月7日：3. so为自行编译非官方so文件（所以不存在 PluginLoader.get_soft_list(cid) 调用）</p>
+<p>嘲讽下官方 “更新版号，注释掉了这段 hhh”：<br>
+#if public.readFile(nginxconf).find(‘luawaf.conf’) == -1: return public.returnMsg(False,’当前nginx不支持防火墙,请重装nginx’);</p>
+<p>11. Apache防火墙 9.1 ~ Apache防火墙 9.2<br>
+12. 优化软件列表同步官方</p>
+<p>Centos安装命令（默认安装是7.8.0 直接在线升级7.9.5）：</p>
+<pre><code>yum install -y wget &amp;&amp; wget -O install.sh http://io.bt.sy/install/install_6.0.sh &amp;&amp; sh install.sh
+</code></pre>
+<p>试验性Centos/Ubuntu/Debian安装命令 独立运行环境（py3.7） 可能存在少量兼容性问题 不断优化中</p>
+<pre><code>curl -sSO http://io.bt.sy/install/install_panel.sh &amp;&amp; bash install_panel.sh
+</code></pre>
+<p>Ubuntu Deepin安装命令：</p>
+<pre><code>wget -O install.sh http://io.bt.sy/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh
+</code></pre>
+<p>Debian安装命令：</p>
+<pre><code>wget -O install.sh http://io.bt.sy/install/install-ubuntu_6.0.sh &amp;&amp; bash install.sh
+</code></pre>
+<p>Fedora安装命令:</p>
+<pre><code>wget -O install.sh http://io.bt.sy/install/install_6.0.sh &amp;&amp; bash install.sh
+</code></pre>
+<p>Linux面板 7.9.5 升级企业版命令 1（7.9.5 官方版 / 7.7.0 开心版 可以执行这个升级到 7.9.5 开心版）：</p>
+<pre><code>curl https://io.bt.sy/install/update_panel.sh|bash
+</code></pre>
+<p>讲解：升级企业版命令 1 与 升级企业版命令 2 二选一 都可以升级最新版！</p>
+<p>Linux面板 7.9.5 升级企业版命令 2（7.9.5 官方版 / 7.7.0 开心版 可以执行这个升级到 7.9.5 开心版：</p>
+<pre><code>curl http://io.bt.sy/install/update6.sh|bash
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[整理一些常用的脚本（持续更新中）]]></title>
+        <id>https://amiao.ioxoo.top/post/zheng-li-yi-xie-chang-yong-de-jiao-ben-chi-xu-geng-xin-zhong/</id>
+        <link href="https://amiao.ioxoo.top/post/zheng-li-yi-xie-chang-yong-de-jiao-ben-chi-xu-geng-xin-zhong/">
+        </link>
+        <updated>2023-02-25T09:55:37.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="更新列表">更新列表</h2>
+<p>2023-2-15 添加检测是否可以访问ChatGPT脚本</p>
+<pre><code>`bash &lt;(curl -Ls https://cpp.li/openai)` 
+</code></pre>
+<h2 id="综合工具箱强烈推荐集成了很多脚本">综合工具箱（强烈推荐，集成了很多脚本）</h2>
+<pre><code>`wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh &amp;&amp; chmod +x box.sh &amp;&amp; clear &amp;&amp; ./box.sh` 
+</code></pre>
+<h2 id="杜甫测试">杜甫测试</h2>
+<pre><code>`wget -q https://github.com/Aniverse/A/raw/i/a &amp;&amp; bash a` 
+</code></pre>
+<h2 id="dd相关">DD相关</h2>
+<h3 id="1-甲骨文dd脚本">1、甲骨文DD脚本</h3>
+<p>DD成Debian 10</p>
+<pre><code>`bash &lt;(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p &quot;自定义root密码&quot; -port &quot;自定义ssh端口&quot;` 
+</code></pre>
+<p>DD成Ubuntu 20.04</p>
+<pre><code>`bash &lt;(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -u 20.04 -v 64 -p &quot;自定义root密码&quot; -port &quot;自定义ssh端口&quot;` 
+</code></pre>
+<h3 id="2-moeclub脚本">2、MoeClub脚本</h3>
+<p><strong>重点推荐</strong>：</p>
+<p>时间：22/11/2021 15:21 萌咖更新脚本：</p>
+<p>1.新增对 Oracle AMD，Oracle ARM全面支持. 可支持从 Ubuntu, Oracle Linux 等系统网络重装.<br>
+2.更新 dd 镜像的基础系统版本.<br>
+3.移除对外部 wget 的依赖.<br>
+4.新增 -port 参数, 可更改默认SSH端口.<br>
+5.更新 内置的网络参数计算 逻辑.<br>
+6.更新 grub 配置文件定位逻辑, 可支持任意引导grub的系统.</p>
+<p>以下系统已通过测试(其他自测):<br>
+Debian: 9, 10, 11;<br>
+Ubuntu: 18.04, 20.04;<br>
+CentOS: 6.10;<br>
+以下平台已通过测试(其他自测):<br>
+Oracle、Do、Azure</p>
+<pre><code>`bash &lt;(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p &quot;自定义root密码&quot; -port &quot;自定义ssh端口&quot;` 
+</code></pre>
+<p>-d 10 -v 64<br>
+-d 9 -v 64<br>
+-u 20.04 -v 64<br>
+-u 18.04 -v 64</p>
+<p>开机改密码脚本：</p>
+<p>开机改密：</p>
+<pre><code>`#!/bin/bash
+echo root:Vicer |sudo chpasswd root
+sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
+sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
+sudo reboot` 
+</code></pre>
+<h3 id="3-另一位大佬的脚本">3、另一位大佬的脚本</h3>
+<pre><code>`wget --no-check-certificate -O AutoReinstall.sh https://git.io/AutoReinstall.sh &amp;&amp; bash AutoReinstall.sh` 
+</code></pre>
+<ul>
+<li>
+<p>CentOS默认密码Pwd@CentOS 其它系统Pwd@Linux</p>
+</li>
+<li>
+<p>OpenVZ / LXC 架构系统不适用</p>
+</li>
+</ul>
+<p>来源：<a href="https://blog.hicasper.com/post/135.html">https://blog.hicasper.com/post/135.html</a> 参考：<a href="https://www.ydyno.com/archives/1245.html">https://www.ydyno.com/archives/1245.html</a> 感谢大佬的付出！</p>
+<pre><code>`bash &lt;(wget --no-check-certificate -qO- 'https://file.geekn.net/CNODnjau/InstallNET.sh') -d 11 -v 64 -a -firmware` 
+</code></pre>
+<p>-firmware 额外的驱动支持<br>
+-d 后面是系统版本号<br>
+-v 后面写64位 32位<br>
+-a （不清楚这个干啥的但是每个脚本都带）<br>
+–mirror 后面是镜像源地址</p>
+<p>-p 后面写自定义密码</p>
+<pre><code>`镜像站地址
+官方给出的地址列表：https://www.debian.org/mirror/list
+
+一些国内的
+ftp.cn.debian.org
+mirror.bjtu.edu.cn
+mirror.lzu.edu.cn        
+mirror.nju.edu.cn        
+mirrors.163.com        
+mirrors.bfsu.edu.cn        
+mirrors.hit.edu.cn        
+mirrors.huaweicloud.com        
+mirror.sjtu.edu.cn        
+mirrors.tuna.tsinghua.edu.cn        
+mirrors.ustc.edu.cn        
+
+使用方法：（大致都是一样的）
+
+清华源
+--mirror 'https://mirrors.ustc.edu.cn/debian/'
+
+腾讯源
+--mirror 'https://mirrors.aliyun.com/debian/'
+
+阿里源
+--mirror 'https://mirrors.aliyun.com/debian/'
+
+华为源
+--mirror 'https://mirrors.huaweicloud.com/debian/'` 
+</code></pre>
+<h3 id="4-秋水逸冰-windows-2012201620192022-1011-dd-镜像">4、秋水逸冰 Windows 2012/2016/2019/2022 10/11 DD 镜像</h3>
+<p>适用于 UEFI 启动的多个 Windows 系统 DD 镜像：</p>
+<p><a href="https://teddysun.com/656.html">https://teddysun.com/656.html</a></p>
+<p>分别是：</p>
+<ol>
+<li>Windows Server 2012 R2 Datacenter</li>
+<li>Windows Server 2016 Datacenter (build: 14393.5006)</li>
+<li>Windows Server 2019 Datacenter (build: 17763.2686)</li>
+<li>Windows Server 2022 Datacenter (build: 20348.587)</li>
+<li>Windows 10 Enterprise LTSC (build: 19044.1288)</li>
+<li>Windows 11 Pro for Workstations 21H2 (build: 22000.194)</li>
+</ol>
+<p>适用于 BIOS 启动的 Windows Server 2022 Datacenter DD 镜像：</p>
+<p><a href="https://teddysun.com/629.html">https://teddysun.com/629.html</a></p>
+<p>适用于 BIOS 启动的 Windows 11 Pro for Workstations 21H2 DD 镜像：</p>
+<p><a href="https://teddysun.com/642.html">https://teddysun.com/642.html</a></p>
+<p>适用于 BIOS 启动的 Windows 10 Enterprise LTSC DD 镜像：</p>
+<p><a href="https://teddysun.com/640.html">https://teddysun.com/640.html</a></p>
+<p>适用于 BIOS 启动的 Windows Server 2019/2016/2012R2 Datacenter DD 镜像：</p>
+<p><a href="https://teddysun.com/545.html">https://teddysun.com/545.html</a></p>
+<p>分别是：</p>
+<ol>
+<li>Windows Server 2019 Datacenter（Build: 17763.2686）</li>
+<li>Windows Server 2016 Datacenter（Build: 14393.5006）</li>
+<li>Windows Server 2012 R2 Datacenter</li>
+</ol>
+<h2 id="测试相关">测试相关</h2>
+<h3 id="机器测试">机器测试</h3>
+<h4 id="单线程测试">单线程测试</h4>
+<pre><code>`bash &lt;(curl -Lso- https://bench.im/hyperspeed)` 
+</code></pre>
+<h4 id="最全测速脚本">最全测速脚本</h4>
+<pre><code>`curl -fsL https://ilemonra.in/LemonBenchIntl | bash -s fast` 
+</code></pre>
+<h4 id="superbench">superbench</h4>
+<pre><code>`wget -qO- git.io/superbench.sh | bash` 
+</code></pre>
+<h4 id="benchsh"><a href="http://Bench.sh">Bench.sh</a></h4>
+<pre><code>`wget -qO- bench.sh | bash` 
+</code></pre>
+<h3 id="速度测试">速度测试</h3>
+<h4 id="显示延迟-抖动">显示延迟、抖动</h4>
+<pre><code>`bash &lt;(wget -qO- https://bench.im/hyperspeed)` 
+</code></pre>
+<h4 id="直接显示回程线路">直接显示回程线路</h4>
+<pre><code>`curl https://raw.githubusercontent.com/zhucaidan/mtr_trace/main/mtr_trace.sh|bash` 
+</code></pre>
+<pre><code>`wget -q route.f2k.pub -O route &amp;&amp; bash route` 
+</code></pre>
+<pre><code>`# 第一个
+wget https://raw.githubusercontent.com/nanqinlang-script/testrace/master/testrace.sh
+bash testrace.sh
+
+# 第二个
+wget -qO- git.io/besttrace | bash` 
+</code></pre>
+<h4 id="四网测速">四网测速</h4>
+<pre><code>`wget -O jcnf.sh https://raw.githubusercontent.com/Netflixxp/jcnfbesttrace/main/jcnf.sh
+
+bash jcnf.sh` 
+</code></pre>
+<h4 id="三网测速">三网测速</h4>
+<pre><code>`bash &lt;(curl -Lso- https://git.io/superspeed_uxh)` 
+</code></pre>
+<p>带快速四网测试版本：</p>
+<pre><code>`bash &lt;(curl -Lso- https://dl.233.mba/d/sh/speedtest.sh)` 
+</code></pre>
+<pre><code>`bash &lt;(curl -Lso- https://git.io/J1SEh)` 
+</code></pre>
+<p>带综合测试的版本（CPU信息、Geekbench等）：</p>
+<pre><code>`bash &lt;(wget --no-check-certificate -O- https://dl.233.mba/d/sh/superbenchpro.sh)` 
+</code></pre>
+<p>来源：<a href="https://www.wrnxr.cn/163.html">https://www.wrnxr.cn/163.html</a></p>
+<h3 id="测试25端口是否开放">测试25端口是否开放</h3>
+<pre><code>`telnet smtp.aol.com 25` 
+</code></pre>
+<h3 id="测试ipv4优先还是ipv6优先">测试IPv4优先还是IPv6优先</h3>
+<pre><code>`curl ip.p3terx.com` 
+</code></pre>
+<h3 id="流媒体测试">流媒体测试</h3>
+<h4 id="全媒体测试">全媒体测试</h4>
+<pre><code>`bash &lt;(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)` 
+</code></pre>
+<h4 id="奈飞测试">奈飞测试</h4>
+<pre><code>`wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.5/nf_2.5_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; clear &amp;&amp; ./nf` 
+</code></pre>
+<pre><code>`#第一个
+bash &lt;(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)
+
+# 第二个
+bash &lt;(curl -sSL &quot;https://github.com/CoiaPrant/MediaUnlock_Test/raw/main/check.sh&quot;)` 
+</code></pre>
+<h2 id="warp">WARP</h2>
+<pre><code>`wget -N --no-check-certificate https://cdn.jsdelivr.net/gh/YG-tsj/CFWarp-Pro/multi.sh &amp;&amp; chmod +x multi.sh &amp;&amp; ./multi.sh` 
+</code></pre>
+<p>之后进入脚本快捷方式为 <code>bash multi.sh</code></p>
+<h2 id="服务器时间">服务器时间</h2>
+<h4 id="centos-同步时间">CentOS 同步时间</h4>
+<pre><code>`yum -y install ntpdate
+timedatectl set-timezone Asia/Shanghai
+ntpdate ntp1.aliyun.com` 
+</code></pre>
+<h2 id="bbr">BBR</h2>
+<h4 id="centos-7-bbr">CentOS 7 BBR</h4>
+<pre><code>`wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh` 
+</code></pre>
+<h4 id="一键开启bbr">一键开启BBR</h4>
+<p>注意：需要Linux Kernel 内核升级到 4.9 及以上版本可以实现 BBR 加速</p>
+<pre><code>`uname -srm` 
+</code></pre>
+<p>输出结果：</p>
+<pre><code>`Linux 3.10.0-957.12.2.el7.x86_64 x86_64
+3 - 内核版本.
+10 - 主修订版本.
+0-957 - 次要修订版本.
+12 - 补丁版本.` 
+</code></pre>
+<p>一般来说，Ubuntu18.04以上就可以(默认的内核<code>4.15</code>)</p>
+<pre><code>`echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf
+echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf
+
+sysctl -p
+
+sysctl net.ipv4.tcp_available_congestion_control
+
+lsmod | grep bbr` 
+</code></pre>
+<h2 id="docker相关">Docker相关</h2>
+<h4 id="更新-安装必备软件">更新、安装必备软件</h4>
+<pre><code>`apt-get update &amp;&amp; apt-get install -y wget vim` 
+</code></pre>
+<h3 id="海外服务器">海外服务器</h3>
+<h4 id="非大陆docker安装">非大陆Docker安装</h4>
+<pre><code>`wget -qO- get.docker.com | bash` 
+</code></pre>
+<h4 id="卸载docker">卸载Docker</h4>
+<pre><code>`sudo apt-get purge docker-ce docker-ce-cli containerd.io` 
+</code></pre>
+<pre><code>`sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd` 
+</code></pre>
+<h4 id="非大陆docker-compose安装">非大陆Docker-compose安装</h4>
+<pre><code> `sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose` 
+</code></pre>
+<pre><code>`sudo chmod +x /usr/local/bin/docker-compose` 
+</code></pre>
+<p>查看版本</p>
+<pre><code>`docker-compose --version` 
+</code></pre>
+<h3 id="大陆服务器">大陆服务器</h3>
+<h4 id="国内机安装docker">国内机安装docker</h4>
+<pre><code>`curl -sSL https://get.daocloud.io/docker | sh` 
+</code></pre>
+<h4 id="国内机安装docker-compose">国内机安装docker-compose</h4>
+<pre><code>``curl -L https://get.daocloud.io/docker/compose/releases/download/v2.1.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose`` 
+</code></pre>
+<h4 id="卸载docker-2">卸载docker</h4>
+<pre><code>`sudo apt-get remove docker docker-engine
+rm -fr /var/lib/docker/` 
+</code></pre>
+<h2 id="防火墙">防火墙</h2>
+<h4 id="centos-关闭防火墙">CentOS 关闭防火墙</h4>
+<pre><code>`systemctl start supervisord
+systemctl disable firewalld
+systemctl stop firewalld` 
+</code></pre>
+<h2 id="宝塔相关">宝塔相关</h2>
+<h4 id="宝塔去除登陆-已经失效解决方法见httpsbloglaodadearchivesbt-to-aapanel">宝塔去除登陆 (已经失效，解决方法见：<a href="https://blog.laoda.de/archives/bt-to-aapanel">https://blog.laoda.de/archives/bt-to-aapanel</a>)</h4>
+<pre><code>`sed -i &quot;s|if (bind_user == 'True') {|if (bind_user == 'REMOVED') {|g&quot; /www/server/panel/BTPanel/static/js/index.js
+rm -rf /www/server/panel/data/bind.pl` 
+</code></pre>
+<h4 id="宝塔aapanel破解">宝塔&amp;aapanel破解</h4>
+<pre><code>`# 宝塔&amp;aapanel破解
+编辑 /www/server/panel/class/panelplugin.py
+找到 softList['list'] = tmpList 这行代码
+在下面添加以下代码，注意缩进
+
+softList['pro'] = 1
+for soft in softList['list']:
+soft['endtime'] = 0
+
+编辑完毕后保存重启面板即可` 
+</code></pre>
+<h2 id="呆梨相关">呆梨相关</h2>
+<h4 id="xui">XUI</h4>
+<pre><code>`bash &lt;(curl -Ls https://raw.githubusercontent.com/sprov065/x-ui/master/install.sh) 0.2.0` 
+</code></pre>
+<h4 id="mack-a">mack-a</h4>
+<pre><code>`wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh` 
+</code></pre>
+<p>持续更新中</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DDNS-GO的安装]]></title>
+        <id>https://amiao.ioxoo.top/post/ddns-go-de-an-zhuang/</id>
+        <link href="https://amiao.ioxoo.top/post/ddns-go-de-an-zhuang/">
+        </link>
+        <updated>2023-02-05T17:15:02.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="使用的docker">使用的Docker</h1>
+<h2 id="jeessyddns-go">jeessy/ddns-go</h2>
+<h2 id="简单好用的ddns-支持阿里云dns-腾讯云dnspod-cloudflare-华为云">简单好用的DDNS。支持阿里云DNS、腾讯云dnspod、Cloudflare、华为云</h2>
+<h3 id="ddns-go">ddns-go</h3>
+<p><a href="https://github.com/jeessy2/ddns-go/releases/latest"><img src="https://img.shields.io/github/release/jeessy2/ddns-go.svg?logo=github&amp;style=flat-square" alt="GitHub release" loading="lazy"></a> <img src="https://goreportcard.com/badge/github.com/jeessy2/ddns-go" alt="img" loading="lazy"> <img src="https://img.shields.io/docker/image-size/jeessy/ddns-go" alt="img" loading="lazy"> <img src="https://img.shields.io/docker/pulls/jeessy/ddns-go" alt="img" loading="lazy"></p>
+<p>自动获得你的公网 IPv4 或 IPv6 地址，并解析到对应的域名服务。</p>
+<h3 id="特性">特性</h3>
+<ul>
+<li>支持Mac、Windows、Linux系统，支持ARM、x86架构</li>
+<li>支持的域名服务商 <code>Alidns(阿里云)</code> <code>Dnspod(腾讯云)</code> <code>Cloudflare</code> <code>华为云</code> <code>Callback</code></li>
+<li>支持接口/网卡获取IP</li>
+<li>支持以服务的方式运行(v2.8.0后支持)</li>
+<li>默认间隔5分钟同步一次</li>
+<li>支持多个域名同时解析，公司必备</li>
+<li>支持多级域名</li>
+<li>网页中配置，简单又方便，可设置 <code>登录用户名和密码</code> / <code>禁止从公网访问</code></li>
+<li>网页中方便快速查看最近50条日志，不需要跑docker中查看</li>
+<li>支持webhook</li>
+<li>支持TTL</li>
+</ul>
+<h3 id="系统中使用">系统中使用</h3>
+<ul>
+<li>下载并解压https://github.com/jeessy2/ddns-go/releases</li>
+<li>双击运行, 如没有找到配置, 程序自动打开<a href="http://127.0.0.1:9876/">http://127.0.0.1:9876</a></li>
+<li>[可选] 安装服务
+<ul>
+<li>Mac/Linux: <code>./ddns-go -s install</code></li>
+<li>Win(打开cmd): <code>.\ddns-go.exe -s install</code></li>
+<li>安装服务也支持 <code>-l</code>监听地址 <code>-f</code>同步间隔时间(秒) <code>-c</code>自定义配置文件路径</li>
+</ul>
+</li>
+<li>[可选] 服务卸载
+<ul>
+<li>Mac/Linux: <code>./ddns-go -s uninstall</code></li>
+<li>Win(打开cmd): <code>.\ddns-go.exe -s uninstall</code></li>
+</ul>
+</li>
+<li>[可选] 支持启动带参数 <code>-l</code>监听地址 <code>-f</code>同步间隔时间(秒) <code>-c</code>自定义配置文件路径。如：<code>./ddns-go -l 127.0.0.1:9876 -f 600 -c /Users/name/ddns-go.yaml</code></li>
+</ul>
+<h3 id="docker中使用">Docker中使用</h3>
+<ul>
+<li>
+<p>不挂载主机目录, 删除容器同时会删除配置</p>
+<pre><code class="language-bash"># host模式, 同时支持IPv4/IPv6
+docker run -d --name ddns-go --restart=always --net=host jeessy/ddns-go
+</code></pre>
+</li>
+<li>
+<p>在浏览器中打开<code>http://主机IP:9876</code>，修改你的配置，成功</p>
+</li>
+<li>
+<p>[可选] 挂载主机目录, 删除容器后配置不会丢失。可替换 <code>/opt/ddns-go</code> 为有权限访问的目录, 配置文件为隐藏文件</p>
+<pre><code class="language-bash">docker run -d --name ddns-go --restart=always --net=host -v /opt/ddns-go:/root jeessy/ddns-go
+</code></pre>
+</li>
+<li>
+<p>[可选] 支持启动带参数 <code>-l</code>监听地址 <code>-f</code>间隔时间(秒)</p>
+<pre><code class="language-bash">docker run -d --name ddns-go --restart=always --net=host jeessy/ddns-go -l :9877 -f 600
+</code></pre>
+</li>
+</ul>
+<h3 id="使用ipv6">使用IPv6</h3>
+<ul>
+<li>前提：你的电脑或终端能正常获取IPv6，并能正常访问IPv6</li>
+<li>Windows/Mac：推荐 <a href="https://registry.hub.docker.com/r/jeessy/ddns-go/#%E7%B3%BB%E7%BB%9F%E4%B8%AD%E4%BD%BF%E7%94%A8">系统中使用</a>，Windows/Mac桌面版的docker不支持<code>--net=host</code></li>
+<li>群晖：
+<ul>
+<li>套件中心下载docker并打开</li>
+<li>注册表中搜索<code>ddns-go</code>并下载</li>
+<li>映像 -&gt; 选择<code>jeessy/ddns-go</code> -&gt; 启动 -&gt; 高级设置 -&gt; 网络中勾选<code>使用与 Docker Host 相同的网络</code>，高级设置中勾选<code>启动自动重新启动</code></li>
+<li>在浏览器中打开<code>http://群晖IP:9876</code>，修改你的配置，成功</li>
+</ul>
+</li>
+<li>Linux的x86或arm架构，推荐使用Docker的<code>--net=host</code>模式。参考 <a href="https://registry.hub.docker.com/r/jeessy/ddns-go/#Docker%E4%B8%AD%E4%BD%BF%E7%94%A8">Docker中使用</a></li>
+<li>虚拟机中使用有可能正常获取IPv6，但不能正常访问IPv6</li>
+<li>[可选] 使用IPv6后，建议勾选<code>禁止从公网访问</code></li>
+</ul>
+<h3 id="webhook">Webhook</h3>
+<ul>
+<li>
+<p>支持webhook, 域名更新成功或不成功时, 会回调填写的URL</p>
+</li>
+<li>
+<p>支持的变量</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#{ipv4Addr}</td>
+<td>新的IPv4地址</td>
+</tr>
+<tr>
+<td>#{ipv4Result}</td>
+<td>IPv4地址更新结果: <code>未改变</code> <code>失败</code> <code>成功</code></td>
+</tr>
+<tr>
+<td>#{ipv4Domains}</td>
+<td>IPv4的域名，多个以<code>,</code>分割</td>
+</tr>
+<tr>
+<td>#{ipv6Addr}</td>
+<td>新的IPv6地址</td>
+</tr>
+<tr>
+<td>#{ipv6Result}</td>
+<td>IPv6地址更新结果: <code>未改变</code> <code>失败</code> <code>成功</code></td>
+</tr>
+<tr>
+<td>#{ipv6Domains}</td>
+<td>IPv6的域名，多个以<code>,</code>分割</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>RequestBody为空GET请求，不为空POST请求</p>
+</li>
+<li>
+<p>Server酱: <code>https://sc.ftqq.com/[SCKEY].send?text=主人IPv4变了#{ipv4Addr},域名更新结果:#{ipv4Result}</code></p>
+</li>
+<li>
+<p>Bark: <code>https://api.day.app/[YOUR_KEY]/主人IPv4变了#{ipv4Addr},域名更新结果:#{ipv4Result}</code></p>
+</li>
+<li>
+<p>钉钉:</p>
+<ul>
+<li>钉钉电脑端 -&gt; 群设置 -&gt; 智能群助手 -&gt; 添加机器人 -&gt; 自定义</li>
+<li>只勾选 <code>自定义关键词</code>, 输入的关键字必须包含在RequestBody的content中, 如：<code>你的公网IP变了</code></li>
+<li>URL中输入钉钉给你的 <code>Webhook地址</code></li>
+<li>RequestBody中输入 <code>{&quot;msgtype&quot;: &quot;text&quot;,&quot;text&quot;: {&quot;content&quot;: &quot;你的公网IP变了：#{ipv4Addr}，域名更新结果：#{ipv4Result}&quot;}}</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="callback">Callback</h3>
+<ul>
+<li>
+<p>通过自定义回调可支持更多的第三方DNS服务商</p>
+</li>
+<li>
+<p>配置的域名有几行, 就会回调几次</p>
+</li>
+<li>
+<p>支持的变量</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#{ip}</td>
+<td>新的IPv4/IPv6地址</td>
+</tr>
+<tr>
+<td>#{domain}</td>
+<td>当前域名</td>
+</tr>
+<tr>
+<td>#{recordType}</td>
+<td>记录类型 <code>A</code>或<code>AAAA</code></td>
+</tr>
+<tr>
+<td>#{ttl}</td>
+<td>ttl</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>RequestBody为空GET请求，不为空POST请求</p>
+</li>
+</ul>
+<h3 id="界面">界面</h3>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/jeessy2/ddns-go/master/ddns-web.png" alt="screenshots" loading="lazy"></figure>
+<h3 id="开发自行编译">开发&amp;自行编译</h3>
+<ul>
+<li>如果喜欢从源代码编译自己的版本，可以使用本项目提供的 Makefile 构建</li>
+<li>开发环境 golang 1.16</li>
+<li>使用 <code>make build</code> 生成本地编译后的 <code>ddns-go</code> 可执行文件</li>
+<li>使用 <code>make build_docker_image</code> 自行编译 Docker 镜像</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unraid Docker安装青龙面板和无法访问的解决方法]]></title>
+        <id>https://amiao.ioxoo.top/post/unraid-docker-an-zhuang-qing-long-mian-ban-he-wu-fa-fang-wen-de-jie-jue-fang-fa/</id>
+        <link href="https://amiao.ioxoo.top/post/unraid-docker-an-zhuang-qing-long-mian-ban-he-wu-fa-fang-wen-de-jie-jue-fang-fa/">
+        </link>
+        <updated>2022-04-04T10:35:29.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="unraid-docker安装青龙面板和无法访问的解决方法">Unraid Docker安装青龙面板和无法访问的解决方法</h1>
+<p>前一段时间，自己操作失误将群晖的存储池损毁了，自己没有能力解决，最后通过删除存储池，更换硬盘来解决问题，新建存储池以后，原来Docker中的容器都被删除了，由于自己没有备份，里面的资料也全部损失了。今天我需要重新安装的青龙面板就是其中之一，这次我将使用**<a href="https://www.rixin.info/tags/unraid">Unraid</a>**来安装青龙面板。</p>
+<p>青龙面板支持python3、javaScript、shell、typescript 的定时任务管理面板，为薅羊毛的不二神器。</p>
+<figure data-type="image" tabindex="1"><a href="https://cdn.rixin.info/images/2022/03/2022-03-16_203720.jpg"><img src="https://cdn.rixin.info/images/2022/03/2022-03-16_203720.jpg" alt="Unraid Docker安装青龙面板和无法访问的解决方法" loading="lazy"></a></figure>
+<h3 id="功能">功能</h3>
+<ul>
+<li>支持多种脚本语言（python3、javaScript、shell、typescript）</li>
+<li>支持在线管理脚本、环境变量、配置文件</li>
+<li>支持在线查看任务日志</li>
+<li>支持秒级任务设置</li>
+<li>支持系统级通知</li>
+<li>支持暗黑模式</li>
+<li>支持手机端操作</li>
+</ul>
+<h3 id="docker参数">Docker参数</h3>
+<pre><code>docker run -dit``-v ``$PWD``/ql/config:/ql/config``-v ``$PWD``/ql/log:/ql/log``-v ``$PWD``/ql/db:/ql/db``-v ``$PWD``/ql/repo:/ql/repo``-v ``$PWD``/ql/raw:/ql/raw``-v ``$PWD``/ql/scripts:/ql/scripts``-p 5700:5700``--name qinglong``--hostname qinglong``--restart unless-stopped``whyour/qinglong:latest
+</code></pre>
+<p>**<a href="https://www.rixin.info/tags/unraid">Unraid</a>**安装也很简单，参数设置如下面图片</p>
+<figure data-type="image" tabindex="2"><a href="https://cdn.rixin.info/images/2022/03/2022-03-16_203759.jpg"><img src="https://cdn.rixin.info/images/2022/03/2022-03-16_203759-1024x930.jpg" alt="Unraid Docker安装青龙面板和无法访问的解决方法" loading="lazy"></a></figure>
+<p>以上内容来源于网络，转载若夜彼岸博客。</p>
+<p>然而安装过程很顺利，结果无法访问。经过半个小时的搜索，发现问题所在，自己解决了，当然我遇到的只是其中的一个问题，希望能够对你有所帮助。</p>
+<figure data-type="image" tabindex="3"><a href="https://cdn.rixin.info/images/2022/03/2022-03-16_204704.jpg"><img src="https://cdn.rixin.info/images/2022/03/2022-03-16_204704.jpg" alt="Unraid Docker安装青龙面板和无法访问的解决方法" loading="lazy"></a></figure>
+<p>对于无法访问青龙面板的问题，分析后得到5700端口可能被**<a href="https://www.rixin.info/tags/unraid">Unraid</a>**的其它应用占用了，这个端口无法使用，通过修改成5800端口来实现访问。</p>
+<p>一般情况下，这时候可能已经成功访问了，也有可能还是无法访问，问题出在nginx的配置文件中，进入Docker的控制台，使用Linux命令来解决。</p>
+<p>输入：</p>
+<pre><code>cd /ql/docker
+</code></pre>
+<p>进入ql下的docker目录，修改front.conf文件中的nginx监听端口来解决无法访问，</p>
+<pre><code>vi front.conf
+</code></pre>
+<p>修改下面 listen 5700 为 listen 5800 ，这个监听端口要修改成你配置容器时填写的端口，然后按Esc，输入:wq来保存，到docker界面重新启动qinglong容器。<br>
+<a href="https://cdn.rixin.info/images/2022/03/2022-03-16_211324.jpg"><img src="https://cdn.rixin.info/images/2022/03/2022-03-16_211324.jpg" alt="Unraid Docker安装青龙面板和无法访问的解决方法" loading="lazy"></a></p>
+<p>我要继续去配置青龙面板了，现在拉库也是一件不容易的事情。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[青龙面板搭建 / 多容器青龙面板 / 新老版本 / 命令]]></title>
+        <id>https://amiao.ioxoo.top/post/qing-long-mian-ban-da-jian-duo-rong-qi-qing-long-mian-ban-xin-lao-ban-ben-ming-ling/</id>
+        <link href="https://amiao.ioxoo.top/post/qing-long-mian-ban-da-jian-duo-rong-qi-qing-long-mian-ban-xin-lao-ban-ben-ming-ling/">
+        </link>
+        <updated>2022-04-04T10:33:44.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="青龙面板搭建-多容器青龙面板-新老版本-命令">青龙面板搭建 / 多容器青龙面板 / 新老版本 / 命令</h1>
+<blockquote>
+<p>青龙面板其实感觉就是云函数，只不过比云函数更完美。<br>
+首先介绍一下多容器和单容器</p>
+<ol>
+<li>多容器顾名思义就是多个容器，意思就是多个青龙在一个linux服务器内，可以达到每个容器的青龙互不干涉，多用于对接xdd机器人，适合CK特别多的。</li>
+<li>单容器，就是一个青龙容器，但是现在听说新的青龙解除了CK限制，所以青龙应该是可以跑百来CK不是问题，只是时间长点。</li>
+</ol>
+<p>新老版本</p>
+<ol>
+<li>新版本就是拉取作者最新的镜像，一般尾巴是latest。不过因为拉取时间不同，所以你的版本可能只是当前最新，不代表后续是最新的。</li>
+<li>老版本由于站长没找到原作者的老版本，所以找了网上其他人的老版本，这里以2.10.2为例。</li>
+</ol>
+<p><strong>为什么我的一开始登录就是admin帐号和admin密码？<br>
+那因为你被人坑了拉取的是人家改过的青龙，有后门。</strong></p>
+</blockquote>
+<h1 id="单容器青龙面板搭">单容器青龙面板搭</h1>
+<ol>
+<li>
+<p>首先去拉镜像（此镜像是原作者的,whyour就是原作者的，其他的你懂的。）</p>
+<pre><code class="language-bash">docker pull whyour/qinglong:latestCOPY
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/8I5FNYV5P32HL7IIIQ09.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>然后输入</p>
+</li>
+</ol>
+<pre><code class="language-bash">docker run -dit \
+  -v $PWD/ql/config:/ql/config \
+  -v $PWD/ql/log:/ql/log \
+  -v $PWD/ql/db:/ql/db \
+  -v $PWD/ql/repo:/ql/repo \
+  -v $PWD/ql/raw:/ql/raw \
+  -v $PWD/ql/scripts:/ql/scripts \
+  -v $PWD/ql/jbot:/ql/jbot \
+  -p 5708:5700 \
+  --name qinglong \
+  --hostname qinglong \
+  --restart unless-stopped \
+  whyour/qinglong:latestCOPY
+</code></pre>
+<blockquote>
+<p><strong>参考下图</strong><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/V2ZW@J8MAOR7__S.png" alt="img" loading="lazy"><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/2WZ7RA759LCFKFC07I9.png" alt="img" loading="lazy"><br>
+<strong>以上就完成了，下面老版本青龙安装（多容器安装）</strong></p>
+</blockquote>
+<h1 id="多容器安装老青龙安装">多容器安装（老青龙安装）</h1>
+<blockquote>
+<p>多容器就是多一个或者多个青龙而已。<br>
+首先由于不想再多写老版本教程，就拿老版本的青龙拿来顺带做演示.<br>
+<strong>如果你想都是一个版本的青龙就无需拉镜像的步骤，直接走多容器第二步创建即可！</strong></p>
+<ol>
+<li>
+<p>拉取镜像（因为多容器拿老青龙示例，所以拉取的是非原作者的2.10.2）</p>
+<pre><code class="language-bash">docker pull byniht/qinglong:2.10.2COPY
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/KMC63AIW65KHMMDT2.png" alt="img" loading="lazy"></figure>
+</li>
+</ol>
+</blockquote>
+<ol>
+<li>输入</li>
+</ol>
+<pre><code class="language-bash"> docker run -dit \
+   -v $PWD/ql1/config:/ql/config \
+   -v $PWD/ql1/log:/ql/log \
+   -v $PWD/ql1/db:/ql/db \
+   -v $PWD/ql1/repo:/ql/repo \
+   -v $PWD/ql1/raw:/ql/raw \
+   -v $PWD/ql1/scripts:/ql/scripts \
+   -v $PWD/ql1/jbot:/ql/jbot \
+   -p 5706:5700 \
+   --name qinglong1 \
+   --hostname qinglong1 \
+   --restart unless-stopped \
+   byniht/qinglong:2.10.2
+COPY
+</code></pre>
+<p><strong>看图注释</strong></p>
+<p><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/YJVRT8NDNMN0N_NQY73NM.png" alt="img" loading="lazy"><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/L5R3ZOS6HS7INNMI99.png" alt="img" loading="lazy"></p>
+<p><strong>如果需要更多容器，请自行更改对应的青龙文件名和容器名！</strong></p>
+<h1 id="注册与登录">注册与登录</h1>
+<blockquote>
+<p><strong>创建完成后，去浏览器输入你的青龙所在服务器的IP:和你设置的端口例如本教程最新版的青龙端口是5708，那就访问青龙的ip:5708</strong><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/WJJNQA7V8463GDS44B1.png" alt="img" loading="lazy"><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/FSEV30TQ8OQY7R78AQ.png" alt="img" loading="lazy"><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/8BT1ZTMH3VYGUIA6G.png" alt="img" loading="lazy"><br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/7OWZB28W7JJGT4_RUOS.png" alt="img" loading="lazy"></p>
+<h1 id="依赖安装">依赖安装</h1>
+</blockquote>
+<h2 id="一键安装">一键安装</h2>
+<blockquote>
+<ol>
+<li>
+<p>进入docker 容器 qinglong</p>
+<pre><code class="language-bash">docker exec -it 你的容器名称 bashCOPY
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/IW8C5Y5QDZ3DO__PT.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>一键安装命令(要等许久建议恰几根烟)</p>
+<pre><code class="language-ruby">curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/FlechazoPh/QLDependency/main/Shell/QLOneKeyDependency.sh | shCOPY
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/OXMJ2MHNZYAAVCVGRUZN.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>完成后重启青龙</p>
+<p>先退出</p>
+<pre><code class="language-bash"></code></pre>
+</li>
+</ol>
+<p>exitCOPY</p>
+<pre><code>
+重启青龙容器
+
+```undefined
+docker restart 你的青龙容器名COPY
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/WGM6DSBHKCZWY2X0KSQI5.png" alt="img" loading="lazy"></figure>
+</blockquote>
+<h2 id="青龙内安装">青龙内安装</h2>
+<blockquote>
+<ol>
+<li>
+<p>首先打开青龙，然后找到依赖管理<br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/@PVONZ9KZFUMD2ETDWP.png" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>然后右上角找到添加依赖<br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/MUS416Q2DY_B6HKJ91E.png" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>添加下面的到图中所示的node.js内，按照图来选择！</p>
+<pre><code class="language-sql">crypto-js  
+prettytable
+dotenv  
+jsdom
+date-fns  
+tough-cookie  
+tslib
+ws@7.4.3  
+ts-md5  
+jsdom -g  
+jieba  
+fs
+form-data  
+json5  
+global-agent  
+png-js  
+@types/node  
+require
+typescript  
+js-base64  
+axios COPY
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/P71W_0@YODEE_QCHZ0@N.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>python3内安装以下</p>
+<pre><code class="language-css">requests
+canvas  
+ping3
+jieba
+aiohttpCOPY
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/J3OY8Q3CDYZI0GOAS.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>linux内安装以下</p>
+<pre><code class="language-undefined">bizCode
+bizMsg  
+lxmlCOPY
+</code></pre>
+<p><img src="https://www.luomubiji.host/wp-content/uploads/2022/01/3O4ZAK1QO__6L@6ZXNY.png" alt="img" loading="lazy"><br>
+6.然后过几分钟刷新查看是否成功！<br>
+<img src="https://www.luomubiji.host/wp-content/uploads/2022/01/LWJCKL_M0G9KXW1ZYY5VOV.png" alt="img" loading="lazy"></p>
+</li>
+</ol>
+</blockquote>
+<h1 id="docker青龙命令">docker青龙命令</h1>
+<blockquote>
+<p>1.重启青龙容器</p>
+<pre><code class="language-undefined">docker restart 你的容器名COPY
+</code></pre>
+<p>容器名一般为qinglong或者ql等，不知道的跑一下下面命令可以看到</p>
+<pre><code class="language-css">docker ps -aCOPY
+</code></pre>
+<p>2.更新青龙</p>
+<pre><code class="language-sql">docker exec -it qinglong ql updateCOPY
+</code></pre>
+<p>3.更新青龙并编译</p>
+<pre><code class="language-bash">docker exec -it qinglong ql restartCOPY
+</code></pre>
+<p>4.拉取自定义仓库，已Faker仓库为例</p>
+<pre><code class="language-ruby">docker exec -it qinglong ql repo https://ghproxy.com/https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|getJDCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|ZooFaker_Necklace.js|JDJRValidator_Pure|sign_graphics_validate&quot;COPY
+</code></pre>
+<p>5.拉取单个脚本，以Faker库的资产变更通知为例</p>
+<pre><code class="language-bash">docker exec -it qinglong ql raw https://github.com/shufflewzc/faker2/blob/main/jd_bean_change_new.jsCOPY
+</code></pre>
+<p>6.导出互助码</p>
+<pre><code class="language-bash">docker exec -it qinglong ql codeCOPY
+</code></pre>
+<p>7.通知测试</p>
+<pre><code class="language-bash">docker exec -it qinglong notify test testCOPY
+</code></pre>
+<p>8.立即执行脚本，以资产变更通知为例</p>
+<pre><code class="language-bash">docker exec -it qinglong task jd_bean_change_new.js nowCOPY
+</code></pre>
+<p>9.并行执行脚本</p>
+<pre><code class="language-bash">docker exec -it qinglong task jd_bean_change_new.js concCOPY
+</code></pre>
+<p>10.查看青龙密码 注意你的容器及文件夹名称</p>
+<pre><code class="language-bash">docker exec -it qinglong cat /ql/config/auth.jsonCOPY
+</code></pre>
+<p>11.删除7天前的所有日志</p>
+<pre><code class="language-bash">docker exec -it qinglong ql rmlog 7COPY
+</code></pre>
+<p>12.启动青龙bot 前提你已配置好青龙BOT</p>
+<pre><code class="language-bash">docker exec -it qinglong ql botCOPY
+</code></pre>
+</blockquote>
+<h1 id="青龙内置命令">青龙内置命令</h1>
+<blockquote>
+<ol>
+<li>
+<p>更新并重启青龙</p>
+<pre><code class="language-sql">ql updateCOPY
+</code></pre>
+</li>
+<li>
+<p>运行自定义脚本extra.sh</p>
+<pre><code class="language-undefined">ql extraCOPY
+</code></pre>
+</li>
+<li>
+<p>添加单个脚本文件</p>
+<pre><code class="language-xml">ql raw &lt;file_url&gt;COPY
+</code></pre>
+</li>
+<li>
+<p>添加单个仓库的指定脚本</p>
+<pre><code class="language-xml">ql repo &lt;repo_url&gt; &lt;whitelist&gt; &lt;blacklist&gt; &lt;dependence&gt; &lt;branch&gt;COPY
+</code></pre>
+</li>
+<li>
+<p>删除旧日志</p>
+<pre><code class="language-xml">ql rmlog &lt;days&gt;COPY
+</code></pre>
+</li>
+<li>
+<p>启动tg-bot</p>
+<pre><code class="language-undefined">ql botCOPY
+</code></pre>
+</li>
+<li>
+<p>检测青龙环境并修复</p>
+<pre><code class="language-sql">ql checkCOPY
+</code></pre>
+</li>
+<li>
+<p>重置登录错误次数</p>
+<p>如果是docker容器执行先执行</p>
+<pre><code class="language-bash"></code></pre>
+</li>
+</ol>
+<p>docker exec -it qinglong bashCOPY</p>
+<pre><code>
+再执行下面的即可
+
+```undefined
+ql resetletCOPY
+</code></pre>
+<ol start="9">
+<li>
+<p>禁用两步登录</p>
+<pre><code class="language-undefined">ql resettfaCOPY
+</code></pre>
+</li>
+<li>
+<p>依次执行，如果设置了随机延迟，将随机延迟一定秒数</p>
+<pre><code class="language-xml">task &lt;file_path&gt;COPY
+</code></pre>
+</li>
+<li>
+<p>依次执行，无论是否设置了随机延迟，均立即运行，前台会输出日，同时记录在日志文件中</p>
+<pre><code class="language-xml">task &lt;file_path&gt; nowCOPY
+</code></pre>
+</li>
+<li>
+<p>并发执行，无论是否设置了随机延迟，均立即运行，前台不产生日，直接记录在日志文件中，且可指定账号执行</p>
+<pre><code class="language-xml">task &lt;file_path&gt; conc &lt;env_name&gt; &lt;account_number&gt;(可选的)COPY
+</code></pre>
+</li>
+<li>
+<p>指定账号执行，无论是否设置了随机延迟，均立即运行</p>
+<pre><code class="language-xml">task &lt;file_path&gt; desi &lt;env_name&gt; &lt;account_number&gt;
+</code></pre>
+</li>
+</ol>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[青龙面板 脚本 依赖库下载安装]]></title>
+        <id>https://amiao.ioxoo.top/post/qing-long-mian-ban-jiao-ben-yi-lai-ku-xia-zai-an-zhuang/</id>
+        <link href="https://amiao.ioxoo.top/post/qing-long-mian-ban-jiao-ben-yi-lai-ku-xia-zai-an-zhuang/">
+        </link>
+        <updated>2022-04-04T10:30:56.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="青龙面板-脚本-依赖库下载安装">青龙面板 脚本 依赖库下载安装</h1>
+<p>1、安装参考https://github.com/whyour/qinglong/blob/develop/INSTALL.md</p>
+<p>2、青龙必须要安装的依赖</p>
+<pre><code>docker exec -it qinglong bash #qinglong为容器名根据自己容器修改
+pnpm add -g pnpm
+pnpm install -g
+pnpm install -g js-base64
+pnpm install -g ws
+pnpm install -g date-fns
+pnpm install -g ts-md5
+pnpm install -g axios
+pnpm install -g download
+pnpm install -g fs
+pnpm install -g child_process
+pnpm install -g crypto-js
+pnpm install -g crypto
+pnpm install -g dotenv
+pnpm install -g got
+pnpm install -g http-server
+pnpm install -g png-js
+pnpm install -g qrcode-terminal
+pnpm install -g request
+pnpm install -g tough-cookie
+pnpm install -g tslib
+pnpm install -g tunnel
+pnpm install -g md5
+pnpm install -g jsdom
+pnpm install -g silly-datetime
+pnpm install -g form-data
+python3 -m pip install --upgrade pip
+pip3 install requests
+</code></pre>
+<p>或者在青龙面板直接添加下面代码</p>
+<pre><code>我现在面板里安装的依赖
+ 
+NodeJs下
+ 
+crypto-js  
+prettytable
+dotenv  
+jsdom
+date-fns  
+tough-cookie  
+tslib
+ws@7.4.3  
+ts-md5  
+jsdom -g  
+jieba  
+fs
+form-data  
+json5  
+global-agent  
+png-js  
+@types/node  
+require
+typescript  
+js-base64  
+axios  
+ 
+ 
+ 
+Python3下
+ 
+requests
+canvas  
+ping3
+jieba
+aiohttp
+ 
+Linux下
+ 
+bizCode
+bizMsg  
+lxml
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院]]></title>
+        <id>https://amiao.ioxoo.top/post/unraid-jiao-cheng-3-fen-zhong-yong-an-zhuang-jellyfin-kai-qi-ying-jian-jia-su-zhuan-ma-jie-ma-4k-da-zao-zui-qiang-jia-ting-ying-yuan/</id>
+        <link href="https://amiao.ioxoo.top/post/unraid-jiao-cheng-3-fen-zhong-yong-an-zhuang-jellyfin-kai-qi-ying-jian-jia-su-zhuan-ma-jie-ma-4k-da-zao-zui-qiang-jia-ting-ying-yuan/">
+        </link>
+        <updated>2022-04-04T10:29:19.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="unraid教程3分钟-用安装jellyfin-开启硬件加速转码-解码4k-打造最强家庭影院">UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院</h1>
+<figure data-type="image" tabindex="1"><a href="https://post.smzdm.com/p/a25gpmpn/pic_2/"><img src="https://am.zdmimg.com/201912/19/5dfa5cfd638d4720.jpg_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<h2 id="前言">前言</h2>
+<p>大家好，俺又来了！<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>这是我写的 关于UNRAID 第三篇文章了，依旧是<strong>保姆级</strong>文章，搭配前面两篇食用，效果会更佳。<img src="https://res.smzdm.com/images/emotions/64.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>最近站里分享UNRAID的文章越来越多，这是一件非常好的事情。<img src="https://res.smzdm.com/images/emotions/35.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>玩的人越多，就越多精彩的内容，已经看到不少干货文章出现了！<img src="https://res.smzdm.com/images/emotions/189.gif" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>今天教给大家如何用UNRAID 开启<strong>集成<a href="https://www.smzdm.com/fenlei/xianka/">显卡</a>的硬件加速功能</strong>，让Jellyfin、EMBY、PLEX等这类软件，能调用J3455这些<a href="https://www.smzdm.com/fenlei/zhuban/">主板</a>的集成显卡进行转码！当然，J1900也可以呀！<img src="https://res.smzdm.com/images/emotions/158.gif" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>之前分享过Jellyfin的文章，有兴趣的朋友可以看看，那时候没有成功开启硬件加速功能，导致我的CPU经常爆满，而且有些影片还播放不了：</p>
+<p><a href="https://post.smzdm.com/p/a6lnxg3g/"><img src="https://qna.smzdm.com/201907/06/5d20a564cdfdc9292.jpg_a200.jpg" alt="img" loading="lazy"></a><a href="https://post.smzdm.com/p/a6lnxg3g/"><strong>使用群晖Docker 安装Jellyfin 家庭影院HTPC 比emby plex好用多了</strong></a>大家好，俺又来了，这次给大家分享群晖Docker安装Jellyfin了！这个是算是俺的压轴节目了，最近一口气写了好多关于群晖NAS软件的分享，脑袋都是疼的！关于jellyfin，最开始知道这个的时候，俺已经体验过plex和emby了，这两个软件是不错，但是因为收费，不得不放弃之。引用萌鼠博客的内容：<a href="https://zhiyou.smzdm.com/member/6902738986/">阿文菌</a>|<em>赞</em>1k<em>评论</em>990<em>收藏</em>10k<a href="https://post.smzdm.com/p/a6lnxg3g/">查看详情</a></p>
+<p>如今，换上了UNRAID系统后，开启了Jellyfin的硬件加速功能，实测4K转码都没问题，不开这个功能的话，影片都没法播放，以下是测试开启了硬件加速，并且驱动了集成显卡转码的效果：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="2"><a href="https://post.smzdm.com/p/a25gpmpn/pic_3/"><img src="https://am.zdmimg.com/201912/18/5df9120829ebe4916.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>关于如何安装UNRAID，保姆级教程已经出炉，看这篇文章，3分钟即可安装UNRAID：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p><a href="https://post.smzdm.com/p/aoow5ml7/"><img src="https://qna.smzdm.com/201912/18/5df90080d850f4366.jpg_a200.jpg" alt="img" loading="lazy"></a><a href="https://post.smzdm.com/p/aoow5ml7/"><strong>NAS教程：手把手教您 3分钟安装UNRAID系统 并设置硬盘共享文件 Docker容器APP</strong></a>前言大家好，俺又来了！久等了！UNRAID是一款类似NAS的操作系统，和PVE、ESXI很像，但又很不同。在我使用了大半个月后，已经完美搭建出自己的家用NAS服务器，我觉得非常好用，所以推荐给大家。老规矩，废话少说，本文都是干货，欢迎大家提前点赞、点收藏，谢谢大家的支持！下面这篇关于UNRAID的介<a href="https://zhiyou.smzdm.com/member/6902738986/">阿文菌</a>|<em>赞</em>935<em>评论</em>504<em>收藏</em>5k<a href="https://post.smzdm.com/p/aoow5ml7/">查看详情</a></p>
+<p>关于我是如何使用UNRAID的方案，可以看我这篇介绍文章**（3分钟看完）**：<img src="https://res.smzdm.com/images/emotions/38.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p><a href="https://post.smzdm.com/p/a5kl335x/"><img src="https://qna.smzdm.com/201912/14/5df4bae621b344515.jpg_a200.jpg" alt="img" loading="lazy"></a><a href="https://post.smzdm.com/p/a5kl335x/"><strong>NAS换上了UNRAID系统，J3455绝配！解决了Jellyfin硬件加速解码，虚拟群晖DSM</strong></a>#2019值得总结#年度征稿重磅上线!分享你的年度好物清单、购物心得、收藏好物……赢海量金币、抽限定惊喜福袋,还有万元大奖等你来拿!详情戳这里了解前言哈喽，我是阿文菌！俺又来了！肯定有人看到标题会产生疑问？UNRAID是什么东东？能做什么？1、相信关注过b站up主司波图和VedioTalk都肯定有所<a href="https://zhiyou.smzdm.com/member/6902738986/">阿文菌</a>|<em>赞</em>1k<em>评论</em>804<em>收藏</em>8k<a href="https://post.smzdm.com/p/a5kl335x/">查看详情</a></p>
+<p>J1900也可以尝试这个方法使用哦，但是效果估计没有J3455及以上主板好，所以推荐J3455以上的主板使用UNRAID当作家庭媒体<a href="https://www.smzdm.com/fenlei/fuwuqi/">服务器</a>，会更给力！<img src="https://res.smzdm.com/images/emotions/34.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>网上传闻J3455有质量问题的通告，但据说第二天又撤回通告了。目前先不说有没有出现故障的案例。</p>
+<p>就J3455的体积、功耗、价格、盘位、性能来说，真找不到比它更合适当NAS的主板了，加钱党散开！<img src="https://res.smzdm.com/images/emotions/58.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>而且就算J3455坏了，直接到时候再换一块板子即可，硬盘的数据也不会丢失，就J3455目前400左右的价位，用个三年，就算坏了，我也不心疼。<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p><strong>我们废话少说，直接进入干货主题，开始开启UNRAID硬件解码功能，以及安装和配置Jellyfin！</strong><img src="https://res.smzdm.com/images/emotions/43.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p><strong>保姆级的文章，写起来真的是非常费劲，非常希望大家点赞、点收藏、让更多的用户看到这个，感谢大家！我希望能产生一丁点影响力，让UNRAID像其它系统一样，更多的人来折腾！</strong></p>
+<h2 id=""></h2>
+<h2 id="unraid-设置电影文件夹">UNRAID 设置电影<a href="https://www.smzdm.com/fenlei/wenjianjia/">文件夹</a></h2>
+<p>1、上一篇文章，我们已经配置好了UNRAID当作NAS使用了。</p>
+<p>回到SHARES选项里面，新建一个放电影的文件夹，这样比较方便：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="3"><a href="https://post.smzdm.com/p/a25gpmpn/pic_4/"><img src="https://qnam.smzdm.com/201912/18/5df911780c70d4317.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、取名 Movie 吧，比较熟悉的命名了，直接点ADD SHARE添加即可：<img src="https://res.smzdm.com/images/emotions/24.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="4"><a href="https://post.smzdm.com/p/a25gpmpn/pic_5/"><img src="https://am.zdmimg.com/201912/18/5df911780d2488.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>3、设置名字之后，会出现SMB设置界面，点DONE即可，这里不用设置：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="5"><a href="https://post.smzdm.com/p/a25gpmpn/pic_6/"><img src="https://qnam.smzdm.com/201912/18/5df9117870abb1472.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>4、创建的电影文件夹完成：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="6"><a href="https://post.smzdm.com/p/a25gpmpn/pic_7/"><img src="https://qnam.smzdm.com/201912/18/5df9117928af72525.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>本次耗时10秒钟！</p>
+<h2 id="unraid-安装jellyfin">UNRAID 安装Jellyfin</h2>
+<p>1、开始安装Jellyifn，在APPS界面，搜索jellyfin。</p>
+<p>如何开启APPS选项，看我上一篇文章安装一下APPS插件的代码即可，一个步骤即可开启：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="7"><a href="https://post.smzdm.com/p/a25gpmpn/pic_8/"><img src="https://qnam.smzdm.com/201912/18/5df911794c9b22836.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、点击Jellyfin安装以后，进入到设置页面，我们只需要设置一下刚刚新建的放影片文件夹的路径即可：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="8"><a href="https://post.smzdm.com/p/a25gpmpn/pic_9/"><img src="https://qnam.smzdm.com/201912/18/5df91179525bb9418.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>不要点最下面的应用，如果点了应用，虽然安装了Jellyfin完成了，但是没法开启硬件加速功能的！</p>
+<p>我们要硬件加速功能，必须要设置一下，下面继续。</p>
+<p>本次耗时10秒钟，共计时20秒！</p>
+<h2 id="unraid-开启集成显卡-renderd128-驱动">UNRAID 开启集成显卡 renderD128 驱动</h2>
+<p>1、直接点击右上角的 &gt;_ 这个符号，这个是打开UNRAID的终端功能：<img src="https://res.smzdm.com/images/emotions/64.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>这个真的太太太方便了！</p>
+<figure data-type="image" tabindex="9"><a href="https://post.smzdm.com/p/a25gpmpn/pic_10/"><img src="https://qnam.smzdm.com/201912/18/5df9117970ef36134.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、进入了终端，其实就类似SHH的页面，我们直接输入代码：</p>
+<blockquote>
+<p>modprobe i915</p>
+</blockquote>
+<p>回车即可，这样就开启了集成显卡的驱动功能了！<img src="https://res.smzdm.com/images/emotions/64.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>（这里不得不再次感谢一下司波图大佬分享的视频教程，本篇文章相当于搬运了司波图的设置方案，谢谢大佬！）<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy">（司波图是B站UP主，大家可以关注一波，UNRAID的视频教程非常详细。）</p>
+<figure data-type="image" tabindex="10"><a href="https://post.smzdm.com/p/a25gpmpn/pic_11/"><img src="https://qnam.smzdm.com/201912/18/5df91179a8565604.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>3、我们检查一下，有没有开启核显功能：</p>
+<p>输入下面代码，如果出现了 renderD128 这个就代表成功了：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<blockquote>
+<p>ls /dev/dri</p>
+</blockquote>
+<figure data-type="image" tabindex="11"><a href="https://post.smzdm.com/p/a25gpmpn/pic_12/"><img src="https://qnam.smzdm.com/201912/18/5df91179adcdc6106.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>4、设置了集成显卡成功了后，我们再设置一下开机启动项，这样每次开机就会自动加载核显驱动了：</p>
+<p>输入代码：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<blockquote>
+<p>cd /boot/config</p>
+</blockquote>
+<figure data-type="image" tabindex="12"><a href="https://post.smzdm.com/p/a25gpmpn/pic_13/"><img src="https://qnam.smzdm.com/201912/18/5df91179c31863563.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>5、输入代码，这一步就是修改 开机启动的go配置文件：<img src="https://res.smzdm.com/images/emotions/39.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<blockquote>
+<p>vi go</p>
+</blockquote>
+<figure data-type="image" tabindex="13"><a href="https://post.smzdm.com/p/a25gpmpn/pic_14/"><img src="https://qnam.smzdm.com/201912/18/5df91179f27989509.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>6、按一下键盘的 i 键，就可以输入内容了，我们输入开启核显代码：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<blockquote>
+<p>modprobe i915</p>
+</blockquote>
+<figure data-type="image" tabindex="14"><a href="https://post.smzdm.com/p/a25gpmpn/pic_15/"><img src="https://qnam.smzdm.com/201912/18/5df91179efd852779.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>7、然后按住键盘的冒号 ，输入 :wq 进行保存退出：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="15"><a href="https://post.smzdm.com/p/a25gpmpn/pic_16/"><img src="https://qnam.smzdm.com/201912/18/5df9117a387801726.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>8、核显，集成显卡驱动已经设置完成了，我们关掉终端窗口，继续在Jellyfin安装的设置页面最下面，点击ADD这个，看图操作：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="16"><a href="https://post.smzdm.com/p/a25gpmpn/pic_17/"><img src="https://qnam.smzdm.com/201912/18/5df9117a61e5a9136.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>9、点击以后，进入到下面这个页面，选择 type类型为 Device，NAME随便填写一个名字，比如xianka，然后添加一个路径，路径就是核显驱动的路径：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<blockquote>
+<p>/dev/dri</p>
+</blockquote>
+<figure data-type="image" tabindex="17"><a href="https://post.smzdm.com/p/a25gpmpn/pic_18/"><img src="https://qnam.smzdm.com/201912/18/5df9117a549cb258.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>10、其实UNRAID安装Jellyfin，只需要设置下面2个地方即可，一个影片路径，一个核显路径，我们点击应用即可：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="18"><a href="https://post.smzdm.com/p/a25gpmpn/pic_19/"><img src="https://qnam.smzdm.com/201912/18/5df9117b1e447776.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>11、稍等几分钟，就安装完成了，可以愉快的玩耍了！<img src="https://res.smzdm.com/images/emotions/38.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="19"><a href="https://post.smzdm.com/p/a25gpmpn/pic_20/"><img src="https://qnam.smzdm.com/201912/18/5df9117b0b5d98327.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>12、点击到DOCKER选项，点击jellyfin这个图标，然后点击WEB UI，就进入到了Jellyfin设置页面了：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>或者直接在浏览器输入 IP地址+端口 :8096 ，也可以访问：</p>
+<figure data-type="image" tabindex="20"><a href="https://post.smzdm.com/p/a25gpmpn/pic_21/"><img src="https://qnam.smzdm.com/201912/18/5df9117b1b0024169.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>这个步骤看着繁琐一点点，其实就是添加了一下集成显卡，并且加载到开机启动项了。</p>
+<p>以后就不用再设置集显卡了。</p>
+<p><strong>本次步骤耗时1分钟，总计时1分20秒！<img src="https://res.smzdm.com/images/emotions/38.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></strong></p>
+<h2 id="设置-jellyfin-硬件加速">设置 Jellyfin 硬件加速</h2>
+<p>直接在浏览器输入 IP地址+端口 :8096 ，也可以访问Jellyfin页面！</p>
+<p>1、之前写过Jellyfin的文章，里面也有设置过程，这里为了方便新老用户不用再去翻文章，所以再写一下，设置语言为中文：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="21"><a href="https://post.smzdm.com/p/a25gpmpn/pic_22/"><img src="https://qnam.smzdm.com/201912/18/5df9117b682b36397.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、设置管理员账号和密码：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="22"><a href="https://post.smzdm.com/p/a25gpmpn/pic_23/"><img src="https://qnam.smzdm.com/201912/18/5df9117b82fec5658.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>3、直接点击Next：<img src="https://res.smzdm.com/images/emotions/43.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="23"><a href="https://post.smzdm.com/p/a25gpmpn/pic_24/"><img src="https://qnam.smzdm.com/201912/18/5df9117b8932a7006.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>4、设置语言：中华人民共和国，然后点击NEXT：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="24"><a href="https://post.smzdm.com/p/a25gpmpn/pic_25/"><img src="https://am.zdmimg.com/201912/18/5df9117bb375e8971.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>5、点击Next，完成：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="25"><a href="https://post.smzdm.com/p/a25gpmpn/pic_26/"><img src="https://qnam.smzdm.com/201912/18/5df9117be9ac52991.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>6、输入账号密码进入到Jellyfin后台：<img src="https://res.smzdm.com/images/emotions/38.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="26"><a href="https://post.smzdm.com/p/a25gpmpn/pic_27/"><img src="https://qnam.smzdm.com/201912/18/5df9117bd94c78688.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>7、点击播放按钮：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="27"><a href="https://post.smzdm.com/p/a25gpmpn/pic_28/"><img src="https://qnam.smzdm.com/201912/18/5df9117c1da121148.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>8、将硬件加速选择： Video Acceleration API，下面的路径和勾勾会自动打开，这样就好了：</p>
+<p>恭喜您，现在已经成功开启了Jellyfin的硬件加速了，以后CPU不会再彪高了：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="28"><a href="https://post.smzdm.com/p/a25gpmpn/pic_29/"><img src="https://qnam.smzdm.com/201912/18/5df9117c323e26320.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>9、会有一个提示，点击知道了即可：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="29"><a href="https://post.smzdm.com/p/a25gpmpn/pic_30/"><img src="https://qnam.smzdm.com/201912/18/5df9117c4c1e94612.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p><strong>本次耗时30秒，总计时1分50秒！</strong></p>
+<h2 id="设置-jellyfin-媒体库">设置 Jellyfin 媒体库</h2>
+<p>1、接下来，我们在电脑上访问UNRAID，地址栏 输入 ip地址，即可访问：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>访问不会的，可以看我上篇入门文章。。希望学习UNRAID的朋友，一步一步来，别跳着看，不然出问题，又纠结了。<img src="https://res.smzdm.com/images/emotions/46.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="30"><a href="https://post.smzdm.com/p/a25gpmpn/pic_31/"><img src="https://am.zdmimg.com/201912/18/5df9117ca4e4d7127.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、找到Movie，我们创建的放电影的文件夹，点进去后，新建自己的电影目录。<img src="https://res.smzdm.com/images/emotions/34.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>以后我们要下载，也可以把这个文件夹，设置为下载路径，以后直接把影片下载进去，然后刷新一下媒体库，就更新了影片了：</p>
+<figure data-type="image" tabindex="31"><a href="https://post.smzdm.com/p/a25gpmpn/pic_32/"><img src="https://qnam.smzdm.com/201912/18/5df9117ca89635825.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>3、回到Jellyfin后台，点击媒体库，点添加：<img src="https://res.smzdm.com/images/emotions/39.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="32"><a href="https://post.smzdm.com/p/a25gpmpn/pic_33/"><img src="https://qnam.smzdm.com/201912/18/5df9117c6c73f1169.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>4、参考我下面的设置，文件夹的路径记住是：/movies/电影</p>
+<p>如果用了tmm刮削电影的元数据，就不需要打勾，如果没看过tmm设置，就打勾吧，然后点击确定即可：<img src="https://res.smzdm.com/images/emotions/43.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="33"><a href="https://post.smzdm.com/p/a25gpmpn/pic_34/"><img src="https://qnam.smzdm.com/201912/18/5df9117cc906d3559.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>5、tmm手动刮削影片封面软件文章，解决封面刮削失败的问题：<img src="https://res.smzdm.com/images/emotions/39.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p><a href="https://post.smzdm.com/p/a4wkqw37/"><img src="https://qna.smzdm.com/201911/27/5dde29d56a47c968.jpg_a200.jpg" alt="img" loading="lazy"></a><a href="https://post.smzdm.com/p/a4wkqw37/"><strong>手把手教您用tMM刮削影片信息，让KODI、Jellyfin、PLEX、使用本地媒体电影墙！</strong></a>大家好！俺又来了！上篇文章为大家简单演示了下KODI如何安装和配置及使用！本人只需要2分钟即可安装和配置KODI，愉快的观看和管理家里的电影媒体库。本文用最简洁，也是最完整详细的方式，教给大家3分钟用tMM刮削自己的影片信息。上篇关于KODI的文章链接：文章里有不少值友反馈，KODI刮削有问题，匹配<a href="https://zhiyou.smzdm.com/member/6902738986/">阿文菌</a>|<em>赞</em>1k<em>评论</em>890<em>收藏</em>13k<a href="https://post.smzdm.com/p/a4wkqw37/">查看详情</a></p>
+<p>6、电视剧的添加方式也差不多，不一会，在主页，就出现下面这样了，我们可以点击观看电影了：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="34"><a href="https://post.smzdm.com/p/a25gpmpn/pic_35/"><img src="https://qnam.smzdm.com/201912/18/5df913574ee259159.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>7、比如我下面这个4K电影，现在开启了硬件加速也可以转码播放，而以前都没法播放：<img src="https://res.smzdm.com/images/emotions/23.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="35"><a href="https://post.smzdm.com/p/a25gpmpn/pic_36/"><img src="https://qnam.smzdm.com/201912/18/5df913632f1e56025.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>8、看了下，4K的电影，播放的时候，CPU占用几乎忽略不计！非常给力：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="36"><a href="https://post.smzdm.com/p/a25gpmpn/pic_37/"><img src="https://qnam.smzdm.com/201912/18/5df91363550e59406.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>9、电影随便看，就算用流量，在外网访问，也没有任何问题的：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>为什么这么需要转码，其实自己的电影库，可以分享给家人朋友们，有了转码功能以后，可以解决网速不好的时候，还是可以播放电影的问题。</p>
+<p>家里的上传带宽只有那么多，电影有的文件那么大，外网播放的话，有转码，就毫无压力了，我已经在外网追了几个剧了，那些用不上的朋友，只能说遗憾！<img src="https://res.smzdm.com/images/emotions/35.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="37"><a href="https://post.smzdm.com/p/a25gpmpn/pic_38/"><img src="https://qnam.smzdm.com/201912/18/5df9138eaf12f3701.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p><strong>本次耗时30秒，总计时2分20秒！</strong></p>
+<h2 id="安装-jellyfin-字幕插件">安装 Jellyfin 字幕插件</h2>
+<p>1、有些影片是没有字幕的，我们设置一下，点击Jellyfin后台，目录，找到 open subitles插件，安装一下：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="38"><a href="https://post.smzdm.com/p/a25gpmpn/pic_39/"><img src="https://qnam.smzdm.com/201912/18/5df9117d0e5fd8211.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>2、点击安装：<img src="https://res.smzdm.com/images/emotions/43.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="39"><a href="https://post.smzdm.com/p/a25gpmpn/pic_40/"><img src="https://qnam.smzdm.com/201912/18/5df9117d042b77079.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>3、安装后，需要重启一下Jellyfin：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="40"><a href="https://post.smzdm.com/p/a25gpmpn/pic_41/"><img src="https://qnam.smzdm.com/201912/18/5df9117d25f1d9428.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>4、回到UNRAID页面，点击图标，Restart：<img src="https://res.smzdm.com/images/emotions/38.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="41"><a href="https://post.smzdm.com/p/a25gpmpn/pic_42/"><img src="https://qnam.smzdm.com/201912/18/5df9117d528fe4398.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>5、进入Jellyfin后台，设置一下插件：<img src="https://res.smzdm.com/images/emotions/39.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="42"><a href="https://post.smzdm.com/p/a25gpmpn/pic_43/"><img src="https://qnam.smzdm.com/201912/18/5df9117d60aa91243.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>6、注入账号密码，如果没有，注册一下即可：<img src="https://res.smzdm.com/images/emotions/43.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="43"><a href="https://post.smzdm.com/p/a25gpmpn/pic_44/"><img src="https://qnam.smzdm.com/201912/18/5df9117d6a6cc3565.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>7、注册页面，很容易：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="44"><a href="https://post.smzdm.com/p/a25gpmpn/pic_45/"><img src="https://qnam.smzdm.com/201912/18/5df9117db25f83482.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>8、输入完成后，回到自己的媒体库，点击管理媒体库：<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="45"><a href="https://post.smzdm.com/p/a25gpmpn/pic_46/"><img src="https://qnam.smzdm.com/201912/18/5df9117db5ae89914.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>9、在最下面，多了个字幕下载选项，将中文打勾：<img src="https://res.smzdm.com/images/emotions/22.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<p>只有完美匹配的影片才会下字幕的，有时候也会不准，最好扫描一下媒体库：</p>
+<figure data-type="image" tabindex="46"><a href="https://post.smzdm.com/p/a25gpmpn/pic_47/"><img src="https://qnam.smzdm.com/201912/18/5df9117db79711016.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p>10、到此，在UNRAID下，安装和配置Jellyfin的教程就完成了，以下是我做的暴力测试，这么多人同时访问我家里的电影库，依旧CPU足够，非常的给力：<img src="https://res.smzdm.com/images/emotions/64.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+<figure data-type="image" tabindex="47"><a href="https://post.smzdm.com/p/a25gpmpn/pic_48/"><img src="https://am.zdmimg.com/201912/18/5df9120829ebe4916.png_e1080.jpg" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></a></figure>
+<p><strong>本次耗时30秒，总计时2分50秒！<img src="https://res.smzdm.com/images/emotions/26.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></strong></p>
+<p>关于UNRAID系列的教程，参考了 B站UP主：司波图 和 VedioTalk 分享的UNRAID文章。</p>
+<p>还参考了 人生观RSG 大佬的UNRAID图文教程。</p>
+<p>欢迎访问他们的频道进行观看：《司波图》、《VedioTalk》、《 人生观RSG》</p>
+<p>感谢各位大佬的精彩分享，希望后续能有更多丰富的内容！</p>
+<h2 id="安装完成">安装完成</h2>
+<p>UNRAID 开启集显驱动的这个方法不仅只适合Jellyfin！EMBY、PLEX同样也合适！<img src="https://res.smzdm.com/images/emotions/33.png" alt="UNRAID教程：3分钟 用安装Jellyfin 开启硬件加速转码 解码4K 打造最强家庭影院" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AdGuardHome 安装及部署教程]]></title>
+        <id>https://amiao.ioxoo.top/post/adguardhome-an-zhuang-ji-bu-shu-jiao-cheng/</id>
+        <link href="https://amiao.ioxoo.top/post/adguardhome-an-zhuang-ji-bu-shu-jiao-cheng/">
+        </link>
+        <updated>2022-04-04T10:27:24.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="adguardhome-安装及部署教程">AdGuardHome 安装及部署教程</h1>
+<h1 id="adguardhome是什么">AdGuardHome是什么</h1>
+<blockquote>
+<p>AdGuardHome 是一款全网广告拦截与反跟踪软件。它是一个开源的 DNS 服务器，部署方便、UI 友好易用，有着防污染、防跟踪、防篡改的能力，其次才是它的去广告、反跟踪功能，是通过重定向 DNS 解析记录实现的。</p>
+</blockquote>
+<p><a href="https://adguard.com/adguard-home.html">官网地址</a></p>
+<p><a href="https://github.com/AdguardTeam/AdGuardHome">项目GitHub地址</a></p>
+<p><a href="https://hub.docker.com/r/adguard/adguardhome">项目Docker地址</a></p>
+<h1 id="adguard-home-去广告效果怎样">AdGuard Home 去广告效果怎样？</h1>
+<p>既然有去广告功能，自然还是要讨论它的去广告效果的。不过在这里博主要给小伙伴们直接泼一盆冷水了，广告的种类和形态是多样的，不要指望一个 DNS 能把所有的广告消灭干净了。</p>
+<p>对于 PC 端的网页广告效果最好的有且仅有浏览器插件，如果配合 Ad­Guard Home 在广告到达浏览器之前进行阻挡一些会给设备节省不少的计算开销，理论上来说会起到一定的省电效果，但估计也没人会在意。如果只是单纯的使用 Ad­Guard Home 并没有什么效果，少量的被拦截的广告会在页面上留下一个空白区域。</p>
+<p>对于手机上的广告最直观的感受是手机收到的推送广告明显减少了，然后是部分 App 的开屏广告消失了，还是能起到一定作用的。对于 ADUI 这样的广告级魔改安卓系统效果尤其明显</p>
+<h1 id="adguard-home安装教程">AdGuard Home安装教程</h1>
+<h2 id="1-开放端口">1、开放端口</h2>
+<pre><code class="language-javascript">`53`：DNS 端口。即其他设备访问 AdGuard Home 进行 DNS 解析的默认端口。因为部分系统不支持自定义 DNS 端口，所以不建议自定义。部署前务必要查看是否有其它程序占用。
+`67, 68`： DHCP 端口。除非想代替你路由上的 DHCP 服务器，否则用不到。
+`80`: 管理页面默认 HTTP 端口。可忽略，在初始化页面设置管理端口为 `3000` 端口即可。
+`443`：HTTPS 和 DoH 端口。本地内网环境不需要。
+`853`：DoT 端口。不使用相关功能可忽略。
+`3000`：初始化设置端口。除非通过配置文件去设置，否则必须开启。
+</code></pre>
+<h2 id="2-自动安装linux和mac">2、自动安装（Linux和Mac）</h2>
+<p>在终端中运行以下命令：</p>
+<pre><code class="language-javascript">curl -sSL https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh
+</code></pre>
+<p>如果提示 curl: command not found ，那是因为没装 Curl ubuntu/debian 系统安装 Curl 方法:</p>
+<pre><code class="language-javascript">apt-get install curl -y
+</code></pre>
+<p>centos 系统安装 Curl 方法:</p>
+<pre><code class="language-javascript">yum install curl -y
+</code></pre>
+<h2 id="3-手动安装linux-x64">3、手动安装（Linux x64）</h2>
+<p>在终端中运行以下命令：</p>
+<pre><code class="language-javascript">wget https://static.adguard.com/adguardhome/release/AdGuardHome_linux_amd64.tar.gz
+tar xvf AdGuardHome_linux_amd64.tar.gz
+</code></pre>
+<p>进入解压目录执行以下命令安装</p>
+<pre><code class="language-javascript">cd AdGuardHome
+./AdGuardHome -s install
+</code></pre>
+<h2 id="4-windows安装">4、Windows安装</h2>
+<p>前往 <a href="https://adguard.com/zh_cn/adguard-home/overview.html">AdGuard Home 官网</a>下载安装包。<br>
+下载二进制文件</p>
+<p>使用浏览器 / 下载工具下载：https://static.adguard.com/adguardhome/edge/AdGuardHome_windows_amd64.zip<br>
+解压压缩包得到 ​<code>AdGuardHome.exe</code>​ 文件<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667954788.png" alt="enter description here" loading="lazy"></p>
+<p>将 <code>AdGuardHome.exe</code> 移动到 <code>C:\Program Files\AdGuard_Home</code> 文件夹中<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619668027249.png" alt="enter description here" loading="lazy"><br>
+<strong>以管理员身份打开命令提示符，执行以下命令</strong></p>
+<pre><code class="language-javascript">cd &quot;C:\Program Files\AdGuard_Home&quot;
+.\AdGuardHome.exe --service install
+</code></pre>
+<p><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619668061778.png" alt="enter description here" loading="lazy"><br>
+当提示 <code>AdGuard Home is successfully installed and will automatically start on boot</code>. 即表示 AdGuard Home 在当前系统上安装成功。在命令行中会显示管理后台的地址与端口，默认为 ​<code>http://IP:3000​</code></p>
+<h2 id="5-docker安装linux-x64">5、Docker安装（Linux x64）</h2>
+<h3 id="1bridge-网络模式">(1)Bridge 网络模式</h3>
+<pre><code class="language-javascript">docker run -d \
+    --name adguardhome \
+    -v $PWD/adguardhome/work:/opt/adguardhome/work \
+    -v $PWD/adguardhome/conf:/opt/adguardhome/conf \
+    -p 53:53/tcp \
+    -p 53:53/udp \
+    -p 3000:3000/tcp \
+    adguard/adguardhome
+</code></pre>
+<h3 id="2host-网络模式">(2)Host 网络模式</h3>
+<blockquote>
+<p>Host 网络模式直接使用宿主机的网络，没有网络隔离，不需要考虑容器端口的映射，在容器启动后可以自由调整被占用的端口。适合在本机使用 (lo­cal­host)，或者直通外网的设备对外开放服务，就比如 VPS 、主路由。</p>
+</blockquote>
+<pre><code class="language-javascript">docker run -d \
+    --name adguardhome \
+    --restart unless-stopped \
+    --log-opt max-size=1m \
+    --network host \
+    -v $PWD/adguardhome/work:/opt/adguardhome/work \
+    -v $PWD/adguardhome/conf:/opt/adguardhome/conf \
+    adguard/adguardhome
+</code></pre>
+<h1 id="adguard-home设置教程">AdGuard Home设置教程</h1>
+<h2 id="1-初始化设置">1、初始化设置</h2>
+<p>使用网页浏览器访问 IP + 3000 端口即可进入到 Ad­Guard Home 的初始化界面，比如 IP 是 10.0.0.53，那么就访问 <a href="http://10.0.0.53:3000/">http://10.0.0.53:3000</a><br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/001.png" alt="enter description here" loading="lazy"><br>
+接着是监听接口（网卡）和端口设置，根据不同的网络模式和实际情况需要作出不同的修改<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/002.png" alt="enter description here" loading="lazy"><br>
+然后是设置管理用户名和密码，后面都是直接下一步：<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/003.png" alt="enter description here" loading="lazy"><br>
+完事之后输入用户名和密码登录，就来到了仪表盘页面。<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/004.png" alt="enter description here" loading="lazy"><br>
+至此 Ad­Guard Home 就部署完成了。</p>
+<h2 id="2-高级配置">2、高级配置</h2>
+<p><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619665219010.png" alt="enter description here" loading="lazy"><br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619665239311.png" alt="enter description here" loading="lazy"></p>
+<h3 id="1常规设置">（1）常规设置</h3>
+<figure data-type="image" tabindex="1"><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619665254747.png" alt="常规设置" loading="lazy"></figure>
+<ul>
+<li><code>过滤器更新间隔</code>：DNS 过滤清单默认更新间隔，一般为 3 天 - 7 天</li>
+<li><code>使用 AdGuard 「浏览安全」网页服务</code>：作用与 Chrome 网页安全性检查类似，开启后，当用户访问存在潜在威胁的网站时，AdGuard 会主动拦截并弹出提示</li>
+<li><code>使用 AdGuard 「家长控制」 服务</code>：如果家中有尚未成年的孩子，建议开启，避免访问不良网站</li>
+<li><code>强制安全搜索</code>：隐藏 Bing、Google、Yandex、YouTube 网站上 NSFW 等不适宜的内容</li>
+<li><code>查询记录保留时间</code>：AdGuard Home 服务端采用 Sqlite 文件数据库存储日志，长时间保留可能会降低运行速度，同时占用大量的储存空间，家庭用户一般保留 24 小时 - 7 天即可</li>
+<li><code>统计数据保留时间</code>：用于仪表盘的数据展示，一般保留 24 小时 - 7 天即可</li>
+</ul>
+<h3 id="2dns-设置">(2)DNS 设置</h3>
+<figure data-type="image" tabindex="2"><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619665730253.png" alt="DNS 设置" loading="lazy"></figure>
+<ul>
+<li>
+<p><code>上游 DNS 服务器</code>：AdGuard Home 的上游 DNS 服务器，可参考下方推荐列表，一般保留 1 - 2 个即可。AdGuard Home 除了可以作为广告过滤网关，如果设置了纯净 DNS 后，还可以避免运营商的 DNS 劫持</p>
+<pre><code class="language-javascript">tls://dot.360.cn
+https://doh.360.cn/dns-query
+tls://dns.pub
+https://dns.pub/dns-query
+tls://dns.alidns.com
+https://dns.alidns.com/dns-query
+tls://dns.ipv6dns.com
+https://dns.ipv6dns.com/dns-query
+</code></pre>
+</li>
+<li>
+<p><code>BootStrap DNS 服务器地址</code>：作为 DoH / DoT DNS 的前置 DNS 解析器，可参考下方推荐列表</p>
+<pre><code class="language-javascript">119.29.29.29
+223.5.5.5
+180.76.76.76
+2400:1
+2400:6666
+240C::6666
+</code></pre>
+</li>
+<li>
+<p>查询方式、速度限制、EDNS、DNSSEC、拦截模式、DNS 缓存设置、访问设置可根据需要进行调整，一般保持默认设置即可</p>
+</li>
+<li>
+<p><code>速度限制</code>：0</p>
+</li>
+<li>
+<p><code>使用 EDNS</code> ：已知前面提及的上游 DNS 服务器都是支持 EDNS 技术的，它有助于获取到更合适的 CDN 节点，建议勾选。</p>
+</li>
+<li>
+<p><code>使用 DNSSEC</code> : 用于效验 DNS 记录的签名，防止 DNS 缓存被投毒，建议勾选。勾选后会在日志页面请求列显示小绿锁图标。</p>
+</li>
+<li>
+<p><code>禁用 IPv6</code> ：丢弃 IPv6 的 DNS 查询。在本地网络和网站都支持 IPv6 会优先使用 IPv6 去访问网站，但目前 IPv6 的建设还处于初级阶段，大多数地区的 IPv6 网络体验都一般。还有一些代理软件对 IPv6 支持不佳，开启后可能会影响国际互联网的访问。如果对此没有特殊需求，那么直勾选即可，这样既不影响 BT 软件连接 IPv6 网络，又可以优先使用 IPv4 来上网。如果只有 IPv4 ，那么是否勾选没有区别</p>
+</li>
+<li>
+<p><code>DNS 缓存配置</code>，目前多数域名的 TTL 值普遍在 300 以内，所以给出以下设置参考值：<code>覆盖最小 TTL 值：600；覆盖最大 TTL 值：3600</code></p>
+</li>
+</ul>
+<h3 id="3-dns-封锁清单">(3) DNS 封锁清单</h3>
+<p>为了更好地发挥 AdGuard Home 去广告的功能，仅依靠默认的过滤规则是不够的，但也不宜过多，过多的过滤规则会影响解析的速度，各位可以根据需要添加过滤规则。<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619666197223.png" alt="enter description here" loading="lazy"></p>
+<pre><code class="language-javascript">halflife
+https://raw.githubusercontent.com/o0HalfLife0o/list/master/ad.txt
+
+anti-AD
+https://anti-ad.net/easylist.txt
+
+neoHosts
+https://cdn.jsdelivr.net/gh/neoFelhz/neohosts@gh-pages/full/hosts.txt
+
+大圣净化 - 针对国内视频网站
+https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts
+
+adgk手机去广告规则
+https://raw.githubusercontent.com/banbendalao/ADgk/master/ADgk.txt
+
+广告终结者
+http://sub.adtchrome.com/adt-chinalist-easylist.txt
+
+Adbyby
+https://raw.githubusercontent.com/adbyby/xwhyc-rules/master/lazy.txt
+
+EasyList China+EasyList
+https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt
+
+EasyPrivacy
+https://easylist-downloads.adblockplus.org/easyprivacy.txt
+</code></pre>
+<h3 id="4-dns允许清单">(4) DNS允许清单</h3>
+<pre><code class="language-javascript">anti-ad白名单
+https://raw.githubusercontent.com/privacy-protection-tools/dead-horse/master/anti-ad-white-list.txt
+
+filter_whitelist
+https://raw.githubusercontent.com/hl2guide/Filterlist-for-AdGuard/master/filter_whitelist.txt
+
+LWJ's white list
+https://raw.githubusercontent.com/liwenjie119/adg-rules/master/white.txt
+
+DNS允许白名单
+https://raw.githubusercontent.com/ChengJi-e/AFDNS/master/QD.txt
+</code></pre>
+<p>AdGuard Home 所有的配置参数都保存在一个名为 AdGuardHome.yaml 的配置文件中，这个配置文件默认路径通常为 AdGuard Home 二进制文件 AdGuardHome 所在的目录。</p>
+<p>这里我们只需调整以下两个参数，就是可以明显提升 AdGuard Home 的 QPS 能力。</p>
+<ul>
+<li><code>ratelimit</code> : DDoS保护，客户端每秒接收的数据包数。默认值是 20，建议禁用该参数（将值改为 0）。</li>
+<li><code>blocked_response_ttl</code> : 缓存时间，默认值是 10，建议设置为 60 。</li>
+</ul>
+<h3 id="5开启dohdot">（5）开启DoH/DoT</h3>
+<p>设置一个DNS的解析域名并申请SSL证书，进入加密设置，勾选启用加密，输入自己刚刚设置好的域名，HTTPS端口填写没有被占用的端口，粘贴好SSL证书和秘钥后保存配置即大功告成，宝塔面板反代<a href="http://ip:8080%E5%B9%B6%E5%BC%80%E5%90%AFSSL%E3%80%82/">http://ip:8080并开启SSL。</a><br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667813958.png" alt="enter description here" loading="lazy"></p>
+<h1 id="在设备上使用-adguard-home-dns">在设备上使用 AdGuard Home DNS</h1>
+<p>最后你可以在 Ad­Guard Home 的设置指导页面找到相应系统的 DNS 设置方法，先不要着急在路由器上使用，建议先设置电脑或手机，通过访问一些网站来测试是否能正常解析。正常的情况下在仪表盘界面会有统计信息，在查询日志界面你会看到解析的详细记录信息。<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/005.png" alt="enter description here" loading="lazy"></p>
+<p>完成 AdGuard Home 的设置后，便可将 AdGuard Home 的 DNS 地址部署到局域网设备上。</p>
+<h2 id="1-更改路由器-dns-地址">1、更改路由器 DNS 地址</h2>
+<p>不同品牌路由器修改的方法各有差异，具体步骤可参照说明书或网上的教程（路由器型号 + 更改 DNS），下方以 Redmi AC2100 路由器为例。</p>
+<p>打开并登录路由器的后台管理页面。<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619666999879.png" alt="enter description here" loading="lazy"><br>
+在局域网设置中找到 DNS 设置，将首选 DNS 服务器更改为 AdGuard Home 的 DNS 地址，可设置为其它的 DNS 服务商，避免因 AdGuard Home 服务器宕机而导致局域网无法访问互联网。更改完成后点击保存即可。在路由器更改 DNS 后，局域网内的所有设备的 DNS 解析都会通过 AdGuard Home DNS 完成，实现过滤广告与反隐私跟踪。<br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667021221.png" alt="enter description here" loading="lazy"></p>
+<h2 id="2-更改手机-dns-地址">2、更改手机 DNS 地址</h2>
+<figure data-type="image" tabindex="3"><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667094376.png" alt="enter description here" loading="lazy"></figure>
+<ul>
+<li>
+<p>进入「设定 - 网络和互联网 - Wi-Fi」，点击当前已连接网络的一旁的设置按钮，在 Wi-Fi 详情信息页面点击「编辑」按钮</p>
+</li>
+<li>
+<p>找到「IP 设定」</p>
+</li>
+<li>
+<p>分别输入该设备的 IP、网关与 AdGuard Home 服务器地址</p>
+<h2 id="3-ios-设备">3、 iOS 设备</h2>
+</li>
+<li>
+<p>进入「设置 - 无线局域网」，点击当前已连接网络的名称</p>
+</li>
+<li>
+<p>在 Wi-Fi 详情信息页面找到「配置 DNS」</p>
+</li>
+<li>
+<p>切换为手动设置，并输入 AdGuard Home 服务器地址</p>
+</li>
+</ul>
+<h2 id="4-更改电脑-dns-地址">4、更改电脑 DNS 地址</h2>
+<p><img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667218483.png" alt="enter description here" loading="lazy"><br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667224437.png" alt="enter description here" loading="lazy"><br>
+<img src="https://cc-1255426782.cos.ap-guangzhou.myqcloud.com/%E5%B0%8F%E4%B9%A6%E5%8C%A02/1619667231328.png" alt="enter description here" loading="lazy"></p>
+<ul>
+<li>打开「Windows 设置 - 网络和 Internet」，点击「更改适配器选项」</li>
+<li>选中有线 / 无线网卡，点击工具栏「更改此连接的设置」</li>
+<li>找到「Internet 协议版本 4」，点击「属性」按钮</li>
+<li>填写 DNS 服务器，点击「编辑」按钮</li>
+</ul>
+<h1 id="常见问题">常见问题</h1>
+<h2 id="1-端口冲突">1、端口冲突</h2>
+<p>在 Linux 设备上运行 AdGuard Home，通常会出现 53（本地 DNS 服务器）、68（DHCP 客户端）、80（Http）、443（Https） 端口冲突的问题，可以通过<code>netstat -tunlp | grep</code>端口号 查询占用进程。有两种解决方案：使用不同端口、停用冲突进程。<br>
+如果是通过 Docker 方式运行 AdGuard Home，出现 ​listen udp 0.0.0.0<img src="https://cdn.staticfile.org/emoji-cheat-sheet/1.0.0/53.png" alt=":53:" loading="lazy"> bind: address already in use​ 的提示，需要手动处理，方法如下：</p>
+<pre><code class="language-javascript">#停止 DNSStubListener
+systemctl stop systemd-resolved
+
+#创建文件夹（如果不存在）
+mkdir /etc/systemd/resolved.conf.d/
+
+#使用 Nano 创建配置文件2021-04-29 16:16:00 星期四
+nano /etc/systemd/resolved.conf.d/adguardhome.conf
+</code></pre>
+<p>在编辑器中粘贴以下内容：</p>
+<pre><code class="language-javascript">[Resolve]
+DNS=127.0.0.1
+DNSStubListener=no
+</code></pre>
+<p>保存后执行以下命令。</p>
+<pre><code class="language-javascript">#创建备份
+sudo mv /etc/resolv.conf /etc/resolv.conf.backup
+
+#将 /etc/resolv.conf 链接至 /run/systemd/resolve/resolv.conf
+ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+#重启 DNSStubListener
+systemctl restart systemd-resolved
+</code></pre>
+<p>完成后使用 <code>netstat -tunlp | grep 53</code> 命令检查是否依旧有进程占用 53 端口，如无冲突，重启 AdGuard Home 容器即可。</p>
+<h2 id="2-平均处理时间过长">2、平均处理时间过长？</h2>
+<p>以下几个因素会使 AdGuard Home 的处理时间过长：</p>
+<ul>
+<li>本地到上游DNS的速度：如果本地运营商的 DNS 没有 DNS 劫持、投毒的问题，建议使用运营商 DNS + 公共 DNS 的方案，DNS 速度可以通过 Ping 值比较。并在 AdGuard Home 中选择以「并行请求」的方式处理 DNS 请求</li>
+<li>浏览安全、家庭控制与强制安全搜索服务：以上三个功能，在 DNS 请求时不会经过 DNS 缓存，直接向上游 DNS 服务器请求，从而减慢 AdGuard Home 的处理速度</li>
+<li>IPv6：如果使用的宽带、校园网不支持 IPv6，可以禁用解析 IPv6，提高响应速度</li>
+<li>过滤规则：过多的过滤规则会影响响应速度，宁缺毋滥，选择最合适自己的规则，一般保留 3 - 4 个广告过滤规则即可。</li>
+<li>统计周期： 在完成以上优化后，发现平均处理时间并没有太大改变，使用体验上也并不慢，有可能是因为统计周期过长，将优化前的结果计入，导致优化前后的结果无太大差异。不妨将仪表盘的统计周期缩短为 24 小时再看看。</li>
+<li>完成以上步骤后使用体验比没有使用 AdGuard Home 还要糟糕，问题有亿点严重了。这个时候需要查找 AdGuard Home 的日志，寻找问题的原因。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[软路由中OpenWRT作为旁路由的安装设置教程]]></title>
+        <id>https://amiao.ioxoo.top/post/ruan-lu-you-zhong-openwrt-zuo-wei-pang-lu-you-de-an-zhuang-she-zhi-jiao-cheng/</id>
+        <link href="https://amiao.ioxoo.top/post/ruan-lu-you-zhong-openwrt-zuo-wei-pang-lu-you-de-an-zhuang-she-zhi-jiao-cheng/">
+        </link>
+        <updated>2022-04-04T10:24:24.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="玩转软路由-篇四软路由中openwrt作为旁路由的安装设置教程">玩转软路由 篇四：软路由中OpenWRT作为旁路由的安装设置教程</h1>
+<p>开篇说一些仁者见仁智者见智的话，先声明，这只是代表我自己近期浅陋的看法。看到很多人玩<a href="https://www.smzdm.com/fenlei/luyouqi/">路由器</a>，刷各种固件，什么爱快、高格、老毛子、OpenWRT什么的，自己也折腾过，也在恩山论坛里下载各路大神的固件使用。作为一个小白，就自然而然想到，这么多固件，哪个最好？当然对于这个问题，每个人的回答都不一样，毕竟适合自己的才重要。经过我自己不断在网上寻找答案，最后形成了一个成熟的看法，那就是真正的好不好，关键点在驱动，驱动做得会使得路由系统如虎添翼。但是，很多芯片厂家在卖芯片的时候是需要承诺不可进行二次开发的，所以路由器大厂<a href="https://pinpai.smzdm.com/1681/">华硕</a>、网件是可以直接向芯片厂商比如高通、博通、MTK买成套的服务，那支持的效果肯定更好。而OpenWRT是开源社区，自然不会购买，所以我们刷在硬路由上的OpenWRT，只能靠破解出来的驱动或者阉割过的开源驱动，所以在效果上会明显跟不上。最后我得出结论，OpenWRT还是装在x86平台上，专注路由功能，WIFI部分还是交给硬路由。</p>
+<p>所以，最后我个人感觉说的过去的方案就是工控机里安装主路由、旁路由。主路由负责拨号，旁路由负责外网。主路由和旁路由系统每个人根据自己的情况选择，我采用ROS作为主路由，OpenWRT作为旁路由的方案。之前介绍了ROS在Esxi下的安装（<a href="https://post.smzdm.com/detail_preview/a07nqeor/">玩转软路由 篇三：虚拟机ESXI中Mikrotik RouterOS(ROS)的安装设置教程</a>），那么下面介绍一下作为旁路由的OpenWRT安装，如果你准备用OpenWRT作为主路由，当然本篇的安装可以参考一下，上网设置就需要自己再摸索一下了。</p>
+<h2 id="一-openwrt的主要固件">一、OpenWRT的主要固件</h2>
+<ol>
+<li>基于Lean大神的源码编译的固件</li>
+<li>Koolshare固件，koolshare也是根据Lean大神的源码编译的，不过提供的功能更多</li>
+<li>原版OpenWRT，官方的固件，不需要自己编译，但是一些额外的功能比较少。 <a href="https://downloads.openwrt.org/releases/">官方下载地址</a>。</li>
+<li>不想用koolshare的同学，可以考虑使用eSir编译的固件功能比较全。</li>
+</ol>
+<h2 id="二-openwrt固件格式转换">二、OpenWRT固件格式转换</h2>
+<p>\1. 如果你下载的固件，直接是两个“vmdk”文件，那么可以直接装到Esxi中去的，不需要转换，可以跳过此步骤。如下图所示：</p>
+<figure data-type="image" tabindex="1"><a href="https://post.smzdm.com/p/a83gxxx7/pic_2/"><img src="https://qnam.smzdm.com/202011/02/5f9fc84fc7c0d2899.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>\2. 如果你下载的固件是“img”格式的，那么需要“starwind-v2v-converter”这个软件把“img”转换成“vmdk”格式。<a href="https://pan.baidu.com/s/1rVyD9ZZ4jhfKV7zcPbA93Q">下载地址</a>，提取码：mdkx。</p>
+<p>\3. Starwind软件的使用。</p>
+<p>第一步：安装并打开软件，选择“Local File”，如下图所示：</p>
+<figure data-type="image" tabindex="2"><a href="https://post.smzdm.com/p/a83gxxx7/pic_3/"><img src="https://qnam.smzdm.com/202011/02/5f9fc84fc85451041.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：选择本地“img”格式的OpenWRT镜像，如下图所示：</p>
+<figure data-type="image" tabindex="3"><a href="https://post.smzdm.com/p/a83gxxx7/pic_4/"><img src="https://qnam.smzdm.com/202011/02/5f9fc84fd01aa2780.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第三步：选择转换文件放在何处，选择“Local file”，如下图所示：</p>
+<figure data-type="image" tabindex="4"><a href="https://post.smzdm.com/p/a83gxxx7/pic_5/"><img src="https://qnam.smzdm.com/202011/02/5f9fc84fca1d45952.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第四步：选择生成的镜像格式，因为要在Esxi中安装，所以选择“VMDK”:</p>
+<figure data-type="image" tabindex="5"><a href="https://post.smzdm.com/p/a83gxxx7/pic_6/"><img src="https://am.zdmimg.com/202011/02/5f9fc84fb1c104271.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第五步：选择镜像属性，根据镜像应用需求选择“ESXi Server image”：</p>
+<figure data-type="image" tabindex="6"><a href="https://post.smzdm.com/p/a83gxxx7/pic_7/"><img src="https://qnam.smzdm.com/202011/02/5f9fc84faf2089360.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第六步：选择磁盘分配模式，这里选择“pre-allocated”：</p>
+<figure data-type="image" tabindex="7"><a href="https://post.smzdm.com/p/a83gxxx7/pic_8/"><img src="https://am.zdmimg.com/202011/02/5f9fc85040f651817.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第七步：点击“Convert”开始转换，转换成功后日志中有“successfully”字样。</p>
+<figure data-type="image" tabindex="8"><a href="https://post.smzdm.com/p/a83gxxx7/pic_9/"><img src="https://qnam.smzdm.com/202011/02/5f9fc85040d871471.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h2 id="三-esxi下openwrt的安装">三、Esxi下OpenWRT的安装</h2>
+<h3 id="1-创建虚拟机">1. 创建虚拟机。</h3>
+<p>第一步：点击ESXI左侧导航栏中的【虚拟机】，然后在视图窗口点击【创建/注册虚拟机】，在弹出的窗口中点击【创建新虚拟机】。</p>
+<figure data-type="image" tabindex="9"><a href="https://post.smzdm.com/p/a83gxxx7/pic_10/"><img src="https://qnam.smzdm.com/202011/02/5f9fc8504a24f8547.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：选择名称和客户机操作系统。</p>
+<p>“名称”自定义填写；“客户机操作系统系列”选择“Linux”；“客户机操作系统版本”选择“其他4.x或更高版本的Linux（64）位”。</p>
+<figure data-type="image" tabindex="10"><a href="https://post.smzdm.com/p/a83gxxx7/pic_11/"><img src="https://qnam.smzdm.com/202011/02/5f9fc8504a9581733.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第三步：选择存储空间。</p>
+<p>如果只有一块<a href="https://www.smzdm.com/fenlei/yingpan/">硬盘</a>，那就默认就可以，如果多个硬盘，请选择要安装的硬盘位置。</p>
+<figure data-type="image" tabindex="11"><a href="https://post.smzdm.com/p/a83gxxx7/pic_12/"><img src="https://qnam.smzdm.com/202011/02/5f9fc85068984503.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第四步：删除虚拟机默认硬件配置</p>
+<p>这里只需要删除“CD/DVD驱动器”和“硬盘1”即可。</p>
+<figure data-type="image" tabindex="12"><a href="https://post.smzdm.com/p/a83gxxx7/pic_13/"><img src="https://qnam.smzdm.com/202011/02/5f9fc8505609b2852.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第五步：根据个人硬件情况修改CPU和<a href="https://www.smzdm.com/fenlei/neicun/">内存</a>。</p>
+<p>一般作为旁路由1G内存就够用了，如果上外网的情况，可以把CPU多分配一点。配置完成后确认。</p>
+<figure data-type="image" tabindex="13"><a href="https://post.smzdm.com/p/a83gxxx7/pic_14/"><img src="https://qnam.smzdm.com/202011/02/5f9fc850c5d00736.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h3 id="2-配置openwrt虚拟机">2. 配置OpenWRT虚拟机</h3>
+<p>第一步：点击ESXI左侧导航栏中的【存储】，然后在视图窗口点击【数据存储浏览器】，在弹出的窗口中选择刚刚创建的OpenWRT虚拟机目录，这个目录名字跟你OpenWRT虚拟机的名称一样，我这里是“OpenWRT”。选中虚拟机目录后，点击窗口左上方的【上载】，把你转换的或者下载的“vmdk”文件，上传到虚拟机目录下。请注意，镜像文件有两个“vmdk”文件，需要全部上传。但是上传完成后，Esxi窗口中只显示一个，不要担心。</p>
+<figure data-type="image" tabindex="14"><a href="https://post.smzdm.com/p/a83gxxx7/pic_15/"><img src="https://am.zdmimg.com/202011/02/5f9fc850dc90d5406.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="15"><a href="https://post.smzdm.com/p/a83gxxx7/pic_16/"><img src="https://qnam.smzdm.com/202011/02/5f9fc850ea76e5963.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：点击ESXI左侧导航栏中的【虚拟机】，然后点击下面，然后在右侧视图窗口点击刚刚创建的虚拟机【OpenWRT】，然后点击【编辑】。</p>
+<figure data-type="image" tabindex="16"><a href="https://post.smzdm.com/p/a83gxxx7/pic_17/"><img src="https://qnam.smzdm.com/202011/02/5f9fc850ebf6e1808.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="17"><a href="https://post.smzdm.com/p/a83gxxx7/pic_18/"><img src="https://am.zdmimg.com/202011/02/5f9fc850f0a08819.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第三步：添加硬盘。在第二步点击【编辑】后，弹出对话框中，选择【添加硬盘】-&gt;【现有硬盘】，在弹出的对话框中，选择刚刚第一步中上传的镜像文件。</p>
+<figure data-type="image" tabindex="18"><a href="https://post.smzdm.com/p/a83gxxx7/pic_19/"><img src="https://am.zdmimg.com/202011/02/5f9fc850d6b29624.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="19"><a href="https://post.smzdm.com/p/a83gxxx7/pic_20/"><img src="https://qnam.smzdm.com/202011/02/5f9fc85165e4c9001.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>上图中【网络适配器1】这部分内容，有的人可能跟我的不一样，如果你有多个适配器一定要选择正确的适配器，要跟你的主路由的网络适配器一直才行。</p>
+<p>第四步：修改引导选项，还是在上图中的窗口，进入【虚拟机选项】，往下找到【引导选项】，选择“BIOS”来引导虚拟机的固件。然后点击保存即可。</p>
+<figure data-type="image" tabindex="20"><a href="https://post.smzdm.com/p/a83gxxx7/pic_21/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851639b96375.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h3 id="3-修改openwrt虚拟机的ip">3. 修改OpenWRT虚拟机的IP</h3>
+<p>第一步：点击ESXI左侧导航栏中的【虚拟机】，然后在视图窗口点击刚刚创建并编辑好的虚拟机【OpenWRT】，然后点击左边的那个三角形播放按钮。</p>
+<figure data-type="image" tabindex="21"><a href="https://post.smzdm.com/p/a83gxxx7/pic_22/"><img src="https://am.zdmimg.com/202011/02/5f9fc8516330d5073.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：进入OpenWRT的命令行模式，等待OpenWRT加载完毕后按下回车，输入“vi /etc/config/netowork”这条命令进行IP地址的修改。</p>
+<figure data-type="image" tabindex="22"><a href="https://post.smzdm.com/p/a83gxxx7/pic_23/"><img src="https://am.zdmimg.com/202011/02/5f9fc851698925738.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第三步：键入“i”进入编辑模式，然后找到“ipaddr”，把里面的IP修改为规划好的IP地址，我这里测试用的，暂时为“10.0.0.15”，需要跟你的主路由和Esxi在同一网段。编辑好之后，键下“Esc”键，退出编辑模式，然后键入“:wq”进行保存，注意“wq”前面有一个英文的冒号。</p>
+<figure data-type="image" tabindex="23"><a href="https://post.smzdm.com/p/a83gxxx7/pic_24/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851789293724.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第四步：把本地连接（比如笔记本）的IP地址，跟上面设置的IP放到同一网段，然后在浏览器中输入OpenWRT设置的IP地址，就可以通过Web访问OpenWRT了。Lean大神的OpenWRT，默认账号“root”，默认密码是“password”。</p>
+<figure data-type="image" tabindex="24"><a href="https://post.smzdm.com/p/a83gxxx7/pic_25/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851abddd5071.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="25"><a href="https://post.smzdm.com/p/a83gxxx7/pic_26/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851db0a03202.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h2 id="四-旁路由openwrt的设置">四、旁路由OpenWRT的设置</h2>
+<p>先说明一下，这里OpenWRT是作为旁路由的，所以我是按照旁路由的设置在出教程，如果准备把OpenWRT作为主路由，那是另外的情况，需要配置的东西更多，以后有机会重新开一篇来讲。</p>
+<h3 id="1-openwrt接口设置">1. OpenWRT接口设置</h3>
+<p>第一步：因为作为旁路由，其他的接口都不需要，删除即可。</p>
+<figure data-type="image" tabindex="26"><a href="https://post.smzdm.com/p/a83gxxx7/pic_27/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851c33a45739.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：修改仅剩的LAN接口</p>
+<figure data-type="image" tabindex="27"><a href="https://post.smzdm.com/p/a83gxxx7/pic_28/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851cd3893036.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="28"><a href="https://post.smzdm.com/p/a83gxxx7/pic_29/"><img src="https://qnam.smzdm.com/202011/02/5f9fc851e6b6d2017.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>IPv4地址设置OpenWRT旁路由IP（需要与主路由ROS在同一个网段内）。IPv4网关设置为ROS主路由IP。IPv4广播留空即可。DNS使用公共DNS地址114.114.114.114、 119.29.29.29、223.5.5.5。</p>
+<p>第三步：禁用旁路由的DHCP，因为这个OpenWRT只是作为旁路由，DHCP功能是由主路由ROS提供。</p>
+<figure data-type="image" tabindex="29"><a href="https://post.smzdm.com/p/a83gxxx7/pic_30/"><img src="https://qnam.smzdm.com/202011/02/5f9fc85203c512481.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="30"><a href="https://post.smzdm.com/p/a83gxxx7/pic_31/"><img src="https://qnam.smzdm.com/202011/02/5f9fc852370964915.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>由上图所示，DHCP<a href="https://www.smzdm.com/fenlei/fuwuqi/">服务器</a>里IPv6的相关服务也都禁用。到目前为止作为旁路由的OpenWRT就可以上网了。</p>
+<h3 id="2-openwrt防火墙设置">2. OpenWRT防火墙设置</h3>
+<p>第一步：把“启用 SYN-flood 防御”选项取消。</p>
+<figure data-type="image" tabindex="31"><a href="https://post.smzdm.com/p/a83gxxx7/pic_32/"><img src="https://am.zdmimg.com/202011/02/5f9fc852370767156.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<p>第二步：删除与LAN口无关的规则，删除后如下图，并保存应用。</p>
+<figure data-type="image" tabindex="32"><a href="https://post.smzdm.com/p/a83gxxx7/pic_33/"><img src="https://qnam.smzdm.com/202011/02/5f9fc8523af332878.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h3 id="3-openwrt联网检测">3. OpenWRT联网检测</h3>
+<p>通过上面的设置，OpenWRT作为旁路由，应该是可以上网了，最后可以再检查一下是否联网成功。</p>
+<figure data-type="image" tabindex="33"><a href="https://post.smzdm.com/p/a83gxxx7/pic_34/"><img src="https://qnam.smzdm.com/202011/02/5f9fc852719054823.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h3 id="4-其他服务设置">4. 其他服务设置</h3>
+<p>一般旁路由都是用来做一些特殊需求的，我编译的Lean大神的源码，已经把需要的加进来了，每个人的需求不一样，我除了这个特殊需求，其他用地不多，所以我自己编译的只是适合我自己需求的固件。如果你的需求更多，就自己编译或者网上找现成的固件吧。如果确实不介意东西很多而且闭源，那就直接koolshare编译的Lean大神源码固件吧。Lean大神只在GitHub上提供源码，没有现成的固件，所以要么自己编译，要么用其他人编译现成的。后面我会出一片编译Lean大神源码的教程，敬请关注哈哈。</p>
+<h2 id="五-主路由ros设置">五、主路由（ROS）设置</h2>
+<p>我的方案里面主路由是ROS，旁路由是OpenWRT，所以旁路由设置完，要稍微修改一下ROS里面的设置，Esxi的网络设置以及ROS的安装部署请参考我这篇文章《<a href="https://post.smzdm.com/detail_preview/a07nqeor/">玩转软路由 篇三：虚拟机ESXI中Mikrotik RouterOS(ROS)的安装设置教程</a>》。</p>
+<h3 id="1-主路由ros网关设置">1. 主路由（ROS）网关设置</h3>
+<p>使用WinBox登入ROS，点击左侧导航栏的【IP】，在弹出的菜单栏中点击【DHCP Server】菜单，在弹出的【DHCP Server】对话框中点击【Network】选项卡，然后双击之前建好的条目，弹出【DHCP Network】对话框，对“Gateway”进行修改，修改为旁路由的IP地址。</p>
+<figure data-type="image" tabindex="34"><a href="https://post.smzdm.com/p/a83gxxx7/pic_35/"><img src="https://qnam.smzdm.com/202011/02/5f9fc852612a18706.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h3 id="2-主路由rosdns设置">2. 主路由（ROS）DNS设置</h3>
+<p>使用WinBox登入ROS，点击左侧导航栏的【IP】，在弹出的菜单栏中点击【DNS】菜单，在弹出的【DNS Setting】对话框中，修改“Servers”的值，修改为旁路由的IP地址。</p>
+<figure data-type="image" tabindex="35"><a href="https://post.smzdm.com/p/a83gxxx7/pic_36/"><img src="https://qnam.smzdm.com/202011/02/5f9fc8526ab483507.png_e1080.jpg" alt="软路由中OpenWRT作为旁路由的安装设置教程" loading="lazy"></a></figure>
+<h2 id="六-注意事项">六、注意事项</h2>
+<ol>
+<li>主路由加旁路由模式，基本上就是互为网关，这个模式下，旁路由如果挂了，那么就上不了网了。也有旁路由挂了不影响上网的办法，这里暂时略过，以后有机会再讲。</li>
+<li>主路由加旁路由模式，特别是我这里的ROS加OpenWRT模式，有人会说直接用OpenWRT多好啊，干嘛还要加个ROS呢，有些时候知道的话不方便讲出来，有些固件爆出过后门，有些固件还爆出过替人挖矿，这些事情也不知道真假。但是听过之后总归心里不舒服，所以这是我主路由选ROS的原因，纯属个人选择，大家别喷我。旁路由OpenWRT可以设置去广告，特殊需求等等效果，我个人也不是极客玩家，特殊需求只是偶尔为之，去广告也属于可有可无的功能，想折腾的就换固件。</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[黑群晖DSM7.0更换引导&数据迁移]]></title>
+        <id>https://amiao.ioxoo.top/post/hei-qun-hui-dsm70-geng-huan-yin-dao-andshu-ju-qian-yi/</id>
+        <link href="https://amiao.ioxoo.top/post/hei-qun-hui-dsm70-geng-huan-yin-dao-andshu-ju-qian-yi/">
+        </link>
+        <updated>2022-02-09T12:52:12.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="黑群晖dsm70更换引导数据迁">黑群晖DSM7.0更换引导&amp;数据迁</h1>
+<p>**创作立场声明：**黑群晖引导已经发布了一段时间，虚拟机里测试下来感觉已经可以正式投入使用了，故将本人正在使用的黑群6.2.3升级到DSM7.0。（NAS有价，数据无价。不喜折腾人士切勿尝试！！！）</p>
+<p><strong>追加修改(2021-10-07 17:37:54):</strong><br>
+2021/10/7 目前通过redpill-tool-chainv0.10.4版生成的引导已经可以支持Esxi环境下完美升级到DSM7.0.1，自动识别引导分区，不再需要使用mknod命令映射synoboot分区。 针对直通SATA控制器的方案中，仍然需要将SATA控制器进行映射（DiskIdxMap=XX SataPortMap=Y），以确保所有硬盘都被正确识别。 附加7.0.1正式版（42218）引导链接：https://pan.baidu.com/s/1QS7iJ8NC7eqfmtJTgS0PGg 提取码: 3qdb</p>
+<p>黑<a href="https://pinpai.smzdm.com/2315/">群晖</a>引导已经发布了一段时间，虚拟机里测试下来感觉已经可以正式投入使用了，故将本人正在使用的黑群6.2.3升级到DSM7.0。（NAS有价，数据无价。不喜折腾人士切勿尝试！！！）</p>
+<p>https://post.smzdm.com/p/aoxg2vdn/)</p>
+<p>镜像转换</p>
+<p>本人使用Esxi搭建黑群晖环境，需要将引导镜像转换成VMDK文件，工具使用StarWindConverter，步骤如下：</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_2/"><img src="https://s2.loli.net/2022/02/09/6kSd8my4fxeVb1F.png" alt="选择引导镜像" loading="lazy"></a>选择引导镜像</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_3/"><img src="https://s2.loli.net/2022/02/09/aB6ekn9ZhpSirV8.png" alt="选择转换格式" loading="lazy"></a>选择转换格式</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_4/"><img src="https://s2.loli.net/2022/02/09/3RA7nJhPtkSio6u.png" alt="选择保存位置" loading="lazy"></a>选择保存位置</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_5/"><img src="https://s2.loli.net/2022/02/09/8uDSTKGxNjwyA7W.png" alt="完成转换" loading="lazy"></a>完成转换</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_6/"><img src="https://s2.loli.net/2022/02/09/hO7UPZAnuWpI4HB.png" alt="生成的文件" loading="lazy"></a>生成的文件</p>
+<p>生成2个文件，都要传到Esxi的存储中，上传完成后只显示一个。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_7/"><img src="https://s2.loli.net/2022/02/09/d3cUFo8CHwLrZSG.png" alt="上传引导镜像到存储中" loading="lazy"></a>上传引导镜像到存储中</p>
+<h2 id="虚机建立">虚机建立</h2>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_8/"><img src="https://s2.loli.net/2022/02/09/7yFhIObu8npZ4XA.png" alt="创建虚机" loading="lazy"></a>创建虚机</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_9/"><img src="https://s2.loli.net/2022/02/09/SX8FMhvcnwmjPka.png" alt="选择系统" loading="lazy"></a>选择系统</p>
+<p>使用BIOS引导故选择3.X Linux，UEFI未测试。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_10/"><img src="https://s2.loli.net/2022/02/09/lbSRGOZCHfsuxq3.png" alt="添加引导文件" loading="lazy"></a>添加引导文件</p>
+<p>删除多余的<a href="https://www.smzdm.com/fenlei/guangqu/">光驱</a>、SCSI控制器，添加之前上传的引导文件，挂载在SATA控制器(0:0)。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_11/"><img src="https://s2.loli.net/2022/02/09/Yl4wPvUFfgxECqV.png" alt="修改网卡类型" loading="lazy"></a>修改网卡类型</p>
+<p>必须使用E1000e类型，否则启动后找不到IP。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_12/"><img src="https://am.zdmimg.com/202109/05/6134ce2a2966f9668.png_e1080.jpg" alt="强制下次启动进入BIOS" loading="lazy"></a>强制下次启动进入BIOS</p>
+<p>为了防止启动速度过快，来不及选择Grub选项，勾选这里，单身30年请随意。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_13/"><img src="https://qnam.smzdm.com/202109/05/6134ce2a8e4f48981.png_e1080.jpg" alt="确认信息" loading="lazy"></a>确认信息</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_14/"><img src="https://qnam.smzdm.com/202109/05/6134ce2a9f5075805.png_e1080.jpg" alt="添加直通设备" loading="lazy"></a>添加直通设备</p>
+<p>有直通SATA控制器的可以修改虚机配置，添加对应的PCI设备，具体板载SATA控制器直通的方法请见：https://wp.gxnas.com/8185.html</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_15/"><img src="https://am.zdmimg.com/202109/05/6134ce2aad46c8625.png_e1080.jpg" alt="添加SATA控制器" loading="lazy"></a>添加SATA控制器</p>
+<p>添加SATA控制器，我这里有2个。添加完成后保存退出。完成上面那些步骤后就可以开机了。</p>
+<h2 id="开机">开机</h2>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_16/"><img src="https://qnam.smzdm.com/202109/05/6134ce2b1b89c4100.png_e1080.jpg" alt="确认引导盘位置" loading="lazy"></a>确认引导盘位置</p>
+<p>加电后进入BIOS，确认引导盘为第一引导项，F10保存退出。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_17/"><img src="https://qnam.smzdm.com/202109/05/6134ce2b2c4207516.png_e1080.jpg" alt="确认修改参数" loading="lazy"></a>确认修改参数</p>
+<p>确认图中红线部分被正确修改。</p>
+<h3 id="洗白部分">洗白部分：</h3>
+<p>mac1：修改为mac地址</p>
+<p>sn：序列号</p>
+<h3 id="sata盘编号相关">SATA盘编号相关：</h3>
+<p>DiskIdxMap：每个控制器上挂载盘位的起始编号</p>
+<p>SataPortMap：控制器及每个控制器挂载的数量</p>
+<p>具体参见https://isrey.com/archives/129/</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_18/"><img src="https://qnam.smzdm.com/202109/05/6134ce2b34ba5716.png_e1080.jpg" alt="加载引导" loading="lazy"></a>加载引导</p>
+<p>Ctrl+X开始引导。（注意在开机过程中修改Grub只能临时修改，如需永久修改，需要挂载后修改）</p>
+<h2 id="初始化流程">初始化流程</h2>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_19/"><img src="https://qnam.smzdm.com/202109/05/6134ce2b92fed8367.png_e1080.jpg" alt="初始化" loading="lazy"></a>初始化</p>
+<p>通过synology assistant找到NASip，进入web界面进行初始化。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_20/"><img src="https://am.zdmimg.com/202109/05/6134ce2ba4ab46134.png_e1080.jpg" alt="选择保留系统配置" loading="lazy"></a>选择保留系统配置</p>
+<p>DSM7.0认出盘内6.2.3的系统，选择保留配置进行安装。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_21/"><img src="https://qnam.smzdm.com/202109/05/6134ce2bbcdef8043.png_e1080.jpg" alt="上传pat" loading="lazy"></a>上传pat</p>
+<p>上传DS918+对应的PAT文件，请到官网下载未经修改过的镜像。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_22/"><img src="https://qnam.smzdm.com/202109/05/6134ce2c0ef412202.png_e1080.jpg" alt="第一次安装失败" loading="lazy"></a>第一次安装失败</p>
+<p><strong>Esxi引导第一次安装必定失败，此时后台已经开启telnet。</strong></p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_23/"><img src="https://qnam.smzdm.com/202109/05/6134ce2c361a67199.png_e1080.jpg" alt="telnet" loading="lazy"></a>telnet</p>
+<p>使用终端软件telnetNAS，用户名：root 密码：空</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_24/"><img src="https://am.zdmimg.com/202109/05/6134ce2c554448470.png_e1080.jpg" alt="找到引导盘的编号" loading="lazy"></a>找到引导盘的编号</p>
+<p>通过fdisk -l 确认引导盘的编号，可以通过磁盘大小确认引导盘编号，我这里是sde。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_25/"><img src="https://qnam.smzdm.com/202109/05/6134ce2cb94944582.png_e1080.jpg" alt="查找引导盘位置" loading="lazy"></a>查找引导盘位置</p>
+<p>通过cat /proc/partitions 找到sde的major与minor。有4个，只需要前3个，我这里对应64-67。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_26/"><img src="https://qnam.smzdm.com/202109/05/6134ce2cbf8c62234.png_e1080.jpg" alt="mknod" loading="lazy"></a>mknod</p>
+<p>使用mknod创建块文件：</p>
+<p>mknod /dev/synoboot b 8 64</p>
+<p>mknod /dev/synoboot1 b 8 65</p>
+<p>mknod /dev/synoboot2 b 8 66</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_27/"><img src="https://qnam.smzdm.com/202109/05/6134ce2cbf8c62234.png_e1080.jpg" alt="创建块文件" loading="lazy"></a>创建块文件</p>
+<p>之后点击确定，重新上传PAT进行安装。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_28/"><img src="https://qnam.smzdm.com/202109/05/6134ce2bbcdef8043.png_e1080.jpg" alt="再次上传镜像" loading="lazy"></a>再次上传镜像</p>
+<p>这次突破55%就说明成功了，很快，就能看到NAS自动重启。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_29/"><img src="https://am.zdmimg.com/202109/05/6134ce2cde75f5537.png_e1080.jpg" alt="重启了" loading="lazy"></a>重启了</p>
+<h2 id="系统数据库更新">系统数据库更新</h2>
+<figure data-type="image" tabindex="1"><a href="https://post.smzdm.com/p/aoxmzwr6/pic_30/"><img src="https://qnam.smzdm.com/202109/05/6134ce2d39b8143.png_e1080.jpg" alt="黑群晖DSM7.0更换引导&amp;数据迁移" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="2"><a href="https://post.smzdm.com/p/aoxmzwr6/pic_31/"><img src="https://qnam.smzdm.com/202109/05/6134ce2d5766b9496.png_e1080.jpg" alt="黑群晖DSM7.0更换引导&amp;数据迁移" loading="lazy"></a></figure>
+<p>漫长的等待。。。。。。。</p>
+<h2 id="登录dsm">登录DSM</h2>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_32/"><img src="https://am.zdmimg.com/202109/05/6134ce2ee0394388.png_e1080.jpg" alt="登陆界面" loading="lazy"></a>登陆界面</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_33/"><img src="https://am.zdmimg.com/202109/05/6134ce2f0c75d9160.png_e1080.jpg" alt="数据都保留了" loading="lazy"></a>数据都保留了</p>
+<p>漫长的等待后，所有数据迁移成功，可以看到登录界面了，所有之前的数据都保留下来了。</p>
+<p><a href="https://post.smzdm.com/p/aoxmzwr6/pic_34/"><img src="https://qnam.smzdm.com/202109/05/6134d8869a8749611.png_e1080.jpg" alt="升级成功" loading="lazy"></a>升级成功</p>
+<h2 id="总结">总结</h2>
+<p>系统禁用了不支持的套件，需要进入修复，目前感觉redpill-tool-chainv0.6版本编译出来的版本已经很稳定了，目前只发现synology photos中人脸识别不能使用，可能与我只做了半洗白有关。</p>
+<p><strong>最后提醒一下大家：</strong></p>
+<p><strong>数据无价，升级/迁移之前备份数据！！！！！！！</strong></p>
+<p><strong>数据无价，升级/迁移之前备份数据！！！！！！！</strong></p>
+<p><strong>数据无价，升级/迁移之前备份数据！！！！！！！</strong></p>
+]]></content>
+    </entry>
+</feed>
